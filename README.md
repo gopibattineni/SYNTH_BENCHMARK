@@ -8,18 +8,22 @@ Associated with LERO / BDS research on synthetic data auditing.
 
 ## What this repository measures
 
-| Layer | Question | Where it is evaluated |
-|-------|----------|------------------------|
-| **Utility** | Can models trained on synthetic data perform on real held-out data? | `Single run_Data_leak_Synth_Quality/` → `TRTR_TSTR_results.xlsx` |
-| **Fidelity** | How closely does synthetic data match real distributions and dependencies? | `SDV models/` notebooks (KS, JS, Wasserstein, Gower, MMD, t-SNE, …) |
-| **Alternative GANs** | How do non-SDV generators compare on the same audit pipeline? | `Other GANS/` (CTAB-GAN+, WGAN-GP) |
-| **Privacy** | Can an attacker infer training membership from synthetic releases? | MIA cells in `SDV models/` and `Other GANS/` notebooks |
+
+| Layer                | Question                                                                   | Where it is evaluated                                               |
+| -------------------- | -------------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| **Utility**          | Can models trained on synthetic data perform on real held-out data?        | `Single run_Data_leak_Synth_Quality/` → `TRTR_TSTR_results.xlsx`    |
+| **Fidelity**         | How closely does synthetic data match real distributions and dependencies? | `SDV models/` notebooks (KS, JS, Wasserstein, Gower, MMD, t-SNE, …) |
+| **Alternative GANs** | How do non-SDV generators compare on the same audit pipeline?              | `Other GANS/` (CTAB-GAN+, WGAN-GP)                                  |
+| **Privacy**          | Can an attacker infer training membership from synthetic releases?         | MIA cells in `SDV models/` and `Other GANS/` notebooks              |
+
 
 **TRTR** (Train Real, Test Real) is the real-data baseline.  
 **TSTR** (Train Synthetic, Test Real) measures utility when learning from synthetic data only.  
 The **utility gap** (TRTR − TSTR) is the main comparative signal: smaller drop = more useful synthetic data.
 
 ---
+
+
 
 ## Experimental protocol (main benchmark)
 
@@ -28,51 +32,65 @@ Defined in `Single run_Data_leak_Synth_Quality/*/`. Each dataset notebook follow
 1. **Leak-safe split:** 80% train / 20% test (`TEST_SIZE = 0.2`), stratified where applicable.
 2. **Generators fit on training real data only** — synthetic rows are never built from the test set.
 3. **Six generators:**
-   - SDV: `CTGAN`, `CopulaGAN`, `TVAE`, `GaussianCopula`
-   - GAN variants: `WGAN_GP`, `CTABGAN`
+  - SDV: `CTGAN`, `CopulaGAN`, `TVAE`, `GaussianCopula`
+  - GAN variants: `WGAN_GP`, `CTABGAN`
 4. **Ten downstream models** (e.g. Logistic Regression, SVM, Random Forest, Gradient Boosting, MLP, …).
 5. **Ten random seeds** `[42 … 51]` — metrics reported as **mean ± SD** across seeds.
 6. **TSTR evaluation** always uses the **same held-out real test set** for every generator and downstream model.
 
+
+
 ### Datasets
 
-| # | Folder | Task | Target (typical) |
-|---|--------|------|------------------|
-| 1 | Cancer | Classification | Diagnosis (M/B) |
-| 2 | MAGIC Gamma Telescope | Classification | class (g/h) |
-| 3 | Adult | Classification | income |
-| 4 | Forest cover | Classification | cover type |
-| 5 | Bank Marketing | Classification | subscription |
-| 6 | Wine | Classification | quality |
-| 7 | Mushroom | Classification | class |
-| 8 | CDC diabetes | Classification | diabetes |
-| 9 | Metro interstate | Regression | traffic volume |
-| 10 | Online shopping | Regression | price / revenue |
+
+| #   | Folder                | Task           | Target (typical) |
+| --- | --------------------- | -------------- | ---------------- |
+| 1   | Cancer                | Classification | Diagnosis (M/B)  |
+| 2   | MAGIC Gamma Telescope | Classification | class (g/h)      |
+| 3   | Adult                 | Classification | income           |
+| 4   | Forest cover          | Classification | cover type       |
+| 5   | Bank Marketing        | Classification | subscription     |
+| 6   | Wine                  | Classification | quality          |
+| 7   | Mushroom              | Classification | class            |
+| 8   | CDC diabetes          | Classification | diabetes         |
+| 9   | Metro interstate      | Regression     | traffic volume   |
+| 10  | Online shopping       | Regression     | price / revenue  |
+
 
 Raw files live under `Datasets/` where referenced by notebooks.
 
 ---
 
+
+
 ## Results files (`TRTR_TSTR_results.xlsx`)
 
 Each dataset notebook exports an Excel workbook with sheets such as:
 
-| Sheet | Contents |
-|-------|----------|
-| **TRTR** | Downstream performance training on real data (baseline) |
-| **Per-generator sheets** (e.g. `CTGAN`, `TVAE`, …) | TSTR results for that synthetic source |
-| **Combined comparison** | TRTR vs TSTR side-by-side per downstream model |
-| **Summary** | Aggregated drops per generator |
+
+| Sheet                                              | Contents                                                |
+| -------------------------------------------------- | ------------------------------------------------------- |
+| **TRTR**                                           | Downstream performance training on real data (baseline) |
+| **Per-generator sheets** (e.g. `CTGAN`, `TVAE`, …) | TSTR results for that synthetic source                  |
+| **Combined comparison**                            | TRTR vs TSTR side-by-side per downstream model          |
+| **Summary**                                        | Aggregated drops per generator                          |
+
+
+
 
 ### Classification metrics
 
 - **TRTR / TSTR:** Accuracy, F1, Precision, Recall (mean ± SD).
 - **Utility drop:** `Accuracy_Drop`, `F1_Drop`, etc. = TRTR − TSTR (positive = synthetic training hurt performance).
 
+
+
 ### Regression metrics (Metro, Online Shopping)
 
 - **TRTR / TSTR:** R², MSE, RMSE, MAE (mean ± SD).
 - **Utility drop:** `R2_Drop`, `MSE_Increase`, `RMSE_Increase`, `MAE_Increase`.
+
+
 
 ### How to read the results
 
@@ -84,11 +102,13 @@ Each dataset notebook exports an Excel workbook with sheets such as:
 
 ---
 
+
+
 ## Interactive dashboard
 
 Published view (GitHub Pages):
 
-**https://gopibattineni.github.io/SYNTH/**
+**[https://gopibattineni.github.io/SYNTH/](https://gopibattineni.github.io/SYNTH/)**
 
 ### Dashboard views
 
@@ -112,8 +132,8 @@ Data are loaded from exported JSON built from the Excel files under
 
 ### Enable / update GitHub Pages
 
-1. Open https://github.com/gopibattineni/SYNTH/settings/pages
-2. **Source:** Deploy from branch → **`gh-pages`** → **`/ (root)`**
+1. Open [https://github.com/gopibattineni/SYNTH/settings/pages](https://github.com/gopibattineni/SYNTH/settings/pages)
+2. **Source:** Deploy from branch → `gh-pages` → `/ (root)`
 3. Save and wait 2–5 minutes.
 
 To rebuild after new Excel results (from a machine with the full repo + `webapp/`):
@@ -123,6 +143,8 @@ python webapp/scripts/export_dashboard_data.py
 python webapp/scripts/build_github_pages.py
 # commit docs/ or push to gh-pages
 ```
+
+
 
 ### Run locally (FastAPI + live experiments)
 
@@ -134,26 +156,32 @@ pip install -r requirements.txt
 python -m uvicorn app.main:app --host 127.0.0.1 --port 8000
 ```
 
-- Experiment orchestration: http://127.0.0.1:8000/
-- Results dashboard: http://127.0.0.1:8000/dashboard
+- Experiment orchestration: [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
+- Results dashboard: [http://127.0.0.1:8000/dashboard](http://127.0.0.1:8000/dashboard)
 
 On Windows: `webapp/start.bat`.
 
 ---
 
+
+
 ## Repository layout
 
-| Path | Purpose |
-|------|---------|
-| `Single run_Data_leak_Synth_Quality/` | **Primary benchmark** — 6 generators, TRTR/TSTR, Excel exports |
-| `SDV models/` | Deep **fidelity + utility + privacy** audits for 4 SDV synthesizers per dataset |
-| `Other GANS/` | Same audit pipeline for **CTAB-GAN+** and **WGAN-GP** |
-| `Datasets/` | Local dataset copies / paths used by notebooks |
-| `Materials/` | Paper notes, workflow figures, supplementary documents |
-| `webapp/` | FastAPI app, dashboard UI, Excel→JSON export (when included in clone) |
-| `docs/` | Static GitHub Pages build output |
+
+| Path                                  | Purpose                                                                         |
+| ------------------------------------- | ------------------------------------------------------------------------------- |
+| `Single run_Data_leak_Synth_Quality/` | **Primary benchmark** — 6 generators, TRTR/TSTR, Excel exports                  |
+| `SDV models/`                         | Deep **fidelity + utility + privacy** audits for 4 SDV synthesizers per dataset |
+| `Other GANS/`                         | Same audit pipeline for **CTAB-GAN+** and **WGAN-GP**                           |
+| `Datasets/`                           | Local dataset copies / paths used by notebooks                                  |
+| `Materials/`                          | Paper notes, workflow figures, supplementary documents                          |
+| `webapp/`                             | FastAPI app, dashboard UI, Excel→JSON export (when included in clone)           |
+| `docs/`                               | Static GitHub Pages build output                                                |
+
 
 ---
+
+
 
 ## Extended audits (`SDV models/` & `Other GANS/`)
 
@@ -170,6 +198,8 @@ For large datasets (e.g. **MAGIC**, ~19k rows), pairwise metrics use **subsample
 
 ---
 
+
+
 ## Citation & context
 
 When reporting results, state:
@@ -183,6 +213,8 @@ When reporting results, state:
 For methodology figures and notes, see `Materials/forge_paper_workflow.png` and related documents in `Materials/`.
 
 ---
+
+
 
 ## Quick start (reproduce one dataset)
 
