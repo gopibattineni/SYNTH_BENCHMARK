@@ -1,0 +1,11 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# Web app runtime data
+webapp/data/sessions/
+webapp/data/CTAB-GAN-Plus/
+webapp/data/datasets/
