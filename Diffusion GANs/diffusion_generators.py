@@ -23,23 +23,24 @@ from sklearn.preprocessing import LabelEncoder, StandardScaler
 
 LOGGER = logging.getLogger(__name__)
 
-MODEL_ORDER = ["TabDDPM", "CoDi", "GOGGLE", "ForestDiffusion"]
+MODEL_ORDER = ["TabDDPM", "ForestDiffusion"]
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 VENDOR = REPO_ROOT / "_vendor"
 TAB_DDPM_ROOT = VENDOR / "tab-ddpm"
+TAB_DDPM_SCRIPTS = TAB_DDPM_ROOT / "scripts"
 GOGGLE_ROOT = VENDOR / "goggle" / "src"
 CODI_ROOT = VENDOR / "CoDi"
 
 
 def _ensure_paths() -> None:
-    for p in (TAB_DDPM_ROOT, GOGGLE_ROOT, CODI_ROOT):
+    for p in (TAB_DDPM_ROOT, TAB_DDPM_SCRIPTS, GOGGLE_ROOT, CODI_ROOT):
         if not p.exists():
             raise FileNotFoundError(
                 f"Expected vendor checkout at {p}. "
                 "Clone official repos into _vendor/ before running notebooks."
             )
-    for p in (TAB_DDPM_ROOT, GOGGLE_ROOT, CODI_ROOT):
+    for p in (TAB_DDPM_ROOT, TAB_DDPM_SCRIPTS, GOGGLE_ROOT, CODI_ROOT):
         ps = str(p)
         if ps not in sys.path:
             sys.path.insert(0, ps)
@@ -74,7 +75,10 @@ def _dataframe_to_tabddpm_dir(
     cat_cols: List[str],
     num_cols: List[str],
     out_dir: Path,
+    seed: int = 42,
 ) -> Dict[str, LabelEncoder]:
+    from sklearn.model_selection import train_test_split
+
     out_dir.mkdir(parents=True, exist_ok=True)
     encoders: Dict[str, LabelEncoder] = {}
     work = df.copy()
@@ -101,19 +105,38 @@ def _dataframe_to_tabddpm_dir(
             y_arr = work[target_col].to_numpy()
         task_type = "binclass" if len(np.unique(y_arr)) == 2 else "multiclass"
 
-    if x_num is not None:
-        np.save(out_dir / "X_num_train.npy", x_num)
-    if x_cat is not None:
-        np.save(out_dir / "X_cat_train.npy", x_cat)
-    np.save(out_dir / "y_train.npy", y_arr)
+    n = len(y_arr)
+    indices = np.arange(n)
+    strat = y_arr if task_type != "regression" and len(np.unique(y_arr)) > 1 else None
+    if n < 10:
+        train_idx, val_idx, test_idx = indices, indices[:1], indices[:1]
+    else:
+        train_idx, temp_idx = train_test_split(
+            indices, test_size=0.2, random_state=seed, stratify=strat
+        )
+        strat_temp = y_arr[temp_idx] if strat is not None else None
+        val_idx, test_idx = train_test_split(
+            temp_idx, test_size=0.5, random_state=seed, stratify=strat_temp
+        )
+
+    for split, idx in (("train", train_idx), ("val", val_idx), ("test", test_idx)):
+        if x_num is not None:
+            np.save(out_dir / f"X_num_{split}.npy", x_num[idx])
+        if x_cat is not None:
+            np.save(out_dir / f"X_cat_{split}.npy", x_cat[idx])
+        np.save(out_dir / f"y_{split}.npy", y_arr[idx])
 
     info = {
         "name": "custom",
         "task_type": task_type,
         "n_num_features": 0 if x_num is None else x_num.shape[1],
         "n_cat_features": 0 if x_cat is None else x_cat.shape[1],
-        "train_size": len(df),
+        "train_size": len(train_idx),
+        "val_size": len(val_idx),
+        "test_size": len(test_idx),
     }
+    if task_type != "regression":
+        info["n_classes"] = int(len(np.unique(y_arr)))
     with open(out_dir / "info.json", "w", encoding="utf-8") as fh:
         json.dump(info, fh)
     return encoders
@@ -172,13 +195,17 @@ def train_tabddpm(
     if target_col in num_cols and not _is_regression_target(df[target_col]):
         num_cols.remove(target_col)
         cat_cols.append(target_col)
+    # TabDDPM appends y to X_cat (classification) or X_num (regression) itself.
+    feature_cat_cols = [c for c in cat_cols if c != target_col]
 
     with tempfile.TemporaryDirectory(prefix="tabddpm_") as tmp:
         data_dir = Path(tmp) / "data"
         model_dir = Path(tmp) / "model"
         data_dir.mkdir()
         model_dir.mkdir()
-        encoders = _dataframe_to_tabddpm_dir(df, target_col, cat_cols, num_cols, data_dir)
+        encoders = _dataframe_to_tabddpm_dir(
+            df, target_col, feature_cat_cols, num_cols, data_dir, seed=seed
+        )
 
         is_regression = _is_regression_target(df[target_col])
         model_params = {
@@ -462,16 +489,6 @@ def train_codi(
     from diffusion_discrete import MultinomialDiffusion
     from models.tabular_unet import tabularUnet
     from utils import apply_activate, infiniteloop, log_sample_categorical, make_negative_condition, sampling_with, training_with, warmup_lr
-
-    if torch.cuda.device_count() == 0:
-        _orig = codi_load.get_dataset
-
-        def _cpu_get_dataset(flags, evaluation=False):
-            flags.training_batch_size = min(flags.training_batch_size, 512)
-            flags.eval_batch_size = min(flags.eval_batch_size, 512)
-            return _orig(flags, evaluation=evaluation)
-
-        codi_load.get_dataset = _cpu_get_dataset
 
     if device is None:
         device = "cuda" if torch.cuda.is_available() else "cpu"

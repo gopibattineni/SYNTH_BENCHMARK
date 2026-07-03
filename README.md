@@ -1,6 +1,6 @@
 # SYNTH — Synthetic Data Quality & Utility Benchmark
 
-Benchmark for comparing **tabular synthetic data generators** on **fidelity**, **downstream utility**, and **privacy**, with a leak-safe TRTR/TSTR protocol across **15 datasets** (9 classification + 6 regression) and **8 generators** spanning GAN, diffusion/graph, and statistical (SDV) families.
+Benchmark for comparing **tabular synthetic data generators** on **fidelity**, **downstream utility**, and **privacy**, with a leak-safe TRTR/TSTR protocol across **15 datasets** (9 classification + 6 regression) and **8 generators** spanning GAN, diffusion, and statistical (SDV) families.
 
 Associated with LERO / BDS research on synthetic data auditing.
 
@@ -13,7 +13,7 @@ Associated with LERO / BDS research on synthetic data auditing.
 | **Utility**          | Can models trained on synthetic data perform on real held-out data?        | `Single run_Data_leak_Synth_Quality/` and `.../diffusion_dataleak/` → `TRTR_TSTR_results*.xlsx` |
 | **Fidelity**         | How closely does synthetic data match real distributions and dependencies? | `SDV models/` notebooks (KS, JS, Wasserstein, Gower, MMD, t-SNE, …)                     |
 | **Alternative GANs**  | How do non-SDV GAN generators compare on the same audit pipeline?          | `Other GANS/` (CTAB-GAN+, WGAN-GP)                                                       |
-| **Diffusion / graph** | How do diffusion and graph-based generators compare on the same pipeline?  | `Diffusion GANs/` (TabDDPM, CoDi, GOGGLE, ForestDiffusion)                               |
+| **Diffusion**         | How do diffusion-based generators compare on the same pipeline?            | `Diffusion GANs/` (TabDDPM, ForestDiffusion)                                             |
 | **Privacy**           | Can an attacker infer training membership from synthetic releases?         | MIA cells in `SDV models/`, `Other GANS/`, and `Diffusion GANs/` notebooks               |
 
 **TRTR** (Train Real, Test Real) is the real-data baseline.
@@ -31,14 +31,14 @@ The benchmark is organised into five parallel folder families that all share the
 | Folder                                                    | Generators (per dataset)                                          | Audit depth                                          |
 | ---------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------- |
 | `Single run_Data_leak_Synth_Quality/`                     | **CTAB-GAN+**, **WGAN-GP** + `CTGAN`, `CopulaGAN`, `TVAE`, `GaussianCopula` (6) | TRTR/TSTR utility only — the primary benchmark        |
-| `Single run_Data_leak_Synth_Quality/diffusion_dataleak/`  | **TabDDPM**, **CoDi** + `CTGAN`, `CopulaGAN`, `TVAE`, `GaussianCopula` (6)      | TRTR/TSTR utility only — diffusion-generator variant  |
+| `Single run_Data_leak_Synth_Quality/diffusion_dataleak/`  | **TabDDPM**, **ForestDiffusion** + `CTGAN`, `CopulaGAN`, `TVAE`, `GaussianCopula` (6) | TRTR/TSTR utility only — diffusion-generator variant  |
 | `SDV models/`                                             | `CTGAN`, `CopulaGAN`, `TVAE`, `GaussianCopula` (4)                   | Full audit: fidelity + utility + privacy (MIA)        |
 | `Other GANS/`                                             | **CTAB-GAN+**, **WGAN-GP** (2)                                       | Full audit: fidelity + utility + privacy (MIA)        |
-| `Diffusion GANs/`                                         | **TabDDPM**, **CoDi**, **GOGGLE**, **ForestDiffusion** (4)           | Full audit: fidelity + utility + privacy (MIA)        |
+| `Diffusion GANs/`                                         | **TabDDPM**, **ForestDiffusion** (2)                                 | Full audit: fidelity + utility + privacy (MIA)        |
 
-Across all five families, the **union of generators used is 8**: `CTAB-GAN+`, `WGAN-GP`, `TabDDPM`, `CoDi`, `CTGAN`, `CopulaGAN`, `TVAE`, `GaussianCopula` (`GOGGLE` and `ForestDiffusion` additionally appear only in the deep-audit `Diffusion GANs/` folder).
+Across all five families, the **union of generators used is 8**: `CTAB-GAN+`, `WGAN-GP`, `TabDDPM`, `ForestDiffusion`, `CTGAN`, `CopulaGAN`, `TVAE`, `GaussianCopula`.
 
-`GOGGLE`, `TabDDPM`, and `CoDi` are cloned from their official repositories into `_vendor/` (not tracked in git — see [Setup](#setup--dependencies)); `ForestDiffusion` installs via `pip`.
+**TabDDPM** is cloned from its official repository into `_vendor/tab-ddpm` (not tracked in git — see [Setup](#setup--dependencies)); **ForestDiffusion** installs via `pip`.
 
 ---
 
@@ -190,15 +190,15 @@ On Windows: `webapp/start.bat`.
 | Path                                                          | Purpose                                                                              |
 | --------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
 | `Single run_Data_leak_Synth_Quality/`                        | **Primary benchmark** — CTAB-GAN+ / WGAN-GP + 4 SDV generators, TRTR/TSTR, Excel exports |
-| `Single run_Data_leak_Synth_Quality/diffusion_dataleak/`     | Same protocol, **TabDDPM / CoDi** + 4 SDV generators instead of GAN pair               |
+| `Single run_Data_leak_Synth_Quality/diffusion_dataleak/`     | Same protocol, **TabDDPM / ForestDiffusion** + 4 SDV generators instead of GAN pair    |
 | `Single run_Data_leak_Synth_Quality/python_scripts/`         | Dataset metadata (`hive/datasets.json`) and cluster/batch run scripts (Slurm / Hive)    |
 | `SDV models/`                                                | Deep **fidelity + utility + privacy** audits for 4 SDV synthesizers per dataset         |
 | `Other GANS/`                                                | Same audit pipeline for **CTAB-GAN+** and **WGAN-GP**                                  |
-| `Diffusion GANs/`                                             | Same audit pipeline for **TabDDPM**, **CoDi**, **GOGGLE**, **ForestDiffusion**          |
+| `Diffusion GANs/`                                             | Same audit pipeline for **TabDDPM** and **ForestDiffusion**                              |
 | `figures/`                                                    | Diagram-generator scripts + exported pipeline/workflow figures                          |
 | `Datasets/`                                                  | Local cached dataset copies used by notebooks                                          |
 | `Materials/`                                                  | Paper notes and supplementary documents (Cosine similarity, Mahalanobis notes, preprint) |
-| `_vendor/`                                                    | Cloned third-party generator implementations (TabDDPM, CoDi, GOGGLE) — not tracked in git |
+| `_vendor/`                                                    | Cloned **TabDDPM** implementation (`tab-ddpm`) — not tracked in git                      |
 | `add_regression_datasets.py`                                  | Adds/patches regression datasets (#12–#15) across all five folder families              |
 | `build_diffusion_notebooks.py`                                | Regenerates `Diffusion GANs/` notebooks from `Other GANS/` templates                    |
 | `build_diffusion_dataleak_notebooks.py`                       | Regenerates `diffusion_dataleak/` notebooks from `Single run/` templates                |
@@ -220,7 +220,7 @@ These notebooks mirror a full synthetic-data audit per dataset:
 
 For large datasets (e.g. **MAGIC**, ~19k rows; **Forest Cover**), pairwise metrics use **subsampled rows** (`METRIC_SAMPLE_SIZE = 2000`) to avoid memory errors.
 
-`Diffusion GANs/` notebooks keep the identical preprocessing, evaluation, and export pipeline as `Other GANS/`, only swapping the generator-training cell (`model_order = ["TabDDPM", "CoDi", "GOGGLE", "ForestDiffusion"]`).
+`Diffusion GANs/` notebooks keep the identical preprocessing, evaluation, and export pipeline as `Other GANS/`, only swapping the generator-training cell (`model_order = ["TabDDPM", "ForestDiffusion"]`).
 
 ---
 
@@ -251,24 +251,26 @@ Install typical dependencies:
 pip install pandas numpy scikit-learn sdv torch openpyxl ucimlrepo gower xlsxwriter matplotlib
 ```
 
-Diffusion/graph generators additionally need:
+Diffusion generators additionally need:
 
 ```bash
-pip install ForestDiffusion xgboost category-encoders libzero rtdl imbalanced-learn absl-py tensorboardX
+pip install ForestDiffusion xgboost category-encoders imbalanced-learn absl-py tensorboardX icecream dython optuna skorch pyarrow tomli tomli-w
+pip install "pynvml>=11,<12"
+pip install "libzero==0.0.8" "rtdl==0.0.13" --no-deps
 ```
+
+On **torch 2.x**, `libzero` and `rtdl` must be installed with `--no-deps` (they pin `torch<2` but work with torch 2 in practice). Notebooks add `_vendor/tab-ddpm` and `_vendor/tab-ddpm/scripts` to `sys.path` for TabDDPM.
 
 ### Setup — dependencies
 
 - For **CTAB-GAN+** notebooks, clone [CTAB-GAN-Plus](https://github.com/Team-TUD/CTAB-GAN-Plus) into `Other GANS/CTAB-GAN-Plus/` (or adjust `sys.path` in the notebook).
-- For **TabDDPM**, **CoDi**, and **GOGGLE**, clone their official repositories into `_vendor/` at the repository root:
+- For **TabDDPM**, clone the official repository into `_vendor/` at the repository root:
 
   ```bash
   git clone https://github.com/yandex-research/tab-ddpm _vendor/tab-ddpm
-  git clone https://github.com/ChaejeongLee/CoDi _vendor/CoDi
-  git clone https://github.com/tennisonliu/goggle _vendor/goggle
   ```
 
-  `_vendor/` is intentionally excluded from version control (large third-party code with its own git history).
+  `_vendor/` is intentionally excluded from version control (large third-party code with its own git history). **ForestDiffusion** does not require a vendor checkout.
 
 ### Regenerating notebooks / figures
 
