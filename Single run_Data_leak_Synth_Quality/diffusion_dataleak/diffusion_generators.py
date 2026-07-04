@@ -69,6 +69,15 @@ def _is_regression_target(series: pd.Series) -> bool:
     return False
 
 
+def _label_encoder_inverse(le: LabelEncoder, values) -> np.ndarray:
+    """Decode encoded categoricals; clip to known classes (TabDDPM may emit out-of-range indices)."""
+    arr = np.asarray(values).astype(int)
+    if arr.size == 0:
+        return arr
+    arr = np.clip(arr, 0, len(le.classes_) - 1)
+    return le.inverse_transform(arr)
+
+
 def _dataframe_to_tabddpm_dir(
     df: pd.DataFrame,
     target_col: str,
@@ -155,21 +164,22 @@ def _tabddpm_arrays_to_dataframe(
     out = pd.DataFrame(index=range(len(y)))
     col_idx_num = 0
     col_idx_cat = 0
+    feature_cat_cols = [c for c in cat_cols if c != target_col]
     for col in df_template.columns:
         if col in num_cols:
             out[col] = x_num[:, col_idx_num]
             col_idx_num += 1
-        elif col in cat_cols:
+        elif col in feature_cat_cols:
             raw = x_cat[:, col_idx_cat].astype(int)
             if col in encoders:
-                raw = encoders[col].inverse_transform(raw)
+                raw = _label_encoder_inverse(encoders[col], raw)
             out[col] = raw
             col_idx_cat += 1
         elif col == target_col:
             if _is_regression_target(df_template[target_col]):
                 out[col] = y.astype(float)
             elif target_col in encoders:
-                out[col] = encoders[target_col].inverse_transform(y.astype(int))
+                out[col] = _label_encoder_inverse(encoders[target_col], y)
             else:
                 out[col] = y
     return out[df_template.columns]
@@ -267,7 +277,7 @@ def train_tabddpm(
         )
         y = np.load(model_dir / "y_train.npy", allow_pickle=True)
         synth = _tabddpm_arrays_to_dataframe(
-            df, target_col, cat_cols, num_cols, encoders, x_num, x_cat, y
+            df, target_col, feature_cat_cols, num_cols, encoders, x_num, x_cat, y
         )
         return synth.head(n_samples).reset_index(drop=True)
 
@@ -341,7 +351,7 @@ def train_goggle(
         synth[col] = scaler.inverse_transform(synth[[col]])
     for col in cat_cols:
         vals = np.clip(np.round(synth[col]), 0, len(encoders[col].classes_) - 1).astype(int)
-        synth[col] = encoders[col].inverse_transform(vals)
+        synth[col] = _label_encoder_inverse(encoders[col], vals)
     return synth[df.columns].reset_index(drop=True)
 
 
@@ -402,7 +412,7 @@ def train_forestdiffusion(
     synth = pd.DataFrame(generated, columns=col_order)
     for col in cat_cols:
         vals = np.clip(np.round(synth[col]), 0, len(encoders[col].classes_) - 1).astype(int)
-        synth[col] = encoders[col].inverse_transform(vals)
+        synth[col] = _label_encoder_inverse(encoders[col], vals)
     return synth[df.columns].reset_index(drop=True)
 
 
@@ -468,7 +478,7 @@ def _codi_sample_to_dataframe(
     out = pd.DataFrame(sample, columns=columns)
     for col in cat_cols:
         vals = np.clip(np.round(out[col]), 0, len(encoders[col].classes_) - 1).astype(int)
-        out[col] = encoders[col].inverse_transform(vals)
+        out[col] = _label_encoder_inverse(encoders[col], vals)
     return out
 
 
