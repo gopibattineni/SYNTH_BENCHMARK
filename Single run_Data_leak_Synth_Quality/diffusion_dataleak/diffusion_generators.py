@@ -369,19 +369,26 @@ def train_forestdiffusion(
     encoders: Dict[str, LabelEncoder] = {}
     col_order = list(work.columns)
 
+    # ForestDiffusion API: binary (<=2 levels) -> bin_indexes; 3+ categories -> cat_indexes.
+    # One-hot encoding binary columns breaks when a level is missing in the subsample.
+    bin_cols = [c for c in cat_cols if work[c].nunique() <= 2]
+    multi_cat_cols = [c for c in cat_cols if c not in bin_cols]
+
     for col in cat_cols:
         le = LabelEncoder()
         work[col] = le.fit_transform(work[col].astype(str))
         encoders[col] = le
 
-    cat_indexes = [col_order.index(c) for c in cat_cols]
+    bin_indexes = [col_order.index(c) for c in bin_cols]
+    cat_indexes = [col_order.index(c) for c in multi_cat_cols]
     label_y = None
     if _is_regression_target(df[target_col]):
         label_y = work[target_col].to_numpy()
         y_idx = col_order.index(target_col)
         feature_indexes = [i for i in range(len(col_order)) if i != y_idx]
         x_arr = work.iloc[:, feature_indexes].to_numpy()
-        cat_indexes = [feature_indexes.index(col_order[i]) for i in cat_cols if i != target_col]
+        bin_indexes = [feature_indexes.index(col_order[i]) for i in bin_cols if i != target_col]
+        cat_indexes = [feature_indexes.index(col_order[i]) for i in multi_cat_cols if i != target_col]
     else:
         x_arr = work.to_numpy()
 
@@ -390,7 +397,7 @@ def train_forestdiffusion(
         label_y=label_y,
         n_t=50,
         duplicate_K=100,
-        bin_indexes=[],
+        bin_indexes=bin_indexes,
         cat_indexes=cat_indexes,
         int_indexes=[],
         diffusion_type="flow",
