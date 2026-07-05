@@ -202,10 +202,13 @@ def train_tabddpm(
         device = "cuda" if torch.cuda.is_available() else "cpu"
 
     cat_cols, num_cols = infer_column_types(df, target_col, categorical_columns)
-    if target_col in num_cols and not _is_regression_target(df[target_col]):
+    # TabDDPM stores y separately and prepends it to X_num (regression) or X_cat (classification).
+    if target_col in num_cols:
         num_cols.remove(target_col)
+    if not _is_regression_target(df[target_col]) and target_col not in cat_cols:
         cat_cols.append(target_col)
     feature_cat_cols = [c for c in cat_cols if c != target_col]
+    num_feature_count = len(num_cols)
 
     with tempfile.TemporaryDirectory(prefix="tabddpm_") as tmp:
         data_dir = Path(tmp) / "data"
@@ -261,6 +264,7 @@ def train_tabddpm(
             gaussian_loss_type="mse",
             scheduler="cosine",
             T_dict=t_dict,
+            num_numerical_features=num_feature_count,
             device=torch.device(device),
             seed=seed,
         )
