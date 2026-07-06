@@ -57,7 +57,7 @@ def infer_column_types(
             continue
         if df[col].dtype == object or str(df[col].dtype) == "category":
             cat_cols.append(col)
-        elif col == target_col and df[col].nunique() <= 30:
+        elif col == target_col and df[col].nunique() <= 30 and not _is_regression_target(df[col]):
             cat_cols.append(col)
     num_cols = [c for c in df.columns if c not in cat_cols]
     return cat_cols, num_cols
@@ -81,6 +81,21 @@ def _is_regression_target(series: pd.Series) -> bool:
     return (vals[-1] - vals[0]) > n
 
 
+def _resolve_regression_target(series: pd.Series, is_regression: Optional[bool] = None) -> bool:
+    if is_regression is not None:
+        return is_regression
+    return _is_regression_target(series)
+
+
+def _safe_stratify(y_arr: np.ndarray) -> Optional[np.ndarray]:
+    if y_arr is None:
+        return None
+    _, counts = np.unique(y_arr, return_counts=True)
+    if len(counts) <= 1 or counts.min() < 2:
+        return None
+    return y_arr
+
+
 def _label_encoder_inverse(le: LabelEncoder, values) -> np.ndarray:
     """Decode encoded categoricals; clip to known classes (TabDDPM may emit out-of-range indices)."""
     arr = np.asarray(values).astype(int)
@@ -97,6 +112,7 @@ def _dataframe_to_tabddpm_dir(
     num_cols: List[str],
     out_dir: Path,
     seed: int = 42,
+    is_regression: Optional[bool] = None,
 ) -> Dict[str, LabelEncoder]:
     from sklearn.model_selection import train_test_split
 
@@ -114,7 +130,7 @@ def _dataframe_to_tabddpm_dir(
 
     x_num = work[num_cols].astype(float).to_numpy() if num_cols else None
     y = work[target_col]
-    if _is_regression_target(y):
+    if _resolve_regression_target(y, is_regression):
         task_type = "regression"
         y_arr = y.astype(float).to_numpy()
     else:
@@ -128,14 +144,18 @@ def _dataframe_to_tabddpm_dir(
 
     n = len(y_arr)
     indices = np.arange(n)
-    strat = y_arr if task_type != "regression" and len(np.unique(y_arr)) > 1 else None
+    strat = (
+        _safe_stratify(y_arr)
+        if task_type != "regression" and len(np.unique(y_arr)) > 1
+        else None
+    )
     if n < 10:
         train_idx, val_idx, test_idx = indices, indices[:1], indices[:1]
     else:
         train_idx, temp_idx = train_test_split(
             indices, test_size=0.2, random_state=seed, stratify=strat
         )
-        strat_temp = y_arr[temp_idx] if strat is not None else None
+        strat_temp = _safe_stratify(y_arr[temp_idx]) if strat is not None else None
         val_idx, test_idx = train_test_split(
             temp_idx, test_size=0.5, random_state=seed, stratify=strat_temp
         )
@@ -205,6 +225,7 @@ def train_tabddpm(
     seed: int = 42,
     steps: int = 1000,
     device: Optional[str] = None,
+    is_regression: Optional[bool] = None,
 ) -> pd.DataFrame:
     _ensure_paths()
     from scripts.sample import sample as tabddpm_sample
@@ -214,10 +235,11 @@ def train_tabddpm(
         device = "cuda" if torch.cuda.is_available() else "cpu"
 
     cat_cols, num_cols = infer_column_types(df, target_col, categorical_columns)
+    regression = _resolve_regression_target(df[target_col], is_regression)
     # TabDDPM stores y separately and prepends it to X_num (regression) or X_cat (classification).
     if target_col in num_cols:
         num_cols.remove(target_col)
-    if not _is_regression_target(df[target_col]) and target_col not in cat_cols:
+    if not regression and target_col not in cat_cols:
         cat_cols.append(target_col)
     feature_cat_cols = [c for c in cat_cols if c != target_col]
     num_feature_count = len(num_cols)
@@ -228,12 +250,12 @@ def train_tabddpm(
         data_dir.mkdir()
         model_dir.mkdir()
         encoders = _dataframe_to_tabddpm_dir(
-            df, target_col, feature_cat_cols, num_cols, data_dir, seed=seed
+            df, target_col, feature_cat_cols, num_cols, data_dir, seed=seed,
+            is_regression=regression,
         )
 
-        is_regression = _is_regression_target(df[target_col])
         model_params = {
-            "num_classes": 0 if is_regression else int(df[target_col].nunique()),
+            "num_classes": 0 if regression else int(df[target_col].nunique()),
             "is_y_cond": False,
             "rtdl_params": {"d_layers": [256, 256, 256], "dropout": 0.0},
         }
@@ -377,10 +399,12 @@ def train_forestdiffusion(
     categorical_columns: Optional[Sequence[str]] = None,
     n_samples: int = 1000,
     seed: int = 42,
+    is_regression: Optional[bool] = None,
 ) -> pd.DataFrame:
     from ForestDiffusion import ForestDiffusionModel
 
     cat_cols, num_cols = infer_column_types(df, target_col, categorical_columns)
+    regression = _resolve_regression_target(df[target_col], is_regression)
     work = df.copy()
     encoders: Dict[str, LabelEncoder] = {}
     col_order = list(work.columns)
@@ -398,7 +422,7 @@ def train_forestdiffusion(
     bin_indexes = [col_order.index(c) for c in bin_cols]
     cat_indexes = [col_order.index(c) for c in multi_cat_cols]
     label_y = None
-    if _is_regression_target(df[target_col]):
+    if regression:
         label_y = work[target_col].to_numpy()
         y_idx = col_order.index(target_col)
         feature_indexes = [i for i in range(len(col_order)) if i != y_idx]
@@ -421,7 +445,7 @@ def train_forestdiffusion(
         seed=seed,
     )
     generated = model.generate(batch_size=n_samples)
-    if _is_regression_target(df[target_col]) and label_y is not None:
+    if regression and label_y is not None:
         full = np.zeros((generated.shape[0], len(col_order)))
         fi = 0
         for i, col in enumerate(col_order):
