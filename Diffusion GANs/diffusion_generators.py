@@ -432,8 +432,16 @@ def train_forestdiffusion(
         y_idx = col_order.index(target_col)
         feature_indexes = [i for i in range(len(col_order)) if i != y_idx]
         x_arr = work.iloc[:, feature_indexes].to_numpy()
-        bin_indexes = [feature_indexes.index(col_order[i]) for i in bin_cols if i != target_col]
-        cat_indexes = [feature_indexes.index(col_order[i]) for i in multi_cat_cols if i != target_col]
+        bin_indexes = [
+            feature_indexes.index(col_order.index(c))
+            for c in bin_cols
+            if c != target_col
+        ]
+        cat_indexes = [
+            feature_indexes.index(col_order.index(c))
+            for c in multi_cat_cols
+            if c != target_col
+        ]
     else:
         x_arr = work.to_numpy()
 
