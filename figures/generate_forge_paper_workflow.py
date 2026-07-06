@@ -21,13 +21,13 @@ ROOT = Path(__file__).resolve().parent.parent
 FIG_DIR = Path(__file__).resolve().parent
 LEGACY_OUT = ROOT / "Single run_Data_leak_Synth_Quality" / "forge_paper_workflow.png"
 
-# ---------------------------------------------------------------- journal styling
+# ---------------------------------------------------------------- journal styling (Times / mathptmx — matches LaTeX body + math)
 plt.rcParams.update(
     {
-        "font.family": "sans-serif",
-        "font.sans-serif": ["Helvetica", "Arial", "DejaVu Sans"],
+        "font.family": "serif",
+        "font.serif": ["Times New Roman", "Times", "Nimbus Roman", "DejaVu Serif"],
         "axes.unicode_minus": False,
-        "mathtext.fontset": "dejavusans",
+        "mathtext.fontset": "stix",
         "svg.fonttype": "none",
         "pdf.fonttype": 42,
     }
@@ -108,8 +108,7 @@ def stage_header(ax, x, w, y, label, color):
     ax.add_patch(FancyBboxPatch((x, y), w, 0.36, boxstyle="round,pad=0.01,rounding_size=0.05",
                                   linewidth=0, facecolor=color, zorder=3))
     ax.text(x + w / 2, y + 0.18, label, ha="center", va="center",
-             fontsize=10, fontweight="bold", color="white", zorder=4,
-             fontfamily="sans-serif")
+             fontsize=10, fontweight="bold", color="white", zorder=4)
 
 
 def main() -> None:
@@ -150,7 +149,7 @@ def main() -> None:
              "Load \u0026 Preprocess\n(remove date, session, IDs; clean missing values)",
              BG["data"], C_DATA, fs=7.6)
     b3 = box(ax, bx(0), 7.62, bw, 0.53,
-             "Subsample  N = 1000  (Seed = 42)", BG["data"], C_DATA, fs=8.0)
+             "Subsample  $N = 1000$  (Seed = 42)", BG["data"], C_DATA, fs=8.0)
     b4 = box(ax, bx(0), 6.84, bw, 0.53,
              "Stratified 80 / 20 Split", BG["data"], C_DATA, fs=8.4, bold=True)
 
@@ -184,7 +183,7 @@ def main() -> None:
         gy = gtop - (r + 1) * gh - r * 0.10
         box(ax, gx, gy, gw, gh, name, "white", C_SYNTH, fs=7.4)
     b8 = box(ax, bx(1), 6.40, bw, 0.68,
-             "Synthetic Data\nN = 1000 rows per generator", BG["synth"], C_SYNTH, fs=8.2, bold=True)
+             "Synthetic Data\n$N = 1000$ rows per generator", BG["synth"], C_SYNTH, fs=8.2, bold=True)
     seg_arrow(ax, (b8["cx"], gbot), (b8["cx"], b8["top"]), C_SYNTH)
 
     # =========================================================== STAGE 3 — QUALITY
@@ -214,9 +213,9 @@ def main() -> None:
     row2R = box(ax, bx(3) + hhalf + 0.16, r2y, hhalf, r2h,
                 "Test on Real Test\n\u2192 TSTR Metrics", BG["eval"], C_EVAL, fs=7.3)
     row3 = box(ax, bx(3), r3y, bw, r3h,
-               "10 Classifiers \u00d7 10 Seeds  (mean \u00b1 std)", BG["eval"], C_EVAL, fs=7.8, bold=True)
+               "10 Classifiers $\\times$ 10 Seeds  (mean $\\pm$ std)", BG["eval"], C_EVAL, fs=7.8, bold=True)
     row4 = box(ax, bx(3), r4y, bw, r4h,
-               "Classification: Accuracy, Precision,\nRecall, F1, ROC-AUC\nRegression: RMSE, MAE, R\u00b2",
+               "Classification: Accuracy, Precision,\nRecall, $F_1$, ROC-AUC\nRegression: RMSE, MAE, $R^2$",
                BG["eval"], C_EVAL, fs=7.5)
 
     seg_arrow(ax, (row1L["cx"], row1L["bot"]), (row2L["cx"], row2L["top"]), C_EVAL)
@@ -227,7 +226,7 @@ def main() -> None:
 
     # =========================================================== STAGE 5 — ANALYSIS
     b17 = box(ax, bx(4), 8.55, bw, 0.75,
-              "$\\Delta$ = TRTR \u2212 TSTR", BG["out"], C_OUT, fs=8.6,
+              "$\\Delta = \\mathrm{TRTR} - \\mathrm{TSTR}$", BG["out"], C_OUT, fs=8.6,
               title="Performance Drop", title_fs=8.8)
     b18 = box(ax, bx(4), 7.35, bw, 0.65,
               "Generator Ranking\nLower drop = Better synthesis", BG["out"], C_OUT, fs=8.0)
@@ -341,11 +340,15 @@ def main() -> None:
     fig.savefig(png_out, dpi=300, bbox_inches="tight", facecolor="white")
     fig.savefig(LEGACY_OUT, dpi=300, bbox_inches="tight", facecolor="white")
 
+    benchmark_out = ROOT / "SYNTH_benchmark.png"
+    fig.savefig(benchmark_out, dpi=300, bbox_inches="tight", facecolor="white")
+
     plt.close(fig)
     print(f"Saved: {svg_out}")
     print(f"Saved: {pdf_out}")
     print(f"Saved: {png_out}")
     print(f"Saved: {LEGACY_OUT}")
+    print(f"Saved: {benchmark_out}")
 
 
 if __name__ == "__main__":
