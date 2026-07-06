@@ -69,9 +69,21 @@ def infer_column_types(
 
 
 def _is_regression_target(series: pd.Series) -> bool:
-    if pd.api.types.is_numeric_dtype(series):
-        return series.nunique() > 30
-    return False
+    if not pd.api.types.is_numeric_dtype(series):
+        return False
+    vals = np.sort(pd.to_numeric(series, errors="coerce").dropna().unique())
+    n = len(vals)
+    if n == 0:
+        return False
+    if n > 30:
+        return True
+    if n <= 2:
+        return False
+    # Small sets of consecutive integers (0..k or 1..k) are class labels.
+    if np.array_equal(vals, np.arange(n)) or np.array_equal(vals, np.arange(1, n + 1)):
+        return False
+    # Otherwise treat wide-spread numeric targets as regression (e.g. price levels).
+    return (vals[-1] - vals[0]) > n
 
 
 def _label_encoder_inverse(le: LabelEncoder, values) -> np.ndarray:
