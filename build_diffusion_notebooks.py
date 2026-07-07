@@ -33,7 +33,7 @@ import sys
 from pathlib import Path
 
 NOTEBOOK_DIR = Path(".").resolve()
-REPO_ROOT = NOTEBOOK_DIR.parent
+REPO_ROOT = NOTEBOOK_DIR.parents[1]
 sys.path.insert(0, str(REPO_ROOT / "_vendor" / "tab-ddpm"))
 sys.path.insert(0, str(REPO_ROOT / "_vendor" / "goggle" / "src"))
 sys.path.insert(0, str(REPO_ROOT / "_vendor" / "CoDi"))

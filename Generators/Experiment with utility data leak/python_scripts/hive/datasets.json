@@ -89,23 +89,10 @@
     "runner": "nbconvert"
   },
   {
-    "id": "metro",
-    "name": "Metro Interstate Traffic Volume",
-    "uci_id": 492,
-    "notebook_dir": "8. Metro interstate",
-    "notebook": "metro_interstate.ipynb",
-    "train_csv": "metro_train.csv",
-    "n_samples": 1000,
-    "test_size": 0.2,
-    "seed": 42,
-    "output_file": "TRTR_TSTR_results_metro.xlsx",
-    "runner": "nbconvert"
-  },
-  {
     "id": "mushroom",
     "name": "Secondary Mushroom",
     "uci_id": 848,
-    "notebook_dir": "9. Mushroom dataset",
+    "notebook_dir": "8. Mushroom dataset",
     "notebook": "mushroom.ipynb",
     "train_csv": "secondary_mushroom_train.csv",
     "n_samples": 1000,
@@ -115,28 +102,41 @@
     "runner": "nbconvert"
   },
   {
-    "id": "online_shopping",
-    "name": "Online Shopping",
-    "notebook_dir": "10. online shopping",
-    "notebook": "online_shopping.ipynb",
-    "train_csv": "online_shopping_train.csv",
-    "n_samples": 1000,
-    "test_size": 0.2,
-    "seed": 42,
-    "output_file": "TRTR_TSTR_results_regression.xlsx",
-    "runner": "nbconvert"
-  },
-  {
     "id": "magic",
     "name": "MAGIC Gamma Telescope",
     "uci_id": 159,
-    "notebook_dir": "11. MAGIC Gamma Telescope",
+    "notebook_dir": "9. MAGIC Gamma Telescope",
     "notebook": "MAGIC_Gamma_Telescope.ipynb",
     "train_csv": "magic_gamma_telescope_train.csv",
     "n_samples": 1000,
     "test_size": 0.2,
     "seed": 42,
     "output_file": "TRTR_TSTR_results_magic.xlsx",
+    "runner": "nbconvert"
+  },
+  {
+    "id": "metro",
+    "name": "Metro Interstate Traffic Volume",
+    "uci_id": 492,
+    "notebook_dir": "10. Metro interstate",
+    "notebook": "metro_interstate.ipynb",
+    "train_csv": "metro_train.csv",
+    "n_samples": 1000,
+    "test_size": 0.2,
+    "seed": 42,
+    "output_file": "TRTR_TSTR_results_metro.xlsx",
+    "runner": "nbconvert"
+  },
+  {
+    "id": "online_shopping",
+    "name": "Online Shopping",
+    "notebook_dir": "11. online shopping",
+    "notebook": "online_shopping.ipynb",
+    "train_csv": "online_shopping_train.csv",
+    "n_samples": 1000,
+    "test_size": 0.2,
+    "seed": 42,
+    "output_file": "TRTR_TSTR_results_regression.xlsx",
     "runner": "nbconvert"
   },
   {

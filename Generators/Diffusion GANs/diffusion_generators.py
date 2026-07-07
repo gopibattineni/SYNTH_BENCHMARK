@@ -51,6 +51,11 @@ def infer_column_types(
     target_col: str,
     categorical_columns: Optional[Sequence[str]] = None,
 ) -> Tuple[List[str], List[str]]:
+    if isinstance(categorical_columns, pd.DataFrame):
+        raise TypeError(
+            "categorical_columns must be a list of column names, not a DataFrame. "
+            "Use e.g. _categorical_columns = [target_col] or []."
+        )
     cat_cols = list(categorical_columns or [])
     for col in df.columns:
         if col in cat_cols:
@@ -405,40 +410,44 @@ def train_forestdiffusion(
 
     cat_cols, num_cols = infer_column_types(df, target_col, categorical_columns)
     regression = _resolve_regression_target(df[target_col], is_regression)
+    classification = not regression
     work = df.copy()
     encoders: Dict[str, LabelEncoder] = {}
     col_order = list(work.columns)
-
-    # ForestDiffusion API: binary (<=2 levels) -> bin_indexes; 3+ categories -> cat_indexes.
-    # One-hot encoding binary columns breaks when a level is missing in the subsample.
-    bin_cols = [c for c in cat_cols if work[c].nunique() <= 2]
-    multi_cat_cols = [c for c in cat_cols if c not in bin_cols]
 
     for col in cat_cols:
         le = LabelEncoder()
         work[col] = le.fit_transform(work[col].astype(str))
         encoders[col] = le
 
-    bin_indexes = [col_order.index(c) for c in bin_cols]
-    cat_indexes = [col_order.index(c) for c in multi_cat_cols]
+    # Binary 0/1 features -> bin_indexes; multi-category features -> cat_indexes.
+    # The target column is passed via label_y for classification/regression, never one-hot encoded.
+    feature_cat_cols = [c for c in cat_cols if c != target_col]
+    bin_cols: List[str] = []
+    multi_cat_cols: List[str] = []
+    for col in feature_cat_cols:
+        vals = pd.to_numeric(work[col], errors="coerce").dropna().unique()
+        if len(vals) <= 2:
+            bin_cols.append(col)
+        else:
+            multi_cat_cols.append(col)
+    for col in num_cols:
+        vals = pd.to_numeric(work[col], errors="coerce").dropna().unique()
+        if len(vals) <= 2 and set(np.round(vals).astype(int)).issubset({0, 1}):
+            bin_cols.append(col)
+    bin_cols = list(dict.fromkeys(bin_cols))
+
     label_y = None
-    if regression:
+    feature_cols = [c for c in col_order if c != target_col]
+    if regression or classification:
         label_y = work[target_col].to_numpy()
-        y_idx = col_order.index(target_col)
-        feature_indexes = [i for i in range(len(col_order)) if i != y_idx]
-        x_arr = work.iloc[:, feature_indexes].to_numpy()
-        bin_indexes = [
-            feature_indexes.index(col_order.index(c))
-            for c in bin_cols
-            if c != target_col
-        ]
-        cat_indexes = [
-            feature_indexes.index(col_order.index(c))
-            for c in multi_cat_cols
-            if c != target_col
-        ]
+        x_arr = work[feature_cols].to_numpy()
+        bin_indexes = [feature_cols.index(c) for c in bin_cols if c in feature_cols]
+        cat_indexes = [feature_cols.index(c) for c in multi_cat_cols if c in feature_cols]
     else:
         x_arr = work.to_numpy()
+        bin_indexes = [col_order.index(c) for c in bin_cols]
+        cat_indexes = [col_order.index(c) for c in multi_cat_cols]
 
     model = ForestDiffusionModel(
         x_arr,
@@ -453,15 +462,11 @@ def train_forestdiffusion(
         seed=seed,
     )
     generated = model.generate(batch_size=n_samples)
-    if regression and label_y is not None:
+    if label_y is not None:
         full = np.zeros((generated.shape[0], len(col_order)))
-        fi = 0
-        for i, col in enumerate(col_order):
-            if col == target_col:
-                full[:, i] = generated[:, -1]
-            else:
-                full[:, i] = generated[:, fi]
-                fi += 1
+        for i, col in enumerate(feature_cols):
+            full[:, col_order.index(col)] = generated[:, i]
+        full[:, col_order.index(target_col)] = generated[:, -1]
         generated = full
 
     synth = pd.DataFrame(generated, columns=col_order)
@@ -687,6 +692,8 @@ def train_all_diffusion_models(
 ) -> Dict[str, pd.DataFrame]:
     return {
         "TabDDPM": train_tabddpm(df, target_col, categorical_columns, n_samples, seed),
+        "CoDi": train_codi(df, target_col, categorical_columns, n_samples, seed),
+        "GOGGLE": train_goggle(df, target_col, categorical_columns, n_samples, seed),
         "ForestDiffusion": train_forestdiffusion(
             df, target_col, categorical_columns, n_samples, seed
         ),

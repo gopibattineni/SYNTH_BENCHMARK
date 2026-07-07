@@ -13,20 +13,24 @@ Generated: 2026-07-03 (autonomous session)
   - `goggle` (GOGGLE)
   - ForestDiffusion via `pip install ForestDiffusion`
 
-### Notebooks (11/11)
-| # | Notebook |
-|---|----------|
-| 1 | `1. Cancer_diffusion.ipynb` |
-| 2 | `2. Alzhimers_diffusion.ipynb` |
-| 3 | `3. Adult census_diffusion.ipynb` |
-| 4 | `4_Forest_Cover_diffusion.ipynb` |
-| 5 | `5. Bank marketing_diffusion.ipynb` |
-| 6 | `6. Winequality_diffusion.ipynb` |
-| 7 | `7_CDC_diabetes_diffusion.ipynb` |
-| 8 | `8. Metro Interstate_diffusion.ipynb` |
-| 9 | `9. Mushroom_diffusion.ipynb` |
-| 10 | `10. Online shopping_diffusion.ipynb` |
-| 11 | `11_MAGIC_Gamma_Telescope_diffusion.ipynb` |
+### Notebooks (15/15)
+| # | Notebook | Task |
+|---|----------|------|
+| 1 | `1. Cancer_diffusion.ipynb` | Classification |
+| 2 | `2. Alzhimers_diffusion.ipynb` | Classification |
+| 3 | `3. Adult census_diffusion.ipynb` | Classification |
+| 4 | `4_Forest_Cover_diffusion.ipynb` | Classification |
+| 5 | `5. Bank marketing_diffusion.ipynb` | Classification |
+| 6 | `6. Winequality_diffusion.ipynb` | Classification |
+| 7 | `7_CDC_diabetes_diffusion.ipynb` | Classification |
+| 8 | `8. Mushroom_diffusion.ipynb` | Classification |
+| 9 | `9. MAGIC Gamma Telescope_diffusion.ipynb` | Classification |
+| 10 | `10. Metro Interstate_diffusion.ipynb` | Regression |
+| 11 | `11. Online shopping_diffusion.ipynb` | Regression |
+| 12 | `12. Air Quality_diffusion.ipynb` | Regression |
+| 13 | `13. Concrete Compressive Strength_diffusion.ipynb` | Regression |
+| 14 | `14. Energy Efficiency_diffusion.ipynb` | Regression |
+| 15 | `15. Real Estate Valuation_diffusion.ipynb` | Regression |
 
 Each notebook:
 - Keeps identical preprocessing, evaluation, fidelity/utility/privacy pipelines, plots, and exports.
