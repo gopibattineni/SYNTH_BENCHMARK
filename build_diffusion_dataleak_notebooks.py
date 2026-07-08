@@ -28,8 +28,16 @@ import sys
 from pathlib import Path
 
 NOTEBOOK_DIR = Path(".").resolve()
-REPO_ROOT = NOTEBOOK_DIR.parents[2]
 DIFFUSION_PKG = NOTEBOOK_DIR.parent
+_repo = NOTEBOOK_DIR
+while not (_repo / "_vendor" / "tab-ddpm").is_dir() and _repo.parent != _repo:
+    _repo = _repo.parent
+REPO_ROOT = _repo
+if not (REPO_ROOT / "_vendor" / "tab-ddpm").is_dir():
+    raise FileNotFoundError(
+        "Missing _vendor/tab-ddpm. Clone per README: "
+        "git clone https://github.com/yandex-research/tab-ddpm _vendor/tab-ddpm"
+    )
 sys.path.insert(0, str(REPO_ROOT / "_vendor" / "tab-ddpm"))
 sys.path.insert(0, str(REPO_ROOT / "_vendor" / "goggle" / "src"))
 sys.path.insert(0, str(REPO_ROOT / "_vendor" / "CoDi"))

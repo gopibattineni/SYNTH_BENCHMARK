@@ -25,7 +25,17 @@ LOGGER = logging.getLogger(__name__)
 
 MODEL_ORDER = ["TabDDPM", "ForestDiffusion"]
 
-REPO_ROOT = Path(__file__).resolve().parents[2]
+def _find_repo_root() -> Path:
+    for parent in Path(__file__).resolve().parents:
+        if (parent / "_vendor" / "tab-ddpm").is_dir():
+            return parent
+    raise FileNotFoundError(
+        "Could not locate repository root (expected _vendor/tab-ddpm). "
+        "Clone: git clone https://github.com/yandex-research/tab-ddpm _vendor/tab-ddpm"
+    )
+
+
+REPO_ROOT = _find_repo_root()
 VENDOR = REPO_ROOT / "_vendor"
 TAB_DDPM_ROOT = VENDOR / "tab-ddpm"
 TAB_DDPM_SCRIPTS = TAB_DDPM_ROOT / "scripts"
