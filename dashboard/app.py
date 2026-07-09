@@ -9,7 +9,10 @@ import pandas as pd
 
 from data_loader import (
     ALL_GENERATORS,
-    GENERATORS_MAIN,
+    GENERATORS_DIFFUSION,
+    GENERATORS_SDV_GAN,
+    coverage_frame,
+    experiment_status_frame,
     load_all_results,
     metrics_for_task,
     primary_metric,
@@ -40,18 +43,19 @@ def get_data():
     results = load_all_results()
     summary = summary_long_frame(results)
     comparisons = comparisons_long_frame(results)
-    return results, summary, comparisons
+    coverage = coverage_frame(results)
+    status = experiment_status_frame(results)
+    return results, summary, comparisons, coverage, status
 
 
 def _available_generators(summary: pd.DataFrame) -> list[str]:
     if summary.empty:
-        return GENERATORS_MAIN
+        return []
     found = summary["generator"].dropna().astype(str).unique().tolist()
     return [g for g in ALL_GENERATORS if g in found]
 
 
 def _apply_filters(summary: pd.DataFrame, metric: str, task_filter: str) -> pd.DataFrame:
-    """Return rows where the selected metric is defined (avoids NaN idxmin crashes)."""
     if summary.empty or metric not in summary.columns:
         return pd.DataFrame()
 
@@ -87,7 +91,33 @@ def overview_heatmap(summary: pd.DataFrame, metric: str, task_filter: str) -> go
         labels=dict(color=metric.replace("_", " ")),
         title=f"Utility gap heatmap — {metric.replace('_', ' ')}",
     )
-    fig.update_layout(margin=dict(l=10, r=10, t=50, b=10), height=420)
+    fig.update_layout(margin=dict(l=10, r=10, t=50, b=10), height=460)
+    return fig
+
+
+def coverage_heatmap(coverage: pd.DataFrame) -> go.Figure:
+    if coverage.empty:
+        return go.Figure()
+
+    pivot = coverage.pivot_table(
+        index="generator",
+        columns="dataset",
+        values="available",
+        aggfunc="max",
+    )
+    order = [g for g in ALL_GENERATORS if g in pivot.index]
+    pivot = pivot.reindex(order)
+
+    fig = px.imshow(
+        pivot,
+        aspect="auto",
+        color_continuous_scale=["#f2f2f2", "#2ecc71"],
+        zmin=0,
+        zmax=1,
+        labels=dict(color="Results available"),
+        title="Generator coverage across datasets (8 generators)",
+    )
+    fig.update_layout(margin=dict(l=10, r=10, t=50, b=10), height=460)
     return fig
 
 
@@ -147,27 +177,32 @@ def trtr_tstr_bars(comparisons: pd.DataFrame, dataset: str, generator: str, metr
 
 
 def main() -> None:
-    results, summary, comparisons = get_data()
+    results, summary, comparisons, coverage, status = get_data()
 
     st.title("SYNTH Benchmark Dashboard")
     st.caption(
         "TRTR/TSTR utility results from "
-        "`Generators/Experiment with utility data leak` — "
-        f"{len(results)} datasets, {len(_available_generators(summary))} generators loaded from Excel."
+        "`Generators/Experiment with utility data leak/diffusion_dataleak` "
+        f"— {len(results)} datasets, {len(_available_generators(summary))}/{len(ALL_GENERATORS)} generators loaded."
     )
 
     loaded = sum(1 for r in results.values() if r.error is None and not r.summary.empty)
-    missing = [r.name for r in results.values() if r.error or r.summary.empty]
+    complete = sum(1 for r in results.values() if r.experiment_status == "complete")
+    partial = sum(1 for r in results.values() if r.experiment_status == "partial")
+    pending = sum(1 for r in results.values() if r.experiment_status == "pending")
 
-    col1, col2, col3, col4 = st.columns(4)
+    col1, col2, col3, col4, col5 = st.columns(5)
     col1.metric("Datasets", len(results))
     col2.metric("With results", loaded)
-    col3.metric("Generators", len(_available_generators(summary)))
-    col4.metric("Classification", sum(1 for r in results.values() if r.task_type == "classification"))
+    col3.metric("Complete (8/8)", complete)
+    col4.metric("Partial", partial)
+    col5.metric("Pending", pending)
 
-    if missing:
-        with st.expander(f"Missing or empty results ({len(missing)})"):
-            st.write(", ".join(missing))
+    with st.expander("Generator groups"):
+        st.markdown(
+            f"- **SDV / GAN ({len(GENERATORS_SDV_GAN)}):** {', '.join(GENERATORS_SDV_GAN)}\n"
+            f"- **Diffusion ({len(GENERATORS_DIFFUSION)}):** {', '.join(GENERATORS_DIFFUSION)}"
+        )
 
     st.sidebar.header("Filters")
     task_filter = st.sidebar.radio("Task type", ["All", "Classification", "Regression"], index=0)
@@ -184,17 +219,34 @@ def main() -> None:
             metrics_for_task("regression").keys()
         )
 
-    metric = st.sidebar.selectbox("Utility metric", metric_choices, index=metric_choices.index(default_metric) if default_metric in metric_choices else 0)
-
-    tab_overview, tab_dataset, tab_ranking, tab_table = st.tabs(
-        ["Overview", "Dataset detail", "Generator ranking", "Data tables"]
+    metric = st.sidebar.selectbox(
+        "Utility metric",
+        metric_choices,
+        index=metric_choices.index(default_metric) if default_metric in metric_choices else 0,
     )
+
+    tab_status, tab_overview, tab_dataset, tab_ranking, tab_table = st.tabs(
+        ["Experiment status", "Overview", "Dataset detail", "Generator ranking", "Data tables"]
+    )
+
+    with tab_status:
+        st.subheader("Diffusion data-leak experiment progress")
+        st.plotly_chart(coverage_heatmap(coverage), use_container_width=True)
+
+        st.markdown("**Per-dataset status**")
+        st.dataframe(status, use_container_width=True, hide_index=True)
+
+        pending_rows = status[status["status"].isin(["pending", "partial"])]
+        if not pending_rows.empty:
+            st.warning(
+                "Some notebooks still need to run or are missing generators. "
+                "Pending/partial datasets are listed above."
+            )
 
     with tab_overview:
         st.subheader("Cross-dataset utility gap")
         st.plotly_chart(overview_heatmap(summary, metric, task_filter), use_container_width=True)
         st.plotly_chart(generator_ranking(summary, metric, task_filter), use_container_width=True)
-
         st.markdown(
             "**How to read:** Positive drops mean synthetic training hurt performance vs TRTR. "
             "Lower values indicate generators that preserve more downstream utility."
@@ -206,12 +258,19 @@ def main() -> None:
             key=lambda n: next(r.number for r in results.values() if r.name == n),
         )
         if not dataset_names:
-            st.warning("No dataset results loaded.")
+            st.warning("No dataset results loaded yet.")
             return
 
         selected = st.selectbox("Dataset", dataset_names)
         ds = next(r for r in results.values() if r.name == selected)
         pm = primary_metric(ds.task_type)
+
+        st.caption(
+            f"Status: **{ds.experiment_status}** — "
+            f"{len(ds.generators)}/{len(ALL_GENERATORS)} generators available"
+        )
+        if ds.missing_generators:
+            st.info(f"Missing: {', '.join(ds.missing_generators)}")
 
         gens = [g for g in ALL_GENERATORS if g in ds.summary.get("Generator", pd.Series(dtype=str)).astype(str).tolist()]
         if not gens:
@@ -246,7 +305,7 @@ def main() -> None:
             st.markdown("**TRTR baseline (real data)**")
             st.dataframe(ds.trtr, use_container_width=True, hide_index=True)
         if not ds.quality.empty:
-            st.markdown("**SDV quality scores**")
+            st.markdown("**Quality scores**")
             st.dataframe(ds.quality, use_container_width=True, hide_index=True)
 
     with tab_ranking:
@@ -284,6 +343,8 @@ def main() -> None:
             file_name="synth_trtr_tstr_summary.csv",
             mime="text/csv",
         )
+        st.subheader("Coverage matrix")
+        st.dataframe(coverage, use_container_width=True, hide_index=True)
 
 
 if __name__ == "__main__":

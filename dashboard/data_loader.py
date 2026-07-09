@@ -1,4 +1,4 @@
-"""Load TRTR/TSTR Excel results from the utility data-leak benchmark."""
+"""Load TRTR/TSTR Excel results from the diffusion data-leak benchmark."""
 
 from __future__ import annotations
 
@@ -15,8 +15,8 @@ RESULTS_ROOT = REPO_ROOT / "Generators" / "Experiment with utility data leak"
 DIFFUSION_ROOT = RESULTS_ROOT / "diffusion_dataleak"
 DATASETS_JSON = RESULTS_ROOT / "python_scripts" / "hive" / "datasets.json"
 
-# Six generators in the main utility-leak notebooks; two diffusion models in diffusion_dataleak.
-GENERATORS_MAIN = [
+# Eight generators across the benchmark (6 GAN/SDV + 2 diffusion).
+GENERATORS_SDV_GAN = [
     "CTGAN",
     "CopulaGAN",
     "TVAE",
@@ -25,7 +25,10 @@ GENERATORS_MAIN = [
     "CTABGAN",
 ]
 GENERATORS_DIFFUSION = ["TabDDPM", "ForestDiffusion"]
-ALL_GENERATORS = GENERATORS_MAIN + GENERATORS_DIFFUSION
+ALL_GENERATORS = GENERATORS_SDV_GAN + GENERATORS_DIFFUSION
+
+# Backwards-compatible aliases used by app.py
+GENERATORS_MAIN = GENERATORS_SDV_GAN
 
 CLASSIFICATION_METRICS = {
     "Accuracy_Drop": {"label": "Accuracy drop (TRTR − TSTR)", "better": "lower"},
@@ -49,11 +52,16 @@ class DatasetResults:
     task_type: str
     notebook_dir: str
     excel_path: Optional[Path]
+    diffusion_excel_path: Optional[Path] = None
+    main_excel_path: Optional[Path] = None
     trtr: pd.DataFrame = field(default_factory=pd.DataFrame)
     summary: pd.DataFrame = field(default_factory=pd.DataFrame)
     comparisons: pd.DataFrame = field(default_factory=pd.DataFrame)
     quality: pd.DataFrame = field(default_factory=pd.DataFrame)
     generators: List[str] = field(default_factory=list)
+    missing_generators: List[str] = field(default_factory=list)
+    has_notebook: bool = False
+    experiment_status: str = "missing"  # complete | partial | pending | missing
     error: Optional[str] = None
 
 
@@ -66,24 +74,15 @@ def _task_type(number: int) -> str:
     return "regression" if number >= 10 else "classification"
 
 
-def _find_excel(folder: Path, preferred: str) -> Optional[Path]:
+def _find_excel(folder: Path, preferred: Optional[str] = None) -> Optional[Path]:
     if not folder.is_dir():
         return None
-    preferred_path = folder / preferred
-    if preferred_path.is_file():
-        return preferred_path
+    if preferred:
+        preferred_path = folder / preferred
+        if preferred_path.is_file():
+            return preferred_path
     matches = sorted(folder.glob("TRTR_TSTR*.xlsx"))
     return matches[0] if matches else None
-
-
-def _read_sheet(path: Path, sheet: str) -> pd.DataFrame:
-    try:
-        xl = pd.ExcelFile(path)
-        if sheet not in xl.sheet_names:
-            return pd.DataFrame()
-        return pd.read_excel(path, sheet_name=sheet)
-    except Exception:
-        return pd.DataFrame()
 
 
 def _normalize_summary(df: pd.DataFrame) -> pd.DataFrame:
@@ -92,6 +91,8 @@ def _normalize_summary(df: pd.DataFrame) -> pd.DataFrame:
     out = df.copy()
     if "Synthetic_Model" in out.columns:
         out = out.rename(columns={"Synthetic_Model": "Generator"})
+    if "Generator" in out.columns:
+        out["Generator"] = out["Generator"].astype(str)
     return out
 
 
@@ -101,19 +102,66 @@ def _normalize_comparisons(df: pd.DataFrame) -> pd.DataFrame:
     out = df.copy()
     if "Synthetic_Model" in out.columns:
         out = out.rename(columns={"Synthetic_Model": "Generator"})
+    if "Generator" in out.columns:
+        out["Generator"] = out["Generator"].astype(str)
     return out
 
 
 def _load_workbook(path: Path) -> Dict[str, pd.DataFrame]:
     xl = pd.ExcelFile(path)
     sheets = {name: pd.read_excel(path, sheet_name=name) for name in xl.sheet_names}
-    trtr_key = "TRTR_Results" if "TRTR_Results" in sheets else "TRTR_Results"
     return {
-        "trtr": sheets.get(trtr_key, sheets.get("TRTR_Results", pd.DataFrame())),
+        "trtr": sheets.get("TRTR_Results", pd.DataFrame()),
         "summary": _normalize_summary(sheets.get("Summary", pd.DataFrame())),
         "comparisons": _normalize_comparisons(sheets.get("All_Comparisons", pd.DataFrame())),
         "quality": sheets.get("Quality_Metrics", pd.DataFrame()),
     }
+
+
+def _merge_frames(primary: pd.DataFrame, secondary: pd.DataFrame, key: str) -> pd.DataFrame:
+    if primary.empty:
+        return secondary.copy()
+    if secondary.empty:
+        return primary.copy()
+    if key not in primary.columns or key not in secondary.columns:
+        return pd.concat([primary, secondary], ignore_index=True)
+
+    primary_keys = set(primary[key].astype(str))
+    extra = secondary[~secondary[key].astype(str).isin(primary_keys)].copy()
+    return pd.concat([primary, extra], ignore_index=True)
+
+
+def _merge_quality(primary: pd.DataFrame, secondary: pd.DataFrame) -> pd.DataFrame:
+    if primary.empty:
+        return secondary.copy()
+    if secondary.empty:
+        return primary.copy()
+
+    out = primary.copy()
+    gen_col = "Generator" if "Generator" in out.columns else None
+    sec_gen_col = "Generator" if "Generator" in secondary.columns else None
+    if gen_col and sec_gen_col:
+        seen = set(out[gen_col].astype(str))
+        extra = secondary[~secondary[sec_gen_col].astype(str).isin(seen)]
+        return pd.concat([out, extra], ignore_index=True)
+    return pd.concat([out, secondary], ignore_index=True)
+
+
+def _generators_from_summary(summary: pd.DataFrame) -> List[str]:
+    if summary.empty or "Generator" not in summary.columns:
+        return []
+    found = summary["Generator"].dropna().astype(str).unique().tolist()
+    return [g for g in ALL_GENERATORS if g in found]
+
+
+def _experiment_status(found_generators: List[str], has_notebook: bool, has_any_excel: bool) -> str:
+    if not has_notebook and not has_any_excel:
+        return "missing"
+    if not has_any_excel:
+        return "pending"
+    if len(found_generators) >= len(ALL_GENERATORS):
+        return "complete"
+    return "partial"
 
 
 def load_datasets_metadata() -> List[dict]:
@@ -130,8 +178,14 @@ def load_all_results() -> Dict[str, DatasetResults]:
         ds_id = entry["id"]
         notebook_dir = entry["notebook_dir"]
         number = _dataset_number(notebook_dir)
-        folder = RESULTS_ROOT / notebook_dir
-        excel_path = _find_excel(folder, entry.get("output_file", "TRTR_TSTR_results.xlsx"))
+        diffusion_folder = DIFFUSION_ROOT / notebook_dir
+        main_folder = RESULTS_ROOT / notebook_dir
+
+        diffusion_excel = _find_excel(diffusion_folder, entry.get("output_file"))
+        main_excel = _find_excel(main_folder, entry.get("output_file"))
+        excel_path = diffusion_excel or main_excel
+
+        has_notebook = any(diffusion_folder.glob("*.ipynb")) or any(main_folder.glob("*.ipynb"))
 
         ds = DatasetResults(
             dataset_id=ds_id,
@@ -140,47 +194,59 @@ def load_all_results() -> Dict[str, DatasetResults]:
             task_type=_task_type(number),
             notebook_dir=notebook_dir,
             excel_path=excel_path,
-            generators=list(GENERATORS_MAIN),
+            diffusion_excel_path=diffusion_excel,
+            main_excel_path=main_excel,
+            has_notebook=has_notebook,
         )
 
-        if excel_path is None:
-            ds.error = f"No TRTR/TSTR Excel file in {notebook_dir}"
+        if diffusion_excel is None and main_excel is None:
+            ds.error = "No TRTR/TSTR Excel file in diffusion_dataleak or parent folder"
+            ds.experiment_status = _experiment_status([], has_notebook, False)
+            ds.missing_generators = ALL_GENERATORS.copy()
             results[ds_id] = ds
             continue
 
         try:
-            data = _load_workbook(excel_path)
-            ds.trtr = data["trtr"]
-            ds.summary = data["summary"]
-            ds.comparisons = data["comparisons"]
-            ds.quality = data["quality"]
-            if not ds.summary.empty and "Generator" in ds.summary.columns:
-                ds.generators = [
-                    g for g in ALL_GENERATORS if g in ds.summary["Generator"].astype(str).tolist()
-                ]
+            diffusion_data = (
+                _load_workbook(diffusion_excel) if diffusion_excel is not None else {}
+            )
+            main_data = _load_workbook(main_excel) if main_excel is not None else {}
+
+            # Prefer diffusion workbook for TRTR baseline; fall back to main.
+            ds.trtr = (
+                diffusion_data.get("trtr", pd.DataFrame())
+                if diffusion_excel is not None
+                else main_data.get("trtr", pd.DataFrame())
+            )
+            if ds.trtr.empty:
+                ds.trtr = main_data.get("trtr", pd.DataFrame())
+
+            ds.summary = _merge_frames(
+                diffusion_data.get("summary", pd.DataFrame()),
+                main_data.get("summary", pd.DataFrame()),
+                "Generator",
+            )
+            ds.comparisons = _merge_frames(
+                diffusion_data.get("comparisons", pd.DataFrame()),
+                main_data.get("comparisons", pd.DataFrame()),
+                "Generator",
+            )
+            ds.quality = _merge_quality(
+                diffusion_data.get("quality", pd.DataFrame()),
+                main_data.get("quality", pd.DataFrame()),
+            )
+
+            ds.generators = _generators_from_summary(ds.summary)
+            ds.missing_generators = [g for g in ALL_GENERATORS if g not in ds.generators]
+            ds.experiment_status = _experiment_status(
+                ds.generators,
+                has_notebook,
+                diffusion_excel is not None or main_excel is not None,
+            )
         except Exception as exc:
             ds.error = str(exc)
-
-        # Merge TabDDPM / ForestDiffusion from diffusion_dataleak when available.
-        diffusion_folder = DIFFUSION_ROOT / notebook_dir
-        diffusion_excel = _find_excel(diffusion_folder, "TRTR_TSTR_results.xlsx")
-        if diffusion_excel is not None:
-            try:
-                diff = _load_workbook(diffusion_excel)
-                if not diff["summary"].empty:
-                    ds.summary = pd.concat([ds.summary, diff["summary"]], ignore_index=True)
-                if not diff["comparisons"].empty:
-                    ds.comparisons = pd.concat(
-                        [ds.comparisons, diff["comparisons"]], ignore_index=True
-                    )
-                for gen in GENERATORS_DIFFUSION:
-                    if gen not in ds.generators and (
-                        diff["summary"].empty
-                        or gen in diff["summary"].get("Generator", pd.Series(dtype=str)).astype(str).tolist()
-                    ):
-                        ds.generators.append(gen)
-            except Exception:
-                pass
+            ds.experiment_status = "missing"
+            ds.missing_generators = ALL_GENERATORS.copy()
 
         results[ds_id] = ds
 
@@ -199,6 +265,7 @@ def summary_long_frame(results: Dict[str, DatasetResults]) -> pd.DataFrame:
                 "dataset_number": ds.number,
                 "task_type": ds.task_type,
                 "generator": row.get("Generator"),
+                "experiment_status": ds.experiment_status,
             }
             for col in ds.summary.columns:
                 if col == "Generator":
@@ -224,6 +291,49 @@ def comparisons_long_frame(results: Dict[str, DatasetResults]) -> pd.DataFrame:
     if not rows:
         return pd.DataFrame()
     return pd.concat(rows, ignore_index=True)
+
+
+def coverage_frame(results: Dict[str, DatasetResults]) -> pd.DataFrame:
+    """Dataset × generator matrix: 1 when results exist, 0 when missing."""
+    rows = []
+    for ds in sorted(results.values(), key=lambda d: d.number):
+        for generator in ALL_GENERATORS:
+            rows.append(
+                {
+                    "dataset_id": ds.dataset_id,
+                    "dataset": ds.name,
+                    "dataset_number": ds.number,
+                    "task_type": ds.task_type,
+                    "generator": generator,
+                    "available": int(generator in ds.generators),
+                    "experiment_status": ds.experiment_status,
+                    "has_diffusion_excel": int(ds.diffusion_excel_path is not None),
+                    "has_main_excel": int(ds.main_excel_path is not None),
+                }
+            )
+    return pd.DataFrame(rows)
+
+
+def experiment_status_frame(results: Dict[str, DatasetResults]) -> pd.DataFrame:
+    rows = []
+    for ds in sorted(results.values(), key=lambda d: d.number):
+        rows.append(
+            {
+                "dataset": ds.name,
+                "dataset_number": ds.number,
+                "task_type": ds.task_type,
+                "status": ds.experiment_status,
+                "generators_done": len(ds.generators),
+                "generators_total": len(ALL_GENERATORS),
+                "missing_generators": ", ".join(ds.missing_generators),
+                "diffusion_excel": (
+                    ds.diffusion_excel_path.name if ds.diffusion_excel_path else ""
+                ),
+                "main_excel": ds.main_excel_path.name if ds.main_excel_path else "",
+                "error": ds.error or "",
+            }
+        )
+    return pd.DataFrame(rows)
 
 
 def primary_metric(task_type: str) -> str:
