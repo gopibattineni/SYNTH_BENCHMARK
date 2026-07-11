@@ -115,6 +115,24 @@ def _label_encoder_inverse(le: LabelEncoder, values) -> np.ndarray:
     return le.inverse_transform(arr)
 
 
+def _restore_dataframe_dtypes(synth: pd.DataFrame, template: pd.DataFrame) -> pd.DataFrame:
+    """Match synthetic output dtypes to the training frame (e.g. int labels vs str from LabelEncoder)."""
+    out = synth.copy()
+    for col in out.columns:
+        if col not in template.columns:
+            continue
+        ref = template[col]
+        if pd.api.types.is_numeric_dtype(ref):
+            out[col] = pd.to_numeric(out[col], errors="coerce")
+            if pd.api.types.is_integer_dtype(ref):
+                out[col] = out[col].round().astype(ref.dtype)
+            else:
+                out[col] = out[col].astype(ref.dtype)
+        else:
+            out[col] = out[col].astype(ref.dtype)
+    return out
+
+
 def _dataframe_to_tabddpm_dir(
     df: pd.DataFrame,
     target_col: str,
@@ -224,7 +242,7 @@ def _tabddpm_arrays_to_dataframe(
                 out[col] = _label_encoder_inverse(encoders[target_col], y)
             else:
                 out[col] = y
-    return out[df_template.columns]
+    return _restore_dataframe_dtypes(out[df_template.columns], df_template)
 
 
 def train_tabddpm(
@@ -410,6 +428,7 @@ def train_forestdiffusion(
     n_samples: int = 1000,
     seed: int = 42,
     is_regression: Optional[bool] = None,
+    fast_mode: bool = False,
 ) -> pd.DataFrame:
     from ForestDiffusion import ForestDiffusionModel
 
@@ -454,17 +473,22 @@ def train_forestdiffusion(
         bin_indexes = [col_order.index(c) for c in bin_cols]
         cat_indexes = [col_order.index(c) for c in multi_cat_cols]
 
+    # Default settings match the ForestDiffusion paper; fast_mode reduces RAM use
+    # (sequential training + smaller duplicated batch) to avoid XGBoost OOM.
+    fd_params = (
+        dict(n_t=20, duplicate_K=20, n_estimators=50, n_jobs=1)
+        if fast_mode
+        else dict(n_t=50, duplicate_K=100, n_estimators=100, n_jobs=-1)
+    )
     model = ForestDiffusionModel(
         x_arr,
         label_y=label_y,
-        n_t=50,
-        duplicate_K=100,
         bin_indexes=bin_indexes,
         cat_indexes=cat_indexes,
         int_indexes=[],
         diffusion_type="flow",
-        n_jobs=-1,
         seed=seed,
+        **fd_params,
     )
     generated = model.generate(batch_size=n_samples)
     if label_y is not None:
@@ -478,7 +502,7 @@ def train_forestdiffusion(
     for col in cat_cols:
         vals = np.clip(np.round(synth[col]), 0, len(encoders[col].classes_) - 1).astype(int)
         synth[col] = _label_encoder_inverse(encoders[col], vals)
-    return synth[df.columns].reset_index(drop=True)
+    return _restore_dataframe_dtypes(synth[df.columns], df).reset_index(drop=True)
 
 
 def _dataframe_to_codi_bundle(
