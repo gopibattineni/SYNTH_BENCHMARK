@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import json
 import logging
+import os
 import sys
 import tempfile
 import types
@@ -24,6 +25,112 @@ from sklearn.preprocessing import LabelEncoder, StandardScaler
 LOGGER = logging.getLogger(__name__)
 
 MODEL_ORDER = ["TabDDPM", "ForestDiffusion"]
+
+
+def resolve_experiment_device(device_setting: str = "auto") -> str:
+    """Resolve PyTorch device: auto | cuda | cuda:0 | cpu."""
+    if device_setting == "auto":
+        return "cuda" if torch.cuda.is_available() else "cpu"
+    if device_setting.startswith("cuda"):
+        if not torch.cuda.is_available():
+            raise RuntimeError(
+                f"DEVICE={device_setting!r} requested but CUDA is not available. "
+                "On patten-server install: pip install torch --index-url "
+                "https://download.pytorch.org/whl/cu124"
+            )
+        return device_setting
+    if device_setting == "cpu":
+        return "cpu"
+    raise ValueError(f"Unknown DEVICE setting: {device_setting!r}")
+
+
+def print_experiment_runtime(device: str) -> None:
+    """Print GPU/CPU runtime info for notebook experiment cells."""
+    print("=" * 60)
+    print("Experiment runtime")
+    print(f"PyTorch version: {torch.__version__}")
+    print(f"Selected device: {device}")
+
+    if device.startswith("cuda"):
+        gpu_id = int(device.split(":")[1]) if ":" in device else 0
+        torch.cuda.set_device(gpu_id)
+        props = torch.cuda.get_device_properties(gpu_id)
+        total_gb = props.total_memory / (1024 ** 3)
+        alloc_gb = torch.cuda.memory_allocated(gpu_id) / (1024 ** 3)
+        reserved_gb = torch.cuda.memory_reserved(gpu_id) / (1024 ** 3)
+        print("CUDA available: True")
+        print(f"CUDA version: {torch.version.cuda}")
+        print(f"GPU index: {gpu_id}")
+        print(f"GPU name: {props.name}")
+        print(
+            f"GPU memory: {alloc_gb:.2f} GB allocated | "
+            f"{reserved_gb:.2f} GB reserved | {total_gb:.2f} GB total"
+        )
+    else:
+        print("CUDA available: False")
+        print("TabDDPM will run on CPU.")
+
+    print("ForestDiffusion: CPU/XGBoost trees (set gpu_hist=True when XGBoost CUDA is available)")
+    print("=" * 60)
+
+
+def _xgboost_gpu_available() -> bool:
+    """True when XGBoost can train on CUDA (patten-server A100, etc.)."""
+    try:
+        import xgboost as xgb
+
+        info = xgb.build_info()
+        if isinstance(info, dict):
+            return info.get("USE_CUDA", "0") in ("1", 1, True)
+        return "USE_CUDA" in str(info) and "USE_CUDA=1" in str(info)
+    except Exception:
+        return False
+
+
+def _forestdiffusion_params(
+    fast_mode: bool,
+    n_t: Optional[int],
+    duplicate_K: Optional[int],
+    n_jobs: Optional[int],
+    n_estimators: Optional[int] = None,
+    max_depth: Optional[int] = None,
+    subsample: Optional[float] = None,
+    gpu_hist: Optional[bool] = None,
+) -> Dict[str, object]:
+    """Tune ForestDiffusion speed vs quality.
+
+    Training cost scales roughly as:
+      n_t * n_classes * (n_features or 1) * n_estimators * duplicate_K
+
+    fast_mode cuts diffusion steps, duplicate noise copies, and tree rounds.
+    Fewer parallel joblib workers leaves more CPU (or GPU) per XGBoost fit.
+    """
+    cpu_count = os.cpu_count() or 8
+    xgb_gpu = _xgboost_gpu_available()
+
+    if fast_mode:
+        params: Dict[str, object] = {
+            "n_t": n_t if n_t is not None else 8,
+            "duplicate_K": duplicate_K if duplicate_K is not None else 10,
+            # Small outer parallelism: library trains n_t * n_classes models in parallel.
+            "n_jobs": n_jobs if n_jobs is not None else min(4, max(1, cpu_count // 8)),
+            "n_estimators": n_estimators if n_estimators is not None else 30,
+            "max_depth": max_depth if max_depth is not None else 5,
+            "subsample": subsample if subsample is not None else 0.8,
+            "gpu_hist": gpu_hist if gpu_hist is not None else xgb_gpu,
+        }
+    else:
+        params = {
+            "n_t": n_t if n_t is not None else 50,
+            "duplicate_K": duplicate_K if duplicate_K is not None else 100,
+            "n_jobs": n_jobs if n_jobs is not None else min(8, cpu_count),
+            "n_estimators": n_estimators if n_estimators is not None else 100,
+            "max_depth": max_depth if max_depth is not None else 7,
+            "subsample": subsample if subsample is not None else 1.0,
+            "gpu_hist": gpu_hist if gpu_hist is not None else xgb_gpu,
+        }
+    return params
+
 
 def _find_repo_root() -> Path:
     for parent in Path(__file__).resolve().parents:
@@ -41,6 +148,19 @@ TAB_DDPM_ROOT = VENDOR / "tab-ddpm"
 TAB_DDPM_SCRIPTS = TAB_DDPM_ROOT / "scripts"
 GOGGLE_ROOT = VENDOR / "goggle" / "src"
 CODI_ROOT = VENDOR / "CoDi"
+
+
+def _ensure_tabddpm_paths() -> None:
+    for p in (TAB_DDPM_ROOT, TAB_DDPM_SCRIPTS):
+        if not p.exists():
+            raise FileNotFoundError(
+                f"Expected vendor checkout at {p}. "
+                "Clone: git clone https://github.com/yandex-research/tab-ddpm _vendor/tab-ddpm"
+            )
+    for p in (TAB_DDPM_ROOT, TAB_DDPM_SCRIPTS):
+        ps = str(p)
+        if ps not in sys.path:
+            sys.path.insert(0, ps)
 
 
 def _ensure_paths() -> None:
@@ -113,24 +233,6 @@ def _label_encoder_inverse(le: LabelEncoder, values) -> np.ndarray:
         return arr
     arr = np.clip(arr, 0, len(le.classes_) - 1)
     return le.inverse_transform(arr)
-
-
-def _restore_dataframe_dtypes(synth: pd.DataFrame, template: pd.DataFrame) -> pd.DataFrame:
-    """Match synthetic output dtypes to the training frame (e.g. int labels vs str from LabelEncoder)."""
-    out = synth.copy()
-    for col in out.columns:
-        if col not in template.columns:
-            continue
-        ref = template[col]
-        if pd.api.types.is_numeric_dtype(ref):
-            out[col] = pd.to_numeric(out[col], errors="coerce")
-            if pd.api.types.is_integer_dtype(ref):
-                out[col] = out[col].round().astype(ref.dtype)
-            else:
-                out[col] = out[col].astype(ref.dtype)
-        else:
-            out[col] = out[col].astype(ref.dtype)
-    return out
 
 
 def _dataframe_to_tabddpm_dir(
@@ -242,7 +344,7 @@ def _tabddpm_arrays_to_dataframe(
                 out[col] = _label_encoder_inverse(encoders[target_col], y)
             else:
                 out[col] = y
-    return _restore_dataframe_dtypes(out[df_template.columns], df_template)
+    return out[df_template.columns]
 
 
 def train_tabddpm(
@@ -251,16 +353,19 @@ def train_tabddpm(
     categorical_columns: Optional[Sequence[str]] = None,
     n_samples: int = 1000,
     seed: int = 42,
-    steps: int = 1000,
+    steps: Optional[int] = None,
     device: Optional[str] = None,
+    fast_mode: bool = False,
     is_regression: Optional[bool] = None,
 ) -> pd.DataFrame:
-    _ensure_paths()
+    _ensure_tabddpm_paths()
     from scripts.sample import sample as tabddpm_sample
     from scripts.train import train as tabddpm_train
 
     if device is None:
         device = "cuda" if torch.cuda.is_available() else "cpu"
+    if steps is None:
+        steps = 300 if fast_mode else 1000
 
     cat_cols, num_cols = infer_column_types(df, target_col, categorical_columns)
     regression = _resolve_regression_target(df[target_col], is_regression)
@@ -427,10 +532,35 @@ def train_forestdiffusion(
     categorical_columns: Optional[Sequence[str]] = None,
     n_samples: int = 1000,
     seed: int = 42,
-    is_regression: Optional[bool] = None,
     fast_mode: bool = False,
+    n_t: Optional[int] = None,
+    duplicate_K: Optional[int] = None,
+    n_jobs: Optional[int] = None,
+    n_estimators: Optional[int] = None,
+    max_depth: Optional[int] = None,
+    subsample: Optional[float] = None,
+    gpu_hist: Optional[bool] = None,
+    is_regression: Optional[bool] = None,
 ) -> pd.DataFrame:
     from ForestDiffusion import ForestDiffusionModel
+
+    fd_params = _forestdiffusion_params(
+        fast_mode,
+        n_t,
+        duplicate_K,
+        n_jobs,
+        n_estimators,
+        max_depth,
+        subsample,
+        gpu_hist,
+    )
+    if fast_mode:
+        print(
+            "ForestDiffusion fast_mode: "
+            f"n_t={fd_params['n_t']}, duplicate_K={fd_params['duplicate_K']}, "
+            f"n_estimators={fd_params['n_estimators']}, max_depth={fd_params['max_depth']}, "
+            f"n_jobs={fd_params['n_jobs']}, gpu_hist={fd_params['gpu_hist']}"
+        )
 
     cat_cols, num_cols = infer_column_types(df, target_col, categorical_columns)
     regression = _resolve_regression_target(df[target_col], is_regression)
@@ -463,7 +593,14 @@ def train_forestdiffusion(
 
     label_y = None
     feature_cols = [c for c in col_order if c != target_col]
-    if regression or classification:
+    if regression:
+        # ForestDiffusion conditions on label_y via np.unique(y). A continuous
+        # regression target creates one model per unique value (extremely slow).
+        # Jointly model all columns including the target instead.
+        x_arr = work.to_numpy()
+        bin_indexes = [col_order.index(c) for c in bin_cols]
+        cat_indexes = [col_order.index(c) for c in multi_cat_cols]
+    elif classification:
         label_y = work[target_col].to_numpy()
         x_arr = work[feature_cols].to_numpy()
         bin_indexes = [feature_cols.index(c) for c in bin_cols if c in feature_cols]
@@ -473,25 +610,29 @@ def train_forestdiffusion(
         bin_indexes = [col_order.index(c) for c in bin_cols]
         cat_indexes = [col_order.index(c) for c in multi_cat_cols]
 
-    # Default settings match the ForestDiffusion paper; fast_mode reduces RAM use
-    # (sequential training + smaller duplicated batch) to avoid XGBoost OOM.
-    fd_params = (
-        dict(n_t=20, duplicate_K=20, n_estimators=50, n_jobs=1)
-        if fast_mode
-        else dict(n_t=50, duplicate_K=100, n_estimators=100, n_jobs=-1)
-    )
+    # One joint XGBoost per timestep (much faster than per-column models).
+    p_in_one = not np.isnan(x_arr).any()
+
     model = ForestDiffusionModel(
         x_arr,
         label_y=label_y,
+        n_t=int(fd_params["n_t"]),
+        duplicate_K=int(fd_params["duplicate_K"]),
+        n_estimators=int(fd_params["n_estimators"]),
+        max_depth=int(fd_params["max_depth"]),
+        subsample=float(fd_params["subsample"]),
         bin_indexes=bin_indexes,
         cat_indexes=cat_indexes,
         int_indexes=[],
         diffusion_type="flow",
+        n_jobs=int(fd_params["n_jobs"]),
+        gpu_hist=bool(fd_params["gpu_hist"]),
+        p_in_one=p_in_one,
+        remove_miss=False,
         seed=seed,
-        **fd_params,
     )
     generated = model.generate(batch_size=n_samples)
-    if label_y is not None:
+    if classification and label_y is not None:
         full = np.zeros((generated.shape[0], len(col_order)))
         for i, col in enumerate(feature_cols):
             full[:, col_order.index(col)] = generated[:, i]
@@ -502,7 +643,7 @@ def train_forestdiffusion(
     for col in cat_cols:
         vals = np.clip(np.round(synth[col]), 0, len(encoders[col].classes_) - 1).astype(int)
         synth[col] = _label_encoder_inverse(encoders[col], vals)
-    return _restore_dataframe_dtypes(synth[df.columns], df).reset_index(drop=True)
+    return synth[df.columns].reset_index(drop=True)
 
 
 def _dataframe_to_codi_bundle(
