@@ -1,0 +1,58 @@
+[
+  {
+    "index": 0,
+    "Unnamed: 0": 5,
+    "Generator": "TVAE",
+    "BordaScore": 670.5,
+    "BordaRank": 1.0
+  },
+  {
+    "index": 1,
+    "Unnamed: 0": 4,
+    "Generator": "GaussianCopula",
+    "BordaScore": 610.5,
+    "BordaRank": 2.0
+  },
+  {
+    "index": 2,
+    "Unnamed: 0": 1,
+    "Generator": "CTGAN",
+    "BordaScore": 589.0,
+    "BordaRank": 3.0
+  },
+  {
+    "index": 3,
+    "Unnamed: 0": 2,
+    "Generator": "CopulaGAN",
+    "BordaScore": 566.0,
+    "BordaRank": 4.0
+  },
+  {
+    "index": 4,
+    "Unnamed: 0": 3,
+    "Generator": "ForestDiffusion",
+    "BordaScore": 342.0,
+    "BordaRank": 5.0
+  },
+  {
+    "index": 5,
+    "Unnamed: 0": 6,
+    "Generator": "TabDDPM",
+    "BordaScore": 237.0,
+    "BordaRank": 6.0
+  },
+  {
+    "index": 6,
+    "Unnamed: 0": 0,
+    "Generator": "CTABGAN",
+    "BordaScore": 210.5,
+    "BordaRank": 7.0
+  },
+  {
+    "index": 7,
+    "Unnamed: 0": 7,
+    "Generator": "WGAN_GP",
+    "BordaScore": 193.5,
+    "BordaRank": 8.0
+  }
+]

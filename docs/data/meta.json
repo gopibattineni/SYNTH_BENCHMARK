@@ -1,0 +1,152 @@
+{
+  "generators": [
+    "CTGAN",
+    "CopulaGAN",
+    "TVAE",
+    "GaussianCopula",
+    "WGAN_GP",
+    "CTABGAN",
+    "TabDDPM",
+    "ForestDiffusion"
+  ],
+  "n_datasets": 15,
+  "n_utility_rows": 35776,
+  "n_fidelity_rows": 75,
+  "n_privacy_rows": 570,
+  "n_files": 127,
+  "runtime_seconds": 186.44,
+  "n_excel_files": 127,
+  "figures_generated": [
+    "accuracy_trtr_tstr",
+    "f1_trtr_tstr",
+    "accuracy_distribution",
+    "f1_distribution",
+    "precision_distribution",
+    "recall_distribution",
+    "mahalanobis_ecdf",
+    "pareto_utility_privacy",
+    "pareto_utility_fidelity",
+    "pareto_optimal_counts",
+    "composite_score",
+    "composite_breakdown",
+    "cd_composite",
+    "cd_nemenyi_composite",
+    "cd_privacy",
+    "cd_nemenyi_privacy",
+    "cd_utility_accuracy",
+    "cd_nemenyi_utility_accuracy",
+    "cd_utility_f1",
+    "cd_nemenyi_utility_f1",
+    "cd_utility_r2",
+    "cd_nemenyi_utility_r2",
+    "domain_correlations",
+    "fidelity_vs_utility",
+    "privacy_vs_utility",
+    "feature_ks_heatmap",
+    "feature_js_heatmap",
+    "feature_ks_1_Cancer",
+    "feature_ks_10_Metro_interstate",
+    "feature_ks_11_online_shopping",
+    "feature_ks_12_Air_Quality",
+    "feature_ks_13_Concrete_Compressive_Strength",
+    "feature_ks_14_Energy_Efficiency",
+    "seed_stability",
+    "seed_cv_heatmap",
+    "leakage_proxy_retention"
+  ],
+  "weights": {
+    "utility": 0.4,
+    "privacy": 0.3,
+    "fidelity": 0.3
+  },
+  "benchmarking": {
+    "pareto_optimal_generators": [
+      {
+        "Generator": "ForestDiffusion",
+        "ParetoCount": 13,
+        "ParetoFraction": 0.5909090909090909
+      },
+      {
+        "Generator": "GaussianCopula",
+        "ParetoCount": 13,
+        "ParetoFraction": 0.5909090909090909
+      },
+      {
+        "Generator": "TVAE",
+        "ParetoCount": 10,
+        "ParetoFraction": 0.45454545454545453
+      },
+      {
+        "Generator": "CTGAN",
+        "ParetoCount": 7,
+        "ParetoFraction": 0.3181818181818182
+      },
+      {
+        "Generator": "WGAN_GP",
+        "ParetoCount": 6,
+        "ParetoFraction": 0.2727272727272727
+      },
+      {
+        "Generator": "CopulaGAN",
+        "ParetoCount": 5,
+        "ParetoFraction": 0.22727272727272727
+      },
+      {
+        "Generator": "CTABGAN",
+        "ParetoCount": 4,
+        "ParetoFraction": 0.18181818181818182
+      },
+      {
+        "Generator": "TabDDPM",
+        "ParetoCount": 2,
+        "ParetoFraction": 0.09090909090909091
+      }
+    ],
+    "domain_correlations": [
+      {
+        "Question": "Higher fidelity \u2192 better utility?",
+        "X": "Fidelity",
+        "Y": "Utility",
+        "N": 176,
+        "Pearson_r": 0.3833868172289141,
+        "Pearson_p": 1.504204021773099e-07,
+        "Spearman_r": 0.3468451443545913,
+        "Spearman_p": 2.406924650983468e-06,
+        "Interpretation": "moderate positive association \u2014 yes that fidelity predicts utility"
+      },
+      {
+        "Question": "Stronger privacy reduces utility?",
+        "X": "Privacy",
+        "Y": "Utility",
+        "N": 176,
+        "Pearson_r": -0.06758564823197236,
+        "Pearson_p": 0.37279208089030696,
+        "Spearman_r": -0.02026838482275485,
+        "Spearman_p": 0.7894676685189372,
+        "Interpretation": "weak negative association \u2014 privacy may not strongly reduce utility"
+      },
+      {
+        "Question": "Fidelity\u2013privacy trade-off",
+        "X": "Fidelity",
+        "Y": "Privacy",
+        "N": 176,
+        "Pearson_r": 0.019328706487079364,
+        "Pearson_p": 0.7990159277686288,
+        "Spearman_r": 0.0714626331804483,
+        "Spearman_p": 0.3459320212896353,
+        "Interpretation": "weak positive correlation"
+      },
+      {
+        "Question": "Utility\u2013privacy trade-off",
+        "X": "Utility",
+        "Y": "Privacy",
+        "N": 176,
+        "Pearson_r": -0.06758564823197236,
+        "Pearson_p": 0.37279208089030696,
+        "Spearman_r": -0.020268384822754854,
+        "Spearman_p": 0.7894676685189371,
+        "Interpretation": "weak negative correlation"
+      }
+    ]
+  }
+}

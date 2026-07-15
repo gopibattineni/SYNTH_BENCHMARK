@@ -1,0 +1,30 @@
+|    | Metric   | Generator_A     | Generator_B     |   Cohens_d |   Cliffs_Delta |
+|---:|:---------|:----------------|:----------------|-----------:|---------------:|
+|  0 | Accuracy | CTABGAN         | CTGAN           |   2.83599  |           0.96 |
+|  1 | Accuracy | CTABGAN         | CopulaGAN       |   7.36715  |           1    |
+|  2 | Accuracy | CTABGAN         | ForestDiffusion |  -2.20145  |          -1    |
+|  3 | Accuracy | CTABGAN         | GaussianCopula  |   0.395661 |           0.24 |
+|  4 | Accuracy | CTABGAN         | TVAE            |  -1.23778  |          -0.78 |
+|  5 | Accuracy | CTABGAN         | TabDDPM         |   4.3739   |           1    |
+|  6 | Accuracy | CTABGAN         | WGAN_GP         |  -1.67948  |          -0.94 |
+|  7 | Accuracy | CTGAN           | CopulaGAN       |   4.54798  |           1    |
+|  8 | Accuracy | CTGAN           | ForestDiffusion |  -4.83888  |          -1    |
+|  9 | Accuracy | CTGAN           | GaussianCopula  |  -2.12838  |          -0.86 |
+| 10 | Accuracy | CTGAN           | TVAE            |  -4.16839  |          -1    |
+| 11 | Accuracy | CTGAN           | TabDDPM         |   2.27593  |           0.98 |
+| 12 | Accuracy | CTGAN           | WGAN_GP         |  -4.52925  |          -1    |
+| 13 | Accuracy | CopulaGAN       | ForestDiffusion |  -9.25318  |          -1    |
+| 14 | Accuracy | CopulaGAN       | GaussianCopula  |  -6.40445  |          -1    |
+| 15 | Accuracy | CopulaGAN       | TVAE            |  -8.75341  |          -1    |
+| 16 | Accuracy | CopulaGAN       | TabDDPM         |  -1.48562  |          -0.72 |
+| 17 | Accuracy | CopulaGAN       | WGAN_GP         |  -9.07029  |          -1    |
+| 18 | Accuracy | ForestDiffusion | GaussianCopula  |   2.08326  |           1    |
+| 19 | Accuracy | ForestDiffusion | TVAE            |   1.68965  |           0.73 |
+| 20 | Accuracy | ForestDiffusion | TabDDPM         |   5.62126  |           1    |
+| 21 | Accuracy | ForestDiffusion | WGAN_GP         |   1.22943  |           0.64 |
+| 22 | Accuracy | GaussianCopula  | TVAE            |  -1.36934  |          -0.82 |
+| 23 | Accuracy | GaussianCopula  | TabDDPM         |   3.83898  |           1    |
+| 24 | Accuracy | GaussianCopula  | WGAN_GP         |  -1.67803  |          -0.94 |
+| 25 | Accuracy | TVAE            | TabDDPM         |   5.19912  |           1    |
+| 26 | Accuracy | TVAE            | WGAN_GP         |  -0.765074 |          -0.49 |
+| 27 | Accuracy | TabDDPM         | WGAN_GP         |  -5.40628  |          -1    |

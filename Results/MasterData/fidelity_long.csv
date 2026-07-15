@@ -1,0 +1,76 @@
+Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionModel,Leakage,TrainingPercentage,EvaluationType,SourceFile
+10. Metro interstate,CTABGAN,,fidelity,Quality_Score,0.8821898055036569,0.8821898055036569,,,,0.0,100.0,Score,Generators/Experiment with utility data leak/utility results/10. Metro interstate/TRTR_TSTR_results_merged.xlsx
+10. Metro interstate,WGAN_GP,,fidelity,Quality_Score,0.808212463794471,0.808212463794471,,,,0.0,100.0,Score,Generators/Experiment with utility data leak/utility results/10. Metro interstate/TRTR_TSTR_results_merged.xlsx
+11. online shopping,CTABGAN,,fidelity,Quality_Score,0.9946252035570975,0.9946252035570975,,,,0.0,100.0,Score,Generators/Experiment with utility data leak/utility results/11. online shopping/TRTR_TSTR_results_merged.xlsx
+11. online shopping,WGAN_GP,,fidelity,Quality_Score,0.01041483875451275,0.01041483875451275,,,,0.0,100.0,Score,Generators/Experiment with utility data leak/utility results/11. online shopping/TRTR_TSTR_results_merged.xlsx
+12. Air Quality,CTABGAN,,fidelity,Quality_Score,0.8178852680962627,0.8178852680962627,,,,0.0,100.0,Score,Generators/Experiment with utility data leak/utility results/12. Air Quality/TRTR_TSTR_results_merged.xlsx
+12. Air Quality,WGAN_GP,,fidelity,Quality_Score,0.9248901750895357,0.9248901750895357,,,,0.0,100.0,Score,Generators/Experiment with utility data leak/utility results/12. Air Quality/TRTR_TSTR_results_merged.xlsx
+13. Concrete Compressive Strength,,,fidelity,Quality_Score,0.7506345079655279,0.7506345079655279,,,,0.0,100.0,Score,Generators/Experiment with utility data leak/utility results/13. Concrete Compressive Strength/TRTR_TSTR_results_merged.xlsx
+13. Concrete Compressive Strength,TabDDPM,,fidelity,Quality_Score,0.9382868721657163,0.9382868721657163,,,,0.0,100.0,Score,Generators/Experiment with utility data leak/utility results/13. Concrete Compressive Strength/TRTR_TSTR_results_merged.xlsx
+13. Concrete Compressive Strength,ForestDiffusion,,fidelity,Quality_Score,0.9348424750662946,0.9348424750662946,,,,0.0,100.0,Score,Generators/Experiment with utility data leak/utility results/13. Concrete Compressive Strength/TRTR_TSTR_results_merged.xlsx
+14. Energy Efficiency,,,fidelity,Quality_Score,0.4979300039227117,0.4979300039227117,,,,0.0,100.0,Score,Generators/Experiment with utility data leak/utility results/14. Energy Efficiency/TRTR_TSTR_results_merged.xlsx
+14. Energy Efficiency,TabDDPM,,fidelity,Quality_Score,0.7175216927319554,0.7175216927319554,,,,0.0,100.0,Score,Generators/Experiment with utility data leak/utility results/14. Energy Efficiency/TRTR_TSTR_results_merged.xlsx
+14. Energy Efficiency,ForestDiffusion,,fidelity,Quality_Score,0.6387588541837335,0.6387588541837335,,,,0.0,100.0,Score,Generators/Experiment with utility data leak/utility results/14. Energy Efficiency/TRTR_TSTR_results_merged.xlsx
+15. Real Estate Valuation,,,fidelity,Quality_Score,0.8593680275609603,0.8593680275609603,,,,0.0,100.0,Score,Generators/Experiment with utility data leak/utility results/15. Real Estate Valuation/TRTR_TSTR_results_merged.xlsx
+15. Real Estate Valuation,TabDDPM,,fidelity,Quality_Score,0.7347507844226402,0.7347507844226402,,,,0.0,100.0,Score,Generators/Experiment with utility data leak/utility results/15. Real Estate Valuation/TRTR_TSTR_results_merged.xlsx
+15. Real Estate Valuation,ForestDiffusion,,fidelity,Quality_Score,0.9694415186242399,0.9694415186242399,,,,0.0,100.0,Score,Generators/Experiment with utility data leak/utility results/15. Real Estate Valuation/TRTR_TSTR_results_merged.xlsx
+1. Cancer,GaussianCopula,,fidelity,Quality_Score,0.943748,0.943748,,,,,,,Generators/SDV models/1. Cancer.ipynb
+1. Cancer,TVAE,,fidelity,Quality_Score,0.896421,0.896421,,,,,,,Generators/SDV models/1. Cancer.ipynb
+1. Cancer,CTGAN,,fidelity,Quality_Score,0.765081,0.765081,,,,,,,Generators/SDV models/1. Cancer.ipynb
+1. Cancer,CopulaGAN,,fidelity,Quality_Score,0.721867,0.721867,,,,,,,Generators/SDV models/1. Cancer.ipynb
+2. Alzhimers,GaussianCopula,,fidelity,Quality_Score,0.789691,0.789691,,,,,,,Generators/SDV models/2. Alzhimers.ipynb
+2. Alzhimers,TVAE,,fidelity,Quality_Score,0.744373,0.744373,,,,,,,Generators/SDV models/2. Alzhimers.ipynb
+2. Alzhimers,CTGAN,,fidelity,Quality_Score,0.686399,0.686399,,,,,,,Generators/SDV models/2. Alzhimers.ipynb
+2. Alzhimers,CopulaGAN,,fidelity,Quality_Score,0.639551,0.639551,,,,,,,Generators/SDV models/2. Alzhimers.ipynb
+3. Adult,TVAE,,fidelity,Quality_Score,0.910348,0.910348,,,,,,,Generators/SDV models/3. Adult census.ipynb
+3. Adult,CopulaGAN,,fidelity,Quality_Score,0.903951,0.903951,,,,,,,Generators/SDV models/3. Adult census.ipynb
+3. Adult,CTGAN,,fidelity,Quality_Score,0.886921,0.886921,,,,,,,Generators/SDV models/3. Adult census.ipynb
+3. Adult,GaussianCopula,,fidelity,Quality_Score,0.821502,0.821502,,,,,,,Generators/SDV models/3. Adult census.ipynb
+4. Forest cover dataset,GaussianCopula,,fidelity,Quality_Score,0.925026,0.925026,,,,,,,Generators/SDV models/4.Forest cover.ipynb
+4. Forest cover dataset,TVAE,,fidelity,Quality_Score,0.881179,0.881179,,,,,,,Generators/SDV models/4.Forest cover.ipynb
+4. Forest cover dataset,CTGAN,,fidelity,Quality_Score,0.861948,0.861948,,,,,,,Generators/SDV models/4.Forest cover.ipynb
+4. Forest cover dataset,CopulaGAN,,fidelity,Quality_Score,0.85485,0.85485,,,,,,,Generators/SDV models/4.Forest cover.ipynb
+5. Bank Markting,CTGAN,,fidelity,Quality_Score,0.867679,0.867679,,,,,,,Generators/SDV models/5. Bank Marketing.ipynb
+5. Bank Markting,CopulaGAN,,fidelity,Quality_Score,0.845611,0.845611,,,,,,,Generators/SDV models/5. Bank Marketing.ipynb
+5. Bank Markting,TVAE,,fidelity,Quality_Score,0.828657,0.828657,,,,,,,Generators/SDV models/5. Bank Marketing.ipynb
+5. Bank Markting,GaussianCopula,,fidelity,Quality_Score,0.821755,0.821755,,,,,,,Generators/SDV models/5. Bank Marketing.ipynb
+6. Wine dataset,GaussianCopula,,fidelity,Quality_Score,0.951731,0.951731,,,,,,,Generators/SDV models/6. Wine quality.ipynb
+6. Wine dataset,TVAE,,fidelity,Quality_Score,0.94743,0.94743,,,,,,,Generators/SDV models/6. Wine quality.ipynb
+6. Wine dataset,CTGAN,,fidelity,Quality_Score,0.870891,0.870891,,,,,,,Generators/SDV models/6. Wine quality.ipynb
+6. Wine dataset,CopulaGAN,,fidelity,Quality_Score,0.869136,0.869136,,,,,,,Generators/SDV models/6. Wine quality.ipynb
+7. CDC diabetes dataset,GaussianCopula,,fidelity,Quality_Score,0.923657,0.923657,,,,,,,Generators/SDV models/7. Heart.ipynb
+7. CDC diabetes dataset,TVAE,,fidelity,Quality_Score,0.916702,0.916702,,,,,,,Generators/SDV models/7. Heart.ipynb
+7. CDC diabetes dataset,CopulaGAN,,fidelity,Quality_Score,0.88296,0.88296,,,,,,,Generators/SDV models/7. Heart.ipynb
+7. CDC diabetes dataset,CTGAN,,fidelity,Quality_Score,0.87481,0.87481,,,,,,,Generators/SDV models/7. Heart.ipynb
+8. Mushroom dataset,TVAE,,fidelity,Quality_Score,0.914558,0.914558,,,,,,,Generators/SDV models/8. Mushroom.ipynb
+8. Mushroom dataset,GaussianCopula,,fidelity,Quality_Score,0.909833,0.909833,,,,,,,Generators/SDV models/8. Mushroom.ipynb
+8. Mushroom dataset,CopulaGAN,,fidelity,Quality_Score,0.892834,0.892834,,,,,,,Generators/SDV models/8. Mushroom.ipynb
+8. Mushroom dataset,CTGAN,,fidelity,Quality_Score,0.878921,0.878921,,,,,,,Generators/SDV models/8. Mushroom.ipynb
+9. MAGIC Gamma Telescope,TVAE,,fidelity,Quality_Score,0.928895,0.928895,,,,,,,Generators/SDV models/9. MAGIC Gamma Telescope.ipynb
+9. MAGIC Gamma Telescope,GaussianCopula,,fidelity,Quality_Score,0.895806,0.895806,,,,,,,Generators/SDV models/9. MAGIC Gamma Telescope.ipynb
+9. MAGIC Gamma Telescope,CTGAN,,fidelity,Quality_Score,0.894375,0.894375,,,,,,,Generators/SDV models/9. MAGIC Gamma Telescope.ipynb
+9. MAGIC Gamma Telescope,CopulaGAN,,fidelity,Quality_Score,0.888847,0.888847,,,,,,,Generators/SDV models/9. MAGIC Gamma Telescope.ipynb
+10. Metro interstate,TVAE,,fidelity,Quality_Score,0.852997,0.852997,,,,,,,Generators/SDV models/10. Metro Interstate Traffic Volume.ipynb
+10. Metro interstate,CTGAN,,fidelity,Quality_Score,0.755272,0.755272,,,,,,,Generators/SDV models/10. Metro Interstate Traffic Volume.ipynb
+10. Metro interstate,CopulaGAN,,fidelity,Quality_Score,0.719811,0.719811,,,,,,,Generators/SDV models/10. Metro Interstate Traffic Volume.ipynb
+10. Metro interstate,GaussianCopula,,fidelity,Quality_Score,0.573533,0.573533,,,,,,,Generators/SDV models/10. Metro Interstate Traffic Volume.ipynb
+11. online shopping,GaussianCopula,,fidelity,Quality_Score,0.704185,0.704185,,,,,,,Generators/SDV models/11. Online Shopping.ipynb
+11. online shopping,CopulaGAN,,fidelity,Quality_Score,0.682,0.682,,,,,,,Generators/SDV models/11. Online Shopping.ipynb
+11. online shopping,CTGAN,,fidelity,Quality_Score,0.672431,0.672431,,,,,,,Generators/SDV models/11. Online Shopping.ipynb
+11. online shopping,TVAE,,fidelity,Quality_Score,0.608031,0.608031,,,,,,,Generators/SDV models/11. Online Shopping.ipynb
+12. Air Quality,GaussianCopula,,fidelity,Quality_Score,0.948563,0.948563,,,,,,,Generators/SDV models/12. Air Quality.ipynb
+12. Air Quality,TVAE,,fidelity,Quality_Score,0.927111,0.927111,,,,,,,Generators/SDV models/12. Air Quality.ipynb
+12. Air Quality,CTGAN,,fidelity,Quality_Score,0.724395,0.724395,,,,,,,Generators/SDV models/12. Air Quality.ipynb
+12. Air Quality,CopulaGAN,,fidelity,Quality_Score,0.671844,0.671844,,,,,,,Generators/SDV models/12. Air Quality.ipynb
+13. Concrete Compressive Strength,TVAE,,fidelity,Quality_Score,0.894231,0.894231,,,,,,,Generators/SDV models/13. Concrete Compressive Strength.ipynb
+13. Concrete Compressive Strength,GaussianCopula,,fidelity,Quality_Score,0.847314,0.847314,,,,,,,Generators/SDV models/13. Concrete Compressive Strength.ipynb
+13. Concrete Compressive Strength,CopulaGAN,,fidelity,Quality_Score,0.724632,0.724632,,,,,,,Generators/SDV models/13. Concrete Compressive Strength.ipynb
+13. Concrete Compressive Strength,CTGAN,,fidelity,Quality_Score,0.720855,0.720855,,,,,,,Generators/SDV models/13. Concrete Compressive Strength.ipynb
+14. Energy Efficiency,TVAE,,fidelity,Quality_Score,0.88622,0.88622,,,,,,,Generators/SDV models/14. Energy Efficiency.ipynb
+14. Energy Efficiency,GaussianCopula,,fidelity,Quality_Score,0.789355,0.789355,,,,,,,Generators/SDV models/14. Energy Efficiency.ipynb
+14. Energy Efficiency,CopulaGAN,,fidelity,Quality_Score,0.686985,0.686985,,,,,,,Generators/SDV models/14. Energy Efficiency.ipynb
+14. Energy Efficiency,CTGAN,,fidelity,Quality_Score,0.677298,0.677298,,,,,,,Generators/SDV models/14. Energy Efficiency.ipynb
+15. Real Estate Valuation,TVAE,,fidelity,Quality_Score,0.92108,0.92108,,,,,,,Generators/SDV models/15. Real Estate Valuation.ipynb
+15. Real Estate Valuation,GaussianCopula,,fidelity,Quality_Score,0.884307,0.884307,,,,,,,Generators/SDV models/15. Real Estate Valuation.ipynb
+15. Real Estate Valuation,CTGAN,,fidelity,Quality_Score,0.764289,0.764289,,,,,,,Generators/SDV models/15. Real Estate Valuation.ipynb
+15. Real Estate Valuation,CopulaGAN,,fidelity,Quality_Score,0.734702,0.734702,,,,,,,Generators/SDV models/15. Real Estate Valuation.ipynb

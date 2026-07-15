@@ -1,0 +1,30 @@
+|    | Metric   | Generator_A     | Generator_B     |      p_raw |    p_holm |       p_bh |   Cliffs_Delta |
+|---:|:---------|:----------------|:----------------|-----------:|----------:|-----------:|---------------:|
+|  0 | Accuracy | CTABGAN         | CTGAN           | 0.00195312 | 0.0546875 | 0.00227865 |           0.96 |
+|  1 | Accuracy | CTABGAN         | CopulaGAN       | 0.00195312 | 0.0546875 | 0.00227865 |           1    |
+|  2 | Accuracy | CTABGAN         | ForestDiffusion | 0.00195312 | 0.0546875 | 0.00227865 |          -1    |
+|  3 | Accuracy | CTABGAN         | GaussianCopula  | 0.0488281  | 0.0546875 | 0.0488281  |           0.24 |
+|  4 | Accuracy | CTABGAN         | TVAE            | 0.00195312 | 0.0546875 | 0.00227865 |          -0.78 |
+|  5 | Accuracy | CTABGAN         | TabDDPM         | 0.00195312 | 0.0546875 | 0.00227865 |           1    |
+|  6 | Accuracy | CTABGAN         | WGAN_GP         | 0.00195312 | 0.0546875 | 0.00227865 |          -0.94 |
+|  7 | Accuracy | CTGAN           | CopulaGAN       | 0.00195312 | 0.0546875 | 0.00227865 |           1    |
+|  8 | Accuracy | CTGAN           | ForestDiffusion | 0.00195312 | 0.0546875 | 0.00227865 |          -1    |
+|  9 | Accuracy | CTGAN           | GaussianCopula  | 0.00195312 | 0.0546875 | 0.00227865 |          -0.86 |
+| 10 | Accuracy | CTGAN           | TVAE            | 0.00195312 | 0.0546875 | 0.00227865 |          -1    |
+| 11 | Accuracy | CTGAN           | TabDDPM         | 0.00195312 | 0.0546875 | 0.00227865 |           0.98 |
+| 12 | Accuracy | CTGAN           | WGAN_GP         | 0.00195312 | 0.0546875 | 0.00227865 |          -1    |
+| 13 | Accuracy | CopulaGAN       | ForestDiffusion | 0.00195312 | 0.0546875 | 0.00227865 |          -1    |
+| 14 | Accuracy | CopulaGAN       | GaussianCopula  | 0.00195312 | 0.0546875 | 0.00227865 |          -1    |
+| 15 | Accuracy | CopulaGAN       | TVAE            | 0.00195312 | 0.0546875 | 0.00227865 |          -1    |
+| 16 | Accuracy | CopulaGAN       | TabDDPM         | 0.0195312  | 0.0546875 | 0.0202546  |          -0.72 |
+| 17 | Accuracy | CopulaGAN       | WGAN_GP         | 0.00195312 | 0.0546875 | 0.00227865 |          -1    |
+| 18 | Accuracy | ForestDiffusion | GaussianCopula  | 0.00195312 | 0.0546875 | 0.00227865 |           1    |
+| 19 | Accuracy | ForestDiffusion | TVAE            | 0.00195312 | 0.0546875 | 0.00227865 |           0.73 |
+| 20 | Accuracy | ForestDiffusion | TabDDPM         | 0.00195312 | 0.0546875 | 0.00227865 |           1    |
+| 21 | Accuracy | ForestDiffusion | WGAN_GP         | 0.00390625 | 0.0546875 | 0.00420673 |           0.64 |
+| 22 | Accuracy | GaussianCopula  | TVAE            | 0.00195312 | 0.0546875 | 0.00227865 |          -0.82 |
+| 23 | Accuracy | GaussianCopula  | TabDDPM         | 0.00195312 | 0.0546875 | 0.00227865 |           1    |
+| 24 | Accuracy | GaussianCopula  | WGAN_GP         | 0.00195312 | 0.0546875 | 0.00227865 |          -0.94 |
+| 25 | Accuracy | TVAE            | TabDDPM         | 0.00195312 | 0.0546875 | 0.00227865 |           1    |
+| 26 | Accuracy | TVAE            | WGAN_GP         | 0.00390625 | 0.0546875 | 0.00420673 |          -0.49 |
+| 27 | Accuracy | TabDDPM         | WGAN_GP         | 0.00195312 | 0.0546875 | 0.00227865 |          -1    |

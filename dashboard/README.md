@@ -1,48 +1,77 @@
 # SYNTH Benchmark Dashboard
 
-Interactive dashboard for **TRTR/TSTR** utility results from the diffusion data-leak
-benchmark under `Generators/Experiment with utility data leak/diffusion_dataleak`.
+Two ways to explore benchmark results:
 
-## Data source
+| Mode | Use case | Command |
+|------|----------|---------|
+| **GitHub Pages** (static) | Public website, no server | `python dashboard/build_pages.py` → deploy `docs/` |
+| **Streamlit** (local) | Live Excel reload, deeper drill-down | `streamlit run dashboard/app.py` |
 
-- **15 datasets** (classification 1–9, regression 10–15)
-- **8 generators** tracked end-to-end:
-  - SDV / GAN: `CTGAN`, `CopulaGAN`, `TVAE`, `GaussianCopula`, `WGAN_GP`, `CTABGAN`
-  - Diffusion: `TabDDPM`, `ForestDiffusion`
-- Results are loaded from `diffusion_dataleak/<dataset>/TRTR_TSTR*.xlsx` when available,
-  with missing SDV/GAN rows filled from the parent `Experiment with utility data leak`
-  folder when that workbook exists.
+---
 
-Each dataset folder may contain `TRTR_TSTR_results*.xlsx` with sheets:
-`TRTR_Results`, `All_Comparisons`, `Summary`, `Quality_Metrics`, and per-generator detail tabs.
+## GitHub Pages (publish online)
 
-## Setup
+### One-time GitHub setup
+
+1. Push this repository to GitHub.
+2. Go to **Settings → Pages**.
+3. Under **Build and deployment**, set **Source** to **GitHub Actions**.
+
+The workflow `.github/workflows/deploy-pages.yml` runs on every push to `main`/`master`:
+
+1. Runs `python run_analysis.py` (merges all Excel files)
+2. Builds the interactive dashboard into `docs/`
+3. Deploys to GitHub Pages
+
+Your site will be available at:
+
+```text
+https://<username>.github.io/<repository-name>/
+```
+
+### Build locally
+
+```bash
+# 1. Generate Results/ (if not already done)
+python run_analysis.py
+
+# 2. Build static site
+python dashboard/build_pages.py --repo-url https://github.com/YOU/SYNTH_BENCHMARK
+
+# 3. Preview
+cd docs && python -m http.server 8080
+# Open http://localhost:8080
+```
+
+### Dashboard tabs
+
+- **Overview** — utility gap heatmap, generator coverage
+- **Utility** — TRTR vs TSTR, filters by dataset/metric/classifier
+- **Fidelity** — SDV quality scores
+- **Privacy** — Mahalanobis distance comparisons
+- **Trade-offs** — privacy vs utility scatter, 3D plot
+- **Rankings** — weighted & Borda rankings
+- **Statistics** — significance heatmaps
+
+---
+
+## Streamlit (local interactive)
 
 ```bash
 cd dashboard
 pip install -r requirements.txt
-```
-
-## Run
-
-```bash
 streamlit run app.py
 ```
 
-Or on Windows:
+Opens at [http://localhost:8501](http://localhost:8501).
 
-```bash
-run.bat
-```
+Reads Excel files directly from `Generators/Experiment with utility data leak/`.
 
-The app opens at [http://localhost:8501](http://localhost:8501).
+---
 
-## Views
+## Data sources
 
-| Tab | Description |
-|-----|-------------|
-| **Experiment status** | Coverage heatmap (dataset × generator) and pending/partial runs |
-| **Overview** | Heatmap and bar chart of utility gap across datasets and generators |
-| **Dataset detail** | TRTR vs TSTR per downstream model, summary tables, quality scores |
-| **Generator ranking** | Best generator per dataset and win-count chart |
-| **Data tables** | Full summary table with CSV export and coverage matrix |
+- **Static dashboard (`docs/data/`)** — JSON exported from `Results/` by the analysis pipeline
+- **Streamlit** — live Excel workbooks (TRTR/TSTR, Summary, Quality_Metrics)
+
+8 generators: CTGAN, CopulaGAN, TVAE, GaussianCopula, WGAN_GP, CTABGAN, TabDDPM, ForestDiffusion

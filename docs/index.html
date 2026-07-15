@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SYNTH Benchmark — Interactive Results Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/style.css" />
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+</head>
+<body>
+  <header>
+    <h1>SYNTH Benchmark Dashboard</h1>
+    <p>Interactive results for 8 synthetic data generators · Utility · Fidelity · Privacy · Trade-offs</p>
+  </header>
+
+  <div id="app-loading" class="loading">Loading benchmark data…</div>
+
+  <div id="app-main" style="display:none">
+    <section class="metrics">
+      <div class="metric"><div class="label">Datasets</div><div class="value" id="metric-datasets">—</div></div>
+      <div class="metric"><div class="label">Generators</div><div class="value" id="metric-generators">8</div></div>
+      <div class="metric"><div class="label">Excel files</div><div class="value" id="metric-files">—</div></div>
+      <div class="metric"><div class="label">Utility rows</div><div class="value" id="metric-utility">—</div></div>
+    </section>
+
+    <nav class="tabs">
+      <button class="active" data-panel="panel-overview">Overview</button>
+      <button data-panel="panel-utility">Utility</button>
+      <button data-panel="panel-fidelity">Fidelity</button>
+      <button data-panel="panel-privacy">Privacy</button>
+      <button data-panel="panel-tradeoff">Trade-offs</button>
+      <button data-panel="panel-rankings">Rankings</button>
+      <button data-panel="panel-statistics">Statistics</button>
+    </nav>
+
+    <main>
+      <section id="panel-overview" class="panel active">
+        <div class="chart-grid two">
+          <div class="chart-card"><h3>Utility gap across datasets</h3><div id="overview-heatmap" class="plot"></div></div>
+          <div class="chart-card"><h3>Generator coverage</h3><div id="overview-coverage" class="plot"></div></div>
+        </div>
+      </section>
+
+      <section id="panel-utility" class="panel">
+        <div class="controls">
+          <div class="control"><label>Task</label><select id="filter-task"></select></div>
+          <div class="control"><label>Metric</label><select id="filter-metric"></select></div>
+          <div class="control"><label>Dataset</label><select id="filter-dataset"></select></div>
+          <div class="control"><label>Generator</label><select id="filter-generator"></select></div>
+        </div>
+        <div class="chart-grid two">
+          <div class="chart-card"><h3>TRTR vs TSTR</h3><div id="utility-trtr-tstr" class="plot"></div></div>
+          <div class="chart-card"><h3>By classifier</h3><div id="utility-classifier" class="plot"></div></div>
+        </div>
+      </section>
+
+      <section id="panel-fidelity" class="panel">
+        <div class="chart-grid two">
+          <div class="chart-card"><h3>Quality score</h3><div id="fidelity-bar" class="plot"></div></div>
+          <div class="chart-card"><h3>Dataset heatmap</h3><div id="fidelity-heatmap" class="plot"></div></div>
+        </div>
+      </section>
+
+      <section id="panel-privacy" class="panel">
+        <div class="chart-card"><h3>Mahalanobis distance</h3><div id="privacy-bar" class="plot"></div></div>
+      </section>
+
+      <section id="panel-tradeoff" class="panel">
+        <div class="chart-grid two">
+          <div class="chart-card"><h3>Privacy vs Utility</h3><div id="tradeoff-scatter" class="plot"></div></div>
+          <div class="chart-card"><h3>3D trade-off</h3><div id="tradeoff-3d" class="plot"></div></div>
+        </div>
+      </section>
+
+      <section id="panel-rankings" class="panel">
+        <div class="chart-grid two">
+          <div class="chart-card"><h3>Weighted ranking</h3><div id="rankings-weighted" class="plot"></div></div>
+          <div class="chart-card"><h3>Borda count</h3><div id="rankings-borda" class="plot"></div></div>
+        </div>
+      </section>
+
+      <section id="panel-statistics" class="panel">
+        <div class="chart-grid two">
+          <div class="chart-card"><div id="stats-heat-0" class="plot"></div></div>
+          <div class="chart-card"><div id="stats-heat-1" class="plot"></div></div>
+          <div class="chart-card"><div id="stats-heat-2" class="plot"></div></div>
+          <div class="chart-card"><div id="stats-heat-3" class="plot"></div></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    SYNTH Benchmark · Synthetic Tabular Data Generation ·
+    <a href="https://github.com/" style="color:#3b82f6">View on GitHub</a>
+  </footer>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,2 @@
+Metric,Test,Statistic,p_value,RM_ANOVA_p,N_blocks,N_generators
+Accuracy,Friedman,68.30000000000001,3.256456477091384e-12,,10,8
