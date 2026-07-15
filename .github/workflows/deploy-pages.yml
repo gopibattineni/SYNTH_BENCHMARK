@@ -30,12 +30,9 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements-analysis.txt
+          pip install pandas
 
-      - name: Run analysis pipeline
-        run: python run_analysis.py
-
-      - name: Build static dashboard
+      - name: Build static dashboard from Results/
         run: |
           python dashboard/build_pages.py --repo-url "${{ github.server_url }}/${{ github.repository }}"
 

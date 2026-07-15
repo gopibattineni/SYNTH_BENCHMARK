@@ -58,14 +58,25 @@
       </section>
 
       <section id="panel-fidelity" class="panel">
+        <div class="controls">
+          <div class="control"><label>Fidelity metric</label><select id="filter-fidelity-metric"></select></div>
+          <div class="control"><label>Dataset</label><select id="filter-fidelity-dataset"></select></div>
+        </div>
         <div class="chart-grid two">
-          <div class="chart-card"><h3>Quality score</h3><div id="fidelity-bar" class="plot"></div></div>
+          <div class="chart-card"><h3 id="fidelity-bar-title">Fidelity by generator</h3><div id="fidelity-bar" class="plot"></div></div>
           <div class="chart-card"><h3>Dataset heatmap</h3><div id="fidelity-heatmap" class="plot"></div></div>
         </div>
       </section>
 
       <section id="panel-privacy" class="panel">
-        <div class="chart-card"><h3>Mahalanobis distance</h3><div id="privacy-bar" class="plot"></div></div>
+        <div class="controls">
+          <div class="control"><label>Privacy metric</label><select id="filter-privacy-metric"></select></div>
+          <div class="control"><label>Dataset</label><select id="filter-privacy-dataset"></select></div>
+        </div>
+        <div class="chart-grid two">
+          <div class="chart-card"><h3 id="privacy-bar-title">Privacy by generator</h3><div id="privacy-bar" class="plot"></div></div>
+          <div class="chart-card"><h3>Dataset heatmap</h3><div id="privacy-heatmap" class="plot"></div></div>
+        </div>
       </section>
 
       <section id="panel-tradeoff" class="panel">
@@ -95,9 +106,9 @@
 
   <footer>
     SYNTH Benchmark · Synthetic Tabular Data Generation ·
-    <a href="https://github.com/" style="color:#3b82f6">View on GitHub</a>
+    <a href="https://github.com/gopibattineni/SYNTH_BENCHMARK" style="color:#3b82f6">View on GitHub</a>
   </footer>
 
-  <script src="assets/app.js"></script>
+  <script src="assets/app.js?v=10"></script>
 </body>
 </html>

@@ -1,0 +1,72 @@
+[
+  {
+    "id": "PCA_Mean_Error",
+    "label": "PCA Mean Error",
+    "count": 120,
+    "higher_is_better": false,
+    "is_unit_interval": false
+  },
+  {
+    "id": "Cosine_Similarity",
+    "label": "Cosine Similarity",
+    "count": 118,
+    "higher_is_better": true,
+    "is_unit_interval": false
+  },
+  {
+    "id": "MMD",
+    "label": "MMD",
+    "count": 118,
+    "higher_is_better": false,
+    "is_unit_interval": false
+  },
+  {
+    "id": "MMD_Multivariate",
+    "label": "MMD Multivariate",
+    "count": 116,
+    "higher_is_better": false,
+    "is_unit_interval": false
+  },
+  {
+    "id": "Wasserstein_Distance",
+    "label": "Wasserstein Distance",
+    "count": 116,
+    "higher_is_better": false,
+    "is_unit_interval": false
+  },
+  {
+    "id": "Gower_Distance",
+    "label": "Gower Distance",
+    "count": 112,
+    "higher_is_better": false,
+    "is_unit_interval": true
+  },
+  {
+    "id": "PCA_Correlation_Diff",
+    "label": "PCA Correlation Diff",
+    "count": 112,
+    "higher_is_better": false,
+    "is_unit_interval": false
+  },
+  {
+    "id": "KS_Complement",
+    "label": "KS Complement",
+    "count": 79,
+    "higher_is_better": true,
+    "is_unit_interval": true
+  },
+  {
+    "id": "JS_Divergence",
+    "label": "JS Divergence",
+    "count": 78,
+    "higher_is_better": false,
+    "is_unit_interval": true
+  },
+  {
+    "id": "Quality_Score",
+    "label": "Quality Score",
+    "count": 75,
+    "higher_is_better": true,
+    "is_unit_interval": true
+  }
+]

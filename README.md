@@ -270,16 +270,19 @@ pip install "libzero==0.0.8" "rtdl==0.0.13" --no-deps   # torch 2.x compatible
 
 ## Dashboard
 
-Interactive results browser deployed via GitHub Pages:
+Interactive Plotly dashboard (utility, fidelity, privacy, trade-offs, rankings):
 
 **[https://gopibattineni.github.io/SYNTH_BENCHMARK/](https://gopibattineni.github.io/SYNTH_BENCHMARK/)**
+
+If you see a **404**, enable Pages once: **Settings → Pages → Source → Deploy from branch → `main` → `/docs`**.  
+See [dashboard/README.md](dashboard/README.md) for full deployment steps.
 
 Rebuild locally:
 
 ```bash
 python run_analysis.py --dashboard
 python dashboard/build_pages.py
-# Static site in docs/
+python -m http.server 8080 --directory docs   # preview at http://localhost:8080
 ```
 
 ---

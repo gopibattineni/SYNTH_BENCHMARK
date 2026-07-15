@@ -19,6 +19,88 @@ def _read_csv(name: str) -> pd.DataFrame:
     return pd.read_csv(path)
 
 
+def _load_privacy_long() -> pd.DataFrame:
+    """Prefer unified Master_Data privacy rows (includes NNDR, Mahalanobis, cosine)."""
+    for rel in ("Master_Data/privacy_long.csv", "MasterData/privacy_long.csv"):
+        df = _read_csv(rel)
+        if df.empty:
+            continue
+        out = df.copy()
+        if "MetricValue" in out.columns:
+            out["Mean"] = out["MetricValue"]
+        if "Mean" not in out.columns and "Value" in out.columns:
+            out["Mean"] = out["Value"]
+        out["Mean"] = pd.to_numeric(out["Mean"], errors="coerce")
+        keep = [c for c in ["Dataset", "Generator", "Metric", "Mean", "Std"] if c in out.columns]
+        return out[keep].dropna(subset=["Mean"])
+    return pd.DataFrame()
+
+
+def _load_fidelity_long() -> pd.DataFrame:
+    """Prefer unified Master_Data fidelity rows (all feature-level metrics)."""
+    for rel in ("Master_Data/fidelity_long.csv", "MasterData/fidelity_long.csv"):
+        df = _read_csv(rel)
+        if df.empty:
+            continue
+        out = df.copy()
+        if "MetricValue" in out.columns:
+            out["Mean"] = out["MetricValue"]
+        if "Mean" not in out.columns and "Value" in out.columns:
+            out["Mean"] = out["Value"]
+        out["Mean"] = pd.to_numeric(out["Mean"], errors="coerce")
+        keep = [c for c in ["Dataset", "Generator", "Metric", "Mean", "Std", "NormalizedScore"] if c in out.columns]
+        return out[keep].dropna(subset=["Mean"])
+    return pd.DataFrame()
+
+
+def _fidelity_metric_catalog(df: pd.DataFrame) -> list[dict]:
+    if df.empty:
+        return []
+    higher_better = {
+        "Quality_Score",
+        "Quality",
+        "KS_Complement",
+        "Cosine_Similarity",
+    }
+    unit_interval = {
+        "Quality_Score",
+        "Quality",
+        "KS_Complement",
+        "JS_Divergence",
+        "Gower_Distance",
+    }
+    catalog = []
+    for metric, grp in df.groupby("Metric", dropna=False):
+        catalog.append({
+            "id": metric,
+            "label": str(metric).replace("_", " "),
+            "count": int(len(grp)),
+            "higher_is_better": metric in higher_better,
+            "is_unit_interval": metric in unit_interval,
+        })
+    catalog.sort(key=lambda x: x["count"], reverse=True)
+    return catalog
+
+
+def _privacy_metric_catalog(df: pd.DataFrame) -> list[dict]:
+    if df.empty:
+        return []
+    catalog = []
+    for metric, grp in df.groupby("Metric", dropna=False):
+        catalog.append({
+            "id": metric,
+            "label": str(metric).replace("_", " "),
+            "count": int(len(grp)),
+            "lower_is_better": metric not in {
+                "Hungarian_Cosine_Similarity",
+                "Cosine_Similarity",
+            },
+            "is_similarity": "Cosine" in str(metric) or metric == "MIA_AUC",
+        })
+    catalog.sort(key=lambda x: x["count"], reverse=True)
+    return catalog
+
+
 def _records(df: pd.DataFrame, limit: int | None = None) -> list[dict]:
     if df.empty:
         return []
@@ -95,10 +177,20 @@ def export_dashboard_data(output_dir: Path | None = None) -> Path:
         )
 
     # --- Fidelity & privacy ---
-    fid_src = fid_stats if not fid_stats.empty else fidelity
-    priv_src = priv_stats if not priv_stats.empty else privacy
+    fid_src = _load_fidelity_long()
+    if fid_src.empty:
+        fid_src = fid_stats if not fid_stats.empty else fidelity
+    priv_src = _load_privacy_long()
+    if priv_src.empty:
+        priv_src = priv_stats if not priv_stats.empty else privacy
     (out / "fidelity.json").write_text(json.dumps(_records(fid_src), indent=2), encoding="utf-8")
+    (out / "fidelity_metrics.json").write_text(
+        json.dumps(_fidelity_metric_catalog(fid_src), indent=2), encoding="utf-8"
+    )
     (out / "privacy.json").write_text(json.dumps(_records(priv_src), indent=2), encoding="utf-8")
+    (out / "privacy_metrics.json").write_text(
+        json.dumps(_privacy_metric_catalog(priv_src), indent=2), encoding="utf-8"
+    )
 
     # --- Trade-off & rankings ---
     if not tradeoff.empty:
