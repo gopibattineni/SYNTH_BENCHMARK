@@ -94,6 +94,8 @@ def classify_table(df: pd.DataFrame) -> str | None:
         return "wasserstein_summary"
     if {"Model", "Avg_Intra_Real", "Avg_Cross_Real_vs_Synth"}.issubset(c):
         return "gower_summary"
+    if {"Model", "Avg_Cross_Similarity"}.issubset(c) or {"Model", "Avg_Gower_Similarity"}.issubset(c):
+        return "gower_summary"
     if {"Model", "MMD_Score"}.issubset(c):
         return "mmd_summary"
     if {"Model", "Global_MMD_RBF"}.issubset(c):
@@ -127,7 +129,14 @@ def _metric_value(row: pd.Series, kind: str) -> float | None:
     if kind == "wasserstein_summary":
         return float(row["Mean_Wasserstein"]) if pd.notna(row.get("Mean_Wasserstein")) else None
     if kind == "gower_summary":
-        return float(row["Avg_Cross_Real_vs_Synth"]) if pd.notna(row.get("Avg_Cross_Real_vs_Synth")) else None
+        for col in (
+            "Avg_Cross_Real_vs_Synth",
+            "Avg_Cross_Similarity",
+            "Avg_Gower_Similarity",
+        ):
+            if col in row.index and pd.notna(row[col]):
+                return float(row[col])
+        return None
     if kind == "mmd_summary":
         return float(row["MMD_Score"]) if pd.notna(row.get("MMD_Score")) else None
     if kind == "multivariate_mmd":

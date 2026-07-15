@@ -103,9 +103,19 @@ def load_quality_from_notebooks(config: PipelineConfig | None = None) -> pd.Data
                 continue
             for table in _extract_tables(nb):
                 cols = {str(c) for c in table.columns}
-                if not ({"Model", "Quality Score"}.issubset(cols) or {"Model", "Diagnostic Score", "Quality Score"}.issubset(cols)):
+                score_col = None
+                if {"Model", "Quality Score"}.issubset(cols) or {
+                    "Model",
+                    "Diagnostic Score",
+                    "Quality Score",
+                }.issubset(cols):
+                    score_col = "Quality Score" if "Quality Score" in table.columns else "Diagnostic Score"
+                elif {"Model", "Average_Column_Shapes_Score"}.issubset(cols):
+                    # Diffusion notebooks report mean KS complement instead of SDMetrics Quality Score.
+                    score_col = "Average_Column_Shapes_Score"
+                else:
                     continue
-                score_col = "Quality Score" if "Quality Score" in table.columns else "Diagnostic Score"
+
                 for _, row in table.iterrows():
                     generator = _normalize_generator(row.get("Model"))
                     if generator not in allowed:

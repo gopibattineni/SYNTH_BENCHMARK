@@ -21,6 +21,13 @@
     "is_unit_interval": false
   },
   {
+    "id": "Gower_Distance",
+    "label": "Gower Distance",
+    "count": 116,
+    "higher_is_better": false,
+    "is_unit_interval": true
+  },
+  {
     "id": "MMD_Multivariate",
     "label": "MMD Multivariate",
     "count": 116,
@@ -35,10 +42,10 @@
     "is_unit_interval": false
   },
   {
-    "id": "Gower_Distance",
-    "label": "Gower Distance",
-    "count": 112,
-    "higher_is_better": false,
+    "id": "Quality_Score",
+    "label": "Quality Score",
+    "count": 115,
+    "higher_is_better": true,
     "is_unit_interval": true
   },
   {
@@ -60,13 +67,6 @@
     "label": "JS Divergence",
     "count": 78,
     "higher_is_better": false,
-    "is_unit_interval": true
-  },
-  {
-    "id": "Quality_Score",
-    "label": "Quality Score",
-    "count": 75,
-    "higher_is_better": true,
     "is_unit_interval": true
   }
 ]

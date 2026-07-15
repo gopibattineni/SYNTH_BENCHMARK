@@ -201,6 +201,32 @@ function generatorYAxis() {
   };
 }
 
+function missingBarLabelTrace(values, asPercent) {
+  const nums = GENERATORS.map((_, i) => {
+    const raw = Array.isArray(values) ? values[i] : null;
+    if (raw == null) return null;
+    return asPercent ? toNum(raw) * 100 : toNum(raw);
+  });
+  const missingGens = GENERATORS.filter((_, i) => nums[i] == null);
+  if (!missingGens.length) return null;
+
+  const present = nums.filter(v => v != null);
+  const yPos = present.length
+    ? (asPercent ? Math.max(0, Math.min(...present) - 4) : Math.max(0, Math.min(...present) * 0.98))
+    : 0;
+
+  return {
+    x: missingGens,
+    y: missingGens.map(() => yPos),
+    type: "scatter",
+    mode: "text",
+    text: missingGens.map(() => "N/A"),
+    textfont: { color: "#94a3b8", size: 12 },
+    hoverinfo: "skip",
+    showlegend: false,
+  };
+}
+
 function privacyBarTrace({ x, y, color, asPercent }) {
   const nums = GENERATORS.map((gen, i) => {
     const raw = Array.isArray(y) ? y[i] : null;
@@ -253,6 +279,39 @@ function classifierMean(rows, classifier, evaluationType) {
 
 function isAllDatasets(dataset) {
   return !dataset || dataset === "All datasets";
+}
+
+function datasetProblemType(dataset) {
+  if (!dataset) return "unknown";
+  const match = String(dataset).match(/^(\d+)/);
+  if (!match) return "unknown";
+  return parseInt(match[1], 10) >= 10 ? "regression" : "classification";
+}
+
+function matchesProblemType(dataset, problemType) {
+  if (!problemType || problemType === "all") return true;
+  return datasetProblemType(dataset) === problemType;
+}
+
+function filterDatasetsByProblem(datasets, problemType) {
+  return datasets.filter(ds => matchesProblemType(ds, problemType));
+}
+
+function problemTypeLabel(problemType) {
+  if (problemType === "classification") return "classification";
+  if (problemType === "regression") return "regression";
+  return "all";
+}
+
+function setupProblemTypeSelect(id, onChange) {
+  const sel = document.getElementById(id);
+  if (!sel) return;
+  sel.innerHTML = [
+    { value: "all", label: "All problem types" },
+    { value: "classification", label: "Classification" },
+    { value: "regression", label: "Regression" },
+  ].map(o => `<option value="${o.value}">${o.label}</option>`).join("");
+  sel.addEventListener("change", onChange);
 }
 
 function axisSpec(metric, values, { clampUnit = false } = {}) {
@@ -511,20 +570,26 @@ function renderUtility() {
 
 function renderFidelity() {
   const metric = document.getElementById("filter-fidelity-metric")?.value;
+  const problemType = document.getElementById("filter-fidelity-problem")?.value || "all";
   const dataset = document.getElementById("filter-fidelity-dataset")?.value;
-  const allDs = isAllDatasets(dataset);
   const catalog = DATA.fidelityMetrics || [];
   const catalogEntry = catalog.find(m => m.id === metric) || {};
   const label = fidelityMetricLabel(metric);
   const asPercent = fidelityUsesPercent(metric, catalogEntry);
   const higherBetter = catalogEntry.higher_is_better !== false;
 
-  const rows = DATA.fidelity.filter(r =>
-    r.Metric === metric && (allDs || r.Dataset === dataset),
+  const metricRows = DATA.fidelity.filter(r =>
+    r.Metric === metric && matchesProblemType(r.Dataset, problemType),
   );
+  const datasets = filterDatasetsByProblem(unique(metricRows, "Dataset"), problemType);
+  const datasetDefault = dataset && (dataset === "All datasets" || datasets.includes(dataset))
+    ? dataset
+    : "All datasets";
+  fillSelect("filter-fidelity-dataset", ["All datasets", ...datasets], datasetDefault);
 
-  const datasets = unique(DATA.fidelity.filter(r => r.Metric === metric), "Dataset");
-  fillSelect("filter-fidelity-dataset", ["All datasets", ...datasets], dataset || "All datasets");
+  const selectedDataset = document.getElementById("filter-fidelity-dataset")?.value;
+  const allDsSelected = isAllDatasets(selectedDataset);
+  const rows = metricRows.filter(r => allDsSelected || r.Dataset === selectedDataset);
 
   if (!rows.length) {
     plot("fidelity-bar", [], { title: `No data for ${label}`, height: 220 });
@@ -545,14 +610,21 @@ function renderFidelity() {
   const gens = GENERATORS;
   const barValues = valuesForAllGenerators(byGen);
   const direction = higherBetter ? "higher = better fidelity" : "lower = better fidelity";
+  const missingCount = barValues.filter(v => v == null).length;
+  const missingNote = missingCount ? ` · ${missingCount} generator(s) not evaluated` : "";
+  const problemNote = problemType !== "all"
+    ? ` · ${problemTypeLabel(problemType)} datasets`
+    : "";
 
   const titleEl = document.getElementById("fidelity-bar-title");
   if (titleEl) titleEl.textContent = `${label} by generator`;
 
+  const naTrace = missingBarLabelTrace(barValues, asPercent);
   plot("fidelity-bar", [
     privacyBarTrace({ x: gens, y: barValues, color: "#3b82f6", asPercent }),
+    ...(naTrace ? [naTrace] : []),
   ], {
-    title: `${label}${allDs ? " (mean over datasets)" : ""} · ${direction}`,
+    title: `${label}${allDsSelected ? " (mean over datasets)" : ""}${problemNote} · ${direction}${missingNote}`,
     height: 460,
     margin: { t: 44, b: 88, l: 64, r: 24 },
     yaxis: numericYAxis(barValues, { asPercent }),
@@ -560,8 +632,8 @@ function renderFidelity() {
     showlegend: false,
   });
 
-  const heatRows = DATA.fidelity.filter(r => r.Metric === metric);
-  const heatDs = unique(heatRows, "Dataset");
+  const heatRows = metricRows;
+  const heatDs = datasets;
   const heatGens = GENERATORS;
   const z = heatGens.map(g => heatDs.map(d => {
     const matches = heatRows.filter(r => r.Generator === g && r.Dataset === d);
@@ -586,13 +658,15 @@ function renderFidelity() {
       tickformat: asPercent ? ".0%" : ".2f",
     },
   }], {
-    title: `${label} · dataset × generator`,
+    title: `${label} · dataset × generator${problemType !== "all" ? ` (${problemTypeLabel(problemType)})` : ""}`,
     height: 420,
     yaxis: generatorYAxis(),
   });
 }
 
 function setupFidelityFilters() {
+  setupProblemTypeSelect("filter-fidelity-problem", renderFidelity);
+
   const catalog = DATA.fidelityMetrics || [];
   const available = new Set(catalog.map(m => m.id));
   const ordered = FIDELITY_PREFERRED_ORDER.filter(id => available.has(id));
@@ -620,20 +694,26 @@ function setupFidelityFilters() {
 
 function renderPrivacy() {
   const metric = document.getElementById("filter-privacy-metric")?.value;
+  const problemType = document.getElementById("filter-privacy-problem")?.value || "all";
   const dataset = document.getElementById("filter-privacy-dataset")?.value;
-  const allDs = isAllDatasets(dataset);
   const catalog = DATA.privacyMetrics || [];
   const catalogEntry = catalog.find(m => m.id === metric) || {};
   const label = privacyMetricLabel(metric);
   const asPercent = privacyUsesPercent(metric, catalogEntry);
   const lowerBetter = catalogEntry.lower_is_better !== false;
 
-  const rows = DATA.privacy.filter(r =>
-    r.Metric === metric && (allDs || r.Dataset === dataset),
+  const metricRows = DATA.privacy.filter(r =>
+    r.Metric === metric && matchesProblemType(r.Dataset, problemType),
   );
+  const datasets = filterDatasetsByProblem(unique(metricRows, "Dataset"), problemType);
+  const datasetDefault = dataset && (dataset === "All datasets" || datasets.includes(dataset))
+    ? dataset
+    : "All datasets";
+  fillSelect("filter-privacy-dataset", ["All datasets", ...datasets], datasetDefault);
 
-  const datasets = unique(DATA.privacy.filter(r => r.Metric === metric), "Dataset");
-  fillSelect("filter-privacy-dataset", ["All datasets", ...datasets], dataset || "All datasets");
+  const selectedDataset = document.getElementById("filter-privacy-dataset")?.value;
+  const allDsSelected = isAllDatasets(selectedDataset);
+  const rows = metricRows.filter(r => allDsSelected || r.Dataset === selectedDataset);
 
   if (!rows.length) {
     plot("privacy-bar", [], { title: `No data for ${label}`, height: 220 });
@@ -654,14 +734,21 @@ function renderPrivacy() {
   const gens = GENERATORS;
   const barValues = valuesForAllGenerators(byGen);
   const direction = lowerBetter ? "lower = more private" : "lower similarity = more private";
+  const missingCount = barValues.filter(v => v == null).length;
+  const missingNote = missingCount ? ` · ${missingCount} generator(s) not evaluated` : "";
+  const problemNote = problemType !== "all"
+    ? ` · ${problemTypeLabel(problemType)} datasets`
+    : "";
 
   const titleEl = document.getElementById("privacy-bar-title");
   if (titleEl) titleEl.textContent = `${label} by generator`;
 
+  const naTrace = missingBarLabelTrace(barValues, asPercent);
   plot("privacy-bar", [
     privacyBarTrace({ x: gens, y: barValues, color: "#f59e0b", asPercent }),
+    ...(naTrace ? [naTrace] : []),
   ], {
-    title: `${label}${allDs ? " (mean over datasets)" : ""} · ${direction}`,
+    title: `${label}${allDsSelected ? " (mean over datasets)" : ""}${problemNote} · ${direction}${missingNote}`,
     height: 460,
     margin: { t: 44, b: 88, l: 64, r: 24 },
     yaxis: numericYAxis(barValues, { asPercent }),
@@ -669,8 +756,8 @@ function renderPrivacy() {
     showlegend: false,
   });
 
-  const heatRows = DATA.privacy.filter(r => r.Metric === metric);
-  const heatDs = unique(heatRows, "Dataset");
+  const heatRows = metricRows;
+  const heatDs = datasets;
   const heatGens = GENERATORS;
   const z = heatGens.map(g => heatDs.map(d => {
     const matches = heatRows.filter(r => r.Generator === g && r.Dataset === d);
@@ -689,13 +776,15 @@ function renderPrivacy() {
       tickformat: asPercent ? ".0%" : ".2f",
     },
   }], {
-    title: `${label} · dataset × generator`,
+    title: `${label} · dataset × generator${problemType !== "all" ? ` (${problemTypeLabel(problemType)})` : ""}`,
     height: 420,
     yaxis: generatorYAxis(),
   });
 }
 
 function setupPrivacyFilters() {
+  setupProblemTypeSelect("filter-privacy-problem", renderPrivacy);
+
   const catalog = DATA.privacyMetrics || [];
   const available = new Set(catalog.map(m => m.id));
   const ordered = PRIVACY_PREFERRED_ORDER.filter(id => available.has(id));

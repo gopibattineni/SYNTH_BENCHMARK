@@ -1,29 +1,17 @@
 Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionModel,Regressor,Leakage,LeakageLevel,TrainingPercentage,EvaluationType,Category,MetricValue,SourceFile
 10. Metro interstate,CTABGAN,,fidelity,Quality_Score,0.8821898055036569,0.8821898055036569,,,,,0.0,0,100.0,Score,Fidelity,0.8821898055036569,Generators/Experiment with utility data leak/utility results/10. Metro interstate/TRTR_TSTR_results_merged.xlsx
 10. Metro interstate,WGAN_GP,,fidelity,Quality_Score,0.808212463794471,0.808212463794471,,,,,0.0,0,100.0,Score,Fidelity,0.808212463794471,Generators/Experiment with utility data leak/utility results/10. Metro interstate/TRTR_TSTR_results_merged.xlsx
-11. online shopping,CTABGAN,,fidelity,Quality_Score,0.9946252035570975,0.9946252035570975,,,,,0.0,0,100.0,Score,Fidelity,0.9946252035570975,Generators/Experiment with utility data leak/utility results/11. online shopping/TRTR_TSTR_results_merged.xlsx
-11. online shopping,WGAN_GP,,fidelity,Quality_Score,0.01041483875451275,0.01041483875451275,,,,,0.0,0,100.0,Score,Fidelity,0.01041483875451275,Generators/Experiment with utility data leak/utility results/11. online shopping/TRTR_TSTR_results_merged.xlsx
-12. Air Quality,CTABGAN,,fidelity,Quality_Score,0.8178852680962627,0.8178852680962627,,,,,0.0,0,100.0,Score,Fidelity,0.8178852680962627,Generators/Experiment with utility data leak/utility results/12. Air Quality/TRTR_TSTR_results_merged.xlsx
-12. Air Quality,WGAN_GP,,fidelity,Quality_Score,0.9248901750895357,0.9248901750895357,,,,,0.0,0,100.0,Score,Fidelity,0.9248901750895357,Generators/Experiment with utility data leak/utility results/12. Air Quality/TRTR_TSTR_results_merged.xlsx
+11. online shopping,CTABGAN,,fidelity,Quality_Score,0.9946252035570976,0.9946252035570976,,,,,0.0,0,100.0,Score,Fidelity,0.9946252035570976,Generators/Experiment with utility data leak/utility results/11. online shopping/TRTR_TSTR_results_merged.xlsx
+11. online shopping,WGAN_GP,,fidelity,Quality_Score,0.0104148387545127,0.0104148387545127,,,,,0.0,0,100.0,Score,Fidelity,0.0104148387545127,Generators/Experiment with utility data leak/utility results/11. online shopping/TRTR_TSTR_results_merged.xlsx
 13. Concrete Compressive Strength,,,fidelity,Quality_Score,0.7506345079655279,0.7506345079655279,,,,,0.0,0,100.0,Score,Fidelity,0.7506345079655279,Generators/Experiment with utility data leak/utility results/13. Concrete Compressive Strength/TRTR_TSTR_results_merged.xlsx
-13. Concrete Compressive Strength,TabDDPM,,fidelity,Quality_Score,0.9382868721657163,0.9382868721657163,,,,,0.0,0,100.0,Score,Fidelity,0.9382868721657163,Generators/Experiment with utility data leak/utility results/13. Concrete Compressive Strength/TRTR_TSTR_results_merged.xlsx
-13. Concrete Compressive Strength,ForestDiffusion,,fidelity,Quality_Score,0.9348424750662946,0.9348424750662946,,,,,0.0,0,100.0,Score,Fidelity,0.9348424750662946,Generators/Experiment with utility data leak/utility results/13. Concrete Compressive Strength/TRTR_TSTR_results_merged.xlsx
 14. Energy Efficiency,,,fidelity,Quality_Score,0.4979300039227117,0.4979300039227117,,,,,0.0,0,100.0,Score,Fidelity,0.4979300039227117,Generators/Experiment with utility data leak/utility results/14. Energy Efficiency/TRTR_TSTR_results_merged.xlsx
-14. Energy Efficiency,TabDDPM,,fidelity,Quality_Score,0.7175216927319554,0.7175216927319554,,,,,0.0,0,100.0,Score,Fidelity,0.7175216927319554,Generators/Experiment with utility data leak/utility results/14. Energy Efficiency/TRTR_TSTR_results_merged.xlsx
-14. Energy Efficiency,ForestDiffusion,,fidelity,Quality_Score,0.6387588541837335,0.6387588541837335,,,,,0.0,0,100.0,Score,Fidelity,0.6387588541837335,Generators/Experiment with utility data leak/utility results/14. Energy Efficiency/TRTR_TSTR_results_merged.xlsx
 15. Real Estate Valuation,,,fidelity,Quality_Score,0.8593680275609603,0.8593680275609603,,,,,0.0,0,100.0,Score,Fidelity,0.8593680275609603,Generators/Experiment with utility data leak/utility results/15. Real Estate Valuation/TRTR_TSTR_results_merged.xlsx
-15. Real Estate Valuation,TabDDPM,,fidelity,Quality_Score,0.7347507844226402,0.7347507844226402,,,,,0.0,0,100.0,Score,Fidelity,0.7347507844226402,Generators/Experiment with utility data leak/utility results/15. Real Estate Valuation/TRTR_TSTR_results_merged.xlsx
-15. Real Estate Valuation,ForestDiffusion,,fidelity,Quality_Score,0.9694415186242399,0.9694415186242399,,,,,0.0,0,100.0,Score,Fidelity,0.9694415186242399,Generators/Experiment with utility data leak/utility results/15. Real Estate Valuation/TRTR_TSTR_results_merged.xlsx
 1. Cancer,CTGAN,,,KS_Complement,,0.915807,,,,,,0,,Score,Fidelity,0.915807,Generators/SDV models/1. Cancer.ipynb
 1. Cancer,CTGAN,,,JS_Divergence,,0.254414,,,,,,0,,Score,Fidelity,0.254414,Generators/SDV models/1. Cancer.ipynb
 1. Cancer,GaussianCopula,,,Wasserstein_Distance,,0.014806,,,,,,0,,Score,Fidelity,0.014806,Generators/SDV models/1. Cancer.ipynb
 1. Cancer,TVAE,,,Wasserstein_Distance,,0.030417,,,,,,0,,Score,Fidelity,0.030417,Generators/SDV models/1. Cancer.ipynb
 1. Cancer,CTGAN,,,Wasserstein_Distance,,0.07423,,,,,,0,,Score,Fidelity,0.07423,Generators/SDV models/1. Cancer.ipynb
 1. Cancer,CopulaGAN,,,Wasserstein_Distance,,0.123656,,,,,,0,,Score,Fidelity,0.123656,Generators/SDV models/1. Cancer.ipynb
-1. Cancer,CTGAN,,,Gower_Distance,,0.825575,,,,,,0,,Score,Fidelity,0.825575,Generators/SDV models/1. Cancer.ipynb
-1. Cancer,CopulaGAN,,,Gower_Distance,,0.787046,,,,,,0,,Score,Fidelity,0.787046,Generators/SDV models/1. Cancer.ipynb
-1. Cancer,TVAE,,,Gower_Distance,,0.865425,,,,,,0,,Score,Fidelity,0.865425,Generators/SDV models/1. Cancer.ipynb
-1. Cancer,GaussianCopula,,,Gower_Distance,,0.851888,,,,,,0,,Score,Fidelity,0.851888,Generators/SDV models/1. Cancer.ipynb
 1. Cancer,GaussianCopula,,,MMD,,0.003901,,,,,,0,,Score,Fidelity,0.003901,Generators/SDV models/1. Cancer.ipynb
 1. Cancer,TVAE,,,MMD,,0.020162,,,,,,0,,Score,Fidelity,0.020162,Generators/SDV models/1. Cancer.ipynb
 1. Cancer,CTGAN,,,MMD,,0.142486,,,,,,0,,Score,Fidelity,0.142486,Generators/SDV models/1. Cancer.ipynb
@@ -44,8 +32,6 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 1. Cancer,CTABGAN,,,JS_Divergence,,0.320934,,,,,,0,,Score,Fidelity,0.320934,Generators/Other GANS/1. Cancer_other GAN.ipynb
 1. Cancer,WGAN_GP,,,Wasserstein_Distance,,0.010063,,,,,,0,,Score,Fidelity,0.010063,Generators/Other GANS/1. Cancer_other GAN.ipynb
 1. Cancer,CTABGAN,,,Wasserstein_Distance,,0.037154,,,,,,0,,Score,Fidelity,0.037154,Generators/Other GANS/1. Cancer_other GAN.ipynb
-1. Cancer,CTABGAN,,,Gower_Distance,,0.845894,,,,,,0,,Score,Fidelity,0.845894,Generators/Other GANS/1. Cancer_other GAN.ipynb
-1. Cancer,WGAN_GP,,,Gower_Distance,,0.87225,,,,,,0,,Score,Fidelity,0.87225,Generators/Other GANS/1. Cancer_other GAN.ipynb
 1. Cancer,WGAN_GP,,,MMD,,0.001618,,,,,,0,,Score,Fidelity,0.001618,Generators/Other GANS/1. Cancer_other GAN.ipynb
 1. Cancer,CTABGAN,,,MMD,,0.045172,,,,,,0,,Score,Fidelity,0.045172,Generators/Other GANS/1. Cancer_other GAN.ipynb
 1. Cancer,WGAN_GP,,,Cosine_Similarity,,0.021422,,,,,,0,,Score,Fidelity,0.021422,Generators/Other GANS/1. Cancer_other GAN.ipynb
@@ -60,8 +46,6 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 1. Cancer,TabDDPM,,,JS_Divergence,,0.946261,,,,,,0,,Score,Fidelity,0.946261,Generators/Diffusion GANs/1. Cancer_diffusion.ipynb
 1. Cancer,ForestDiffusion,,,Wasserstein_Distance,,0.012196,,,,,,0,,Score,Fidelity,0.012196,Generators/Diffusion GANs/1. Cancer_diffusion.ipynb
 1. Cancer,TabDDPM,,,Wasserstein_Distance,,0.424491,,,,,,0,,Score,Fidelity,0.424491,Generators/Diffusion GANs/1. Cancer_diffusion.ipynb
-1. Cancer,TabDDPM,,,Gower_Distance,,0.478821,,,,,,0,,Score,Fidelity,0.478821,Generators/Diffusion GANs/1. Cancer_diffusion.ipynb
-1. Cancer,ForestDiffusion,,,Gower_Distance,,0.860912,,,,,,0,,Score,Fidelity,0.860912,Generators/Diffusion GANs/1. Cancer_diffusion.ipynb
 1. Cancer,ForestDiffusion,,,MMD,,0.003385,,,,,,0,,Score,Fidelity,0.003385,Generators/Diffusion GANs/1. Cancer_diffusion.ipynb
 1. Cancer,TabDDPM,,,MMD,,0.568095,,,,,,0,,Score,Fidelity,0.568095,Generators/Diffusion GANs/1. Cancer_diffusion.ipynb
 1. Cancer,ForestDiffusion,,,Cosine_Similarity,,0.020406,,,,,,0,,Score,Fidelity,0.020406,Generators/Diffusion GANs/1. Cancer_diffusion.ipynb
@@ -80,10 +64,6 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 2. Alzhimers,TVAE,,,Wasserstein_Distance,,0.054921,,,,,,0,,Score,Fidelity,0.054921,Generators/SDV models/2. Alzhimers.ipynb
 2. Alzhimers,CTGAN,,,Wasserstein_Distance,,0.108791,,,,,,0,,Score,Fidelity,0.108791,Generators/SDV models/2. Alzhimers.ipynb
 2. Alzhimers,CopulaGAN,,,Wasserstein_Distance,,0.109986,,,,,,0,,Score,Fidelity,0.109986,Generators/SDV models/2. Alzhimers.ipynb
-2. Alzhimers,CTGAN,,,Gower_Distance,,0.735633,,,,,,0,,Score,Fidelity,0.735633,Generators/SDV models/2. Alzhimers.ipynb
-2. Alzhimers,CopulaGAN,,,Gower_Distance,,0.733296,,,,,,0,,Score,Fidelity,0.733296,Generators/SDV models/2. Alzhimers.ipynb
-2. Alzhimers,TVAE,,,Gower_Distance,,0.788536,,,,,,0,,Score,Fidelity,0.788536,Generators/SDV models/2. Alzhimers.ipynb
-2. Alzhimers,GaussianCopula,,,Gower_Distance,,0.791535,,,,,,0,,Score,Fidelity,0.791535,Generators/SDV models/2. Alzhimers.ipynb
 2. Alzhimers,TVAE,,,MMD,,0.042209,,,,,,0,,Score,Fidelity,0.042209,Generators/SDV models/2. Alzhimers.ipynb
 2. Alzhimers,GaussianCopula,,,MMD,,0.053118,,,,,,0,,Score,Fidelity,0.053118,Generators/SDV models/2. Alzhimers.ipynb
 2. Alzhimers,CopulaGAN,,,MMD,,0.119443,,,,,,0,,Score,Fidelity,0.119443,Generators/SDV models/2. Alzhimers.ipynb
@@ -110,8 +90,6 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 2. Alzhimers,WGAN_GP,,,JS_Divergence,,0.626113,,,,,,0,,Score,Fidelity,0.626113,Generators/Other GANS/2. Alzhimers_other GAN.ipynb
 2. Alzhimers,WGAN_GP,,,Wasserstein_Distance,,0.037194,,,,,,0,,Score,Fidelity,0.037194,Generators/Other GANS/2. Alzhimers_other GAN.ipynb
 2. Alzhimers,CTABGAN,,,Wasserstein_Distance,,0.058118,,,,,,0,,Score,Fidelity,0.058118,Generators/Other GANS/2. Alzhimers_other GAN.ipynb
-2. Alzhimers,CTABGAN,,,Gower_Distance,,0.779736,,,,,,0,,Score,Fidelity,0.779736,Generators/Other GANS/2. Alzhimers_other GAN.ipynb
-2. Alzhimers,WGAN_GP,,,Gower_Distance,,0.835927,,,,,,0,,Score,Fidelity,0.835927,Generators/Other GANS/2. Alzhimers_other GAN.ipynb
 2. Alzhimers,WGAN_GP,,,MMD,,0.004291,,,,,,0,,Score,Fidelity,0.004291,Generators/Other GANS/2. Alzhimers_other GAN.ipynb
 2. Alzhimers,CTABGAN,,,MMD,,0.045034,,,,,,0,,Score,Fidelity,0.045034,Generators/Other GANS/2. Alzhimers_other GAN.ipynb
 2. Alzhimers,WGAN_GP,,,Cosine_Similarity,,0.006048,,,,,,0,,Score,Fidelity,0.006048,Generators/Other GANS/2. Alzhimers_other GAN.ipynb
@@ -128,8 +106,6 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 2. Alzhimers,ForestDiffusion,,,JS_Divergence,,0.063646,,,,,,0,,Score,Fidelity,0.063646,Generators/Diffusion GANs/2. Alzhimers_diffusion.ipynb
 2. Alzhimers,ForestDiffusion,,,Wasserstein_Distance,,0.011849,,,,,,0,,Score,Fidelity,0.011849,Generators/Diffusion GANs/2. Alzhimers_diffusion.ipynb
 2. Alzhimers,TabDDPM,,,Wasserstein_Distance,,0.289061,,,,,,0,,Score,Fidelity,0.289061,Generators/Diffusion GANs/2. Alzhimers_diffusion.ipynb
-2. Alzhimers,TabDDPM,,,Gower_Distance,,0.585711,,,,,,0,,Score,Fidelity,0.585711,Generators/Diffusion GANs/2. Alzhimers_diffusion.ipynb
-2. Alzhimers,ForestDiffusion,,,Gower_Distance,,0.785988,,,,,,0,,Score,Fidelity,0.785988,Generators/Diffusion GANs/2. Alzhimers_diffusion.ipynb
 2. Alzhimers,ForestDiffusion,,,MMD,,0.001763,,,,,,0,,Score,Fidelity,0.001763,Generators/Diffusion GANs/2. Alzhimers_diffusion.ipynb
 2. Alzhimers,TabDDPM,,,MMD,,0.336058,,,,,,0,,Score,Fidelity,0.336058,Generators/Diffusion GANs/2. Alzhimers_diffusion.ipynb
 2. Alzhimers,ForestDiffusion,,,Cosine_Similarity,,0.003124,,,,,,0,,Score,Fidelity,0.003124,Generators/Diffusion GANs/2. Alzhimers_diffusion.ipynb
@@ -172,8 +148,6 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 3. Adult,WGAN_GP,,,JS_Divergence,,0.903478,,,,,,0,,Score,Fidelity,0.903478,Generators/Other GANS/3. Adult census_other GAN.ipynb
 3. Adult,CTABGAN,,,Wasserstein_Distance,,0.04297,,,,,,0,,Score,Fidelity,0.04297,Generators/Other GANS/3. Adult census_other GAN.ipynb
 3. Adult,WGAN_GP,,,Wasserstein_Distance,,0.075009,,,,,,0,,Score,Fidelity,0.075009,Generators/Other GANS/3. Adult census_other GAN.ipynb
-3. Adult,CTABGAN,,,Gower_Distance,,0.61206,,,,,,0,,Score,Fidelity,0.61206,Generators/Other GANS/3. Adult census_other GAN.ipynb
-3. Adult,WGAN_GP,,,Gower_Distance,,0.521082,,,,,,0,,Score,Fidelity,0.521082,Generators/Other GANS/3. Adult census_other GAN.ipynb
 3. Adult,WGAN_GP,,,MMD,,0.081653,,,,,,0,,Score,Fidelity,0.081653,Generators/Other GANS/3. Adult census_other GAN.ipynb
 3. Adult,CTABGAN,,,MMD,,0.100346,,,,,,0,,Score,Fidelity,0.100346,Generators/Other GANS/3. Adult census_other GAN.ipynb
 3. Adult,WGAN_GP,,,Cosine_Similarity,,0.000121,,,,,,0,,Score,Fidelity,0.000121,Generators/Other GANS/3. Adult census_other GAN.ipynb
@@ -190,8 +164,6 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 3. Adult,ForestDiffusion,,,JS_Divergence,,0.49456,,,,,,0,,Score,Fidelity,0.49456,Generators/Diffusion GANs/3. Adult census_diffusion.ipynb
 3. Adult,ForestDiffusion,,,Wasserstein_Distance,,0.016267,,,,,,0,,Score,Fidelity,0.016267,Generators/Diffusion GANs/3. Adult census_diffusion.ipynb
 3. Adult,TabDDPM,,,Wasserstein_Distance,,0.369429,,,,,,0,,Score,Fidelity,0.369429,Generators/Diffusion GANs/3. Adult census_diffusion.ipynb
-3. Adult,TabDDPM,,,Gower_Distance,,0.313479,,,,,,0,,Score,Fidelity,0.313479,Generators/Diffusion GANs/3. Adult census_diffusion.ipynb
-3. Adult,ForestDiffusion,,,Gower_Distance,,0.645353,,,,,,0,,Score,Fidelity,0.645353,Generators/Diffusion GANs/3. Adult census_diffusion.ipynb
 3. Adult,ForestDiffusion,,,MMD,,0.007571,,,,,,0,,Score,Fidelity,0.007571,Generators/Diffusion GANs/3. Adult census_diffusion.ipynb
 3. Adult,TabDDPM,,,MMD,,0.564577,,,,,,0,,Score,Fidelity,0.564577,Generators/Diffusion GANs/3. Adult census_diffusion.ipynb
 3. Adult,ForestDiffusion,,,Cosine_Similarity,,0.020289,,,,,,0,,Score,Fidelity,0.020289,Generators/Diffusion GANs/3. Adult census_diffusion.ipynb
@@ -222,8 +194,6 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 4. Forest cover dataset,CTABGAN,,,JS_Divergence,,0.23604,,,,,,0,,Score,Fidelity,0.23604,Generators/Other GANS/4_Forest_Cover_other_GAN.ipynb
 4. Forest cover dataset,CTABGAN,,,Wasserstein_Distance,,0.017958,,,,,,0,,Score,Fidelity,0.017958,Generators/Other GANS/4_Forest_Cover_other_GAN.ipynb
 4. Forest cover dataset,WGAN_GP,,,Wasserstein_Distance,,0.040051,,,,,,0,,Score,Fidelity,0.040051,Generators/Other GANS/4_Forest_Cover_other_GAN.ipynb
-4. Forest cover dataset,CTABGAN,,,Gower_Distance,,0.904271,,,,,,0,,Score,Fidelity,0.904271,Generators/Other GANS/4_Forest_Cover_other_GAN.ipynb
-4. Forest cover dataset,WGAN_GP,,,Gower_Distance,,0.905784,,,,,,0,,Score,Fidelity,0.905784,Generators/Other GANS/4_Forest_Cover_other_GAN.ipynb
 4. Forest cover dataset,CTABGAN,,,MMD,,0.009128,,,,,,0,,Score,Fidelity,0.009128,Generators/Other GANS/4_Forest_Cover_other_GAN.ipynb
 4. Forest cover dataset,WGAN_GP,,,MMD,,0.029089,,,,,,0,,Score,Fidelity,0.029089,Generators/Other GANS/4_Forest_Cover_other_GAN.ipynb
 4. Forest cover dataset,WGAN_GP,,,Cosine_Similarity,,0.004645,,,,,,0,,Score,Fidelity,0.004645,Generators/Other GANS/4_Forest_Cover_other_GAN.ipynb
@@ -238,8 +208,6 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 4. Forest cover dataset,TabDDPM,,,JS_Divergence,,0.936194,,,,,,0,,Score,Fidelity,0.936194,Generators/Diffusion GANs/4_Forest_Cover_diffusion.ipynb
 4. Forest cover dataset,ForestDiffusion,,,Wasserstein_Distance,,0.007472,,,,,,0,,Score,Fidelity,0.007472,Generators/Diffusion GANs/4_Forest_Cover_diffusion.ipynb
 4. Forest cover dataset,TabDDPM,,,Wasserstein_Distance,,0.313269,,,,,,0,,Score,Fidelity,0.313269,Generators/Diffusion GANs/4_Forest_Cover_diffusion.ipynb
-4. Forest cover dataset,TabDDPM,,,Gower_Distance,,0.633701,,,,,,0,,Score,Fidelity,0.633701,Generators/Diffusion GANs/4_Forest_Cover_diffusion.ipynb
-4. Forest cover dataset,ForestDiffusion,,,Gower_Distance,,0.911891,,,,,,0,,Score,Fidelity,0.911891,Generators/Diffusion GANs/4_Forest_Cover_diffusion.ipynb
 4. Forest cover dataset,ForestDiffusion,,,MMD,,0.003424,,,,,,0,,Score,Fidelity,0.003424,Generators/Diffusion GANs/4_Forest_Cover_diffusion.ipynb
 4. Forest cover dataset,TabDDPM,,,MMD,,0.511001,,,,,,0,,Score,Fidelity,0.511001,Generators/Diffusion GANs/4_Forest_Cover_diffusion.ipynb
 4. Forest cover dataset,ForestDiffusion,,,Cosine_Similarity,,0.004782,,,,,,0,,Score,Fidelity,0.004782,Generators/Diffusion GANs/4_Forest_Cover_diffusion.ipynb
@@ -254,10 +222,6 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 5. Bank Markting,CopulaGAN,,,Wasserstein_Distance,,0.015207,,,,,,0,,Score,Fidelity,0.015207,Generators/SDV models/5. Bank Marketing.ipynb
 5. Bank Markting,GaussianCopula,,,Wasserstein_Distance,,0.017279,,,,,,0,,Score,Fidelity,0.017279,Generators/SDV models/5. Bank Marketing.ipynb
 5. Bank Markting,TVAE,,,Wasserstein_Distance,,0.021784,,,,,,0,,Score,Fidelity,0.021784,Generators/SDV models/5. Bank Marketing.ipynb
-5. Bank Markting,CTGAN,,,Gower_Distance,,0.627346,,,,,,0,,Score,Fidelity,0.627346,Generators/SDV models/5. Bank Marketing.ipynb
-5. Bank Markting,CopulaGAN,,,Gower_Distance,,0.617333,,,,,,0,,Score,Fidelity,0.617333,Generators/SDV models/5. Bank Marketing.ipynb
-5. Bank Markting,TVAE,,,Gower_Distance,,0.647807,,,,,,0,,Score,Fidelity,0.647807,Generators/SDV models/5. Bank Marketing.ipynb
-5. Bank Markting,GaussianCopula,,,Gower_Distance,,0.626154,,,,,,0,,Score,Fidelity,0.626154,Generators/SDV models/5. Bank Marketing.ipynb
 5. Bank Markting,CTGAN,,,MMD,,0.005335,,,,,,0,,Score,Fidelity,0.005335,Generators/SDV models/5. Bank Marketing.ipynb
 5. Bank Markting,CopulaGAN,,,MMD,,0.021132,,,,,,0,,Score,Fidelity,0.021132,Generators/SDV models/5. Bank Marketing.ipynb
 5. Bank Markting,TVAE,,,MMD,,0.022188,,,,,,0,,Score,Fidelity,0.022188,Generators/SDV models/5. Bank Marketing.ipynb
@@ -284,8 +248,6 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 5. Bank Markting,WGAN_GP,,,JS_Divergence,,0.720103,,,,,,0,,Score,Fidelity,0.720103,Generators/Other GANS/5. Bank marketing_other GAN.ipynb
 5. Bank Markting,CTABGAN,,,Wasserstein_Distance,,0.038294,,,,,,0,,Score,Fidelity,0.038294,Generators/Other GANS/5. Bank marketing_other GAN.ipynb
 5. Bank Markting,WGAN_GP,,,Wasserstein_Distance,,0.057577,,,,,,0,,Score,Fidelity,0.057577,Generators/Other GANS/5. Bank marketing_other GAN.ipynb
-5. Bank Markting,CTABGAN,,,Gower_Distance,,0.60794,,,,,,0,,Score,Fidelity,0.60794,Generators/Other GANS/5. Bank marketing_other GAN.ipynb
-5. Bank Markting,WGAN_GP,,,Gower_Distance,,0.620311,,,,,,0,,Score,Fidelity,0.620311,Generators/Other GANS/5. Bank marketing_other GAN.ipynb
 5. Bank Markting,CTABGAN,,,MMD,,0.022723,,,,,,0,,Score,Fidelity,0.022723,Generators/Other GANS/5. Bank marketing_other GAN.ipynb
 5. Bank Markting,WGAN_GP,,,MMD,,0.043817,,,,,,0,,Score,Fidelity,0.043817,Generators/Other GANS/5. Bank marketing_other GAN.ipynb
 5. Bank Markting,WGAN_GP,,,Cosine_Similarity,,0.030217,,,,,,0,,Score,Fidelity,0.030217,Generators/Other GANS/5. Bank marketing_other GAN.ipynb
@@ -302,8 +264,6 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 5. Bank Markting,ForestDiffusion,,,JS_Divergence,,0.379046,,,,,,0,,Score,Fidelity,0.379046,Generators/Diffusion GANs/5. Bank marketing_diffusion.ipynb
 5. Bank Markting,ForestDiffusion,,,Wasserstein_Distance,,0.015511,,,,,,0,,Score,Fidelity,0.015511,Generators/Diffusion GANs/5. Bank marketing_diffusion.ipynb
 5. Bank Markting,TabDDPM,,,Wasserstein_Distance,,0.325253,,,,,,0,,Score,Fidelity,0.325253,Generators/Diffusion GANs/5. Bank marketing_diffusion.ipynb
-5. Bank Markting,TabDDPM,,,Gower_Distance,,0.373353,,,,,,0,,Score,Fidelity,0.373353,Generators/Diffusion GANs/5. Bank marketing_diffusion.ipynb
-5. Bank Markting,ForestDiffusion,,,Gower_Distance,,0.623875,,,,,,0,,Score,Fidelity,0.623875,Generators/Diffusion GANs/5. Bank marketing_diffusion.ipynb
 5. Bank Markting,ForestDiffusion,,,MMD,,0.006,,,,,,0,,Score,Fidelity,0.006,Generators/Diffusion GANs/5. Bank marketing_diffusion.ipynb
 5. Bank Markting,TabDDPM,,,MMD,,0.505625,,,,,,0,,Score,Fidelity,0.505625,Generators/Diffusion GANs/5. Bank marketing_diffusion.ipynb
 5. Bank Markting,ForestDiffusion,,,Cosine_Similarity,,0.028548,,,,,,0,,Score,Fidelity,0.028548,Generators/Diffusion GANs/5. Bank marketing_diffusion.ipynb
@@ -322,10 +282,6 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 6. Wine dataset,TVAE,,,Wasserstein_Distance,,0.013171,,,,,,0,,Score,Fidelity,0.013171,Generators/SDV models/6. Wine quality.ipynb
 6. Wine dataset,CopulaGAN,,,Wasserstein_Distance,,0.025152,,,,,,0,,Score,Fidelity,0.025152,Generators/SDV models/6. Wine quality.ipynb
 6. Wine dataset,CTGAN,,,Wasserstein_Distance,,0.026365,,,,,,0,,Score,Fidelity,0.026365,Generators/SDV models/6. Wine quality.ipynb
-6. Wine dataset,CTGAN,,,Gower_Distance,,0.881018,,,,,,0,,Score,Fidelity,0.881018,Generators/SDV models/6. Wine quality.ipynb
-6. Wine dataset,CopulaGAN,,,Gower_Distance,,0.883799,,,,,,0,,Score,Fidelity,0.883799,Generators/SDV models/6. Wine quality.ipynb
-6. Wine dataset,TVAE,,,Gower_Distance,,0.898376,,,,,,0,,Score,Fidelity,0.898376,Generators/SDV models/6. Wine quality.ipynb
-6. Wine dataset,GaussianCopula,,,Gower_Distance,,0.889308,,,,,,0,,Score,Fidelity,0.889308,Generators/SDV models/6. Wine quality.ipynb
 6. Wine dataset,GaussianCopula,,,MMD,,0.003268,,,,,,0,,Score,Fidelity,0.003268,Generators/SDV models/6. Wine quality.ipynb
 6. Wine dataset,TVAE,,,MMD,,0.007385,,,,,,0,,Score,Fidelity,0.007385,Generators/SDV models/6. Wine quality.ipynb
 6. Wine dataset,CopulaGAN,,,MMD,,0.009521,,,,,,0,,Score,Fidelity,0.009521,Generators/SDV models/6. Wine quality.ipynb
@@ -352,8 +308,6 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 6. Wine dataset,WGAN_GP,,,JS_Divergence,,0.21344,,,,,,0,,Score,Fidelity,0.21344,Generators/Other GANS/6. Winequality_other GAN.ipynb
 6. Wine dataset,CTABGAN,,,Wasserstein_Distance,,0.025031,,,,,,0,,Score,Fidelity,0.025031,Generators/Other GANS/6. Winequality_other GAN.ipynb
 6. Wine dataset,WGAN_GP,,,Wasserstein_Distance,,0.057512,,,,,,0,,Score,Fidelity,0.057512,Generators/Other GANS/6. Winequality_other GAN.ipynb
-6. Wine dataset,CTABGAN,,,Gower_Distance,,0.851682,,,,,,0,,Score,Fidelity,0.851682,Generators/Other GANS/6. Winequality_other GAN.ipynb
-6. Wine dataset,WGAN_GP,,,Gower_Distance,,0.868162,,,,,,0,,Score,Fidelity,0.868162,Generators/Other GANS/6. Winequality_other GAN.ipynb
 6. Wine dataset,CTABGAN,,,MMD,,0.017623,,,,,,0,,Score,Fidelity,0.017623,Generators/Other GANS/6. Winequality_other GAN.ipynb
 6. Wine dataset,WGAN_GP,,,MMD,,0.065135,,,,,,0,,Score,Fidelity,0.065135,Generators/Other GANS/6. Winequality_other GAN.ipynb
 6. Wine dataset,CTABGAN,,,Cosine_Similarity,,0.00224,,,,,,0,,Score,Fidelity,0.00224,Generators/Other GANS/6. Winequality_other GAN.ipynb
@@ -370,8 +324,6 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 6. Wine dataset,ForestDiffusion,,,JS_Divergence,,0.032906,,,,,,0,,Score,Fidelity,0.032906,Generators/Diffusion GANs/6. Winequality_diffusion.ipynb
 6. Wine dataset,ForestDiffusion,,,Wasserstein_Distance,,0.012673,,,,,,0,,Score,Fidelity,0.012673,Generators/Diffusion GANs/6. Winequality_diffusion.ipynb
 6. Wine dataset,TabDDPM,,,Wasserstein_Distance,,0.097735,,,,,,0,,Score,Fidelity,0.097735,Generators/Diffusion GANs/6. Winequality_diffusion.ipynb
-6. Wine dataset,TabDDPM,,,Gower_Distance,,0.767133,,,,,,0,,Score,Fidelity,0.767133,Generators/Diffusion GANs/6. Winequality_diffusion.ipynb
-6. Wine dataset,ForestDiffusion,,,Gower_Distance,,0.858982,,,,,,0,,Score,Fidelity,0.858982,Generators/Diffusion GANs/6. Winequality_diffusion.ipynb
 6. Wine dataset,ForestDiffusion,,,MMD,,0.004242,,,,,,0,,Score,Fidelity,0.004242,Generators/Diffusion GANs/6. Winequality_diffusion.ipynb
 6. Wine dataset,TabDDPM,,,MMD,,0.064043,,,,,,0,,Score,Fidelity,0.064043,Generators/Diffusion GANs/6. Winequality_diffusion.ipynb
 6. Wine dataset,ForestDiffusion,,,Cosine_Similarity,,0.009172,,,,,,0,,Score,Fidelity,0.009172,Generators/Diffusion GANs/6. Winequality_diffusion.ipynb
@@ -388,10 +340,6 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 7. CDC diabetes dataset,TVAE,,,Wasserstein_Distance,,0.039536,,,,,,0,,Score,Fidelity,0.039536,Generators/SDV models/7. Heart.ipynb
 7. CDC diabetes dataset,CTGAN,,,Wasserstein_Distance,,0.062105,,,,,,0,,Score,Fidelity,0.062105,Generators/SDV models/7. Heart.ipynb
 7. CDC diabetes dataset,CopulaGAN,,,Wasserstein_Distance,,0.062756,,,,,,0,,Score,Fidelity,0.062756,Generators/SDV models/7. Heart.ipynb
-7. CDC diabetes dataset,CTGAN,,,Gower_Distance,,0.712221,,,,,,0,,Score,Fidelity,0.712221,Generators/SDV models/7. Heart.ipynb
-7. CDC diabetes dataset,CopulaGAN,,,Gower_Distance,,0.714305,,,,,,0,,Score,Fidelity,0.714305,Generators/SDV models/7. Heart.ipynb
-7. CDC diabetes dataset,TVAE,,,Gower_Distance,,0.752427,,,,,,0,,Score,Fidelity,0.752427,Generators/SDV models/7. Heart.ipynb
-7. CDC diabetes dataset,GaussianCopula,,,Gower_Distance,,0.716012,,,,,,0,,Score,Fidelity,0.716012,Generators/SDV models/7. Heart.ipynb
 7. CDC diabetes dataset,CopulaGAN,,,MMD,,0.014304,,,,,,0,,Score,Fidelity,0.014304,Generators/SDV models/7. Heart.ipynb
 7. CDC diabetes dataset,TVAE,,,MMD,,0.01466,,,,,,0,,Score,Fidelity,0.01466,Generators/SDV models/7. Heart.ipynb
 7. CDC diabetes dataset,CTGAN,,,MMD,,0.019512,,,,,,0,,Score,Fidelity,0.019512,Generators/SDV models/7. Heart.ipynb
@@ -412,8 +360,6 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 7. CDC diabetes dataset,CTABGAN,,,JS_Divergence,,0.779689,,,,,,0,,Score,Fidelity,0.779689,Generators/Other GANS/7_CDC_diabetes_other_GAN.ipynb
 7. CDC diabetes dataset,WGAN_GP,,,Wasserstein_Distance,,0.079861,,,,,,0,,Score,Fidelity,0.079861,Generators/Other GANS/7_CDC_diabetes_other_GAN.ipynb
 7. CDC diabetes dataset,CTABGAN,,,Wasserstein_Distance,,0.164295,,,,,,0,,Score,Fidelity,0.164295,Generators/Other GANS/7_CDC_diabetes_other_GAN.ipynb
-7. CDC diabetes dataset,CTABGAN,,,Gower_Distance,,0.636716,,,,,,0,,Score,Fidelity,0.636716,Generators/Other GANS/7_CDC_diabetes_other_GAN.ipynb
-7. CDC diabetes dataset,WGAN_GP,,,Gower_Distance,,0.845339,,,,,,0,,Score,Fidelity,0.845339,Generators/Other GANS/7_CDC_diabetes_other_GAN.ipynb
 7. CDC diabetes dataset,WGAN_GP,,,MMD,,0.024435,,,,,,0,,Score,Fidelity,0.024435,Generators/Other GANS/7_CDC_diabetes_other_GAN.ipynb
 7. CDC diabetes dataset,CTABGAN,,,MMD,,0.334556,,,,,,0,,Score,Fidelity,0.334556,Generators/Other GANS/7_CDC_diabetes_other_GAN.ipynb
 7. CDC diabetes dataset,WGAN_GP,,,Cosine_Similarity,,0.007307,,,,,,0,,Score,Fidelity,0.007307,Generators/Other GANS/7_CDC_diabetes_other_GAN.ipynb
@@ -428,8 +374,6 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 7. CDC diabetes dataset,TabDDPM,,,JS_Divergence,,0.642231,,,,,,0,,Score,Fidelity,0.642231,Generators/Diffusion GANs/7_CDC_diabetes_diffusion.ipynb
 7. CDC diabetes dataset,ForestDiffusion,,,Wasserstein_Distance,,0.015769,,,,,,0,,Score,Fidelity,0.015769,Generators/Diffusion GANs/7_CDC_diabetes_diffusion.ipynb
 7. CDC diabetes dataset,TabDDPM,,,Wasserstein_Distance,,0.181551,,,,,,0,,Score,Fidelity,0.181551,Generators/Diffusion GANs/7_CDC_diabetes_diffusion.ipynb
-7. CDC diabetes dataset,TabDDPM,,,Gower_Distance,,0.62126,,,,,,0,,Score,Fidelity,0.62126,Generators/Diffusion GANs/7_CDC_diabetes_diffusion.ipynb
-7. CDC diabetes dataset,ForestDiffusion,,,Gower_Distance,,0.73907,,,,,,0,,Score,Fidelity,0.73907,Generators/Diffusion GANs/7_CDC_diabetes_diffusion.ipynb
 7. CDC diabetes dataset,TabDDPM,,,PCA_Mean_Error,,93.267141,,,,,,0,,Score,Fidelity,93.267141,Generators/Diffusion GANs/7_CDC_diabetes_diffusion.ipynb
 7. CDC diabetes dataset,ForestDiffusion,,,PCA_Mean_Error,,7.220706,,,,,,0,,Score,Fidelity,7.220706,Generators/Diffusion GANs/7_CDC_diabetes_diffusion.ipynb
 7. CDC diabetes dataset,TabDDPM,,,PCA_Correlation_Diff,,0.572374,,,,,,0,,Score,Fidelity,0.572374,Generators/Diffusion GANs/7_CDC_diabetes_diffusion.ipynb
@@ -441,10 +385,6 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 8. Mushroom dataset,CTGAN,,,Wasserstein_Distance,,0.010058,,,,,,0,,Score,Fidelity,0.010058,Generators/SDV models/8. Mushroom.ipynb
 8. Mushroom dataset,GaussianCopula,,,Wasserstein_Distance,,0.010206,,,,,,0,,Score,Fidelity,0.010206,Generators/SDV models/8. Mushroom.ipynb
 8. Mushroom dataset,TVAE,,,Wasserstein_Distance,,0.02159,,,,,,0,,Score,Fidelity,0.02159,Generators/SDV models/8. Mushroom.ipynb
-8. Mushroom dataset,CTGAN,,,Gower_Distance,,0.338231,,,,,,0,,Score,Fidelity,0.338231,Generators/SDV models/8. Mushroom.ipynb
-8. Mushroom dataset,CopulaGAN,,,Gower_Distance,,0.33632,,,,,,0,,Score,Fidelity,0.33632,Generators/SDV models/8. Mushroom.ipynb
-8. Mushroom dataset,TVAE,,,Gower_Distance,,0.357493,,,,,,0,,Score,Fidelity,0.357493,Generators/SDV models/8. Mushroom.ipynb
-8. Mushroom dataset,GaussianCopula,,,Gower_Distance,,0.345135,,,,,,0,,Score,Fidelity,0.345135,Generators/SDV models/8. Mushroom.ipynb
 8. Mushroom dataset,GaussianCopula,,,MMD,,0.002653,,,,,,0,,Score,Fidelity,0.002653,Generators/SDV models/8. Mushroom.ipynb
 8. Mushroom dataset,CTGAN,,,MMD,,0.004656,,,,,,0,,Score,Fidelity,0.004656,Generators/SDV models/8. Mushroom.ipynb
 8. Mushroom dataset,CopulaGAN,,,MMD,,0.006614,,,,,,0,,Score,Fidelity,0.006614,Generators/SDV models/8. Mushroom.ipynb
@@ -469,8 +409,6 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 8. Mushroom dataset,CTABGAN,,,JS_Divergence,,0.500324,,,,,,0,,Score,Fidelity,0.500324,Generators/Other GANS/8. Mushroom_other GAN.ipynb
 8. Mushroom dataset,CTABGAN,,,Wasserstein_Distance,,0.013457,,,,,,0,,Score,Fidelity,0.013457,Generators/Other GANS/8. Mushroom_other GAN.ipynb
 8. Mushroom dataset,WGAN_GP,,,Wasserstein_Distance,,0.08401,,,,,,0,,Score,Fidelity,0.08401,Generators/Other GANS/8. Mushroom_other GAN.ipynb
-8. Mushroom dataset,CTABGAN,,,Gower_Distance,,0.338105,,,,,,0,,Score,Fidelity,0.338105,Generators/Other GANS/8. Mushroom_other GAN.ipynb
-8. Mushroom dataset,WGAN_GP,,,Gower_Distance,,0.29057,,,,,,0,,Score,Fidelity,0.29057,Generators/Other GANS/8. Mushroom_other GAN.ipynb
 8. Mushroom dataset,CTABGAN,,,MMD,,0.005531,,,,,,0,,Score,Fidelity,0.005531,Generators/Other GANS/8. Mushroom_other GAN.ipynb
 8. Mushroom dataset,WGAN_GP,,,MMD,,0.235867,,,,,,0,,Score,Fidelity,0.235867,Generators/Other GANS/8. Mushroom_other GAN.ipynb
 8. Mushroom dataset,CTABGAN,,,Cosine_Similarity,,0.000778,,,,,,0,,Score,Fidelity,0.000778,Generators/Other GANS/8. Mushroom_other GAN.ipynb
@@ -485,8 +423,6 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 8. Mushroom dataset,TabDDPM,,,JS_Divergence,,0.974728,,,,,,0,,Score,Fidelity,0.974728,Generators/Diffusion GANs/8. Mushroom_diffusion.ipynb
 8. Mushroom dataset,ForestDiffusion,,,Wasserstein_Distance,,0.128891,,,,,,0,,Score,Fidelity,0.128891,Generators/Diffusion GANs/8. Mushroom_diffusion.ipynb
 8. Mushroom dataset,TabDDPM,,,Wasserstein_Distance,,0.195305,,,,,,0,,Score,Fidelity,0.195305,Generators/Diffusion GANs/8. Mushroom_diffusion.ipynb
-8. Mushroom dataset,TabDDPM,,,Gower_Distance,,0.174698,,,,,,0,,Score,Fidelity,0.174698,Generators/Diffusion GANs/8. Mushroom_diffusion.ipynb
-8. Mushroom dataset,ForestDiffusion,,,Gower_Distance,,0.345428,,,,,,0,,Score,Fidelity,0.345428,Generators/Diffusion GANs/8. Mushroom_diffusion.ipynb
 8. Mushroom dataset,ForestDiffusion,,,MMD,,0.223162,,,,,,0,,Score,Fidelity,0.223162,Generators/Diffusion GANs/8. Mushroom_diffusion.ipynb
 8. Mushroom dataset,TabDDPM,,,MMD,,0.408414,,,,,,0,,Score,Fidelity,0.408414,Generators/Diffusion GANs/8. Mushroom_diffusion.ipynb
 8. Mushroom dataset,ForestDiffusion,,,Cosine_Similarity,,-0.006439,,,,,,0,,Score,Fidelity,-0.006439,Generators/Diffusion GANs/8. Mushroom_diffusion.ipynb
@@ -505,10 +441,6 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 9. MAGIC Gamma Telescope,GaussianCopula,,,Wasserstein_Distance,,0.020501,,,,,,0,,Score,Fidelity,0.020501,Generators/SDV models/9. MAGIC Gamma Telescope.ipynb
 9. MAGIC Gamma Telescope,CTGAN,,,Wasserstein_Distance,,0.030447,,,,,,0,,Score,Fidelity,0.030447,Generators/SDV models/9. MAGIC Gamma Telescope.ipynb
 9. MAGIC Gamma Telescope,CopulaGAN,,,Wasserstein_Distance,,0.034697,,,,,,0,,Score,Fidelity,0.034697,Generators/SDV models/9. MAGIC Gamma Telescope.ipynb
-9. MAGIC Gamma Telescope,CTGAN,,,Gower_Distance,,0.853544,,,,,,0,,Score,Fidelity,0.853544,Generators/SDV models/9. MAGIC Gamma Telescope.ipynb
-9. MAGIC Gamma Telescope,CopulaGAN,,,Gower_Distance,,0.847494,,,,,,0,,Score,Fidelity,0.847494,Generators/SDV models/9. MAGIC Gamma Telescope.ipynb
-9. MAGIC Gamma Telescope,TVAE,,,Gower_Distance,,0.864338,,,,,,0,,Score,Fidelity,0.864338,Generators/SDV models/9. MAGIC Gamma Telescope.ipynb
-9. MAGIC Gamma Telescope,GaussianCopula,,,Gower_Distance,,0.846668,,,,,,0,,Score,Fidelity,0.846668,Generators/SDV models/9. MAGIC Gamma Telescope.ipynb
 9. MAGIC Gamma Telescope,TVAE,,,MMD,,0.006045,,,,,,0,,Score,Fidelity,0.006045,Generators/SDV models/9. MAGIC Gamma Telescope.ipynb
 9. MAGIC Gamma Telescope,CTGAN,,,MMD,,0.009227,,,,,,0,,Score,Fidelity,0.009227,Generators/SDV models/9. MAGIC Gamma Telescope.ipynb
 9. MAGIC Gamma Telescope,CopulaGAN,,,MMD,,0.011489,,,,,,0,,Score,Fidelity,0.011489,Generators/SDV models/9. MAGIC Gamma Telescope.ipynb
@@ -535,8 +467,6 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 9. MAGIC Gamma Telescope,WGAN_GP,,,JS_Divergence,,0.052327,,,,,,0,,Score,Fidelity,0.052327,Generators/Other GANS/9. MAGIC Gamma Telescope_other GAN.ipynb
 9. MAGIC Gamma Telescope,WGAN_GP,,,Wasserstein_Distance,,0.010481,,,,,,0,,Score,Fidelity,0.010481,Generators/Other GANS/9. MAGIC Gamma Telescope_other GAN.ipynb
 9. MAGIC Gamma Telescope,CTABGAN,,,Wasserstein_Distance,,0.014038,,,,,,0,,Score,Fidelity,0.014038,Generators/Other GANS/9. MAGIC Gamma Telescope_other GAN.ipynb
-9. MAGIC Gamma Telescope,CTABGAN,,,Gower_Distance,,0.83957,,,,,,0,,Score,Fidelity,0.83957,Generators/Other GANS/9. MAGIC Gamma Telescope_other GAN.ipynb
-9. MAGIC Gamma Telescope,WGAN_GP,,,Gower_Distance,,0.854163,,,,,,0,,Score,Fidelity,0.854163,Generators/Other GANS/9. MAGIC Gamma Telescope_other GAN.ipynb
 9. MAGIC Gamma Telescope,WGAN_GP,,,MMD,,0.000807,,,,,,0,,Score,Fidelity,0.000807,Generators/Other GANS/9. MAGIC Gamma Telescope_other GAN.ipynb
 9. MAGIC Gamma Telescope,CTABGAN,,,MMD,,0.003609,,,,,,0,,Score,Fidelity,0.003609,Generators/Other GANS/9. MAGIC Gamma Telescope_other GAN.ipynb
 9. MAGIC Gamma Telescope,WGAN_GP,,,Cosine_Similarity,,0.028239,,,,,,0,,Score,Fidelity,0.028239,Generators/Other GANS/9. MAGIC Gamma Telescope_other GAN.ipynb
@@ -553,8 +483,6 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 9. MAGIC Gamma Telescope,ForestDiffusion,,,JS_Divergence,,0.038713,,,,,,0,,Score,Fidelity,0.038713,Generators/Diffusion GANs/9. MAGIC Gamma Telescope_diffusion.ipynb
 9. MAGIC Gamma Telescope,ForestDiffusion,,,Wasserstein_Distance,,0.01135,,,,,,0,,Score,Fidelity,0.01135,Generators/Diffusion GANs/9. MAGIC Gamma Telescope_diffusion.ipynb
 9. MAGIC Gamma Telescope,TabDDPM,,,Wasserstein_Distance,,0.11887,,,,,,0,,Score,Fidelity,0.11887,Generators/Diffusion GANs/9. MAGIC Gamma Telescope_diffusion.ipynb
-9. MAGIC Gamma Telescope,TabDDPM,,,Gower_Distance,,0.741751,,,,,,0,,Score,Fidelity,0.741751,Generators/Diffusion GANs/9. MAGIC Gamma Telescope_diffusion.ipynb
-9. MAGIC Gamma Telescope,ForestDiffusion,,,Gower_Distance,,0.842496,,,,,,0,,Score,Fidelity,0.842496,Generators/Diffusion GANs/9. MAGIC Gamma Telescope_diffusion.ipynb
 9. MAGIC Gamma Telescope,ForestDiffusion,,,MMD,,0.001385,,,,,,0,,Score,Fidelity,0.001385,Generators/Diffusion GANs/9. MAGIC Gamma Telescope_diffusion.ipynb
 9. MAGIC Gamma Telescope,TabDDPM,,,MMD,,0.073068,,,,,,0,,Score,Fidelity,0.073068,Generators/Diffusion GANs/9. MAGIC Gamma Telescope_diffusion.ipynb
 9. MAGIC Gamma Telescope,ForestDiffusion,,,Cosine_Similarity,,0.025724,,,,,,0,,Score,Fidelity,0.025724,Generators/Diffusion GANs/9. MAGIC Gamma Telescope_diffusion.ipynb
@@ -575,10 +503,6 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 10. Metro interstate,CopulaGAN,,,Wasserstein_Distance,,0.028848,,,,,,0,,Score,Fidelity,0.028848,Generators/SDV models/10. Metro Interstate Traffic Volume.ipynb
 10. Metro interstate,CTGAN,,,Wasserstein_Distance,,0.0303,,,,,,0,,Score,Fidelity,0.0303,Generators/SDV models/10. Metro Interstate Traffic Volume.ipynb
 10. Metro interstate,GaussianCopula,,,Wasserstein_Distance,,0.237024,,,,,,0,,Score,Fidelity,0.237024,Generators/SDV models/10. Metro Interstate Traffic Volume.ipynb
-10. Metro interstate,CTGAN,,,Gower_Distance,,0.665849,,,,,,0,,Score,Fidelity,0.665849,Generators/SDV models/10. Metro Interstate Traffic Volume.ipynb
-10. Metro interstate,CopulaGAN,,,Gower_Distance,,0.665781,,,,,,0,,Score,Fidelity,0.665781,Generators/SDV models/10. Metro Interstate Traffic Volume.ipynb
-10. Metro interstate,TVAE,,,Gower_Distance,,0.689928,,,,,,0,,Score,Fidelity,0.689928,Generators/SDV models/10. Metro Interstate Traffic Volume.ipynb
-10. Metro interstate,GaussianCopula,,,Gower_Distance,,0.570833,,,,,,0,,Score,Fidelity,0.570833,Generators/SDV models/10. Metro Interstate Traffic Volume.ipynb
 10. Metro interstate,TVAE,,,MMD,,0.001842,,,,,,0,,Score,Fidelity,0.001842,Generators/SDV models/10. Metro Interstate Traffic Volume.ipynb
 10. Metro interstate,CTGAN,,,MMD,,0.009663,,,,,,0,,Score,Fidelity,0.009663,Generators/SDV models/10. Metro Interstate Traffic Volume.ipynb
 10. Metro interstate,CopulaGAN,,,MMD,,0.018567,,,,,,0,,Score,Fidelity,0.018567,Generators/SDV models/10. Metro Interstate Traffic Volume.ipynb
@@ -605,8 +529,6 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 10. Metro interstate,WGAN_GP,,,JS_Divergence,,1.0,,,,,,0,,Score,Fidelity,1.0,Generators/Other GANS/10. Metro Interstate_other GAN.ipynb
 10. Metro interstate,CTABGAN,,,Wasserstein_Distance,,0.040253,,,,,,0,,Score,Fidelity,0.040253,Generators/Other GANS/10. Metro Interstate_other GAN.ipynb
 10. Metro interstate,WGAN_GP,,,Wasserstein_Distance,,0.050029,,,,,,0,,Score,Fidelity,0.050029,Generators/Other GANS/10. Metro Interstate_other GAN.ipynb
-10. Metro interstate,CTABGAN,,,Gower_Distance,,0.575214,,,,,,0,,Score,Fidelity,0.575214,Generators/Other GANS/10. Metro Interstate_other GAN.ipynb
-10. Metro interstate,WGAN_GP,,,Gower_Distance,,0.657231,,,,,,0,,Score,Fidelity,0.657231,Generators/Other GANS/10. Metro Interstate_other GAN.ipynb
 10. Metro interstate,WGAN_GP,,,MMD,,0.00211,,,,,,0,,Score,Fidelity,0.00211,Generators/Other GANS/10. Metro Interstate_other GAN.ipynb
 10. Metro interstate,CTABGAN,,,MMD,,0.010479,,,,,,0,,Score,Fidelity,0.010479,Generators/Other GANS/10. Metro Interstate_other GAN.ipynb
 10. Metro interstate,WGAN_GP,,,Cosine_Similarity,,0.003326,,,,,,0,,Score,Fidelity,0.003326,Generators/Other GANS/10. Metro Interstate_other GAN.ipynb
@@ -623,8 +545,6 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 10. Metro interstate,ForestDiffusion,,,JS_Divergence,,0.369157,,,,,,0,,Score,Fidelity,0.369157,Generators/Diffusion GANs/10. Metro Interstate_diffusion.ipynb
 10. Metro interstate,ForestDiffusion,,,Wasserstein_Distance,,0.020227,,,,,,0,,Score,Fidelity,0.020227,Generators/Diffusion GANs/10. Metro Interstate_diffusion.ipynb
 10. Metro interstate,TabDDPM,,,Wasserstein_Distance,,0.274132,,,,,,0,,Score,Fidelity,0.274132,Generators/Diffusion GANs/10. Metro Interstate_diffusion.ipynb
-10. Metro interstate,TabDDPM,,,Gower_Distance,,0.4366,,,,,,0,,Score,Fidelity,0.4366,Generators/Diffusion GANs/10. Metro Interstate_diffusion.ipynb
-10. Metro interstate,ForestDiffusion,,,Gower_Distance,,0.669023,,,,,,0,,Score,Fidelity,0.669023,Generators/Diffusion GANs/10. Metro Interstate_diffusion.ipynb
 10. Metro interstate,ForestDiffusion,,,MMD,,0.004705,,,,,,0,,Score,Fidelity,0.004705,Generators/Diffusion GANs/10. Metro Interstate_diffusion.ipynb
 10. Metro interstate,TabDDPM,,,MMD,,0.419871,,,,,,0,,Score,Fidelity,0.419871,Generators/Diffusion GANs/10. Metro Interstate_diffusion.ipynb
 10. Metro interstate,ForestDiffusion,,,Cosine_Similarity,,0.00882,,,,,,0,,Score,Fidelity,0.00882,Generators/Diffusion GANs/10. Metro Interstate_diffusion.ipynb
@@ -643,10 +563,6 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 11. online shopping,CTGAN,,,Wasserstein_Distance,,0.029616,,,,,,0,,Score,Fidelity,0.029616,Generators/SDV models/11. Online Shopping.ipynb
 11. online shopping,CopulaGAN,,,Wasserstein_Distance,,0.035796,,,,,,0,,Score,Fidelity,0.035796,Generators/SDV models/11. Online Shopping.ipynb
 11. online shopping,TVAE,,,Wasserstein_Distance,,0.099596,,,,,,0,,Score,Fidelity,0.099596,Generators/SDV models/11. Online Shopping.ipynb
-11. online shopping,CTGAN,,,Gower_Distance,,0.651777,,,,,,0,,Score,Fidelity,0.651777,Generators/SDV models/11. Online Shopping.ipynb
-11. online shopping,CopulaGAN,,,Gower_Distance,,0.653286,,,,,,0,,Score,Fidelity,0.653286,Generators/SDV models/11. Online Shopping.ipynb
-11. online shopping,TVAE,,,Gower_Distance,,0.666402,,,,,,0,,Score,Fidelity,0.666402,Generators/SDV models/11. Online Shopping.ipynb
-11. online shopping,GaussianCopula,,,Gower_Distance,,0.648611,,,,,,0,,Score,Fidelity,0.648611,Generators/SDV models/11. Online Shopping.ipynb
 11. online shopping,GaussianCopula,,,MMD,,0.002196,,,,,,0,,Score,Fidelity,0.002196,Generators/SDV models/11. Online Shopping.ipynb
 11. online shopping,CopulaGAN,,,MMD,,0.007746,,,,,,0,,Score,Fidelity,0.007746,Generators/SDV models/11. Online Shopping.ipynb
 11. online shopping,CTGAN,,,MMD,,0.008181,,,,,,0,,Score,Fidelity,0.008181,Generators/SDV models/11. Online Shopping.ipynb
@@ -673,8 +589,6 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 11. online shopping,WGAN_GP,,,JS_Divergence,,0.649803,,,,,,0,,Score,Fidelity,0.649803,Generators/Other GANS/11. Online shopping_other GAN.ipynb
 11. online shopping,CTABGAN,,,Wasserstein_Distance,,0.03353,,,,,,0,,Score,Fidelity,0.03353,Generators/Other GANS/11. Online shopping_other GAN.ipynb
 11. online shopping,WGAN_GP,,,Wasserstein_Distance,,0.08708,,,,,,0,,Score,Fidelity,0.08708,Generators/Other GANS/11. Online shopping_other GAN.ipynb
-11. online shopping,CTABGAN,,,Gower_Distance,,0.670995,,,,,,0,,Score,Fidelity,0.670995,Generators/Other GANS/11. Online shopping_other GAN.ipynb
-11. online shopping,WGAN_GP,,,Gower_Distance,,0.652946,,,,,,0,,Score,Fidelity,0.652946,Generators/Other GANS/11. Online shopping_other GAN.ipynb
 11. online shopping,CTABGAN,,,MMD,,0.015137,,,,,,0,,Score,Fidelity,0.015137,Generators/Other GANS/11. Online shopping_other GAN.ipynb
 11. online shopping,WGAN_GP,,,MMD,,0.032643,,,,,,0,,Score,Fidelity,0.032643,Generators/Other GANS/11. Online shopping_other GAN.ipynb
 11. online shopping,CTABGAN,,,Cosine_Similarity,,0.07272,,,,,,0,,Score,Fidelity,0.07272,Generators/Other GANS/11. Online shopping_other GAN.ipynb
@@ -691,8 +605,6 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 11. online shopping,ForestDiffusion,,,JS_Divergence,,0.312229,,,,,,0,,Score,Fidelity,0.312229,Generators/Diffusion GANs/11. Online shopping_diffusion.ipynb
 11. online shopping,ForestDiffusion,,,Wasserstein_Distance,,0.049057,,,,,,0,,Score,Fidelity,0.049057,Generators/Diffusion GANs/11. Online shopping_diffusion.ipynb
 11. online shopping,TabDDPM,,,Wasserstein_Distance,,0.22835,,,,,,0,,Score,Fidelity,0.22835,Generators/Diffusion GANs/11. Online shopping_diffusion.ipynb
-11. online shopping,TabDDPM,,,Gower_Distance,,0.576314,,,,,,0,,Score,Fidelity,0.576314,Generators/Diffusion GANs/11. Online shopping_diffusion.ipynb
-11. online shopping,ForestDiffusion,,,Gower_Distance,,0.710192,,,,,,0,,Score,Fidelity,0.710192,Generators/Diffusion GANs/11. Online shopping_diffusion.ipynb
 11. online shopping,ForestDiffusion,,,MMD,,0.004386,,,,,,0,,Score,Fidelity,0.004386,Generators/Diffusion GANs/11. Online shopping_diffusion.ipynb
 11. online shopping,TabDDPM,,,MMD,,0.281929,,,,,,0,,Score,Fidelity,0.281929,Generators/Diffusion GANs/11. Online shopping_diffusion.ipynb
 11. online shopping,ForestDiffusion,,,Cosine_Similarity,,0.015111,,,,,,0,,Score,Fidelity,0.015111,Generators/Diffusion GANs/11. Online shopping_diffusion.ipynb
@@ -711,10 +623,6 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 12. Air Quality,TVAE,,,Wasserstein_Distance,,0.023581,,,,,,0,,Score,Fidelity,0.023581,Generators/SDV models/12. Air Quality.ipynb
 12. Air Quality,CTGAN,,,Wasserstein_Distance,,0.051268,,,,,,0,,Score,Fidelity,0.051268,Generators/SDV models/12. Air Quality.ipynb
 12. Air Quality,CopulaGAN,,,Wasserstein_Distance,,0.101425,,,,,,0,,Score,Fidelity,0.101425,Generators/SDV models/12. Air Quality.ipynb
-12. Air Quality,CTGAN,,,Gower_Distance,,0.804398,,,,,,0,,Score,Fidelity,0.804398,Generators/SDV models/12. Air Quality.ipynb
-12. Air Quality,CopulaGAN,,,Gower_Distance,,0.784604,,,,,,0,,Score,Fidelity,0.784604,Generators/SDV models/12. Air Quality.ipynb
-12. Air Quality,TVAE,,,Gower_Distance,,0.816653,,,,,,0,,Score,Fidelity,0.816653,Generators/SDV models/12. Air Quality.ipynb
-12. Air Quality,GaussianCopula,,,Gower_Distance,,0.82247,,,,,,0,,Score,Fidelity,0.82247,Generators/SDV models/12. Air Quality.ipynb
 12. Air Quality,GaussianCopula,,,MMD,,0.001076,,,,,,0,,Score,Fidelity,0.001076,Generators/SDV models/12. Air Quality.ipynb
 12. Air Quality,TVAE,,,MMD,,0.004921,,,,,,0,,Score,Fidelity,0.004921,Generators/SDV models/12. Air Quality.ipynb
 12. Air Quality,CTGAN,,,MMD,,0.043816,,,,,,0,,Score,Fidelity,0.043816,Generators/SDV models/12. Air Quality.ipynb
@@ -741,8 +649,6 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 12. Air Quality,WGAN_GP,,,JS_Divergence,,0.793483,,,,,,0,,Score,Fidelity,0.793483,Generators/Other GANS/12. Air Quality_other GAN.ipynb
 12. Air Quality,CTABGAN,,,Wasserstein_Distance,,0.022478,,,,,,0,,Score,Fidelity,0.022478,Generators/Other GANS/12. Air Quality_other GAN.ipynb
 12. Air Quality,WGAN_GP,,,Wasserstein_Distance,,0.043182,,,,,,0,,Score,Fidelity,0.043182,Generators/Other GANS/12. Air Quality_other GAN.ipynb
-12. Air Quality,CTABGAN,,,Gower_Distance,,0.823107,,,,,,0,,Score,Fidelity,0.823107,Generators/Other GANS/12. Air Quality_other GAN.ipynb
-12. Air Quality,WGAN_GP,,,Gower_Distance,,0.852592,,,,,,0,,Score,Fidelity,0.852592,Generators/Other GANS/12. Air Quality_other GAN.ipynb
 12. Air Quality,CTABGAN,,,MMD,,0.019195,,,,,,0,,Score,Fidelity,0.019195,Generators/Other GANS/12. Air Quality_other GAN.ipynb
 12. Air Quality,WGAN_GP,,,MMD,,0.046666,,,,,,0,,Score,Fidelity,0.046666,Generators/Other GANS/12. Air Quality_other GAN.ipynb
 12. Air Quality,CTABGAN,,,Cosine_Similarity,,0.006073,,,,,,0,,Score,Fidelity,0.006073,Generators/Other GANS/12. Air Quality_other GAN.ipynb
@@ -759,8 +665,6 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 12. Air Quality,ForestDiffusion,,,JS_Divergence,,0.92544,,,,,,0,,Score,Fidelity,0.92544,Generators/Diffusion GANs/12. Air Quality_diffusion.ipynb
 12. Air Quality,ForestDiffusion,,,Wasserstein_Distance,,0.006151,,,,,,0,,Score,Fidelity,0.006151,Generators/Diffusion GANs/12. Air Quality_diffusion.ipynb
 12. Air Quality,TabDDPM,,,Wasserstein_Distance,,0.149101,,,,,,0,,Score,Fidelity,0.149101,Generators/Diffusion GANs/12. Air Quality_diffusion.ipynb
-12. Air Quality,TabDDPM,,,Gower_Distance,,0.70232,,,,,,0,,Score,Fidelity,0.70232,Generators/Diffusion GANs/12. Air Quality_diffusion.ipynb
-12. Air Quality,ForestDiffusion,,,Gower_Distance,,0.824465,,,,,,0,,Score,Fidelity,0.824465,Generators/Diffusion GANs/12. Air Quality_diffusion.ipynb
 12. Air Quality,ForestDiffusion,,,MMD,,0.00054,,,,,,0,,Score,Fidelity,0.00054,Generators/Diffusion GANs/12. Air Quality_diffusion.ipynb
 12. Air Quality,TabDDPM,,,MMD,,0.136264,,,,,,0,,Score,Fidelity,0.136264,Generators/Diffusion GANs/12. Air Quality_diffusion.ipynb
 12. Air Quality,ForestDiffusion,,,Cosine_Similarity,,0.010261,,,,,,0,,Score,Fidelity,0.010261,Generators/Diffusion GANs/12. Air Quality_diffusion.ipynb
@@ -781,10 +685,6 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 13. Concrete Compressive Strength,GaussianCopula,,,Wasserstein_Distance,,0.069025,,,,,,0,,Score,Fidelity,0.069025,Generators/SDV models/13. Concrete Compressive Strength.ipynb
 13. Concrete Compressive Strength,CopulaGAN,,,Wasserstein_Distance,,0.104317,,,,,,0,,Score,Fidelity,0.104317,Generators/SDV models/13. Concrete Compressive Strength.ipynb
 13. Concrete Compressive Strength,CTGAN,,,Wasserstein_Distance,,0.106878,,,,,,0,,Score,Fidelity,0.106878,Generators/SDV models/13. Concrete Compressive Strength.ipynb
-13. Concrete Compressive Strength,CTGAN,,,Gower_Distance,,0.730471,,,,,,0,,Score,Fidelity,0.730471,Generators/SDV models/13. Concrete Compressive Strength.ipynb
-13. Concrete Compressive Strength,CopulaGAN,,,Gower_Distance,,0.729719,,,,,,0,,Score,Fidelity,0.729719,Generators/SDV models/13. Concrete Compressive Strength.ipynb
-13. Concrete Compressive Strength,TVAE,,,Gower_Distance,,0.778318,,,,,,0,,Score,Fidelity,0.778318,Generators/SDV models/13. Concrete Compressive Strength.ipynb
-13. Concrete Compressive Strength,GaussianCopula,,,Gower_Distance,,0.739443,,,,,,0,,Score,Fidelity,0.739443,Generators/SDV models/13. Concrete Compressive Strength.ipynb
 13. Concrete Compressive Strength,TVAE,,,MMD,,0.017383,,,,,,0,,Score,Fidelity,0.017383,Generators/SDV models/13. Concrete Compressive Strength.ipynb
 13. Concrete Compressive Strength,GaussianCopula,,,MMD,,0.036636,,,,,,0,,Score,Fidelity,0.036636,Generators/SDV models/13. Concrete Compressive Strength.ipynb
 13. Concrete Compressive Strength,CopulaGAN,,,MMD,,0.078885,,,,,,0,,Score,Fidelity,0.078885,Generators/SDV models/13. Concrete Compressive Strength.ipynb
@@ -811,8 +711,6 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 13. Concrete Compressive Strength,WGAN_GP,,,JS_Divergence,,0.632215,,,,,,0,,Score,Fidelity,0.632215,Generators/Other GANS/13. Concrete Compressive Strength_other GAN.ipynb
 13. Concrete Compressive Strength,CTABGAN,,,Wasserstein_Distance,,0.049142,,,,,,0,,Score,Fidelity,0.049142,Generators/Other GANS/13. Concrete Compressive Strength_other GAN.ipynb
 13. Concrete Compressive Strength,WGAN_GP,,,Wasserstein_Distance,,0.100008,,,,,,0,,Score,Fidelity,0.100008,Generators/Other GANS/13. Concrete Compressive Strength_other GAN.ipynb
-13. Concrete Compressive Strength,CTABGAN,,,Gower_Distance,,0.767293,,,,,,0,,Score,Fidelity,0.767293,Generators/Other GANS/13. Concrete Compressive Strength_other GAN.ipynb
-13. Concrete Compressive Strength,WGAN_GP,,,Gower_Distance,,0.830615,,,,,,0,,Score,Fidelity,0.830615,Generators/Other GANS/13. Concrete Compressive Strength_other GAN.ipynb
 13. Concrete Compressive Strength,CTABGAN,,,MMD,,0.026633,,,,,,0,,Score,Fidelity,0.026633,Generators/Other GANS/13. Concrete Compressive Strength_other GAN.ipynb
 13. Concrete Compressive Strength,WGAN_GP,,,MMD,,0.069911,,,,,,0,,Score,Fidelity,0.069911,Generators/Other GANS/13. Concrete Compressive Strength_other GAN.ipynb
 13. Concrete Compressive Strength,WGAN_GP,,,Cosine_Similarity,,0.013373,,,,,,0,,Score,Fidelity,0.013373,Generators/Other GANS/13. Concrete Compressive Strength_other GAN.ipynb
@@ -829,8 +727,6 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 13. Concrete Compressive Strength,ForestDiffusion,,,JS_Divergence,,0.01967,,,,,,0,,Score,Fidelity,0.01967,Generators/Diffusion GANs/13. Concrete Compressive Strength_diffusion.ipynb
 13. Concrete Compressive Strength,ForestDiffusion,,,Wasserstein_Distance,,0.011506,,,,,,0,,Score,Fidelity,0.011506,Generators/Diffusion GANs/13. Concrete Compressive Strength_diffusion.ipynb
 13. Concrete Compressive Strength,TabDDPM,,,Wasserstein_Distance,,0.019023,,,,,,0,,Score,Fidelity,0.019023,Generators/Diffusion GANs/13. Concrete Compressive Strength_diffusion.ipynb
-13. Concrete Compressive Strength,TabDDPM,,,Gower_Distance,,0.759916,,,,,,0,,Score,Fidelity,0.759916,Generators/Diffusion GANs/13. Concrete Compressive Strength_diffusion.ipynb
-13. Concrete Compressive Strength,ForestDiffusion,,,Gower_Distance,,0.762258,,,,,,0,,Score,Fidelity,0.762258,Generators/Diffusion GANs/13. Concrete Compressive Strength_diffusion.ipynb
 13. Concrete Compressive Strength,ForestDiffusion,,,MMD,,0.001323,,,,,,0,,Score,Fidelity,0.001323,Generators/Diffusion GANs/13. Concrete Compressive Strength_diffusion.ipynb
 13. Concrete Compressive Strength,TabDDPM,,,MMD,,0.002176,,,,,,0,,Score,Fidelity,0.002176,Generators/Diffusion GANs/13. Concrete Compressive Strength_diffusion.ipynb
 13. Concrete Compressive Strength,ForestDiffusion,,,Cosine_Similarity,,0.003079,,,,,,0,,Score,Fidelity,0.003079,Generators/Diffusion GANs/13. Concrete Compressive Strength_diffusion.ipynb
@@ -851,10 +747,6 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 14. Energy Efficiency,GaussianCopula,,,Wasserstein_Distance,,0.089152,,,,,,0,,Score,Fidelity,0.089152,Generators/SDV models/14. Energy Efficiency.ipynb
 14. Energy Efficiency,CopulaGAN,,,Wasserstein_Distance,,0.098246,,,,,,0,,Score,Fidelity,0.098246,Generators/SDV models/14. Energy Efficiency.ipynb
 14. Energy Efficiency,CTGAN,,,Wasserstein_Distance,,0.102021,,,,,,0,,Score,Fidelity,0.102021,Generators/SDV models/14. Energy Efficiency.ipynb
-14. Energy Efficiency,CTGAN,,,Gower_Distance,,0.61768,,,,,,0,,Score,Fidelity,0.61768,Generators/SDV models/14. Energy Efficiency.ipynb
-14. Energy Efficiency,CopulaGAN,,,Gower_Distance,,0.595962,,,,,,0,,Score,Fidelity,0.595962,Generators/SDV models/14. Energy Efficiency.ipynb
-14. Energy Efficiency,TVAE,,,Gower_Distance,,0.628166,,,,,,0,,Score,Fidelity,0.628166,Generators/SDV models/14. Energy Efficiency.ipynb
-14. Energy Efficiency,GaussianCopula,,,Gower_Distance,,0.611222,,,,,,0,,Score,Fidelity,0.611222,Generators/SDV models/14. Energy Efficiency.ipynb
 14. Energy Efficiency,TVAE,,,MMD,,0.020381,,,,,,0,,Score,Fidelity,0.020381,Generators/SDV models/14. Energy Efficiency.ipynb
 14. Energy Efficiency,GaussianCopula,,,MMD,,0.024683,,,,,,0,,Score,Fidelity,0.024683,Generators/SDV models/14. Energy Efficiency.ipynb
 14. Energy Efficiency,CopulaGAN,,,MMD,,0.0318,,,,,,0,,Score,Fidelity,0.0318,Generators/SDV models/14. Energy Efficiency.ipynb
@@ -881,8 +773,6 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 14. Energy Efficiency,WGAN_GP,,,JS_Divergence,,0.715426,,,,,,0,,Score,Fidelity,0.715426,Generators/Other GANS/14. Energy Efficiency_other GAN.ipynb
 14. Energy Efficiency,WGAN_GP,,,Wasserstein_Distance,,0.147232,,,,,,0,,Score,Fidelity,0.147232,Generators/Other GANS/14. Energy Efficiency_other GAN.ipynb
 14. Energy Efficiency,CTABGAN,,,Wasserstein_Distance,,0.154255,,,,,,0,,Score,Fidelity,0.154255,Generators/Other GANS/14. Energy Efficiency_other GAN.ipynb
-14. Energy Efficiency,CTABGAN,,,Gower_Distance,,0.632868,,,,,,0,,Score,Fidelity,0.632868,Generators/Other GANS/14. Energy Efficiency_other GAN.ipynb
-14. Energy Efficiency,WGAN_GP,,,Gower_Distance,,0.837679,,,,,,0,,Score,Fidelity,0.837679,Generators/Other GANS/14. Energy Efficiency_other GAN.ipynb
 14. Energy Efficiency,WGAN_GP,,,MMD,,0.030559,,,,,,0,,Score,Fidelity,0.030559,Generators/Other GANS/14. Energy Efficiency_other GAN.ipynb
 14. Energy Efficiency,CTABGAN,,,MMD,,0.120882,,,,,,0,,Score,Fidelity,0.120882,Generators/Other GANS/14. Energy Efficiency_other GAN.ipynb
 14. Energy Efficiency,WGAN_GP,,,Cosine_Similarity,,0.000862,,,,,,0,,Score,Fidelity,0.000862,Generators/Other GANS/14. Energy Efficiency_other GAN.ipynb
@@ -899,8 +789,6 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 14. Energy Efficiency,ForestDiffusion,,,JS_Divergence,,0.045469,,,,,,0,,Score,Fidelity,0.045469,Generators/Diffusion GANs/14. Energy Efficiency_diffusion.ipynb
 14. Energy Efficiency,ForestDiffusion,,,Wasserstein_Distance,,0.010613,,,,,,0,,Score,Fidelity,0.010613,Generators/Diffusion GANs/14. Energy Efficiency_diffusion.ipynb
 14. Energy Efficiency,TabDDPM,,,Wasserstein_Distance,,0.162632,,,,,,0,,Score,Fidelity,0.162632,Generators/Diffusion GANs/14. Energy Efficiency_diffusion.ipynb
-14. Energy Efficiency,TabDDPM,,,Gower_Distance,,0.551458,,,,,,0,,Score,Fidelity,0.551458,Generators/Diffusion GANs/14. Energy Efficiency_diffusion.ipynb
-14. Energy Efficiency,ForestDiffusion,,,Gower_Distance,,0.623942,,,,,,0,,Score,Fidelity,0.623942,Generators/Diffusion GANs/14. Energy Efficiency_diffusion.ipynb
 14. Energy Efficiency,ForestDiffusion,,,MMD,,0.000597,,,,,,0,,Score,Fidelity,0.000597,Generators/Diffusion GANs/14. Energy Efficiency_diffusion.ipynb
 14. Energy Efficiency,TabDDPM,,,MMD,,0.096222,,,,,,0,,Score,Fidelity,0.096222,Generators/Diffusion GANs/14. Energy Efficiency_diffusion.ipynb
 14. Energy Efficiency,TabDDPM,,,Cosine_Similarity,,0.001883,,,,,,0,,Score,Fidelity,0.001883,Generators/Diffusion GANs/14. Energy Efficiency_diffusion.ipynb
@@ -923,10 +811,6 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 15. Real Estate Valuation,GaussianCopula,,,Wasserstein_Distance,,340.8144,,,,,,0,,Score,Fidelity,340.8144,Generators/SDV models/15. Real Estate Valuation.ipynb
 15. Real Estate Valuation,CTGAN,,,Wasserstein_Distance,,340.821029,,,,,,0,,Score,Fidelity,340.821029,Generators/SDV models/15. Real Estate Valuation.ipynb
 15. Real Estate Valuation,CopulaGAN,,,Wasserstein_Distance,,340.846522,,,,,,0,,Score,Fidelity,340.846522,Generators/SDV models/15. Real Estate Valuation.ipynb
-15. Real Estate Valuation,CTGAN,,,Gower_Distance,,0.708963,,,,,,0,,Score,Fidelity,0.708963,Generators/SDV models/15. Real Estate Valuation.ipynb
-15. Real Estate Valuation,CopulaGAN,,,Gower_Distance,,0.667636,,,,,,0,,Score,Fidelity,0.667636,Generators/SDV models/15. Real Estate Valuation.ipynb
-15. Real Estate Valuation,TVAE,,,Gower_Distance,,0.721756,,,,,,0,,Score,Fidelity,0.721756,Generators/SDV models/15. Real Estate Valuation.ipynb
-15. Real Estate Valuation,GaussianCopula,,,Gower_Distance,,0.700365,,,,,,0,,Score,Fidelity,0.700365,Generators/SDV models/15. Real Estate Valuation.ipynb
 15. Real Estate Valuation,CopulaGAN,,,MMD,,0.558462,,,,,,0,,Score,Fidelity,0.558462,Generators/SDV models/15. Real Estate Valuation.ipynb
 15. Real Estate Valuation,GaussianCopula,,,MMD,,0.558462,,,,,,0,,Score,Fidelity,0.558462,Generators/SDV models/15. Real Estate Valuation.ipynb
 15. Real Estate Valuation,CTGAN,,,MMD,,0.558462,,,,,,0,,Score,Fidelity,0.558462,Generators/SDV models/15. Real Estate Valuation.ipynb
@@ -953,8 +837,6 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 15. Real Estate Valuation,WGAN_GP,,,JS_Divergence,,0.288887,,,,,,0,,Score,Fidelity,0.288887,Generators/Other GANS/15. Real Estate Valuation_other GAN.ipynb
 15. Real Estate Valuation,CTABGAN,,,Wasserstein_Distance,,0.024693,,,,,,0,,Score,Fidelity,0.024693,Generators/Other GANS/15. Real Estate Valuation_other GAN.ipynb
 15. Real Estate Valuation,WGAN_GP,,,Wasserstein_Distance,,0.107111,,,,,,0,,Score,Fidelity,0.107111,Generators/Other GANS/15. Real Estate Valuation_other GAN.ipynb
-15. Real Estate Valuation,CTABGAN,,,Gower_Distance,,0.776166,,,,,,0,,Score,Fidelity,0.776166,Generators/Other GANS/15. Real Estate Valuation_other GAN.ipynb
-15. Real Estate Valuation,WGAN_GP,,,Gower_Distance,,0.843701,,,,,,0,,Score,Fidelity,0.843701,Generators/Other GANS/15. Real Estate Valuation_other GAN.ipynb
 15. Real Estate Valuation,CTABGAN,,,MMD,,0.010593,,,,,,0,,Score,Fidelity,0.010593,Generators/Other GANS/15. Real Estate Valuation_other GAN.ipynb
 15. Real Estate Valuation,WGAN_GP,,,MMD,,0.080058,,,,,,0,,Score,Fidelity,0.080058,Generators/Other GANS/15. Real Estate Valuation_other GAN.ipynb
 15. Real Estate Valuation,WGAN_GP,,,Cosine_Similarity,,0.023284,,,,,,0,,Score,Fidelity,0.023284,Generators/Other GANS/15. Real Estate Valuation_other GAN.ipynb
@@ -971,8 +853,6 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 15. Real Estate Valuation,ForestDiffusion,,,JS_Divergence,,0.060767,,,,,,0,,Score,Fidelity,0.060767,Generators/Diffusion GANs/15. Real Estate Valuation_diffusion.ipynb
 15. Real Estate Valuation,ForestDiffusion,,,Wasserstein_Distance,,0.009755,,,,,,0,,Score,Fidelity,0.009755,Generators/Diffusion GANs/15. Real Estate Valuation_diffusion.ipynb
 15. Real Estate Valuation,TabDDPM,,,Wasserstein_Distance,,0.227584,,,,,,0,,Score,Fidelity,0.227584,Generators/Diffusion GANs/15. Real Estate Valuation_diffusion.ipynb
-15. Real Estate Valuation,TabDDPM,,,Gower_Distance,,0.599162,,,,,,0,,Score,Fidelity,0.599162,Generators/Diffusion GANs/15. Real Estate Valuation_diffusion.ipynb
-15. Real Estate Valuation,ForestDiffusion,,,Gower_Distance,,0.76937,,,,,,0,,Score,Fidelity,0.76937,Generators/Diffusion GANs/15. Real Estate Valuation_diffusion.ipynb
 15. Real Estate Valuation,ForestDiffusion,,,MMD,,0.000787,,,,,,0,,Score,Fidelity,0.000787,Generators/Diffusion GANs/15. Real Estate Valuation_diffusion.ipynb
 15. Real Estate Valuation,TabDDPM,,,MMD,,0.230156,,,,,,0,,Score,Fidelity,0.230156,Generators/Diffusion GANs/15. Real Estate Valuation_diffusion.ipynb
 15. Real Estate Valuation,ForestDiffusion,,,Cosine_Similarity,,0.023181,,,,,,0,,Score,Fidelity,0.023181,Generators/Diffusion GANs/15. Real Estate Valuation_diffusion.ipynb
@@ -987,14 +867,26 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 1. Cancer,TVAE,,fidelity,Quality_Score,0.896421,0.896421,,,,,,0,,,Fidelity,0.896421,Generators/SDV models/1. Cancer.ipynb
 1. Cancer,CTGAN,,fidelity,Quality_Score,0.765081,0.765081,,,,,,0,,,Fidelity,0.765081,Generators/SDV models/1. Cancer.ipynb
 1. Cancer,CopulaGAN,,fidelity,Quality_Score,0.721867,0.721867,,,,,,0,,,Fidelity,0.721867,Generators/SDV models/1. Cancer.ipynb
+1. Cancer,WGAN_GP,,fidelity,Quality_Score,0.949012,0.949012,,,,,,0,,,Fidelity,0.949012,Generators/Other GANS/1. Cancer_other GAN.ipynb
+1. Cancer,CTABGAN,,fidelity,Quality_Score,0.851563,0.851563,,,,,,0,,,Fidelity,0.851563,Generators/Other GANS/1. Cancer_other GAN.ipynb
+1. Cancer,ForestDiffusion,,fidelity,Quality_Score,0.947885,0.947885,,,,,,0,,,Fidelity,0.947885,Generators/Diffusion GANs/1. Cancer_diffusion.ipynb
+1. Cancer,TabDDPM,,fidelity,Quality_Score,0.401382,0.401382,,,,,,0,,,Fidelity,0.401382,Generators/Diffusion GANs/1. Cancer_diffusion.ipynb
 2. Alzhimers,GaussianCopula,,fidelity,Quality_Score,0.789691,0.789691,,,,,,0,,,Fidelity,0.789691,Generators/SDV models/2. Alzhimers.ipynb
 2. Alzhimers,TVAE,,fidelity,Quality_Score,0.744373,0.744373,,,,,,0,,,Fidelity,0.744373,Generators/SDV models/2. Alzhimers.ipynb
 2. Alzhimers,CTGAN,,fidelity,Quality_Score,0.686399,0.686399,,,,,,0,,,Fidelity,0.686399,Generators/SDV models/2. Alzhimers.ipynb
 2. Alzhimers,CopulaGAN,,fidelity,Quality_Score,0.639551,0.639551,,,,,,0,,,Fidelity,0.639551,Generators/SDV models/2. Alzhimers.ipynb
+2. Alzhimers,WGAN_GP,,fidelity,Quality_Score,0.782315,0.782315,,,,,,0,,,Fidelity,0.782315,Generators/Other GANS/2. Alzhimers_other GAN.ipynb
+2. Alzhimers,CTABGAN,,fidelity,Quality_Score,0.684233,0.684233,,,,,,0,,,Fidelity,0.684233,Generators/Other GANS/2. Alzhimers_other GAN.ipynb
+2. Alzhimers,ForestDiffusion,,fidelity,Quality_Score,0.735671,0.735671,,,,,,0,,,Fidelity,0.735671,Generators/Diffusion GANs/2. Alzhimers_diffusion.ipynb
+2. Alzhimers,TabDDPM,,fidelity,Quality_Score,0.435996,0.435996,,,,,,0,,,Fidelity,0.435996,Generators/Diffusion GANs/2. Alzhimers_diffusion.ipynb
 3. Adult,TVAE,,fidelity,Quality_Score,0.910348,0.910348,,,,,,0,,,Fidelity,0.910348,Generators/SDV models/3. Adult census.ipynb
 3. Adult,CopulaGAN,,fidelity,Quality_Score,0.903951,0.903951,,,,,,0,,,Fidelity,0.903951,Generators/SDV models/3. Adult census.ipynb
 3. Adult,CTGAN,,fidelity,Quality_Score,0.886921,0.886921,,,,,,0,,,Fidelity,0.886921,Generators/SDV models/3. Adult census.ipynb
 3. Adult,GaussianCopula,,fidelity,Quality_Score,0.821502,0.821502,,,,,,0,,,Fidelity,0.821502,Generators/SDV models/3. Adult census.ipynb
+3. Adult,CTABGAN,,fidelity,Quality_Score,0.798083,0.798083,,,,,,0,,,Fidelity,0.798083,Generators/Other GANS/3. Adult census_other GAN.ipynb
+3. Adult,WGAN_GP,,fidelity,Quality_Score,0.623362,0.623362,,,,,,0,,,Fidelity,0.623362,Generators/Other GANS/3. Adult census_other GAN.ipynb
+3. Adult,ForestDiffusion,,fidelity,Quality_Score,0.832867,0.832867,,,,,,0,,,Fidelity,0.832867,Generators/Diffusion GANs/3. Adult census_diffusion.ipynb
+3. Adult,TabDDPM,,fidelity,Quality_Score,0.395267,0.395267,,,,,,0,,,Fidelity,0.395267,Generators/Diffusion GANs/3. Adult census_diffusion.ipynb
 4. Forest cover dataset,GaussianCopula,,fidelity,Quality_Score,0.925026,0.925026,,,,,,0,,,Fidelity,0.925026,Generators/SDV models/4.Forest cover.ipynb
 4. Forest cover dataset,TVAE,,fidelity,Quality_Score,0.881179,0.881179,,,,,,0,,,Fidelity,0.881179,Generators/SDV models/4.Forest cover.ipynb
 4. Forest cover dataset,CTGAN,,fidelity,Quality_Score,0.861948,0.861948,,,,,,0,,,Fidelity,0.861948,Generators/SDV models/4.Forest cover.ipynb
@@ -1003,22 +895,42 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 5. Bank Markting,CopulaGAN,,fidelity,Quality_Score,0.845611,0.845611,,,,,,0,,,Fidelity,0.845611,Generators/SDV models/5. Bank Marketing.ipynb
 5. Bank Markting,TVAE,,fidelity,Quality_Score,0.828657,0.828657,,,,,,0,,,Fidelity,0.828657,Generators/SDV models/5. Bank Marketing.ipynb
 5. Bank Markting,GaussianCopula,,fidelity,Quality_Score,0.821755,0.821755,,,,,,0,,,Fidelity,0.821755,Generators/SDV models/5. Bank Marketing.ipynb
+5. Bank Markting,CTABGAN,,fidelity,Quality_Score,0.895316,0.895316,,,,,,0,,,Fidelity,0.895316,Generators/Other GANS/5. Bank marketing_other GAN.ipynb
+5. Bank Markting,WGAN_GP,,fidelity,Quality_Score,0.766527,0.766527,,,,,,0,,,Fidelity,0.766527,Generators/Other GANS/5. Bank marketing_other GAN.ipynb
+5. Bank Markting,ForestDiffusion,,fidelity,Quality_Score,0.830322,0.830322,,,,,,0,,,Fidelity,0.830322,Generators/Diffusion GANs/5. Bank marketing_diffusion.ipynb
+5. Bank Markting,TabDDPM,,fidelity,Quality_Score,0.39863,0.39863,,,,,,0,,,Fidelity,0.39863,Generators/Diffusion GANs/5. Bank marketing_diffusion.ipynb
 6. Wine dataset,GaussianCopula,,fidelity,Quality_Score,0.951731,0.951731,,,,,,0,,,Fidelity,0.951731,Generators/SDV models/6. Wine quality.ipynb
 6. Wine dataset,TVAE,,fidelity,Quality_Score,0.94743,0.94743,,,,,,0,,,Fidelity,0.94743,Generators/SDV models/6. Wine quality.ipynb
 6. Wine dataset,CTGAN,,fidelity,Quality_Score,0.870891,0.870891,,,,,,0,,,Fidelity,0.870891,Generators/SDV models/6. Wine quality.ipynb
 6. Wine dataset,CopulaGAN,,fidelity,Quality_Score,0.869136,0.869136,,,,,,0,,,Fidelity,0.869136,Generators/SDV models/6. Wine quality.ipynb
+6. Wine dataset,CTABGAN,,fidelity,Quality_Score,0.834,0.834,,,,,,0,,,Fidelity,0.834,Generators/Other GANS/6. Winequality_other GAN.ipynb
+6. Wine dataset,WGAN_GP,,fidelity,Quality_Score,0.716417,0.716417,,,,,,0,,,Fidelity,0.716417,Generators/Other GANS/6. Winequality_other GAN.ipynb
+6. Wine dataset,ForestDiffusion,,fidelity,Quality_Score,0.857667,0.857667,,,,,,0,,,Fidelity,0.857667,Generators/Diffusion GANs/6. Winequality_diffusion.ipynb
+6. Wine dataset,TabDDPM,,fidelity,Quality_Score,0.761333,0.761333,,,,,,0,,,Fidelity,0.761333,Generators/Diffusion GANs/6. Winequality_diffusion.ipynb
 7. CDC diabetes dataset,GaussianCopula,,fidelity,Quality_Score,0.923657,0.923657,,,,,,0,,,Fidelity,0.923657,Generators/SDV models/7. Heart.ipynb
 7. CDC diabetes dataset,TVAE,,fidelity,Quality_Score,0.916702,0.916702,,,,,,0,,,Fidelity,0.916702,Generators/SDV models/7. Heart.ipynb
 7. CDC diabetes dataset,CopulaGAN,,fidelity,Quality_Score,0.88296,0.88296,,,,,,0,,,Fidelity,0.88296,Generators/SDV models/7. Heart.ipynb
 7. CDC diabetes dataset,CTGAN,,fidelity,Quality_Score,0.87481,0.87481,,,,,,0,,,Fidelity,0.87481,Generators/SDV models/7. Heart.ipynb
+7. CDC diabetes dataset,WGAN_GP,,fidelity,Quality_Score,0.847955,0.847955,,,,,,0,,,Fidelity,0.847955,Generators/Other GANS/7_CDC_diabetes_other_GAN.ipynb
+7. CDC diabetes dataset,CTABGAN,,fidelity,Quality_Score,0.760273,0.760273,,,,,,0,,,Fidelity,0.760273,Generators/Other GANS/7_CDC_diabetes_other_GAN.ipynb
+7. CDC diabetes dataset,TabDDPM,,fidelity,Quality_Score,0.713727,0.713727,,,,,,0,,,Fidelity,0.713727,Generators/Diffusion GANs/7_CDC_diabetes_diffusion.ipynb
+7. CDC diabetes dataset,ForestDiffusion,,fidelity,Quality_Score,0.511773,0.511773,,,,,,0,,,Fidelity,0.511773,Generators/Diffusion GANs/7_CDC_diabetes_diffusion.ipynb
 8. Mushroom dataset,TVAE,,fidelity,Quality_Score,0.914558,0.914558,,,,,,0,,,Fidelity,0.914558,Generators/SDV models/8. Mushroom.ipynb
 8. Mushroom dataset,GaussianCopula,,fidelity,Quality_Score,0.909833,0.909833,,,,,,0,,,Fidelity,0.909833,Generators/SDV models/8. Mushroom.ipynb
 8. Mushroom dataset,CopulaGAN,,fidelity,Quality_Score,0.892834,0.892834,,,,,,0,,,Fidelity,0.892834,Generators/SDV models/8. Mushroom.ipynb
 8. Mushroom dataset,CTGAN,,fidelity,Quality_Score,0.878921,0.878921,,,,,,0,,,Fidelity,0.878921,Generators/SDV models/8. Mushroom.ipynb
+8. Mushroom dataset,CTABGAN,,fidelity,Quality_Score,0.921772,0.921772,,,,,,0,,,Fidelity,0.921772,Generators/Other GANS/8. Mushroom_other GAN.ipynb
+8. Mushroom dataset,WGAN_GP,,fidelity,Quality_Score,0.600454,0.600454,,,,,,0,,,Fidelity,0.600454,Generators/Other GANS/8. Mushroom_other GAN.ipynb
+8. Mushroom dataset,ForestDiffusion,,fidelity,Quality_Score,0.573974,0.573974,,,,,,0,,,Fidelity,0.573974,Generators/Diffusion GANs/8. Mushroom_diffusion.ipynb
+8. Mushroom dataset,TabDDPM,,fidelity,Quality_Score,0.452807,0.452807,,,,,,0,,,Fidelity,0.452807,Generators/Diffusion GANs/8. Mushroom_diffusion.ipynb
 9. MAGIC Gamma Telescope,TVAE,,fidelity,Quality_Score,0.928895,0.928895,,,,,,0,,,Fidelity,0.928895,Generators/SDV models/9. MAGIC Gamma Telescope.ipynb
 9. MAGIC Gamma Telescope,GaussianCopula,,fidelity,Quality_Score,0.895806,0.895806,,,,,,0,,,Fidelity,0.895806,Generators/SDV models/9. MAGIC Gamma Telescope.ipynb
 9. MAGIC Gamma Telescope,CTGAN,,fidelity,Quality_Score,0.894375,0.894375,,,,,,0,,,Fidelity,0.894375,Generators/SDV models/9. MAGIC Gamma Telescope.ipynb
 9. MAGIC Gamma Telescope,CopulaGAN,,fidelity,Quality_Score,0.888847,0.888847,,,,,,0,,,Fidelity,0.888847,Generators/SDV models/9. MAGIC Gamma Telescope.ipynb
+9. MAGIC Gamma Telescope,WGAN_GP,,fidelity,Quality_Score,0.94941,0.94941,,,,,,0,,,Fidelity,0.94941,Generators/Other GANS/9. MAGIC Gamma Telescope_other GAN.ipynb
+9. MAGIC Gamma Telescope,CTABGAN,,fidelity,Quality_Score,0.939745,0.939745,,,,,,0,,,Fidelity,0.939745,Generators/Other GANS/9. MAGIC Gamma Telescope_other GAN.ipynb
+9. MAGIC Gamma Telescope,ForestDiffusion,,fidelity,Quality_Score,0.867091,0.867091,,,,,,0,,,Fidelity,0.867091,Generators/Diffusion GANs/9. MAGIC Gamma Telescope_diffusion.ipynb
+9. MAGIC Gamma Telescope,TabDDPM,,fidelity,Quality_Score,0.722636,0.722636,,,,,,0,,,Fidelity,0.722636,Generators/Diffusion GANs/9. MAGIC Gamma Telescope_diffusion.ipynb
 10. Metro interstate,TVAE,,fidelity,Quality_Score,0.852997,0.852997,,,,,,0,,,Fidelity,0.852997,Generators/SDV models/10. Metro Interstate Traffic Volume.ipynb
 10. Metro interstate,CTGAN,,fidelity,Quality_Score,0.755272,0.755272,,,,,,0,,,Fidelity,0.755272,Generators/SDV models/10. Metro Interstate Traffic Volume.ipynb
 10. Metro interstate,CopulaGAN,,fidelity,Quality_Score,0.719811,0.719811,,,,,,0,,,Fidelity,0.719811,Generators/SDV models/10. Metro Interstate Traffic Volume.ipynb
@@ -1031,15 +943,147 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 12. Air Quality,TVAE,,fidelity,Quality_Score,0.927111,0.927111,,,,,,0,,,Fidelity,0.927111,Generators/SDV models/12. Air Quality.ipynb
 12. Air Quality,CTGAN,,fidelity,Quality_Score,0.724395,0.724395,,,,,,0,,,Fidelity,0.724395,Generators/SDV models/12. Air Quality.ipynb
 12. Air Quality,CopulaGAN,,fidelity,Quality_Score,0.671844,0.671844,,,,,,0,,,Fidelity,0.671844,Generators/SDV models/12. Air Quality.ipynb
+12. Air Quality,CTABGAN,,fidelity,Quality_Score,0.873,0.873,,,,,,0,,,Fidelity,0.873,Generators/Other GANS/12. Air Quality_other GAN.ipynb
+12. Air Quality,WGAN_GP,,fidelity,Quality_Score,0.841846,0.841846,,,,,,0,,,Fidelity,0.841846,Generators/Other GANS/12. Air Quality_other GAN.ipynb
+12. Air Quality,ForestDiffusion,,fidelity,Quality_Score,0.919615,0.919615,,,,,,0,,,Fidelity,0.919615,Generators/Diffusion GANs/12. Air Quality_diffusion.ipynb
+12. Air Quality,TabDDPM,,fidelity,Quality_Score,0.773077,0.773077,,,,,,0,,,Fidelity,0.773077,Generators/Diffusion GANs/12. Air Quality_diffusion.ipynb
 13. Concrete Compressive Strength,TVAE,,fidelity,Quality_Score,0.894231,0.894231,,,,,,0,,,Fidelity,0.894231,Generators/SDV models/13. Concrete Compressive Strength.ipynb
 13. Concrete Compressive Strength,GaussianCopula,,fidelity,Quality_Score,0.847314,0.847314,,,,,,0,,,Fidelity,0.847314,Generators/SDV models/13. Concrete Compressive Strength.ipynb
 13. Concrete Compressive Strength,CopulaGAN,,fidelity,Quality_Score,0.724632,0.724632,,,,,,0,,,Fidelity,0.724632,Generators/SDV models/13. Concrete Compressive Strength.ipynb
 13. Concrete Compressive Strength,CTGAN,,fidelity,Quality_Score,0.720855,0.720855,,,,,,0,,,Fidelity,0.720855,Generators/SDV models/13. Concrete Compressive Strength.ipynb
+13. Concrete Compressive Strength,CTABGAN,,fidelity,Quality_Score,0.772333,0.772333,,,,,,0,,,Fidelity,0.772333,Generators/Other GANS/13. Concrete Compressive Strength_other GAN.ipynb
+13. Concrete Compressive Strength,WGAN_GP,,fidelity,Quality_Score,0.744333,0.744333,,,,,,0,,,Fidelity,0.744333,Generators/Other GANS/13. Concrete Compressive Strength_other GAN.ipynb
+13. Concrete Compressive Strength,TabDDPM,,fidelity,Quality_Score,0.948889,0.948889,,,,,,0,,,Fidelity,0.948889,Generators/Diffusion GANs/13. Concrete Compressive Strength_diffusion.ipynb
+13. Concrete Compressive Strength,ForestDiffusion,,fidelity,Quality_Score,0.877,0.877,,,,,,0,,,Fidelity,0.877,Generators/Diffusion GANs/13. Concrete Compressive Strength_diffusion.ipynb
 14. Energy Efficiency,TVAE,,fidelity,Quality_Score,0.88622,0.88622,,,,,,0,,,Fidelity,0.88622,Generators/SDV models/14. Energy Efficiency.ipynb
 14. Energy Efficiency,GaussianCopula,,fidelity,Quality_Score,0.789355,0.789355,,,,,,0,,,Fidelity,0.789355,Generators/SDV models/14. Energy Efficiency.ipynb
 14. Energy Efficiency,CopulaGAN,,fidelity,Quality_Score,0.686985,0.686985,,,,,,0,,,Fidelity,0.686985,Generators/SDV models/14. Energy Efficiency.ipynb
 14. Energy Efficiency,CTGAN,,fidelity,Quality_Score,0.677298,0.677298,,,,,,0,,,Fidelity,0.677298,Generators/SDV models/14. Energy Efficiency.ipynb
+14. Energy Efficiency,CTABGAN,,fidelity,Quality_Score,0.704767,0.704767,,,,,,0,,,Fidelity,0.704767,Generators/Other GANS/14. Energy Efficiency_other GAN.ipynb
+14. Energy Efficiency,WGAN_GP,,fidelity,Quality_Score,0.626702,0.626702,,,,,,0,,,Fidelity,0.626702,Generators/Other GANS/14. Energy Efficiency_other GAN.ipynb
+14. Energy Efficiency,ForestDiffusion,,fidelity,Quality_Score,0.708662,0.708662,,,,,,0,,,Fidelity,0.708662,Generators/Diffusion GANs/14. Energy Efficiency_diffusion.ipynb
+14. Energy Efficiency,TabDDPM,,fidelity,Quality_Score,0.654671,0.654671,,,,,,0,,,Fidelity,0.654671,Generators/Diffusion GANs/14. Energy Efficiency_diffusion.ipynb
 15. Real Estate Valuation,TVAE,,fidelity,Quality_Score,0.92108,0.92108,,,,,,0,,,Fidelity,0.92108,Generators/SDV models/15. Real Estate Valuation.ipynb
 15. Real Estate Valuation,GaussianCopula,,fidelity,Quality_Score,0.884307,0.884307,,,,,,0,,,Fidelity,0.884307,Generators/SDV models/15. Real Estate Valuation.ipynb
 15. Real Estate Valuation,CTGAN,,fidelity,Quality_Score,0.764289,0.764289,,,,,,0,,,Fidelity,0.764289,Generators/SDV models/15. Real Estate Valuation.ipynb
 15. Real Estate Valuation,CopulaGAN,,fidelity,Quality_Score,0.734702,0.734702,,,,,,0,,,Fidelity,0.734702,Generators/SDV models/15. Real Estate Valuation.ipynb
+15. Real Estate Valuation,CTABGAN,,fidelity,Quality_Score,0.911592,0.911592,,,,,,0,,,Fidelity,0.911592,Generators/Other GANS/15. Real Estate Valuation_other GAN.ipynb
+15. Real Estate Valuation,WGAN_GP,,fidelity,Quality_Score,0.734693,0.734693,,,,,,0,,,Fidelity,0.734693,Generators/Other GANS/15. Real Estate Valuation_other GAN.ipynb
+15. Real Estate Valuation,ForestDiffusion,,fidelity,Quality_Score,0.944539,0.944539,,,,,,0,,,Fidelity,0.944539,Generators/Diffusion GANs/15. Real Estate Valuation_diffusion.ipynb
+15. Real Estate Valuation,TabDDPM,,fidelity,Quality_Score,0.65929,0.65929,,,,,,0,,,Fidelity,0.65929,Generators/Diffusion GANs/15. Real Estate Valuation_diffusion.ipynb
+1. Cancer,CTGAN,,,Gower_Distance,,0.825575,,,,,,0,,Score,Fidelity,0.825575,Generators/SDV models/1. Cancer.ipynb
+1. Cancer,CopulaGAN,,,Gower_Distance,,0.787046,,,,,,0,,Score,Fidelity,0.787046,Generators/SDV models/1. Cancer.ipynb
+1. Cancer,TVAE,,,Gower_Distance,,0.865425,,,,,,0,,Score,Fidelity,0.865425,Generators/SDV models/1. Cancer.ipynb
+1. Cancer,GaussianCopula,,,Gower_Distance,,0.851888,,,,,,0,,Score,Fidelity,0.851888,Generators/SDV models/1. Cancer.ipynb
+1. Cancer,CTABGAN,,,Gower_Distance,,0.845894,,,,,,0,,Score,Fidelity,0.845894,Generators/Other GANS/1. Cancer_other GAN.ipynb
+1. Cancer,WGAN_GP,,,Gower_Distance,,0.87225,,,,,,0,,Score,Fidelity,0.87225,Generators/Other GANS/1. Cancer_other GAN.ipynb
+1. Cancer,TabDDPM,,,Gower_Distance,,0.478821,,,,,,0,,Score,Fidelity,0.478821,Generators/Diffusion GANs/1. Cancer_diffusion.ipynb
+1. Cancer,ForestDiffusion,,,Gower_Distance,,0.860912,,,,,,0,,Score,Fidelity,0.860912,Generators/Diffusion GANs/1. Cancer_diffusion.ipynb
+2. Alzhimers,CTGAN,,,Gower_Distance,,0.735633,,,,,,0,,Score,Fidelity,0.735633,Generators/SDV models/2. Alzhimers.ipynb
+2. Alzhimers,CopulaGAN,,,Gower_Distance,,0.733296,,,,,,0,,Score,Fidelity,0.733296,Generators/SDV models/2. Alzhimers.ipynb
+2. Alzhimers,TVAE,,,Gower_Distance,,0.788536,,,,,,0,,Score,Fidelity,0.788536,Generators/SDV models/2. Alzhimers.ipynb
+2. Alzhimers,GaussianCopula,,,Gower_Distance,,0.791535,,,,,,0,,Score,Fidelity,0.791535,Generators/SDV models/2. Alzhimers.ipynb
+2. Alzhimers,CTABGAN,,,Gower_Distance,,0.779736,,,,,,0,,Score,Fidelity,0.779736,Generators/Other GANS/2. Alzhimers_other GAN.ipynb
+2. Alzhimers,WGAN_GP,,,Gower_Distance,,0.835927,,,,,,0,,Score,Fidelity,0.835927,Generators/Other GANS/2. Alzhimers_other GAN.ipynb
+2. Alzhimers,TabDDPM,,,Gower_Distance,,0.585711,,,,,,0,,Score,Fidelity,0.585711,Generators/Diffusion GANs/2. Alzhimers_diffusion.ipynb
+2. Alzhimers,ForestDiffusion,,,Gower_Distance,,0.785988,,,,,,0,,Score,Fidelity,0.785988,Generators/Diffusion GANs/2. Alzhimers_diffusion.ipynb
+3. Adult,CTABGAN,,,Gower_Distance,,0.61206,,,,,,0,,Score,Fidelity,0.61206,Generators/Other GANS/3. Adult census_other GAN.ipynb
+3. Adult,WGAN_GP,,,Gower_Distance,,0.521082,,,,,,0,,Score,Fidelity,0.521082,Generators/Other GANS/3. Adult census_other GAN.ipynb
+3. Adult,TabDDPM,,,Gower_Distance,,0.313479,,,,,,0,,Score,Fidelity,0.313479,Generators/Diffusion GANs/3. Adult census_diffusion.ipynb
+3. Adult,ForestDiffusion,,,Gower_Distance,,0.645353,,,,,,0,,Score,Fidelity,0.645353,Generators/Diffusion GANs/3. Adult census_diffusion.ipynb
+4. Forest cover dataset,CTGAN,,,Gower_Distance,,0.902477,,,,,,0,,Score,Fidelity,0.902477,Generators/SDV models/4.Forest cover.ipynb
+4. Forest cover dataset,CopulaGAN,,,Gower_Distance,,0.901364,,,,,,0,,Score,Fidelity,0.901364,Generators/SDV models/4.Forest cover.ipynb
+4. Forest cover dataset,TVAE,,,Gower_Distance,,0.924451,,,,,,0,,Score,Fidelity,0.924451,Generators/SDV models/4.Forest cover.ipynb
+4. Forest cover dataset,GaussianCopula,,,Gower_Distance,,0.906039,,,,,,0,,Score,Fidelity,0.906039,Generators/SDV models/4.Forest cover.ipynb
+4. Forest cover dataset,CTABGAN,,,Gower_Distance,,0.904271,,,,,,0,,Score,Fidelity,0.904271,Generators/Other GANS/4_Forest_Cover_other_GAN.ipynb
+4. Forest cover dataset,WGAN_GP,,,Gower_Distance,,0.905784,,,,,,0,,Score,Fidelity,0.905784,Generators/Other GANS/4_Forest_Cover_other_GAN.ipynb
+4. Forest cover dataset,TabDDPM,,,Gower_Distance,,0.633701,,,,,,0,,Score,Fidelity,0.633701,Generators/Diffusion GANs/4_Forest_Cover_diffusion.ipynb
+4. Forest cover dataset,ForestDiffusion,,,Gower_Distance,,0.911891,,,,,,0,,Score,Fidelity,0.911891,Generators/Diffusion GANs/4_Forest_Cover_diffusion.ipynb
+5. Bank Markting,CTGAN,,,Gower_Distance,,0.627346,,,,,,0,,Score,Fidelity,0.627346,Generators/SDV models/5. Bank Marketing.ipynb
+5. Bank Markting,CopulaGAN,,,Gower_Distance,,0.617333,,,,,,0,,Score,Fidelity,0.617333,Generators/SDV models/5. Bank Marketing.ipynb
+5. Bank Markting,TVAE,,,Gower_Distance,,0.647807,,,,,,0,,Score,Fidelity,0.647807,Generators/SDV models/5. Bank Marketing.ipynb
+5. Bank Markting,GaussianCopula,,,Gower_Distance,,0.626154,,,,,,0,,Score,Fidelity,0.626154,Generators/SDV models/5. Bank Marketing.ipynb
+5. Bank Markting,CTABGAN,,,Gower_Distance,,0.60794,,,,,,0,,Score,Fidelity,0.60794,Generators/Other GANS/5. Bank marketing_other GAN.ipynb
+5. Bank Markting,WGAN_GP,,,Gower_Distance,,0.620311,,,,,,0,,Score,Fidelity,0.620311,Generators/Other GANS/5. Bank marketing_other GAN.ipynb
+5. Bank Markting,TabDDPM,,,Gower_Distance,,0.373353,,,,,,0,,Score,Fidelity,0.373353,Generators/Diffusion GANs/5. Bank marketing_diffusion.ipynb
+5. Bank Markting,ForestDiffusion,,,Gower_Distance,,0.623875,,,,,,0,,Score,Fidelity,0.623875,Generators/Diffusion GANs/5. Bank marketing_diffusion.ipynb
+6. Wine dataset,CTGAN,,,Gower_Distance,,0.881018,,,,,,0,,Score,Fidelity,0.881018,Generators/SDV models/6. Wine quality.ipynb
+6. Wine dataset,CopulaGAN,,,Gower_Distance,,0.883799,,,,,,0,,Score,Fidelity,0.883799,Generators/SDV models/6. Wine quality.ipynb
+6. Wine dataset,TVAE,,,Gower_Distance,,0.898376,,,,,,0,,Score,Fidelity,0.898376,Generators/SDV models/6. Wine quality.ipynb
+6. Wine dataset,GaussianCopula,,,Gower_Distance,,0.889308,,,,,,0,,Score,Fidelity,0.889308,Generators/SDV models/6. Wine quality.ipynb
+6. Wine dataset,CTABGAN,,,Gower_Distance,,0.851682,,,,,,0,,Score,Fidelity,0.851682,Generators/Other GANS/6. Winequality_other GAN.ipynb
+6. Wine dataset,WGAN_GP,,,Gower_Distance,,0.868162,,,,,,0,,Score,Fidelity,0.868162,Generators/Other GANS/6. Winequality_other GAN.ipynb
+6. Wine dataset,TabDDPM,,,Gower_Distance,,0.767133,,,,,,0,,Score,Fidelity,0.767133,Generators/Diffusion GANs/6. Winequality_diffusion.ipynb
+6. Wine dataset,ForestDiffusion,,,Gower_Distance,,0.858982,,,,,,0,,Score,Fidelity,0.858982,Generators/Diffusion GANs/6. Winequality_diffusion.ipynb
+7. CDC diabetes dataset,CTGAN,,,Gower_Distance,,0.712221,,,,,,0,,Score,Fidelity,0.712221,Generators/SDV models/7. Heart.ipynb
+7. CDC diabetes dataset,CopulaGAN,,,Gower_Distance,,0.714305,,,,,,0,,Score,Fidelity,0.714305,Generators/SDV models/7. Heart.ipynb
+7. CDC diabetes dataset,TVAE,,,Gower_Distance,,0.752427,,,,,,0,,Score,Fidelity,0.752427,Generators/SDV models/7. Heart.ipynb
+7. CDC diabetes dataset,GaussianCopula,,,Gower_Distance,,0.716012,,,,,,0,,Score,Fidelity,0.716012,Generators/SDV models/7. Heart.ipynb
+7. CDC diabetes dataset,CTABGAN,,,Gower_Distance,,0.636716,,,,,,0,,Score,Fidelity,0.636716,Generators/Other GANS/7_CDC_diabetes_other_GAN.ipynb
+7. CDC diabetes dataset,WGAN_GP,,,Gower_Distance,,0.845339,,,,,,0,,Score,Fidelity,0.845339,Generators/Other GANS/7_CDC_diabetes_other_GAN.ipynb
+7. CDC diabetes dataset,TabDDPM,,,Gower_Distance,,0.62126,,,,,,0,,Score,Fidelity,0.62126,Generators/Diffusion GANs/7_CDC_diabetes_diffusion.ipynb
+7. CDC diabetes dataset,ForestDiffusion,,,Gower_Distance,,0.73907,,,,,,0,,Score,Fidelity,0.73907,Generators/Diffusion GANs/7_CDC_diabetes_diffusion.ipynb
+8. Mushroom dataset,CTGAN,,,Gower_Distance,,0.338231,,,,,,0,,Score,Fidelity,0.338231,Generators/SDV models/8. Mushroom.ipynb
+8. Mushroom dataset,CopulaGAN,,,Gower_Distance,,0.33632,,,,,,0,,Score,Fidelity,0.33632,Generators/SDV models/8. Mushroom.ipynb
+8. Mushroom dataset,TVAE,,,Gower_Distance,,0.357493,,,,,,0,,Score,Fidelity,0.357493,Generators/SDV models/8. Mushroom.ipynb
+8. Mushroom dataset,GaussianCopula,,,Gower_Distance,,0.345135,,,,,,0,,Score,Fidelity,0.345135,Generators/SDV models/8. Mushroom.ipynb
+8. Mushroom dataset,CTABGAN,,,Gower_Distance,,0.338105,,,,,,0,,Score,Fidelity,0.338105,Generators/Other GANS/8. Mushroom_other GAN.ipynb
+8. Mushroom dataset,WGAN_GP,,,Gower_Distance,,0.29057,,,,,,0,,Score,Fidelity,0.29057,Generators/Other GANS/8. Mushroom_other GAN.ipynb
+8. Mushroom dataset,TabDDPM,,,Gower_Distance,,0.174698,,,,,,0,,Score,Fidelity,0.174698,Generators/Diffusion GANs/8. Mushroom_diffusion.ipynb
+8. Mushroom dataset,ForestDiffusion,,,Gower_Distance,,0.345428,,,,,,0,,Score,Fidelity,0.345428,Generators/Diffusion GANs/8. Mushroom_diffusion.ipynb
+9. MAGIC Gamma Telescope,CTGAN,,,Gower_Distance,,0.853544,,,,,,0,,Score,Fidelity,0.853544,Generators/SDV models/9. MAGIC Gamma Telescope.ipynb
+9. MAGIC Gamma Telescope,CopulaGAN,,,Gower_Distance,,0.847494,,,,,,0,,Score,Fidelity,0.847494,Generators/SDV models/9. MAGIC Gamma Telescope.ipynb
+9. MAGIC Gamma Telescope,TVAE,,,Gower_Distance,,0.864338,,,,,,0,,Score,Fidelity,0.864338,Generators/SDV models/9. MAGIC Gamma Telescope.ipynb
+9. MAGIC Gamma Telescope,GaussianCopula,,,Gower_Distance,,0.846668,,,,,,0,,Score,Fidelity,0.846668,Generators/SDV models/9. MAGIC Gamma Telescope.ipynb
+9. MAGIC Gamma Telescope,CTABGAN,,,Gower_Distance,,0.83957,,,,,,0,,Score,Fidelity,0.83957,Generators/Other GANS/9. MAGIC Gamma Telescope_other GAN.ipynb
+9. MAGIC Gamma Telescope,WGAN_GP,,,Gower_Distance,,0.854163,,,,,,0,,Score,Fidelity,0.854163,Generators/Other GANS/9. MAGIC Gamma Telescope_other GAN.ipynb
+9. MAGIC Gamma Telescope,TabDDPM,,,Gower_Distance,,0.741751,,,,,,0,,Score,Fidelity,0.741751,Generators/Diffusion GANs/9. MAGIC Gamma Telescope_diffusion.ipynb
+9. MAGIC Gamma Telescope,ForestDiffusion,,,Gower_Distance,,0.842496,,,,,,0,,Score,Fidelity,0.842496,Generators/Diffusion GANs/9. MAGIC Gamma Telescope_diffusion.ipynb
+10. Metro interstate,CTGAN,,,Gower_Distance,,0.665849,,,,,,0,,Score,Fidelity,0.665849,Generators/SDV models/10. Metro Interstate Traffic Volume.ipynb
+10. Metro interstate,CopulaGAN,,,Gower_Distance,,0.665781,,,,,,0,,Score,Fidelity,0.665781,Generators/SDV models/10. Metro Interstate Traffic Volume.ipynb
+10. Metro interstate,TVAE,,,Gower_Distance,,0.689928,,,,,,0,,Score,Fidelity,0.689928,Generators/SDV models/10. Metro Interstate Traffic Volume.ipynb
+10. Metro interstate,GaussianCopula,,,Gower_Distance,,0.570833,,,,,,0,,Score,Fidelity,0.570833,Generators/SDV models/10. Metro Interstate Traffic Volume.ipynb
+10. Metro interstate,CTABGAN,,,Gower_Distance,,0.575214,,,,,,0,,Score,Fidelity,0.575214,Generators/Other GANS/10. Metro Interstate_other GAN.ipynb
+10. Metro interstate,WGAN_GP,,,Gower_Distance,,0.657231,,,,,,0,,Score,Fidelity,0.657231,Generators/Other GANS/10. Metro Interstate_other GAN.ipynb
+10. Metro interstate,TabDDPM,,,Gower_Distance,,0.4366,,,,,,0,,Score,Fidelity,0.4366,Generators/Diffusion GANs/10. Metro Interstate_diffusion.ipynb
+10. Metro interstate,ForestDiffusion,,,Gower_Distance,,0.669023,,,,,,0,,Score,Fidelity,0.669023,Generators/Diffusion GANs/10. Metro Interstate_diffusion.ipynb
+11. online shopping,CTGAN,,,Gower_Distance,,0.651777,,,,,,0,,Score,Fidelity,0.651777,Generators/SDV models/11. Online Shopping.ipynb
+11. online shopping,CopulaGAN,,,Gower_Distance,,0.653286,,,,,,0,,Score,Fidelity,0.653286,Generators/SDV models/11. Online Shopping.ipynb
+11. online shopping,TVAE,,,Gower_Distance,,0.666402,,,,,,0,,Score,Fidelity,0.666402,Generators/SDV models/11. Online Shopping.ipynb
+11. online shopping,GaussianCopula,,,Gower_Distance,,0.648611,,,,,,0,,Score,Fidelity,0.648611,Generators/SDV models/11. Online Shopping.ipynb
+11. online shopping,CTABGAN,,,Gower_Distance,,0.670995,,,,,,0,,Score,Fidelity,0.670995,Generators/Other GANS/11. Online shopping_other GAN.ipynb
+11. online shopping,WGAN_GP,,,Gower_Distance,,0.652946,,,,,,0,,Score,Fidelity,0.652946,Generators/Other GANS/11. Online shopping_other GAN.ipynb
+11. online shopping,TabDDPM,,,Gower_Distance,,0.576314,,,,,,0,,Score,Fidelity,0.576314,Generators/Diffusion GANs/11. Online shopping_diffusion.ipynb
+11. online shopping,ForestDiffusion,,,Gower_Distance,,0.710192,,,,,,0,,Score,Fidelity,0.710192,Generators/Diffusion GANs/11. Online shopping_diffusion.ipynb
+12. Air Quality,CTGAN,,,Gower_Distance,,0.804398,,,,,,0,,Score,Fidelity,0.804398,Generators/SDV models/12. Air Quality.ipynb
+12. Air Quality,CopulaGAN,,,Gower_Distance,,0.784604,,,,,,0,,Score,Fidelity,0.784604,Generators/SDV models/12. Air Quality.ipynb
+12. Air Quality,TVAE,,,Gower_Distance,,0.816653,,,,,,0,,Score,Fidelity,0.816653,Generators/SDV models/12. Air Quality.ipynb
+12. Air Quality,GaussianCopula,,,Gower_Distance,,0.82247,,,,,,0,,Score,Fidelity,0.82247,Generators/SDV models/12. Air Quality.ipynb
+12. Air Quality,CTABGAN,,,Gower_Distance,,0.823107,,,,,,0,,Score,Fidelity,0.823107,Generators/Other GANS/12. Air Quality_other GAN.ipynb
+12. Air Quality,WGAN_GP,,,Gower_Distance,,0.852592,,,,,,0,,Score,Fidelity,0.852592,Generators/Other GANS/12. Air Quality_other GAN.ipynb
+12. Air Quality,TabDDPM,,,Gower_Distance,,0.70232,,,,,,0,,Score,Fidelity,0.70232,Generators/Diffusion GANs/12. Air Quality_diffusion.ipynb
+12. Air Quality,ForestDiffusion,,,Gower_Distance,,0.824465,,,,,,0,,Score,Fidelity,0.824465,Generators/Diffusion GANs/12. Air Quality_diffusion.ipynb
+13. Concrete Compressive Strength,CTGAN,,,Gower_Distance,,0.730471,,,,,,0,,Score,Fidelity,0.730471,Generators/SDV models/13. Concrete Compressive Strength.ipynb
+13. Concrete Compressive Strength,CopulaGAN,,,Gower_Distance,,0.729719,,,,,,0,,Score,Fidelity,0.729719,Generators/SDV models/13. Concrete Compressive Strength.ipynb
+13. Concrete Compressive Strength,TVAE,,,Gower_Distance,,0.778318,,,,,,0,,Score,Fidelity,0.778318,Generators/SDV models/13. Concrete Compressive Strength.ipynb
+13. Concrete Compressive Strength,GaussianCopula,,,Gower_Distance,,0.739443,,,,,,0,,Score,Fidelity,0.739443,Generators/SDV models/13. Concrete Compressive Strength.ipynb
+13. Concrete Compressive Strength,CTABGAN,,,Gower_Distance,,0.767293,,,,,,0,,Score,Fidelity,0.767293,Generators/Other GANS/13. Concrete Compressive Strength_other GAN.ipynb
+13. Concrete Compressive Strength,WGAN_GP,,,Gower_Distance,,0.830615,,,,,,0,,Score,Fidelity,0.830615,Generators/Other GANS/13. Concrete Compressive Strength_other GAN.ipynb
+13. Concrete Compressive Strength,TabDDPM,,,Gower_Distance,,0.759916,,,,,,0,,Score,Fidelity,0.759916,Generators/Diffusion GANs/13. Concrete Compressive Strength_diffusion.ipynb
+13. Concrete Compressive Strength,ForestDiffusion,,,Gower_Distance,,0.762258,,,,,,0,,Score,Fidelity,0.762258,Generators/Diffusion GANs/13. Concrete Compressive Strength_diffusion.ipynb
+14. Energy Efficiency,CTGAN,,,Gower_Distance,,0.61768,,,,,,0,,Score,Fidelity,0.61768,Generators/SDV models/14. Energy Efficiency.ipynb
+14. Energy Efficiency,CopulaGAN,,,Gower_Distance,,0.595962,,,,,,0,,Score,Fidelity,0.595962,Generators/SDV models/14. Energy Efficiency.ipynb
+14. Energy Efficiency,TVAE,,,Gower_Distance,,0.628166,,,,,,0,,Score,Fidelity,0.628166,Generators/SDV models/14. Energy Efficiency.ipynb
+14. Energy Efficiency,GaussianCopula,,,Gower_Distance,,0.611222,,,,,,0,,Score,Fidelity,0.611222,Generators/SDV models/14. Energy Efficiency.ipynb
+14. Energy Efficiency,CTABGAN,,,Gower_Distance,,0.632868,,,,,,0,,Score,Fidelity,0.632868,Generators/Other GANS/14. Energy Efficiency_other GAN.ipynb
+14. Energy Efficiency,WGAN_GP,,,Gower_Distance,,0.837679,,,,,,0,,Score,Fidelity,0.837679,Generators/Other GANS/14. Energy Efficiency_other GAN.ipynb
+14. Energy Efficiency,TabDDPM,,,Gower_Distance,,0.551458,,,,,,0,,Score,Fidelity,0.551458,Generators/Diffusion GANs/14. Energy Efficiency_diffusion.ipynb
+14. Energy Efficiency,ForestDiffusion,,,Gower_Distance,,0.623942,,,,,,0,,Score,Fidelity,0.623942,Generators/Diffusion GANs/14. Energy Efficiency_diffusion.ipynb
+15. Real Estate Valuation,CTGAN,,,Gower_Distance,,0.708963,,,,,,0,,Score,Fidelity,0.708963,Generators/SDV models/15. Real Estate Valuation.ipynb
+15. Real Estate Valuation,CopulaGAN,,,Gower_Distance,,0.667636,,,,,,0,,Score,Fidelity,0.667636,Generators/SDV models/15. Real Estate Valuation.ipynb
+15. Real Estate Valuation,TVAE,,,Gower_Distance,,0.721756,,,,,,0,,Score,Fidelity,0.721756,Generators/SDV models/15. Real Estate Valuation.ipynb
+15. Real Estate Valuation,GaussianCopula,,,Gower_Distance,,0.700365,,,,,,0,,Score,Fidelity,0.700365,Generators/SDV models/15. Real Estate Valuation.ipynb
+15. Real Estate Valuation,CTABGAN,,,Gower_Distance,,0.776166,,,,,,0,,Score,Fidelity,0.776166,Generators/Other GANS/15. Real Estate Valuation_other GAN.ipynb
+15. Real Estate Valuation,WGAN_GP,,,Gower_Distance,,0.843701,,,,,,0,,Score,Fidelity,0.843701,Generators/Other GANS/15. Real Estate Valuation_other GAN.ipynb
+15. Real Estate Valuation,TabDDPM,,,Gower_Distance,,0.599162,,,,,,0,,Score,Fidelity,0.599162,Generators/Diffusion GANs/15. Real Estate Valuation_diffusion.ipynb
+15. Real Estate Valuation,ForestDiffusion,,,Gower_Distance,,0.76937,,,,,,0,,Score,Fidelity,0.76937,Generators/Diffusion GANs/15. Real Estate Valuation_diffusion.ipynb
