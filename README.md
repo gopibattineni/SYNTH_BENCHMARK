@@ -1,282 +1,318 @@
-# SYNTH — Synthetic Data Quality & Utility Benchmark
+# SYNTH Benchmark
 
-Benchmark for comparing **tabular synthetic data generators** on **fidelity**, **downstream utility**, and **privacy**, with a leak-safe TRTR/TSTR protocol across **15 datasets** (9 classification + 6 regression) and **8 generators** spanning GAN, diffusion, and statistical (SDV) families.
+**A reproducible benchmark for tabular synthetic data** — comparing **8 generators** across **15 datasets** on **utility**, **fidelity**, and **privacy**, with publication-ready analysis and figures.
 
-Associated with LERO / BDS research on synthetic data auditing.
+[![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/downloads/)
+[![License: Research](https://img.shields.io/badge/license-research-lightgrey.svg)](Materials/)
+[![GitHub Pages](https://img.shields.io/badge/docs-GitHub%20Pages-blue)](https://gopibattineni.github.io/SYNTH_BENCHMARK/)
+[![Datasets](https://img.shields.io/badge/datasets-15-green.svg)](#datasets)
+[![Generators](https://img.shields.io/badge/generators-8-orange.svg)](#generators)
 
----
-
-## What this repository measures
-
-| Layer                | Question                                                                   | Where it is evaluated                                                                  |
-| --------------------- | -------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| **Utility**          | Can models trained on synthetic data perform on real held-out data?        | `Single run_Data_leak_Synth_Quality/` and `.../diffusion_dataleak/` → `TRTR_TSTR_results*.xlsx` |
-| **Fidelity**         | How closely does synthetic data match real distributions and dependencies? | `SDV models/` notebooks (KS, JS, Wasserstein, Gower, MMD, t-SNE, …)                     |
-| **Alternative GANs**  | How do non-SDV GAN generators compare on the same audit pipeline?          | `Other GANS/` (CTAB-GAN+, WGAN-GP)                                                       |
-| **Diffusion**         | How do diffusion-based generators compare on the same pipeline?            | `Diffusion GANs/` (TabDDPM, ForestDiffusion)                                             |
-| **Privacy**           | Can an attacker infer training membership from synthetic releases?         | MIA cells in `SDV models/`, `Other GANS/`, and `Diffusion GANs/` notebooks               |
-
-**TRTR** (Train Real, Test Real) is the real-data baseline.
-**TSTR** (Train Synthetic, Test Real) measures utility when learning from synthetic data only.
-The **utility gap** (TRTR − TSTR) is the main comparative signal: smaller drop = more useful synthetic data.
-
-A full visual overview is available in `figures/SYNTH_workflow.{svg,pdf,png}` (see [Pipeline diagram](#pipeline-diagram)).
+> **TL;DR** — Fit generators on real training data only → evaluate synthetic data with TRTR/TSTR utility, distributional fidelity, and privacy attacks → rank generators with statistical tests and Pareto trade-off analysis.
 
 ---
 
-## Benchmark structure (5 folder families)
+## Table of contents
 
-The benchmark is organised into five parallel folder families that all share the same **15 datasets** and the same **leak-safe 80/20 split**, but differ in which generators they run and how deep the audit is:
-
-| Folder                                                    | Generators (per dataset)                                          | Audit depth                                          |
-| ---------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------- |
-| `Single run_Data_leak_Synth_Quality/`                     | **CTAB-GAN+**, **WGAN-GP** + `CTGAN`, `CopulaGAN`, `TVAE`, `GaussianCopula` (6) | TRTR/TSTR utility only — the primary benchmark        |
-| `Single run_Data_leak_Synth_Quality/diffusion_dataleak/`  | **TabDDPM**, **ForestDiffusion** + `CTGAN`, `CopulaGAN`, `TVAE`, `GaussianCopula` (6) | TRTR/TSTR utility only — diffusion-generator variant  |
-| `SDV models/`                                             | `CTGAN`, `CopulaGAN`, `TVAE`, `GaussianCopula` (4)                   | Full audit: fidelity + utility + privacy (MIA)        |
-| `Other GANS/`                                             | **CTAB-GAN+**, **WGAN-GP** (2)                                       | Full audit: fidelity + utility + privacy (MIA)        |
-| `Diffusion GANs/`                                         | **TabDDPM**, **ForestDiffusion** (2)                                 | Full audit: fidelity + utility + privacy (MIA)        |
-
-Across all five families, the **union of generators used is 8**: `CTAB-GAN+`, `WGAN-GP`, `TabDDPM`, `ForestDiffusion`, `CTGAN`, `CopulaGAN`, `TVAE`, `GaussianCopula`.
-
-**TabDDPM** is cloned from its official repository into `_vendor/tab-ddpm` (not tracked in git — see [Setup](#setup--dependencies)); **ForestDiffusion** installs via `pip`.
-
----
-
-## Experimental protocol
-
-Every dataset notebook follows the same core design:
-
-1. **Load & preprocess** — drop date / time / session-ID / record-ID columns, clean missing values.
-2. **Subsample** to `N = 1000` rows (`seed = 42`) for tractable generator training.
-3. **Leak-safe split:** stratified 80% train / 20% test (`TEST_SIZE = 0.2`).
-4. **Generators fit on `train_real` only** — synthetic rows are never built from the held-out test set.
-5. Each generator produces **1,000 synthetic rows**.
-6. **Fidelity:** `SDV.evaluate_quality()` compares synthetic data against `train_real` (identity, distribution, and feature similarity).
-7. **Utility (TRTR vs TSTR):** 10 downstream models × 10 random seeds (`42…51`); metrics reported as **mean ± SD**.
-   - **TRTR** — train and test on real data (baseline).
-   - **TSTR** — train on synthetic data, test on the **same held-out real test set** for every generator.
-8. **Performance drop** `Δ = TRTR − TSTR` is computed per metric, per generator, per downstream model, and exported to Excel.
-
-### Datasets (15)
-
-| #  | Folder                            | Task           | Target (typical)                    |
-| -- | ---------------------------------- | -------------- | ------------------------------------ |
-| 1  | Cancer                             | Classification | Diagnosis (M/B)                     |
-| 2  | Alzheimer's                        | Classification | Group (Demented / Nondemented)      |
-| 3  | Adult                               | Classification | Income                               |
-| 4  | Forest Cover                       | Classification | Cover type                          |
-| 5  | Bank Marketing                     | Classification | Subscription                        |
-| 6  | Wine Quality                       | Classification | Quality (ordinal score)             |
-| 7  | CDC Diabetes Health Indicators     | Classification | Diabetes indicator                  |
-| 8  | Metro Interstate Traffic Volume    | Regression     | Traffic volume                      |
-| 9  | Secondary Mushroom                 | Classification | Edible / poisonous                  |
-| 10 | Online Shopping                    | Regression     | Revenue / price                     |
-| 11 | MAGIC Gamma Telescope              | Classification | Class (gamma / hadron)              |
-| 12 | Air Quality                        | Regression     | `CO(GT)`                             |
-| 13 | Concrete Compressive Strength      | Regression     | Compressive strength                |
-| 14 | Energy Efficiency                  | Regression     | Heating load (`Y1`)                 |
-| 15 | Real Estate Valuation              | Regression     | House price per unit area           |
-
-**9 classification** + **6 regression**. Canonical dataset metadata (UCI IDs, notebook paths, sample sizes) lives in `Single run_Data_leak_Synth_Quality/python_scripts/hive/datasets.json`. Raw / cached CSVs live under `Datasets/` and per-dataset notebook folders.
+- [Why this benchmark?](#why-this-benchmark)
+- [Benchmark at a glance](#benchmark-at-a-glance)
+- [Quick start](#quick-start)
+- [Analysis pipelines](#analysis-pipelines)
+- [Results & figures](#results--figures)
+- [Repository layout](#repository-layout)
+- [Experimental protocol](#experimental-protocol)
+- [Datasets](#datasets)
+- [Generators](#generators)
+- [Dashboard](#dashboard)
+- [Citation](#citation)
+- [Changelog](#changelog)
+- [Contributing](#contributing)
 
 ---
 
-## Results files (`TRTR_TSTR_results*.xlsx`)
+## Why this benchmark?
 
-Each dataset notebook exports an Excel workbook with sheets such as:
+Synthetic tabular data is used for privacy-preserving sharing and ML augmentation — but **no single metric tells the full story**. SYNTH evaluates every generator on three complementary axes:
 
-| Sheet                                              | Contents                                                |
-| --------------------------------------------------- | --------------------------------------------------------- |
-| **TRTR**                                           | Downstream performance training on real data (baseline) |
-| **Per-generator sheets** (e.g. `CTGAN`, `TVAE`, …) | TSTR results for that synthetic source                  |
-| **Combined comparison**                            | TRTR vs TSTR side-by-side per downstream model          |
-| **Summary**                                        | Aggregated drops per generator                          |
+| Pillar | Question | Key metrics |
+|--------|----------|-------------|
+| **Utility** | Does synthetic data train useful models? | TRTR vs TSTR — Accuracy, F1, R², RMSE (10 seeds × 10 downstream models) |
+| **Fidelity** | Does synthetic data look like the real distribution? | KS, JS, Wasserstein, MMD, SDV Quality Score, t-SNE |
+| **Privacy** | Can an attacker infer training membership? | MIA AUC, Mahalanobis distance, NNDR, Hungarian matching |
 
-### Classification metrics
-
-- **TRTR / TSTR:** Accuracy, F1, Precision, Recall (mean ± SD).
-- **Utility drop:** `Accuracy_Drop`, `F1_Drop`, etc. = TRTR − TSTR (positive = synthetic training hurt performance).
-
-### Regression metrics (Metro, Online Shopping, Air Quality, Concrete, Energy Efficiency, Real Estate)
-
-- **TRTR / TSTR:** R², RMSE, MAE (mean ± SD).
-- **Utility drop:** `R2_Drop`, `RMSE_Increase`, `MAE_Increase`.
-
-### How to read the results
-
-- **No single generator wins everywhere.** Best synthetic source is **dataset-dependent** — always check the exported per-dataset summary.
-- **Large TRTR − TSTR gap** → synthetic data preserves little task-relevant signal for that downstream model.
-- **Low drop + stable SD across seeds** → more reliable generator for that setting.
-- **High SD on TSTR** → seed-sensitive synthesis or unstable downstream fit; report mean ± SD, not a single run.
-- **SDV quality score** (in fidelity notebooks) measures distributional similarity; it does **not** guarantee high TSTR utility — always cross-check with TRTR/TSTR.
-
----
-
-## Pipeline diagram
-
-A publication-ready workflow diagram (5 stages: Data → Synthesis → Quality → Evaluation → Analysis) is generated from code and kept in sync with the pipeline:
-
-- `figures/SYNTH_workflow.svg` / `.pdf` — vector, for LaTeX / journal submission
-- `figures/SYNTH_workflow.png` — 300 DPI raster, for slides / Word
-- `Single run_Data_leak_Synth_Quality/forge_paper_workflow.png` — mirrored copy for notebook-adjacent reference
-
-Regenerate after any pipeline change:
-
-```bash
-python figures/generate_forge_paper_workflow.py
+```mermaid
+flowchart LR
+  A[Real data] --> B[8 Generators]
+  B --> C[Synthetic data]
+  C --> D[Utility TRTR/TSTR]
+  C --> E[Fidelity metrics]
+  C --> F[Privacy metrics]
+  D --> G[Rankings & trade-offs]
+  E --> G
+  F --> G
 ```
 
 ---
 
-## Interactive dashboard
+## Benchmark at a glance
 
-Published view (GitHub Pages):
+| | |
+|---|---|
+| **Datasets** | 15 UCI-style tabular datasets (9 classification + 6 regression) |
+| **Generators** | CTGAN, CopulaGAN, TVAE, GaussianCopula, CTABGAN, WGAN-GP, TabDDPM, ForestDiffusion |
+| **Seeds** | 10 random seeds (`42`–`51`) — reported as mean ± SD |
+| **Leakage protocol** | Generators fit on **train only**; TSTR tested on held-out **real test** set |
+| **Outputs** | Excel workbooks, paper-ready figures (300 DPI), LaTeX tables, statistical tests |
 
-**[https://gopibattineni.github.io/SYNTH/](https://gopibattineni.github.io/SYNTH/)**
+**Current overall ranking** (composite score: 40% utility / 30% fidelity / 30% privacy):
 
-### Dashboard views
+| Rank | Generator | Composite |
+|------|-----------|-----------|
+| 1 | ForestDiffusion | 0.66 |
+| 2 | TVAE | 0.61 |
+| 3 | GaussianCopula | 0.59 |
 
-**Benchmark overview (all datasets)**
+*See [`Results/Processed_Data/generator_ranking.csv`](Results/Processed_Data/generator_ranking.csv) for full rankings.*
 
-- **Fig. A — Classification utility loss heatmap** — generators × downstream models, averaged over classification datasets; cell values = mean utility drop.
-- **Fig. B — Regression utility loss heatmap** — same for regression datasets (R²-oriented loss).
-- **Fig. C — Generator win-rate** — how often each generator ranks best on utility per dataset.
-- Toggle **Paper theme** and **Export PNG** for figures.
+---
 
-**Per dataset (click a dataset in the sidebar)**
+## Quick start
 
-- Generator ranking bar chart (lowest utility loss highlighted).
-- **TRTR vs TSTR** grouped bars per downstream model.
-- Radar chart across metrics.
-- Model-level drop chart.
-- Tables: TRTR baseline, summary by generator, full TRTR/TSTR comparison, per-generator sheets.
-
-Data are loaded from exported JSON built from the Excel files under
-`Single run_Data_leak_Synth_Quality/*/TRTR_TSTR_results*.xlsx` (and `diffusion_dataleak/*/`).
-
-### Enable / update GitHub Pages
-
-1. Open [https://github.com/gopibattineni/SYNTH/settings/pages](https://github.com/gopibattineni/SYNTH/settings/pages)
-2. **Source:** Deploy from branch → `gh-pages` → `/ (root)`
-3. Save and wait 2–5 minutes.
-
-To rebuild after new Excel results (from a machine with the full repo + `webapp/`):
+### 1. Clone & install
 
 ```bash
-python webapp/scripts/export_dashboard_data.py
-python webapp/scripts/build_github_pages.py
-# commit docs/ or push to gh-pages
+git clone https://github.com/gopibattineni/SYNTH_BENCHMARK.git
+cd SYNTH_BENCHMARK
+pip install -r requirements-analysis.txt
 ```
 
-### Run locally (FastAPI + live experiments)
+### 2. Run the full analysis pipeline (~3 min)
 
-If the `webapp/` package is present in your clone:
+Auto-discovers all Excel files, merges metrics, runs Friedman/Nemenyi tests, and generates **60+ publication figures**:
 
 ```bash
-cd webapp
-pip install -r requirements.txt
-python -m uvicorn app.main:app --host 127.0.0.1 --port 8000
+python run_analysis.py
 ```
 
-- Experiment orchestration: [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
-- Results dashboard: [http://127.0.0.1:8000/dashboard](http://127.0.0.1:8000/dashboard)
+Outputs land in [`Results/`](Results/).
 
-On Windows: `webapp/start.bat`.
+### 3. Run the Cancer & Mushroom case study (~3 min)
+
+Focused two-dataset assessment with 18 figures per dataset:
+
+```bash
+python run_two_datasets_assessment.py
+```
+
+Outputs land in [`Results/Two_Datasets_Assessment/`](Results/Two_Datasets_Assessment/).
+
+### 4. Extract paper-ready workbooks (optional)
+
+```bash
+python scripts/extract_paper_results.py
+```
+
+Creates per-dataset `TRTR_TSTR_results_*.xlsx` and `fidelity_privacy_metrics.xlsx` under [`paper results/`](paper%20results/).
+
+---
+
+## Analysis pipelines
+
+Two automated pipelines turn raw experiment Excel files into journal-ready outputs. **No filenames are hardcoded** — new results are picked up automatically on the next run.
+
+### Full benchmark (`run_analysis.py`)
+
+| Step | What it does |
+|------|----------------|
+| Merge | Discovers all `.xlsx` files under `Generators/` |
+| Score | Normalized Utility / Fidelity / Privacy scores (0–1) per dataset × generator |
+| Statistics | Friedman, Nemenyi, Wilcoxon, Cohen's d, Cliff's delta |
+| Benchmarking | Pareto frontiers, composite rankings, CD diagrams, seed stability |
+| Figures | 14 core paper figures + supplementary plots (PNG/PDF/SVG/EPS @ 300 DPI) |
+
+```bash
+python run_analysis.py --utility-weight 0.4 --privacy-weight 0.3 --fidelity-weight 0.3
+```
+
+### Two-dataset case study (`run_two_datasets_assessment.py`)
+
+Dedicated module for **Wisconsin Breast Cancer** and **Secondary Mushroom** — side-by-side comparison, 18 figures each, cross-dataset bar charts.
+
+```bash
+python run_two_datasets_assessment.py
+```
+
+### Key modules
+
+| Path | Purpose |
+|------|---------|
+| [`analysis/`](analysis/) | Core pipeline — data loading, scoring, statistics, figures |
+| [`analysis/two_datasets/`](analysis/two_datasets/) | Cancer & Mushroom case study |
+| [`scripts/extract_paper_results.py`](scripts/extract_paper_results.py) | Notebook → paper Excel workbooks |
+| [`dashboard/`](dashboard/) | Static GitHub Pages dashboard builder |
+
+---
+
+## Results & figures
+
+After running the pipelines:
+
+```
+Results/
+├── Master_Data/              # Merged long-format CSV (utility, fidelity, privacy)
+├── Processed_Data/           # Cumulative scores & generator rankings
+├── Figures/
+│   ├── Tradeoff/             # Figures 1–5, 14 — utility/fidelity/privacy trade-offs
+│   ├── Statistical/          # Rankings, CD diagrams, correlations
+│   ├── Utility/              # TRTR/TSTR, classifier heatmaps
+│   ├── Fidelity/             # Quality scores, feature heatmaps
+│   ├── Privacy/              # Mahalanobis, privacy distributions
+│   ├── Leakage/              # Leakage sensitivity curves
+│   └── Benchmark/            # Pareto, composite, seed stability
+├── Tables/                   # CSV, XLSX, LaTeX (best=**bold**, 2nd=_underline_)
+├── Supplementary/            # Statistical test outputs, correlations
+└── Two_Datasets_Assessment/  # Cancer & Mushroom case study
+    ├── Cancer/
+    ├── Mushroom/
+    └── Comparison/
+```
+
+**Preview a figure:**
+
+<p align="center">
+  <img src="Results/Figures/Statistical/Figure06_overall_ranking.png" alt="Overall generator ranking" width="600"/>
+</p>
 
 ---
 
 ## Repository layout
 
-| Path                                                          | Purpose                                                                              |
-| --------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| `Single run_Data_leak_Synth_Quality/`                        | **Primary benchmark** — CTAB-GAN+ / WGAN-GP + 4 SDV generators, TRTR/TSTR, Excel exports |
-| `Single run_Data_leak_Synth_Quality/diffusion_dataleak/`     | Same protocol, **TabDDPM / ForestDiffusion** + 4 SDV generators instead of GAN pair    |
-| `Single run_Data_leak_Synth_Quality/python_scripts/`         | Dataset metadata (`hive/datasets.json`) and cluster/batch run scripts (Slurm / Hive)    |
-| `SDV models/`                                                | Deep **fidelity + utility + privacy** audits for 4 SDV synthesizers per dataset         |
-| `Other GANS/`                                                | Same audit pipeline for **CTAB-GAN+** and **WGAN-GP**                                  |
-| `Diffusion GANs/`                                             | Same audit pipeline for **TabDDPM** and **ForestDiffusion**                              |
-| `figures/`                                                    | Diagram-generator scripts + exported pipeline/workflow figures                          |
-| `Datasets/`                                                  | Local cached dataset copies used by notebooks                                          |
-| `Materials/`                                                  | Paper notes and supplementary documents (Cosine similarity, Mahalanobis notes, preprint) |
-| `_vendor/`                                                    | Cloned **TabDDPM** implementation (`tab-ddpm`) — not tracked in git                      |
-| `add_regression_datasets.py`                                  | Adds/patches regression datasets (#12–#15) across all five folder families              |
-| `build_diffusion_notebooks.py`                                | Regenerates `Diffusion GANs/` notebooks from `Other GANS/` templates                    |
-| `build_diffusion_dataleak_notebooks.py`                       | Regenerates `diffusion_dataleak/` notebooks from `Single run/` templates                |
-| `webapp/`                                                     | FastAPI app, dashboard UI, Excel→JSON export (when included in clone)                  |
-| `docs/`                                                       | Static GitHub Pages build output                                                        |
+```
+SYNTH_BENCHMARK/
+├── Generators/
+│   ├── SDV models/                    # CTGAN, CopulaGAN, TVAE, GaussianCopula — full audit
+│   ├── Other GANS/                    # CTABGAN, WGAN-GP — full audit
+│   ├── Diffusion GANs/                # TabDDPM, ForestDiffusion — full audit
+│   └── Experiment with utility data leak/
+│       ├── utility results/           # TRTR/TSTR Excel (primary utility source)
+│       └── diffusion_dataleak/        # Diffusion + SDV utility variant
+├── analysis/                          # Automated publication pipeline
+├── Results/                           # Generated analysis outputs
+├── paper results/                     # Per-dataset paper workbooks
+├── scripts/                           # Extraction & utility scripts
+├── dashboard/                         # GitHub Pages dashboard
+├── docs/                              # Built static site (GitHub Pages)
+├── Datasets/                          # Cached dataset CSVs
+├── Materials/                         # Paper notes & supplementary docs
+└── figures/                           # Workflow diagram generators
+```
 
 ---
 
-## Extended audits (`SDV models/`, `Other GANS/`, `Diffusion GANs/`)
+## Experimental protocol
 
-These notebooks mirror a full synthetic-data audit per dataset:
+Every dataset notebook follows the same leak-safe design:
 
-1. **Univariate:** KS / column shapes, Jensen–Shannon, Wasserstein, Gower, t-SNE, MMD, cosine similarity, nearest neighbours.
-2. **Bivariate:** correlation and class-conditional distribution differences.
-3. **Multivariate:** global MMD, PCA overlays, classifier two-sample (C2ST) accuracy.
-4. **Utility:** TRTR/TSTR with 10 classifiers.
-5. **Record matching:** cosine / Mahalanobis with Hungarian (and greedy) assignment → Excel exports (`Excel sheets/`, `Hungarian_*.xlsx`).
-6. **Privacy:** membership inference attack (MIA) — lower attack AUC is generally better.
+1. **Preprocess** — drop IDs, dates, session columns; handle missing values
+2. **Subsample** to N = 1,000 rows (`seed = 42`)
+3. **Split** — stratified 80% train / 20% test
+4. **Generate** — each generator fits on `train_real` only → 1,000 synthetic rows
+5. **Evaluate fidelity** — KS, JS, Wasserstein, MMD, SDV quality, t-SNE
+6. **Evaluate utility** — 10 downstream models × 10 seeds; TRTR baseline vs TSTR
+7. **Evaluate privacy** — MIA, Mahalanobis matching, nearest-neighbour distance
+8. **Export** — Excel workbooks with mean ± SD and utility gaps
 
-For large datasets (e.g. **MAGIC**, ~19k rows; **Forest Cover**), pairwise metrics use **subsampled rows** (`METRIC_SAMPLE_SIZE = 2000`) to avoid memory errors.
-
-`Diffusion GANs/` notebooks keep the identical preprocessing, evaluation, and export pipeline as `Other GANS/`, only swapping the generator-training cell (`model_order = ["TabDDPM", "ForestDiffusion"]`).
-
----
-
-## Citation & context
-
-When reporting results, state:
-
-- Dataset name and task type (classification vs regression).
-- Generator and downstream model names.
-- TRTR baseline and TSTR score as **mean ± SD** over 10 seeds.
-- Utility drop (or increase for error metrics).
-- That generators were trained on **training real data only** and evaluated on a **held-out real test set**.
-
-For methodology figures, see `figures/SYNTH_workflow.{svg,pdf,png}` and `Materials/` for supplementary notes.
+**TRTR** = Train on Real, Test on Real (baseline)  
+**TSTR** = Train on Synthetic, Test on Real (utility of synthetic data)  
+**Utility gap** = TRTR − TSTR (smaller = better synthetic utility)
 
 ---
 
-## Quick start (reproduce one dataset)
+## Datasets
+
+| # | Name | Task | # | Name | Task |
+|---|------|------|---|------|------|
+| 1 | Wisconsin Breast Cancer | Classification | 9 | MAGIC Gamma Telescope | Classification |
+| 2 | Alzheimer's | Classification | 10 | Metro Interstate Traffic | Regression |
+| 3 | Adult Census | Classification | 11 | Online Shopping | Regression |
+| 4 | Forest Cover | Classification | 12 | Air Quality | Regression |
+| 5 | Bank Marketing | Classification | 13 | Concrete Strength | Regression |
+| 6 | Wine Quality | Classification | 14 | Energy Efficiency | Regression |
+| 7 | CDC Diabetes | Classification | 15 | Real Estate Valuation | Regression |
+| 8 | Secondary Mushroom | Classification | | | |
+
+Metadata: [`Generators/Experiment with utility data leak/python_scripts/hive/datasets.json`](Generators/Experiment%20with%20utility%20data%20leak/python_scripts/hive/datasets.json)
+
+---
+
+## Generators
+
+| Generator | Family | Folder |
+|-----------|--------|--------|
+| CTGAN | GAN (SDV) | `SDV models/` |
+| CopulaGAN | GAN (SDV) | `SDV models/` |
+| TVAE | VAE (SDV) | `SDV models/` |
+| GaussianCopula | Statistical (SDV) | `SDV models/` |
+| CTABGAN | GAN | `Other GANS/` |
+| WGAN-GP | GAN | `Other GANS/` |
+| TabDDPM | Diffusion | `Diffusion GANs/` |
+| ForestDiffusion | Diffusion | `Diffusion GANs/` |
+
+### Extra setup for diffusion generators
 
 ```bash
-# Example: open and run
-Single run_Data_leak_Synth_Quality/1. Cancer/cancer.ipynb
+git clone https://github.com/yandex-research/tab-ddpm _vendor/tab-ddpm
+pip install ForestDiffusion xgboost category-encoders imbalanced-learn
+pip install "libzero==0.0.8" "rtdl==0.0.13" --no-deps   # torch 2.x compatible
 ```
 
-Install typical dependencies:
+---
+
+## Dashboard
+
+Interactive results browser deployed via GitHub Pages:
+
+**[https://gopibattineni.github.io/SYNTH_BENCHMARK/](https://gopibattineni.github.io/SYNTH_BENCHMARK/)**
+
+Rebuild locally:
 
 ```bash
-pip install pandas numpy scikit-learn sdv torch openpyxl ucimlrepo gower xlsxwriter matplotlib
+python run_analysis.py --dashboard
+python dashboard/build_pages.py
+# Static site in docs/
 ```
 
-Diffusion generators additionally need:
+---
 
-```bash
-pip install ForestDiffusion xgboost category-encoders imbalanced-learn absl-py tensorboardX icecream dython optuna skorch pyarrow tomli tomli-w
-pip install "pynvml>=11,<12"
-pip install "libzero==0.0.8" "rtdl==0.0.13" --no-deps
+## Citation
+
+If you use this benchmark in your research, please cite:
+
+```bibtex
+@misc{battineni2026synth,
+  title  = {SYNTH Benchmark: A Reproducible Evaluation of Tabular Synthetic Data Generators},
+  author = {Battineni, Gopi},
+  year   = {2026},
+  url    = {https://github.com/gopibattineni/SYNTH_BENCHMARK}
+}
 ```
 
-On **torch 2.x**, `libzero` and `rtdl` must be installed with `--no-deps` (they pin `torch<2` but work with torch 2 in practice). Notebooks add `_vendor/tab-ddpm` and `_vendor/tab-ddpm/scripts` to `sys.path` for TabDDPM.
+When reporting results, always state: dataset, generator, downstream model, **mean ± SD over 10 seeds**, TRTR baseline, TSTR score, and that generators were trained on training data only.
 
-### Setup — dependencies
+---
 
-- For **CTAB-GAN+** notebooks, clone [CTAB-GAN-Plus](https://github.com/Team-TUD/CTAB-GAN-Plus) into `Other GANS/CTAB-GAN-Plus/` (or adjust `sys.path` in the notebook).
-- For **TabDDPM**, clone the official repository into `_vendor/` at the repository root:
+## Changelog
 
-  ```bash
-  git clone https://github.com/yandex-research/tab-ddpm _vendor/tab-ddpm
-  ```
+See [**CHANGELOG.md**](CHANGELOG.md) for release history and recent updates.
 
-  `_vendor/` is intentionally excluded from version control (large third-party code with its own git history). **ForestDiffusion** does not require a vendor checkout.
+---
 
-### Regenerating notebooks / figures
+## Contributing
 
-```bash
-python add_regression_datasets.py            # (re)patch regression datasets #12-#15
-python build_diffusion_notebooks.py           # rebuild Diffusion GANs/ from Other GANS/
-python build_diffusion_dataleak_notebooks.py  # rebuild diffusion_dataleak/ from Single run/
-python figures/generate_forge_paper_workflow.py  # rebuild the pipeline diagram
-```
+Contributions are welcome! See [**CONTRIBUTING.md**](CONTRIBUTING.md) for guidelines on running pipelines, adding datasets, and submitting pull requests.
+
+---
+
+<p align="center">
+  <sub>Associated with LERO / BDS research on synthetic data auditing · Built for reproducible, publication-ready benchmarking</sub>
+</p>
