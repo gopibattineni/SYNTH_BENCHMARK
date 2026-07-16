@@ -2559,8 +2559,6 @@ Dataset,Generator,Seed,LeakageLevel,Metric,MetricValue,Classifier,Regressor,Cate
 1. Cancer,ForestDiffusion,,,F1_Drop,,Naive Bayes,,,Gap,0.005675019036356699,,classification,Generators/Experiment with utility data leak/utility results/1. Cancer/TRTR_TSTR_results_cancer.xlsx,utility,0.005675019036356699,,0.0,100.0
 1. Cancer,ForestDiffusion,,,Precision_Drop,,Naive Bayes,,,Gap,0.01125720255791374,,classification,Generators/Experiment with utility data leak/utility results/1. Cancer/TRTR_TSTR_results_cancer.xlsx,utility,0.01125720255791374,,0.0,100.0
 1. Cancer,ForestDiffusion,,,Recall_Drop,,Naive Bayes,,,Gap,-2.220446049250313e-16,,classification,Generators/Experiment with utility data leak/utility results/1. Cancer/TRTR_TSTR_results_cancer.xlsx,utility,-2.220446049250313e-16,,0.0,100.0
-1. Cancer,CTGAN,,0.0,KS_Complement,0.915807,,,Fidelity,Score,0.915807,,,Generators/SDV models/1. Cancer.ipynb,,,,,
-1. Cancer,CTGAN,,0.0,JS_Divergence,0.254414,,,Fidelity,Score,0.254414,,,Generators/SDV models/1. Cancer.ipynb,,,,,
 1. Cancer,GaussianCopula,,0.0,Wasserstein_Distance,0.014806,,,Fidelity,Score,0.014806,,,Generators/SDV models/1. Cancer.ipynb,,,,,
 1. Cancer,TVAE,,0.0,Wasserstein_Distance,0.030417,,,Fidelity,Score,0.030417,,,Generators/SDV models/1. Cancer.ipynb,,,,,
 1. Cancer,CTGAN,,0.0,Wasserstein_Distance,0.07423,,,Fidelity,Score,0.07423,,,Generators/SDV models/1. Cancer.ipynb,,,,,
@@ -2585,8 +2583,14 @@ Dataset,Generator,Seed,LeakageLevel,Metric,MetricValue,Classifier,Regressor,Cate
 1. Cancer,TVAE,,0.0,MMD_Multivariate,0.018341,,,Fidelity,Score,0.018341,,,Generators/SDV models/1. Cancer.ipynb,,,,,
 1. Cancer,CTGAN,,0.0,MMD_Multivariate,0.087208,,,Fidelity,Score,0.087208,,,Generators/SDV models/1. Cancer.ipynb,,,,,
 1. Cancer,CopulaGAN,,0.0,MMD_Multivariate,0.210474,,,Fidelity,Score,0.210474,,,Generators/SDV models/1. Cancer.ipynb,,,,,
-1. Cancer,CTABGAN,,0.0,KS_Complement,0.962583,,,Fidelity,Score,0.962583,,,Generators/Other GANS/1. Cancer_other GAN.ipynb,,,,,
-1. Cancer,CTABGAN,,0.0,JS_Divergence,0.320934,,,Fidelity,Score,0.320934,,,Generators/Other GANS/1. Cancer_other GAN.ipynb,,,,,
+1. Cancer,CTGAN,,0.0,KS_Complement,0.7403,,,Fidelity,Score,0.7403,,,Generators/SDV models/1. Cancer.ipynb,,,,,
+1. Cancer,CopulaGAN,,0.0,KS_Complement,0.6568999999999999,,,Fidelity,Score,0.6568999999999999,,,Generators/SDV models/1. Cancer.ipynb,,,,,
+1. Cancer,TVAE,,0.0,KS_Complement,0.873,,,Fidelity,Score,0.873,,,Generators/SDV models/1. Cancer.ipynb,,,,,
+1. Cancer,GaussianCopula,,0.0,KS_Complement,0.93,,,Fidelity,Score,0.93,,,Generators/SDV models/1. Cancer.ipynb,,,,,
+1. Cancer,CTGAN,,0.0,JS_Divergence,0.1121379310344827,,,Fidelity,Score,0.1121379310344827,,,Results/Supplementary/js_divergence_from_plots.csv,,,,,
+1. Cancer,CopulaGAN,,0.0,JS_Divergence,0.1410357142857143,,,Fidelity,Score,0.1410357142857143,,,Results/Supplementary/js_divergence_from_plots.csv,,,,,
+1. Cancer,TVAE,,0.0,JS_Divergence,0.0458095238095238,,,Fidelity,Score,0.0458095238095238,,,Results/Supplementary/js_divergence_from_plots.csv,,,,,
+1. Cancer,GaussianCopula,,0.0,JS_Divergence,0.037235294117647,,,Fidelity,Score,0.037235294117647,,,Results/Supplementary/js_divergence_from_plots.csv,,,,,
 1. Cancer,WGAN_GP,,0.0,Wasserstein_Distance,0.010063,,,Fidelity,Score,0.010063,,,Generators/Other GANS/1. Cancer_other GAN.ipynb,,,,,
 1. Cancer,CTABGAN,,0.0,Wasserstein_Distance,0.037154,,,Fidelity,Score,0.037154,,,Generators/Other GANS/1. Cancer_other GAN.ipynb,,,,,
 1. Cancer,CTABGAN,,0.0,Gower_Distance,0.845894,,,Fidelity,Score,0.845894,,,Generators/Other GANS/1. Cancer_other GAN.ipynb,,,,,
@@ -2601,8 +2605,10 @@ Dataset,Generator,Seed,LeakageLevel,Metric,MetricValue,Classifier,Regressor,Cate
 1. Cancer,WGAN_GP,,0.0,PCA_Correlation_Diff,0.153608,,,Fidelity,Score,0.153608,,,Generators/Other GANS/1. Cancer_other GAN.ipynb,,,,,
 1. Cancer,WGAN_GP,,0.0,MMD_Multivariate,0.000164,,,Fidelity,Score,0.000164,,,Generators/Other GANS/1. Cancer_other GAN.ipynb,,,,,
 1. Cancer,CTABGAN,,0.0,MMD_Multivariate,0.029374,,,Fidelity,Score,0.029374,,,Generators/Other GANS/1. Cancer_other GAN.ipynb,,,,,
-1. Cancer,TabDDPM,,0.0,KS_Complement,0.684583,,,Fidelity,Score,0.684583,,,Generators/Diffusion GANs/1. Cancer_diffusion.ipynb,,,,,
-1. Cancer,TabDDPM,,0.0,JS_Divergence,0.946261,,,Fidelity,Score,0.946261,,,Generators/Diffusion GANs/1. Cancer_diffusion.ipynb,,,,,
+1. Cancer,CTABGAN,,0.0,KS_Complement,0.8515999999999999,,,Fidelity,Score,0.8515999999999999,,,Generators/Other GANS/1. Cancer_other GAN.ipynb,,,,,
+1. Cancer,WGAN_GP,,0.0,KS_Complement,0.9490000000000001,,,Fidelity,Score,0.9490000000000001,,,Generators/Other GANS/1. Cancer_other GAN.ipynb,,,,,
+1. Cancer,CTABGAN,,0.0,JS_Divergence,0.0739615384615384,,,Fidelity,Score,0.0739615384615384,,,Results/Supplementary/js_divergence_from_plots.csv,,,,,
+1. Cancer,WGAN_GP,,0.0,JS_Divergence,0.0238999999999999,,,Fidelity,Score,0.0238999999999999,,,Results/Supplementary/js_divergence_from_plots.csv,,,,,
 1. Cancer,ForestDiffusion,,0.0,Wasserstein_Distance,0.012196,,,Fidelity,Score,0.012196,,,Generators/Diffusion GANs/1. Cancer_diffusion.ipynb,,,,,
 1. Cancer,TabDDPM,,0.0,Wasserstein_Distance,0.424491,,,Fidelity,Score,0.424491,,,Generators/Diffusion GANs/1. Cancer_diffusion.ipynb,,,,,
 1. Cancer,TabDDPM,,0.0,Gower_Distance,0.478821,,,Fidelity,Score,0.478821,,,Generators/Diffusion GANs/1. Cancer_diffusion.ipynb,,,,,
@@ -2617,18 +2623,54 @@ Dataset,Generator,Seed,LeakageLevel,Metric,MetricValue,Classifier,Regressor,Cate
 1. Cancer,ForestDiffusion,,0.0,PCA_Correlation_Diff,0.193923,,,Fidelity,Score,0.193923,,,Generators/Diffusion GANs/1. Cancer_diffusion.ipynb,,,,,
 1. Cancer,ForestDiffusion,,0.0,MMD_Multivariate,0.00178,,,Fidelity,Score,0.00178,,,Generators/Diffusion GANs/1. Cancer_diffusion.ipynb,,,,,
 1. Cancer,TabDDPM,,0.0,MMD_Multivariate,0.370326,,,Fidelity,Score,0.370326,,,Generators/Diffusion GANs/1. Cancer_diffusion.ipynb,,,,,
+1. Cancer,TabDDPM,,0.0,KS_Complement,0.4014,,,Fidelity,Score,0.4014,,,Generators/Diffusion GANs/1. Cancer_diffusion.ipynb,,,,,
+1. Cancer,ForestDiffusion,,0.0,KS_Complement,0.9479000000000001,,,Fidelity,Score,0.9479000000000001,,,Generators/Diffusion GANs/1. Cancer_diffusion.ipynb,,,,,
+1. Cancer,TabDDPM,,0.0,JS_Divergence,0.6448333333333334,,,Fidelity,Score,0.6448333333333334,,,Results/Supplementary/js_divergence_from_plots.csv,,,,,
+1. Cancer,ForestDiffusion,,0.0,JS_Divergence,0.0208333333333333,,,Fidelity,Score,0.0208333333333333,,,Results/Supplementary/js_divergence_from_plots.csv,,,,,
 1. Cancer,GaussianCopula,,0.0,Quality_Score,0.943748,,,Fidelity,,0.943748,,,Generators/SDV models/1. Cancer.ipynb,fidelity,0.943748,,,
 1. Cancer,TVAE,,0.0,Quality_Score,0.896421,,,Fidelity,,0.896421,,,Generators/SDV models/1. Cancer.ipynb,fidelity,0.896421,,,
 1. Cancer,CTGAN,,0.0,Quality_Score,0.765081,,,Fidelity,,0.765081,,,Generators/SDV models/1. Cancer.ipynb,fidelity,0.765081,,,
 1. Cancer,CopulaGAN,,0.0,Quality_Score,0.721867,,,Fidelity,,0.721867,,,Generators/SDV models/1. Cancer.ipynb,fidelity,0.721867,,,
+1. Cancer,WGAN_GP,,0.0,Quality_Score,0.949012,,,Fidelity,,0.949012,,,Generators/Other GANS/1. Cancer_other GAN.ipynb,fidelity,0.949012,,,
+1. Cancer,CTABGAN,,0.0,Quality_Score,0.851563,,,Fidelity,,0.851563,,,Generators/Other GANS/1. Cancer_other GAN.ipynb,fidelity,0.851563,,,
+1. Cancer,ForestDiffusion,,0.0,Quality_Score,0.947885,,,Fidelity,,0.947885,,,Generators/Diffusion GANs/1. Cancer_diffusion.ipynb,fidelity,0.947885,,,
+1. Cancer,TabDDPM,,0.0,Quality_Score,0.401382,,,Fidelity,,0.401382,,,Generators/Diffusion GANs/1. Cancer_diffusion.ipynb,fidelity,0.401382,,,
+1. Cancer,GaussianCopula,,0.0,Mean_Distance,5.993095267039475,,,Privacy,Score,5.993095267039475,,,/home/gopi.battineni/SYNTH_BENCHMARK/Generators/SDV models/Excel sheets/Hungarian_Mahalanobis_Four_Models.xlsx,privacy,5.993095267039475,,0.0,100.0
+1. Cancer,TVAE,,0.0,Mean_Distance,43.68269224460514,,,Privacy,Score,43.68269224460514,,,/home/gopi.battineni/SYNTH_BENCHMARK/Generators/SDV models/Excel sheets/Hungarian_Mahalanobis_Four_Models.xlsx,privacy,43.68269224460514,,0.0,100.0
+1. Cancer,CTGAN,,0.0,Mean_Distance,110.2921594178478,,,Privacy,Score,110.2921594178478,,,/home/gopi.battineni/SYNTH_BENCHMARK/Generators/SDV models/Excel sheets/Hungarian_Mahalanobis_Four_Models.xlsx,privacy,110.2921594178478,,0.0,100.0
+1. Cancer,CopulaGAN,,0.0,Mean_Distance,133.737854553859,,,Privacy,Score,133.737854553859,,,/home/gopi.battineni/SYNTH_BENCHMARK/Generators/SDV models/Excel sheets/Hungarian_Mahalanobis_Four_Models.xlsx,privacy,133.737854553859,,0.0,100.0
+1. Cancer,WGAN_GP,,0.0,Mean_Distance,6.218621,,,Privacy,Score,6.218621,,,Generators/Other GANS/1. Cancer_other GAN.ipynb,,,,,
+1. Cancer,CTABGAN,,0.0,Mean_Distance,49.904281,,,Privacy,Score,49.904281,,,Generators/Other GANS/1. Cancer_other GAN.ipynb,,,,,
+1. Cancer,ForestDiffusion,,0.0,Mean_Distance,3.883779,,,Privacy,Score,3.883779,,,Generators/Diffusion GANs/1. Cancer_diffusion.ipynb,,,,,
+1. Cancer,TabDDPM,,0.0,Mean_Distance,34.433394,,,Privacy,Score,34.433394,,,Generators/Diffusion GANs/1. Cancer_diffusion.ipynb,,,,,
+1. Cancer,GaussianCopula,,0.0,Median_Distance,5.455853609420996,,,Privacy,Score,5.455853609420996,,,/home/gopi.battineni/SYNTH_BENCHMARK/Generators/SDV models/Excel sheets/Hungarian_Mahalanobis_Four_Models.xlsx,privacy,5.455853609420996,,0.0,100.0
+1. Cancer,GaussianCopula,,0.0,Std_Distance,2.229809634333889,,,Privacy,Score,2.229809634333889,,,/home/gopi.battineni/SYNTH_BENCHMARK/Generators/SDV models/Excel sheets/Hungarian_Mahalanobis_Four_Models.xlsx,privacy,2.229809634333889,,0.0,100.0
+1. Cancer,GaussianCopula,,0.0,Min_Distance,2.98864040475122,,,Privacy,Score,2.98864040475122,,,/home/gopi.battineni/SYNTH_BENCHMARK/Generators/SDV models/Excel sheets/Hungarian_Mahalanobis_Four_Models.xlsx,privacy,2.98864040475122,,0.0,100.0
+1. Cancer,GaussianCopula,,0.0,Max_Distance,22.00424531028987,,,Privacy,Score,22.00424531028987,,,/home/gopi.battineni/SYNTH_BENCHMARK/Generators/SDV models/Excel sheets/Hungarian_Mahalanobis_Four_Models.xlsx,privacy,22.00424531028987,,0.0,100.0
+1. Cancer,TVAE,,0.0,Median_Distance,33.13567064522416,,,Privacy,Score,33.13567064522416,,,/home/gopi.battineni/SYNTH_BENCHMARK/Generators/SDV models/Excel sheets/Hungarian_Mahalanobis_Four_Models.xlsx,privacy,33.13567064522416,,0.0,100.0
+1. Cancer,TVAE,,0.0,Std_Distance,32.50966032276904,,,Privacy,Score,32.50966032276904,,,/home/gopi.battineni/SYNTH_BENCHMARK/Generators/SDV models/Excel sheets/Hungarian_Mahalanobis_Four_Models.xlsx,privacy,32.50966032276904,,0.0,100.0
+1. Cancer,TVAE,,0.0,Min_Distance,8.444834969028067,,,Privacy,Score,8.444834969028067,,,/home/gopi.battineni/SYNTH_BENCHMARK/Generators/SDV models/Excel sheets/Hungarian_Mahalanobis_Four_Models.xlsx,privacy,8.444834969028067,,0.0,100.0
+1. Cancer,TVAE,,0.0,Max_Distance,170.1715718576419,,,Privacy,Score,170.1715718576419,,,/home/gopi.battineni/SYNTH_BENCHMARK/Generators/SDV models/Excel sheets/Hungarian_Mahalanobis_Four_Models.xlsx,privacy,170.1715718576419,,0.0,100.0
+1. Cancer,CTGAN,,0.0,Median_Distance,94.34770805130505,,,Privacy,Score,94.34770805130505,,,/home/gopi.battineni/SYNTH_BENCHMARK/Generators/SDV models/Excel sheets/Hungarian_Mahalanobis_Four_Models.xlsx,privacy,94.34770805130505,,0.0,100.0
+1. Cancer,CTGAN,,0.0,Std_Distance,57.07331412932883,,,Privacy,Score,57.07331412932883,,,/home/gopi.battineni/SYNTH_BENCHMARK/Generators/SDV models/Excel sheets/Hungarian_Mahalanobis_Four_Models.xlsx,privacy,57.07331412932883,,0.0,100.0
+1. Cancer,CTGAN,,0.0,Min_Distance,25.33626767737993,,,Privacy,Score,25.33626767737993,,,/home/gopi.battineni/SYNTH_BENCHMARK/Generators/SDV models/Excel sheets/Hungarian_Mahalanobis_Four_Models.xlsx,privacy,25.33626767737993,,0.0,100.0
+1. Cancer,CTGAN,,0.0,Max_Distance,349.5339478916002,,,Privacy,Score,349.5339478916002,,,/home/gopi.battineni/SYNTH_BENCHMARK/Generators/SDV models/Excel sheets/Hungarian_Mahalanobis_Four_Models.xlsx,privacy,349.5339478916002,,0.0,100.0
+1. Cancer,CopulaGAN,,0.0,Median_Distance,121.8004469268097,,,Privacy,Score,121.8004469268097,,,/home/gopi.battineni/SYNTH_BENCHMARK/Generators/SDV models/Excel sheets/Hungarian_Mahalanobis_Four_Models.xlsx,privacy,121.8004469268097,,0.0,100.0
+1. Cancer,CopulaGAN,,0.0,Std_Distance,65.13365889698537,,,Privacy,Score,65.13365889698537,,,/home/gopi.battineni/SYNTH_BENCHMARK/Generators/SDV models/Excel sheets/Hungarian_Mahalanobis_Four_Models.xlsx,privacy,65.13365889698537,,0.0,100.0
+1. Cancer,CopulaGAN,,0.0,Min_Distance,24.77390350464789,,,Privacy,Score,24.77390350464789,,,/home/gopi.battineni/SYNTH_BENCHMARK/Generators/SDV models/Excel sheets/Hungarian_Mahalanobis_Four_Models.xlsx,privacy,24.77390350464789,,0.0,100.0
+1. Cancer,CopulaGAN,,0.0,Max_Distance,355.5887680751471,,,Privacy,Score,355.5887680751471,,,/home/gopi.battineni/SYNTH_BENCHMARK/Generators/SDV models/Excel sheets/Hungarian_Mahalanobis_Four_Models.xlsx,privacy,355.5887680751471,,0.0,100.0
 1. Cancer,CopulaGAN,,0.0,NNDR,8.754585,,,Privacy,Score,8.754585,,,Generators/SDV models/1. Cancer.ipynb,,,,,
 1. Cancer,CTGAN,,0.0,NNDR,6.264304,,,Privacy,Score,6.264304,,,Generators/SDV models/1. Cancer.ipynb,,,,,
 1. Cancer,TVAE,,0.0,NNDR,2.786137,,,Privacy,Score,2.786137,,,Generators/SDV models/1. Cancer.ipynb,,,,,
 1. Cancer,GaussianCopula,,0.0,NNDR,2.722936,,,Privacy,Score,2.722936,,,Generators/SDV models/1. Cancer.ipynb,,,,,
 1. Cancer,GaussianCopula,,0.0,Hungarian_Cosine_Similarity,0.999626,,,Privacy,Score,0.999626,,,Generators/SDV models/1. Cancer.ipynb,,,,,
+1. Cancer,GaussianCopula,,0.0,Num_Matches,569.0,,,Privacy,Score,569.0,,,Generators/SDV models/1. Cancer.ipynb,,,,,
 1. Cancer,TVAE,,0.0,Hungarian_Cosine_Similarity,0.994255,,,Privacy,Score,0.994255,,,Generators/SDV models/1. Cancer.ipynb,,,,,
+1. Cancer,TVAE,,0.0,Num_Matches,569.0,,,Privacy,Score,569.0,,,Generators/SDV models/1. Cancer.ipynb,,,,,
 1. Cancer,CopulaGAN,,0.0,Hungarian_Cosine_Similarity,0.956947,,,Privacy,Score,0.956947,,,Generators/SDV models/1. Cancer.ipynb,,,,,
+1. Cancer,CopulaGAN,,0.0,Num_Matches,569.0,,,Privacy,Score,569.0,,,Generators/SDV models/1. Cancer.ipynb,,,,,
 1. Cancer,CTGAN,,0.0,Hungarian_Cosine_Similarity,0.94758,,,Privacy,Score,0.94758,,,Generators/SDV models/1. Cancer.ipynb,,,,,
+1. Cancer,CTGAN,,0.0,Num_Matches,569.0,,,Privacy,Score,569.0,,,Generators/SDV models/1. Cancer.ipynb,,,,,
 1. Cancer,TVAE,,0.0,Mahalanobis_Distance,0.982851,,,Privacy,Score,0.982851,,,Generators/SDV models/1. Cancer.ipynb,,,,,
 1. Cancer,GaussianCopula,,0.0,Mahalanobis_Distance,1.170214,,,Privacy,Score,1.170214,,,Generators/SDV models/1. Cancer.ipynb,,,,,
 1. Cancer,CTGAN,,0.0,Mahalanobis_Distance,1.205707,,,Privacy,Score,1.205707,,,Generators/SDV models/1. Cancer.ipynb,,,,,
@@ -2640,16 +2682,20 @@ Dataset,Generator,Seed,LeakageLevel,Metric,MetricValue,Classifier,Regressor,Cate
 1. Cancer,CTABGAN,,0.0,NNDR,4.696354,,,Privacy,Score,4.696354,,,Generators/Other GANS/1. Cancer_other GAN.ipynb,,,,,
 1. Cancer,WGAN_GP,,0.0,NNDR,2.333268,,,Privacy,Score,2.333268,,,Generators/Other GANS/1. Cancer_other GAN.ipynb,,,,,
 1. Cancer,WGAN_GP,,0.0,Hungarian_Cosine_Similarity,0.99984,,,Privacy,Score,0.99984,,,Generators/Other GANS/1. Cancer_other GAN.ipynb,,,,,
+1. Cancer,WGAN_GP,,0.0,Num_Matches,569.0,,,Privacy,Score,569.0,,,Generators/Other GANS/1. Cancer_other GAN.ipynb,,,,,
 1. Cancer,CTABGAN,,0.0,Hungarian_Cosine_Similarity,0.998195,,,Privacy,Score,0.998195,,,Generators/Other GANS/1. Cancer_other GAN.ipynb,,,,,
+1. Cancer,CTABGAN,,0.0,Num_Matches,569.0,,,Privacy,Score,569.0,,,Generators/Other GANS/1. Cancer_other GAN.ipynb,,,,,
 1. Cancer,CTABGAN,,0.0,Mahalanobis_Distance,0.96297,,,Privacy,Score,0.96297,,,Generators/Other GANS/1. Cancer_other GAN.ipynb,,,,,
 1. Cancer,WGAN_GP,,0.0,Mahalanobis_Distance,1.147123,,,Privacy,Score,1.147123,,,Generators/Other GANS/1. Cancer_other GAN.ipynb,,,,,
-1. Cancer,CTABGAN,,0.0,MIA_AUC,0.999996,,,Privacy,Score,0.999996,,,Generators/Other GANS/1. Cancer_other GAN.ipynb,,,,,
-1. Cancer,WGAN_GP,,0.0,MIA_AUC,0.870656,,,Privacy,Score,0.870656,,,Generators/Other GANS/1. Cancer_other GAN.ipynb,,,,,
+1. Cancer,WGAN_GP,,0.0,MIA_AUC,0.556715,,,Privacy,Score,0.556715,,,Generators/Other GANS/1. Cancer_other GAN.ipynb,,,,,
+1. Cancer,CTABGAN,,0.0,MIA_AUC,0.624091,,,Privacy,Score,0.624091,,,Generators/Other GANS/1. Cancer_other GAN.ipynb,,,,,
 1. Cancer,TabDDPM,,0.0,NNDR,17.765025,,,Privacy,Score,17.765025,,,Generators/Diffusion GANs/1. Cancer_diffusion.ipynb,,,,,
 1. Cancer,ForestDiffusion,,0.0,NNDR,1.873807,,,Privacy,Score,1.873807,,,Generators/Diffusion GANs/1. Cancer_diffusion.ipynb,,,,,
 1. Cancer,ForestDiffusion,,0.0,Hungarian_Cosine_Similarity,0.999888,,,Privacy,Score,0.999888,,,Generators/Diffusion GANs/1. Cancer_diffusion.ipynb,,,,,
+1. Cancer,ForestDiffusion,,0.0,Num_Matches,569.0,,,Privacy,Score,569.0,,,Generators/Diffusion GANs/1. Cancer_diffusion.ipynb,,,,,
 1. Cancer,TabDDPM,,0.0,Hungarian_Cosine_Similarity,0.991305,,,Privacy,Score,0.991305,,,Generators/Diffusion GANs/1. Cancer_diffusion.ipynb,,,,,
+1. Cancer,TabDDPM,,0.0,Num_Matches,569.0,,,Privacy,Score,569.0,,,Generators/Diffusion GANs/1. Cancer_diffusion.ipynb,,,,,
 1. Cancer,ForestDiffusion,,0.0,Mahalanobis_Distance,1.110723,,,Privacy,Score,1.110723,,,Generators/Diffusion GANs/1. Cancer_diffusion.ipynb,,,,,
 1. Cancer,TabDDPM,,0.0,Mahalanobis_Distance,9.926277,,,Privacy,Score,9.926277,,,Generators/Diffusion GANs/1. Cancer_diffusion.ipynb,,,,,
-1. Cancer,TabDDPM,,0.0,MIA_AUC,0.998443,,,Privacy,Score,0.998443,,,Generators/Diffusion GANs/1. Cancer_diffusion.ipynb,,,,,
-1. Cancer,ForestDiffusion,,0.0,MIA_AUC,0.521942,,,Privacy,Score,0.521942,,,Generators/Diffusion GANs/1. Cancer_diffusion.ipynb,,,,,
+1. Cancer,TabDDPM,,0.0,MIA_AUC,0.309536,,,Privacy,Score,0.309536,,,Generators/Diffusion GANs/1. Cancer_diffusion.ipynb,,,,,
+1. Cancer,ForestDiffusion,,0.0,MIA_AUC,0.546859,,,Privacy,Score,0.546859,,,Generators/Diffusion GANs/1. Cancer_diffusion.ipynb,,,,,

@@ -180,7 +180,18 @@ class PipelineConfig:
     utility_weight: float = 0.40
     privacy_weight: float = 0.30
     fidelity_weight: float = 0.30
-    exclude_dirs: tuple[str, ...] = ("Datasets", ".git", "Results", "__pycache__", ".venv", "venv")
+    exclude_dirs: tuple[str, ...] = (
+        "Datasets",
+        ".git",
+        "Results",
+        "__pycache__",
+        ".venv",
+        "venv",
+        "excel sheets",
+        "docs",
+        ".cursor",
+        "node_modules",
+    )
     figure_formats: list[str] = field(default_factory=lambda: FIGURE_FORMATS.copy())
     figure_dpi: int = FIGURE_DPI
 

@@ -1,6 +1,286 @@
 [
   {
     "Dataset": "10. Metro interstate",
+    "Generator": "ForestDiffusion",
+    "Metric": "Quality_Score",
+    "Mean": 0.9053272951,
+    "Std": null
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "TabDDPM",
+    "Metric": "Quality_Score",
+    "Mean": 0.8240340164,
+    "Std": null
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "ForestDiffusion",
+    "Metric": "Quality_Score",
+    "Mean": 0.9151970008,
+    "Std": null
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "TabDDPM",
+    "Metric": "Quality_Score",
+    "Mean": 0.7816998382,
+    "Std": null
+  },
+  {
+    "Dataset": "1. Cancer",
+    "Generator": "CTGAN",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.825575,
+    "Std": null
+  },
+  {
+    "Dataset": "1. Cancer",
+    "Generator": "CTGAN",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 11.317073,
+    "Std": null
+  },
+  {
+    "Dataset": "1. Cancer",
+    "Generator": "CTGAN",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 16.9,
+    "Std": null
+  },
+  {
+    "Dataset": "1. Cancer",
+    "Generator": "CopulaGAN",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.787046,
+    "Std": null
+  },
+  {
+    "Dataset": "1. Cancer",
+    "Generator": "CopulaGAN",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 22.3088785,
+    "Std": null
+  },
+  {
+    "Dataset": "1. Cancer",
+    "Generator": "CopulaGAN",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 28.2,
+    "Std": null
+  },
+  {
+    "Dataset": "1. Cancer",
+    "Generator": "TVAE",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.865425,
+    "Std": null
+  },
+  {
+    "Dataset": "1. Cancer",
+    "Generator": "TVAE",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 4.763045,
+    "Std": null
+  },
+  {
+    "Dataset": "1. Cancer",
+    "Generator": "TVAE",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 33.233333,
+    "Std": null
+  },
+  {
+    "Dataset": "1. Cancer",
+    "Generator": "GaussianCopula",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.851888,
+    "Std": null
+  },
+  {
+    "Dataset": "1. Cancer",
+    "Generator": "GaussianCopula",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 0.5704295,
+    "Std": null
+  },
+  {
+    "Dataset": "1. Cancer",
+    "Generator": "GaussianCopula",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 7.366667,
+    "Std": null
+  },
+  {
+    "Dataset": "1. Cancer",
+    "Generator": "CTABGAN",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.845894,
+    "Std": null
+  },
+  {
+    "Dataset": "1. Cancer",
+    "Generator": "CTABGAN",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 5.7894015,
+    "Std": null
+  },
+  {
+    "Dataset": "1. Cancer",
+    "Generator": "CTABGAN",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 22.833333,
+    "Std": null
+  },
+  {
+    "Dataset": "1. Cancer",
+    "Generator": "WGAN_GP",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.87225,
+    "Std": null
+  },
+  {
+    "Dataset": "1. Cancer",
+    "Generator": "WGAN_GP",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 0.804254,
+    "Std": null
+  },
+  {
+    "Dataset": "1. Cancer",
+    "Generator": "WGAN_GP",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 12.6,
+    "Std": null
+  },
+  {
+    "Dataset": "1. Cancer",
+    "Generator": "TabDDPM",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.478821,
+    "Std": null
+  },
+  {
+    "Dataset": "1. Cancer",
+    "Generator": "TabDDPM",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 69.7495125,
+    "Std": null
+  },
+  {
+    "Dataset": "1. Cancer",
+    "Generator": "TabDDPM",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 41.566667,
+    "Std": null
+  },
+  {
+    "Dataset": "1. Cancer",
+    "Generator": "ForestDiffusion",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.860912,
+    "Std": null
+  },
+  {
+    "Dataset": "1. Cancer",
+    "Generator": "ForestDiffusion",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 0.5960965,
+    "Std": null
+  },
+  {
+    "Dataset": "1. Cancer",
+    "Generator": "ForestDiffusion",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 10.733333,
+    "Std": null
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "CTGAN",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.665849,
+    "Std": null
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "CTGAN",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 20.024189,
+    "Std": null
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "CTGAN",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 10.75,
+    "Std": null
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "CopulaGAN",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.665781,
+    "Std": null
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "CopulaGAN",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 40.640829,
+    "Std": null
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "CopulaGAN",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 15.75,
+    "Std": null
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "TVAE",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.689928,
+    "Std": null
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "TVAE",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 23.6209835,
+    "Std": null
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "TVAE",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 14.25,
+    "Std": null
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "GaussianCopula",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.570833,
+    "Std": null
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "GaussianCopula",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 9245.2556865,
+    "Std": null
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "GaussianCopula",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 47.5,
+    "Std": null
+  },
+  {
+    "Dataset": "10. Metro interstate",
     "Generator": "CTABGAN",
     "Metric": "Quality_Score",
     "Mean": 0.8821898055,
@@ -8,9 +288,149 @@
   },
   {
     "Dataset": "10. Metro interstate",
+    "Generator": "CTABGAN",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.575214,
+    "Std": null
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "CTABGAN",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 5.001122,
+    "Std": null
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "CTABGAN",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 3.777778,
+    "Std": null
+  },
+  {
+    "Dataset": "10. Metro interstate",
     "Generator": "WGAN_GP",
     "Metric": "Quality_Score",
     "Mean": 0.8082124638,
+    "Std": null
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "WGAN_GP",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.657231,
+    "Std": null
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "WGAN_GP",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 12.10592,
+    "Std": null
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "WGAN_GP",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 10.888889,
+    "Std": null
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "TabDDPM",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.4366,
+    "Std": null
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "TabDDPM",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 2440.28847,
+    "Std": null
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "TabDDPM",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 20.0,
+    "Std": null
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "ForestDiffusion",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.669023,
+    "Std": null
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "ForestDiffusion",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 5.109726,
+    "Std": null
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "ForestDiffusion",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 40.5,
+    "Std": null
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "CTGAN",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.651777,
+    "Std": null
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "CTGAN",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 7.792363,
+    "Std": null
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "CopulaGAN",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.653286,
+    "Std": null
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "CopulaGAN",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 6.679559,
+    "Std": null
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "TVAE",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.666402,
+    "Std": null
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "TVAE",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 19.159839,
+    "Std": null
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "GaussianCopula",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.648611,
+    "Std": null
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "GaussianCopula",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 3.706453,
     "Std": null
   },
   {
@@ -22,44 +442,2081 @@
   },
   {
     "Dataset": "11. online shopping",
+    "Generator": "CTABGAN",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.670995,
+    "Std": null
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "CTABGAN",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 3.8463055,
+    "Std": null
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "CTABGAN",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 32.272727,
+    "Std": null
+  },
+  {
+    "Dataset": "11. online shopping",
     "Generator": "WGAN_GP",
     "Metric": "Quality_Score",
     "Mean": 0.0104148388,
     "Std": null
   },
   {
+    "Dataset": "11. online shopping",
+    "Generator": "WGAN_GP",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.652946,
+    "Std": null
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "WGAN_GP",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 7.910407,
+    "Std": null
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "WGAN_GP",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 53.363636,
+    "Std": null
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "TabDDPM",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.576314,
+    "Std": null
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "TabDDPM",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 30.8485375,
+    "Std": null
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "TabDDPM",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 52.916667,
+    "Std": null
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "ForestDiffusion",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.710192,
+    "Std": null
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "ForestDiffusion",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 3.781215,
+    "Std": null
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "ForestDiffusion",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 13.75,
+    "Std": null
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "CTGAN",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.804398,
+    "Std": null
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "CTGAN",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 6.601895,
+    "Std": null
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "CTGAN",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 15.416667,
+    "Std": null
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "CopulaGAN",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.784604,
+    "Std": null
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "CopulaGAN",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 16.1062176667,
+    "Std": null
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "CopulaGAN",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 23.333333,
+    "Std": null
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "TVAE",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.816653,
+    "Std": null
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "TVAE",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 1.8549896667,
+    "Std": null
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "TVAE",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 24.916667,
+    "Std": null
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "GaussianCopula",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.82247,
+    "Std": null
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "GaussianCopula",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 0.6226643333,
+    "Std": null
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "GaussianCopula",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 16.333333,
+    "Std": null
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "CTABGAN",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.823107,
+    "Std": null
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "CTABGAN",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 4.121865,
+    "Std": null
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "CTABGAN",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 9.083333,
+    "Std": null
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "WGAN_GP",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.852592,
+    "Std": null
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "WGAN_GP",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 4.384418,
+    "Std": null
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "WGAN_GP",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 24.333333,
+    "Std": null
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "TabDDPM",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.70232,
+    "Std": null
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "TabDDPM",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 24.713369,
+    "Std": null
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "TabDDPM",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 27.666667,
+    "Std": null
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "ForestDiffusion",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.824465,
+    "Std": null
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "ForestDiffusion",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 0.594682,
+    "Std": null
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "ForestDiffusion",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 9.833333,
+    "Std": null
+  },
+  {
     "Dataset": "13. Concrete Compressive Strength",
-    "Generator": null,
-    "Metric": "Quality_Score",
-    "Mean": 0.750634508,
+    "Generator": "CTGAN",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.730471,
+    "Std": null
+  },
+  {
+    "Dataset": "13. Concrete Compressive Strength",
+    "Generator": "CTGAN",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 16.27332,
+    "Std": null
+  },
+  {
+    "Dataset": "13. Concrete Compressive Strength",
+    "Generator": "CTGAN",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 23.875,
+    "Std": null
+  },
+  {
+    "Dataset": "13. Concrete Compressive Strength",
+    "Generator": "CopulaGAN",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.729719,
+    "Std": null
+  },
+  {
+    "Dataset": "13. Concrete Compressive Strength",
+    "Generator": "CopulaGAN",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 20.7343873333,
+    "Std": null
+  },
+  {
+    "Dataset": "13. Concrete Compressive Strength",
+    "Generator": "CopulaGAN",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 19.25,
+    "Std": null
+  },
+  {
+    "Dataset": "13. Concrete Compressive Strength",
+    "Generator": "TVAE",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.778318,
+    "Std": null
+  },
+  {
+    "Dataset": "13. Concrete Compressive Strength",
+    "Generator": "TVAE",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 9.030515,
+    "Std": null
+  },
+  {
+    "Dataset": "13. Concrete Compressive Strength",
+    "Generator": "TVAE",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 29.0,
+    "Std": null
+  },
+  {
+    "Dataset": "13. Concrete Compressive Strength",
+    "Generator": "GaussianCopula",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.739443,
+    "Std": null
+  },
+  {
+    "Dataset": "13. Concrete Compressive Strength",
+    "Generator": "GaussianCopula",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 13.327751,
+    "Std": null
+  },
+  {
+    "Dataset": "13. Concrete Compressive Strength",
+    "Generator": "GaussianCopula",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 19.75,
+    "Std": null
+  },
+  {
+    "Dataset": "13. Concrete Compressive Strength",
+    "Generator": "CTABGAN",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.767293,
+    "Std": null
+  },
+  {
+    "Dataset": "13. Concrete Compressive Strength",
+    "Generator": "CTABGAN",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 14.438487,
+    "Std": null
+  },
+  {
+    "Dataset": "13. Concrete Compressive Strength",
+    "Generator": "CTABGAN",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 50.875,
+    "Std": null
+  },
+  {
+    "Dataset": "13. Concrete Compressive Strength",
+    "Generator": "WGAN_GP",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.830615,
+    "Std": null
+  },
+  {
+    "Dataset": "13. Concrete Compressive Strength",
+    "Generator": "WGAN_GP",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 26.940413,
+    "Std": null
+  },
+  {
+    "Dataset": "13. Concrete Compressive Strength",
+    "Generator": "WGAN_GP",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 9.75,
+    "Std": null
+  },
+  {
+    "Dataset": "13. Concrete Compressive Strength",
+    "Generator": "TabDDPM",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.759916,
+    "Std": null
+  },
+  {
+    "Dataset": "13. Concrete Compressive Strength",
+    "Generator": "TabDDPM",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 2.932205,
+    "Std": null
+  },
+  {
+    "Dataset": "13. Concrete Compressive Strength",
+    "Generator": "TabDDPM",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 35.0,
+    "Std": null
+  },
+  {
+    "Dataset": "13. Concrete Compressive Strength",
+    "Generator": "ForestDiffusion",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.762258,
+    "Std": null
+  },
+  {
+    "Dataset": "13. Concrete Compressive Strength",
+    "Generator": "ForestDiffusion",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 3.217264,
+    "Std": null
+  },
+  {
+    "Dataset": "13. Concrete Compressive Strength",
+    "Generator": "ForestDiffusion",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 16.875,
     "Std": null
   },
   {
     "Dataset": "14. Energy Efficiency",
-    "Generator": null,
-    "Metric": "Quality_Score",
-    "Mean": 0.4979300039,
+    "Generator": "CTGAN",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.61768,
+    "Std": null
+  },
+  {
+    "Dataset": "14. Energy Efficiency",
+    "Generator": "CTGAN",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 3.9156595,
+    "Std": null
+  },
+  {
+    "Dataset": "14. Energy Efficiency",
+    "Generator": "CTGAN",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 6.0,
+    "Std": null
+  },
+  {
+    "Dataset": "14. Energy Efficiency",
+    "Generator": "CopulaGAN",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.595962,
+    "Std": null
+  },
+  {
+    "Dataset": "14. Energy Efficiency",
+    "Generator": "CopulaGAN",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 3.589172,
+    "Std": null
+  },
+  {
+    "Dataset": "14. Energy Efficiency",
+    "Generator": "CopulaGAN",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 0.0,
+    "Std": null
+  },
+  {
+    "Dataset": "14. Energy Efficiency",
+    "Generator": "TVAE",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.628166,
+    "Std": null
+  },
+  {
+    "Dataset": "14. Energy Efficiency",
+    "Generator": "TVAE",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 3.74267,
+    "Std": null
+  },
+  {
+    "Dataset": "14. Energy Efficiency",
+    "Generator": "TVAE",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 10.625,
+    "Std": null
+  },
+  {
+    "Dataset": "14. Energy Efficiency",
+    "Generator": "GaussianCopula",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.611222,
+    "Std": null
+  },
+  {
+    "Dataset": "14. Energy Efficiency",
+    "Generator": "GaussianCopula",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 1.867472,
+    "Std": null
+  },
+  {
+    "Dataset": "14. Energy Efficiency",
+    "Generator": "GaussianCopula",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 7.875,
+    "Std": null
+  },
+  {
+    "Dataset": "14. Energy Efficiency",
+    "Generator": "CTABGAN",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.632868,
+    "Std": null
+  },
+  {
+    "Dataset": "14. Energy Efficiency",
+    "Generator": "CTABGAN",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 9.30352,
+    "Std": null
+  },
+  {
+    "Dataset": "14. Energy Efficiency",
+    "Generator": "CTABGAN",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 17.125,
+    "Std": null
+  },
+  {
+    "Dataset": "14. Energy Efficiency",
+    "Generator": "WGAN_GP",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.837679,
+    "Std": null
+  },
+  {
+    "Dataset": "14. Energy Efficiency",
+    "Generator": "WGAN_GP",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 4.049586,
+    "Std": null
+  },
+  {
+    "Dataset": "14. Energy Efficiency",
+    "Generator": "WGAN_GP",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 8.5,
+    "Std": null
+  },
+  {
+    "Dataset": "14. Energy Efficiency",
+    "Generator": "TabDDPM",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.551458,
+    "Std": null
+  },
+  {
+    "Dataset": "14. Energy Efficiency",
+    "Generator": "TabDDPM",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 10.645464,
+    "Std": null
+  },
+  {
+    "Dataset": "14. Energy Efficiency",
+    "Generator": "TabDDPM",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 0.0,
+    "Std": null
+  },
+  {
+    "Dataset": "14. Energy Efficiency",
+    "Generator": "ForestDiffusion",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.623942,
+    "Std": null
+  },
+  {
+    "Dataset": "14. Energy Efficiency",
+    "Generator": "ForestDiffusion",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 0.744817,
+    "Std": null
+  },
+  {
+    "Dataset": "14. Energy Efficiency",
+    "Generator": "ForestDiffusion",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 0.0,
     "Std": null
   },
   {
     "Dataset": "15. Real Estate Valuation",
-    "Generator": null,
-    "Metric": "Quality_Score",
-    "Mean": 0.8593680276,
+    "Generator": "CTGAN",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.708963,
     "Std": null
   },
   {
-    "Dataset": "1. Cancer",
+    "Dataset": "15. Real Estate Valuation",
     "Generator": "CTGAN",
-    "Metric": "KS_Complement",
-    "Mean": 0.915807,
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 27.701104,
     "Std": null
   },
   {
-    "Dataset": "1. Cancer",
+    "Dataset": "15. Real Estate Valuation",
     "Generator": "CTGAN",
-    "Metric": "JS_Divergence",
-    "Mean": 0.254414,
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 15.6,
+    "Std": null
+  },
+  {
+    "Dataset": "15. Real Estate Valuation",
+    "Generator": "CopulaGAN",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.667636,
+    "Std": null
+  },
+  {
+    "Dataset": "15. Real Estate Valuation",
+    "Generator": "CopulaGAN",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 36.3198745,
+    "Std": null
+  },
+  {
+    "Dataset": "15. Real Estate Valuation",
+    "Generator": "CopulaGAN",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 16.0,
+    "Std": null
+  },
+  {
+    "Dataset": "15. Real Estate Valuation",
+    "Generator": "TVAE",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.721756,
+    "Std": null
+  },
+  {
+    "Dataset": "15. Real Estate Valuation",
+    "Generator": "TVAE",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 24.9349545,
+    "Std": null
+  },
+  {
+    "Dataset": "15. Real Estate Valuation",
+    "Generator": "TVAE",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 29.0,
+    "Std": null
+  },
+  {
+    "Dataset": "15. Real Estate Valuation",
+    "Generator": "GaussianCopula",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.700365,
+    "Std": null
+  },
+  {
+    "Dataset": "15. Real Estate Valuation",
+    "Generator": "GaussianCopula",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 27.441659,
+    "Std": null
+  },
+  {
+    "Dataset": "15. Real Estate Valuation",
+    "Generator": "GaussianCopula",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 9.4,
+    "Std": null
+  },
+  {
+    "Dataset": "15. Real Estate Valuation",
+    "Generator": "CTABGAN",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.776166,
+    "Std": null
+  },
+  {
+    "Dataset": "15. Real Estate Valuation",
+    "Generator": "CTABGAN",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 5.521376,
+    "Std": null
+  },
+  {
+    "Dataset": "15. Real Estate Valuation",
+    "Generator": "CTABGAN",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 20.8,
+    "Std": null
+  },
+  {
+    "Dataset": "15. Real Estate Valuation",
+    "Generator": "WGAN_GP",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.843701,
+    "Std": null
+  },
+  {
+    "Dataset": "15. Real Estate Valuation",
+    "Generator": "WGAN_GP",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 24.321296,
+    "Std": null
+  },
+  {
+    "Dataset": "15. Real Estate Valuation",
+    "Generator": "WGAN_GP",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 14.4,
+    "Std": null
+  },
+  {
+    "Dataset": "15. Real Estate Valuation",
+    "Generator": "TabDDPM",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.599162,
+    "Std": null
+  },
+  {
+    "Dataset": "15. Real Estate Valuation",
+    "Generator": "TabDDPM",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 46.180834,
+    "Std": null
+  },
+  {
+    "Dataset": "15. Real Estate Valuation",
+    "Generator": "TabDDPM",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 16.0,
+    "Std": null
+  },
+  {
+    "Dataset": "15. Real Estate Valuation",
+    "Generator": "ForestDiffusion",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.76937,
+    "Std": null
+  },
+  {
+    "Dataset": "15. Real Estate Valuation",
+    "Generator": "ForestDiffusion",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 2.227323,
+    "Std": null
+  },
+  {
+    "Dataset": "15. Real Estate Valuation",
+    "Generator": "ForestDiffusion",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 23.6,
+    "Std": null
+  },
+  {
+    "Dataset": "2. Alzhimers",
+    "Generator": "CTGAN",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.735633,
+    "Std": null
+  },
+  {
+    "Dataset": "2. Alzhimers",
+    "Generator": "CTGAN",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 18.930353,
+    "Std": null
+  },
+  {
+    "Dataset": "2. Alzhimers",
+    "Generator": "CopulaGAN",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.733296,
+    "Std": null
+  },
+  {
+    "Dataset": "2. Alzhimers",
+    "Generator": "CopulaGAN",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 24.770905,
+    "Std": null
+  },
+  {
+    "Dataset": "2. Alzhimers",
+    "Generator": "TVAE",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.788536,
+    "Std": null
+  },
+  {
+    "Dataset": "2. Alzhimers",
+    "Generator": "TVAE",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 10.833991,
+    "Std": null
+  },
+  {
+    "Dataset": "2. Alzhimers",
+    "Generator": "GaussianCopula",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.791535,
+    "Std": null
+  },
+  {
+    "Dataset": "2. Alzhimers",
+    "Generator": "GaussianCopula",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 16.343796,
+    "Std": null
+  },
+  {
+    "Dataset": "2. Alzhimers",
+    "Generator": "CTABGAN",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.779736,
+    "Std": null
+  },
+  {
+    "Dataset": "2. Alzhimers",
+    "Generator": "CTABGAN",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 6.851059,
+    "Std": null
+  },
+  {
+    "Dataset": "2. Alzhimers",
+    "Generator": "CTABGAN",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 9.7,
+    "Std": null
+  },
+  {
+    "Dataset": "2. Alzhimers",
+    "Generator": "WGAN_GP",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.835927,
+    "Std": null
+  },
+  {
+    "Dataset": "2. Alzhimers",
+    "Generator": "WGAN_GP",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 1.704296,
+    "Std": null
+  },
+  {
+    "Dataset": "2. Alzhimers",
+    "Generator": "WGAN_GP",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 21.5,
+    "Std": null
+  },
+  {
+    "Dataset": "2. Alzhimers",
+    "Generator": "TabDDPM",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.585711,
+    "Std": null
+  },
+  {
+    "Dataset": "2. Alzhimers",
+    "Generator": "TabDDPM",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 26.086693,
+    "Std": null
+  },
+  {
+    "Dataset": "2. Alzhimers",
+    "Generator": "TabDDPM",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 20.9,
+    "Std": null
+  },
+  {
+    "Dataset": "2. Alzhimers",
+    "Generator": "ForestDiffusion",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.785988,
+    "Std": null
+  },
+  {
+    "Dataset": "2. Alzhimers",
+    "Generator": "ForestDiffusion",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 0.4438225,
+    "Std": null
+  },
+  {
+    "Dataset": "2. Alzhimers",
+    "Generator": "ForestDiffusion",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 14.9,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "CTGAN",
+    "Metric": "MMD",
+    "Mean": 0.016426,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "CTGAN",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.611885,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "CTGAN",
+    "Metric": "Cosine_Similarity",
+    "Mean": -0.000376,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "CTGAN",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 18.985418,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "CopulaGAN",
+    "Metric": "MMD",
+    "Mean": 0.013831,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "CopulaGAN",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.614765,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "CopulaGAN",
+    "Metric": "Cosine_Similarity",
+    "Mean": -0.000428,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "CopulaGAN",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 14.992197,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "TVAE",
+    "Metric": "MMD",
+    "Mean": 0.006875,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "TVAE",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.646593,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "TVAE",
+    "Metric": "Cosine_Similarity",
+    "Mean": 0.005204,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "TVAE",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 17.725137,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "GaussianCopula",
+    "Metric": "MMD",
+    "Mean": 0.080521,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "GaussianCopula",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.61611,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "GaussianCopula",
+    "Metric": "Cosine_Similarity",
+    "Mean": -0.000576,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "GaussianCopula",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 675.631093,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "CTABGAN",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.61206,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "CTABGAN",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 71.5257555,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "CTABGAN",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 76.833333,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "WGAN_GP",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.521082,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "WGAN_GP",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 24.589703,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "WGAN_GP",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 61.166667,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "TabDDPM",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.313479,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "TabDDPM",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 394.3303465,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "TabDDPM",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 76.5,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "ForestDiffusion",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.645353,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "ForestDiffusion",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 7.545889,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "ForestDiffusion",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 38.0,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "TVAE",
+    "Metric": "MMD_Multivariate",
+    "Mean": 0.00721,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "CopulaGAN",
+    "Metric": "MMD_Multivariate",
+    "Mean": 0.012815,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "CTGAN",
+    "Metric": "MMD_Multivariate",
+    "Mean": 0.018062,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "GaussianCopula",
+    "Metric": "MMD_Multivariate",
+    "Mean": 0.077847,
+    "Std": null
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "CTGAN",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 20.234316,
+    "Std": null
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "CTGAN",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 8.037037,
+    "Std": null
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "CopulaGAN",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 36.775201,
+    "Std": null
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "CopulaGAN",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 7.037037,
+    "Std": null
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "TVAE",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 38.979959,
+    "Std": null
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "TVAE",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 23.759259,
+    "Std": null
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "GaussianCopula",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 13.305385,
+    "Std": null
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "GaussianCopula",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 6.648148,
+    "Std": null
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "CTABGAN",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.904271,
+    "Std": null
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "CTABGAN",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 65.4157653333,
+    "Std": null
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "CTABGAN",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 13.490909,
+    "Std": null
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "WGAN_GP",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.905784,
+    "Std": null
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "WGAN_GP",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 44.0036103333,
+    "Std": null
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "WGAN_GP",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 23.854545,
+    "Std": null
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "TabDDPM",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.633701,
+    "Std": null
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "TabDDPM",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 1982.3214266667,
+    "Std": null
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "TabDDPM",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 31.142857,
+    "Std": null
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "ForestDiffusion",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.911891,
+    "Std": null
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "ForestDiffusion",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 11.1833643333,
+    "Std": null
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "ForestDiffusion",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 8.071429,
+    "Std": null
+  },
+  {
+    "Dataset": "5. Bank Markting",
+    "Generator": "CTGAN",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.627346,
+    "Std": null
+  },
+  {
+    "Dataset": "5. Bank Markting",
+    "Generator": "CTGAN",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 7.841944,
+    "Std": null
+  },
+  {
+    "Dataset": "5. Bank Markting",
+    "Generator": "CTGAN",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 2767.285714,
+    "Std": null
+  },
+  {
+    "Dataset": "5. Bank Markting",
+    "Generator": "CopulaGAN",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.617333,
+    "Std": null
+  },
+  {
+    "Dataset": "5. Bank Markting",
+    "Generator": "CopulaGAN",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 13.688015,
+    "Std": null
+  },
+  {
+    "Dataset": "5. Bank Markting",
+    "Generator": "CopulaGAN",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 3212.714286,
+    "Std": null
+  },
+  {
+    "Dataset": "5. Bank Markting",
+    "Generator": "TVAE",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.647807,
+    "Std": null
+  },
+  {
+    "Dataset": "5. Bank Markting",
+    "Generator": "TVAE",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 12.890779,
+    "Std": null
+  },
+  {
+    "Dataset": "5. Bank Markting",
+    "Generator": "TVAE",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 3101.142857,
+    "Std": null
+  },
+  {
+    "Dataset": "5. Bank Markting",
+    "Generator": "GaussianCopula",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.626154,
+    "Std": null
+  },
+  {
+    "Dataset": "5. Bank Markting",
+    "Generator": "GaussianCopula",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 30.022608,
+    "Std": null
+  },
+  {
+    "Dataset": "5. Bank Markting",
+    "Generator": "GaussianCopula",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 3544.285714,
+    "Std": null
+  },
+  {
+    "Dataset": "5. Bank Markting",
+    "Generator": "CTABGAN",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.60794,
+    "Std": null
+  },
+  {
+    "Dataset": "5. Bank Markting",
+    "Generator": "CTABGAN",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 18.585963,
+    "Std": null
+  },
+  {
+    "Dataset": "5. Bank Markting",
+    "Generator": "CTABGAN",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 45.428571,
+    "Std": null
+  },
+  {
+    "Dataset": "5. Bank Markting",
+    "Generator": "WGAN_GP",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.620311,
+    "Std": null
+  },
+  {
+    "Dataset": "5. Bank Markting",
+    "Generator": "WGAN_GP",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 24.6408665,
+    "Std": null
+  },
+  {
+    "Dataset": "5. Bank Markting",
+    "Generator": "WGAN_GP",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 83.857143,
+    "Std": null
+  },
+  {
+    "Dataset": "5. Bank Markting",
+    "Generator": "TabDDPM",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.373353,
+    "Std": null
+  },
+  {
+    "Dataset": "5. Bank Markting",
+    "Generator": "TabDDPM",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 249.836772,
+    "Std": null
+  },
+  {
+    "Dataset": "5. Bank Markting",
+    "Generator": "TabDDPM",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 117.857143,
+    "Std": null
+  },
+  {
+    "Dataset": "5. Bank Markting",
+    "Generator": "ForestDiffusion",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.623875,
+    "Std": null
+  },
+  {
+    "Dataset": "5. Bank Markting",
+    "Generator": "ForestDiffusion",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 3.620954,
+    "Std": null
+  },
+  {
+    "Dataset": "5. Bank Markting",
+    "Generator": "ForestDiffusion",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 13.142857,
+    "Std": null
+  },
+  {
+    "Dataset": "6. Wine dataset",
+    "Generator": "CTGAN",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.881018,
+    "Std": null
+  },
+  {
+    "Dataset": "6. Wine dataset",
+    "Generator": "CTGAN",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 3.1334335,
+    "Std": null
+  },
+  {
+    "Dataset": "6. Wine dataset",
+    "Generator": "CTGAN",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 113.0,
+    "Std": null
+  },
+  {
+    "Dataset": "6. Wine dataset",
+    "Generator": "CopulaGAN",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.883799,
+    "Std": null
+  },
+  {
+    "Dataset": "6. Wine dataset",
+    "Generator": "CopulaGAN",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 3.025904,
+    "Std": null
+  },
+  {
+    "Dataset": "6. Wine dataset",
+    "Generator": "CopulaGAN",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 98.181818,
+    "Std": null
+  },
+  {
+    "Dataset": "6. Wine dataset",
+    "Generator": "TVAE",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.898376,
+    "Std": null
+  },
+  {
+    "Dataset": "6. Wine dataset",
+    "Generator": "TVAE",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 2.3260515,
+    "Std": null
+  },
+  {
+    "Dataset": "6. Wine dataset",
+    "Generator": "TVAE",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 103.181818,
+    "Std": null
+  },
+  {
+    "Dataset": "6. Wine dataset",
+    "Generator": "GaussianCopula",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.889308,
+    "Std": null
+  },
+  {
+    "Dataset": "6. Wine dataset",
+    "Generator": "GaussianCopula",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 0.2533535,
+    "Std": null
+  },
+  {
+    "Dataset": "6. Wine dataset",
+    "Generator": "GaussianCopula",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 143.181818,
+    "Std": null
+  },
+  {
+    "Dataset": "6. Wine dataset",
+    "Generator": "CTABGAN",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.851682,
+    "Std": null
+  },
+  {
+    "Dataset": "6. Wine dataset",
+    "Generator": "CTABGAN",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 4.495219,
+    "Std": null
+  },
+  {
+    "Dataset": "6. Wine dataset",
+    "Generator": "CTABGAN",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 8.166667,
+    "Std": null
+  },
+  {
+    "Dataset": "6. Wine dataset",
+    "Generator": "WGAN_GP",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.868162,
+    "Std": null
+  },
+  {
+    "Dataset": "6. Wine dataset",
+    "Generator": "WGAN_GP",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 16.358989,
+    "Std": null
+  },
+  {
+    "Dataset": "6. Wine dataset",
+    "Generator": "WGAN_GP",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 22.666667,
+    "Std": null
+  },
+  {
+    "Dataset": "6. Wine dataset",
+    "Generator": "TabDDPM",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.767133,
+    "Std": null
+  },
+  {
+    "Dataset": "6. Wine dataset",
+    "Generator": "TabDDPM",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 24.10501,
+    "Std": null
+  },
+  {
+    "Dataset": "6. Wine dataset",
+    "Generator": "TabDDPM",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 82.636364,
+    "Std": null
+  },
+  {
+    "Dataset": "6. Wine dataset",
+    "Generator": "ForestDiffusion",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.858982,
+    "Std": null
+  },
+  {
+    "Dataset": "6. Wine dataset",
+    "Generator": "ForestDiffusion",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 1.118672,
+    "Std": null
+  },
+  {
+    "Dataset": "6. Wine dataset",
+    "Generator": "ForestDiffusion",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 4.909091,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "CTGAN",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.712221,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "CTGAN",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 13.955682,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "CTGAN",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 438.238095,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "CopulaGAN",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.714305,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "CopulaGAN",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 10.153145,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "CopulaGAN",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 372.714286,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "TVAE",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.752427,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "TVAE",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 10.3889675,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "TVAE",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 165.047619,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "GaussianCopula",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.716012,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "GaussianCopula",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 10.1300725,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "GaussianCopula",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 344.285714,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "CTABGAN",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.636716,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "CTABGAN",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 141.2737375,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "CTABGAN",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 48.52381,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "WGAN_GP",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.845339,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "WGAN_GP",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 23.376675,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "WGAN_GP",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 34.428571,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "TabDDPM",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.62126,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "TabDDPM",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 93.267141,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "TabDDPM",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 89.857143,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "ForestDiffusion",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.73907,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "ForestDiffusion",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 7.220706,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "ForestDiffusion",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 23.285714,
+    "Std": null
+  },
+  {
+    "Dataset": "8. Mushroom dataset",
+    "Generator": "CTGAN",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.338231,
+    "Std": null
+  },
+  {
+    "Dataset": "8. Mushroom dataset",
+    "Generator": "CTGAN",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 2.174493,
+    "Std": null
+  },
+  {
+    "Dataset": "8. Mushroom dataset",
+    "Generator": "CTGAN",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 105.666667,
+    "Std": null
+  },
+  {
+    "Dataset": "8. Mushroom dataset",
+    "Generator": "CopulaGAN",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.33632,
+    "Std": null
+  },
+  {
+    "Dataset": "8. Mushroom dataset",
+    "Generator": "CopulaGAN",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 3.147555,
+    "Std": null
+  },
+  {
+    "Dataset": "8. Mushroom dataset",
+    "Generator": "CopulaGAN",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 125.0,
+    "Std": null
+  },
+  {
+    "Dataset": "8. Mushroom dataset",
+    "Generator": "TVAE",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.357493,
+    "Std": null
+  },
+  {
+    "Dataset": "8. Mushroom dataset",
+    "Generator": "TVAE",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 2.301251,
+    "Std": null
+  },
+  {
+    "Dataset": "8. Mushroom dataset",
+    "Generator": "TVAE",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 114.333333,
+    "Std": null
+  },
+  {
+    "Dataset": "8. Mushroom dataset",
+    "Generator": "GaussianCopula",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.345135,
+    "Std": null
+  },
+  {
+    "Dataset": "8. Mushroom dataset",
+    "Generator": "GaussianCopula",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 0.66835,
+    "Std": null
+  },
+  {
+    "Dataset": "8. Mushroom dataset",
+    "Generator": "GaussianCopula",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 222.333333,
+    "Std": null
+  },
+  {
+    "Dataset": "8. Mushroom dataset",
+    "Generator": "CTABGAN",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.338105,
+    "Std": null
+  },
+  {
+    "Dataset": "8. Mushroom dataset",
+    "Generator": "CTABGAN",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 11.175829,
+    "Std": null
+  },
+  {
+    "Dataset": "8. Mushroom dataset",
+    "Generator": "CTABGAN",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 24.333333,
+    "Std": null
+  },
+  {
+    "Dataset": "8. Mushroom dataset",
+    "Generator": "WGAN_GP",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.29057,
+    "Std": null
+  },
+  {
+    "Dataset": "8. Mushroom dataset",
+    "Generator": "WGAN_GP",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 5.167329,
+    "Std": null
+  },
+  {
+    "Dataset": "8. Mushroom dataset",
+    "Generator": "WGAN_GP",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 28.333333,
+    "Std": null
+  },
+  {
+    "Dataset": "8. Mushroom dataset",
+    "Generator": "TabDDPM",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.174698,
+    "Std": null
+  },
+  {
+    "Dataset": "8. Mushroom dataset",
+    "Generator": "TabDDPM",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 92.7014225,
+    "Std": null
+  },
+  {
+    "Dataset": "8. Mushroom dataset",
+    "Generator": "TabDDPM",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 39.666667,
+    "Std": null
+  },
+  {
+    "Dataset": "8. Mushroom dataset",
+    "Generator": "ForestDiffusion",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.345428,
+    "Std": null
+  },
+  {
+    "Dataset": "8. Mushroom dataset",
+    "Generator": "ForestDiffusion",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 4.5189095,
+    "Std": null
+  },
+  {
+    "Dataset": "8. Mushroom dataset",
+    "Generator": "ForestDiffusion",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 11.666667,
+    "Std": null
+  },
+  {
+    "Dataset": "9. MAGIC Gamma Telescope",
+    "Generator": "CTGAN",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.853544,
+    "Std": null
+  },
+  {
+    "Dataset": "9. MAGIC Gamma Telescope",
+    "Generator": "CTGAN",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 368.927512,
+    "Std": null
+  },
+  {
+    "Dataset": "9. MAGIC Gamma Telescope",
+    "Generator": "CopulaGAN",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.847494,
+    "Std": null
+  },
+  {
+    "Dataset": "9. MAGIC Gamma Telescope",
+    "Generator": "CopulaGAN",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 228.106995,
+    "Std": null
+  },
+  {
+    "Dataset": "9. MAGIC Gamma Telescope",
+    "Generator": "TVAE",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.864338,
+    "Std": null
+  },
+  {
+    "Dataset": "9. MAGIC Gamma Telescope",
+    "Generator": "TVAE",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 24.578524,
+    "Std": null
+  },
+  {
+    "Dataset": "9. MAGIC Gamma Telescope",
+    "Generator": "GaussianCopula",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.846668,
+    "Std": null
+  },
+  {
+    "Dataset": "9. MAGIC Gamma Telescope",
+    "Generator": "GaussianCopula",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 38.653274,
+    "Std": null
+  },
+  {
+    "Dataset": "9. MAGIC Gamma Telescope",
+    "Generator": "CTABGAN",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.83957,
+    "Std": null
+  },
+  {
+    "Dataset": "9. MAGIC Gamma Telescope",
+    "Generator": "CTABGAN",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 26.4102185,
+    "Std": null
+  },
+  {
+    "Dataset": "9. MAGIC Gamma Telescope",
+    "Generator": "CTABGAN",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 661.3,
+    "Std": null
+  },
+  {
+    "Dataset": "9. MAGIC Gamma Telescope",
+    "Generator": "WGAN_GP",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.854163,
+    "Std": null
+  },
+  {
+    "Dataset": "9. MAGIC Gamma Telescope",
+    "Generator": "WGAN_GP",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 10.0273625,
+    "Std": null
+  },
+  {
+    "Dataset": "9. MAGIC Gamma Telescope",
+    "Generator": "WGAN_GP",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 660.1,
+    "Std": null
+  },
+  {
+    "Dataset": "9. MAGIC Gamma Telescope",
+    "Generator": "TabDDPM",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.741751,
+    "Std": null
+  },
+  {
+    "Dataset": "9. MAGIC Gamma Telescope",
+    "Generator": "TabDDPM",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 142.460508,
+    "Std": null
+  },
+  {
+    "Dataset": "9. MAGIC Gamma Telescope",
+    "Generator": "TabDDPM",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 69.4,
+    "Std": null
+  },
+  {
+    "Dataset": "9. MAGIC Gamma Telescope",
+    "Generator": "ForestDiffusion",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.842496,
+    "Std": null
+  },
+  {
+    "Dataset": "9. MAGIC Gamma Telescope",
+    "Generator": "ForestDiffusion",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 7.813545,
+    "Std": null
+  },
+  {
+    "Dataset": "9. MAGIC Gamma Telescope",
+    "Generator": "ForestDiffusion",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 8.6,
     "Std": null
   },
   {
@@ -88,6 +2545,34 @@
     "Generator": "CopulaGAN",
     "Metric": "Wasserstein_Distance",
     "Mean": 0.123656,
+    "Std": null
+  },
+  {
+    "Dataset": "1. Cancer",
+    "Generator": "CTGAN",
+    "Metric": "Gower_Distance",
+    "Mean": 0.825575,
+    "Std": null
+  },
+  {
+    "Dataset": "1. Cancer",
+    "Generator": "CopulaGAN",
+    "Metric": "Gower_Distance",
+    "Mean": 0.787046,
+    "Std": null
+  },
+  {
+    "Dataset": "1. Cancer",
+    "Generator": "TVAE",
+    "Metric": "Gower_Distance",
+    "Mean": 0.865425,
+    "Std": null
+  },
+  {
+    "Dataset": "1. Cancer",
+    "Generator": "GaussianCopula",
+    "Metric": "Gower_Distance",
+    "Mean": 0.851888,
     "Std": null
   },
   {
@@ -204,16 +2689,58 @@
   },
   {
     "Dataset": "1. Cancer",
-    "Generator": "CTABGAN",
+    "Generator": "CTGAN",
     "Metric": "KS_Complement",
-    "Mean": 0.962583,
+    "Mean": 0.7403,
     "Std": null
   },
   {
     "Dataset": "1. Cancer",
-    "Generator": "CTABGAN",
+    "Generator": "CopulaGAN",
+    "Metric": "KS_Complement",
+    "Mean": 0.6569,
+    "Std": null
+  },
+  {
+    "Dataset": "1. Cancer",
+    "Generator": "TVAE",
+    "Metric": "KS_Complement",
+    "Mean": 0.873,
+    "Std": null
+  },
+  {
+    "Dataset": "1. Cancer",
+    "Generator": "GaussianCopula",
+    "Metric": "KS_Complement",
+    "Mean": 0.93,
+    "Std": null
+  },
+  {
+    "Dataset": "1. Cancer",
+    "Generator": "CTGAN",
     "Metric": "JS_Divergence",
-    "Mean": 0.320934,
+    "Mean": 0.112137931,
+    "Std": null
+  },
+  {
+    "Dataset": "1. Cancer",
+    "Generator": "CopulaGAN",
+    "Metric": "JS_Divergence",
+    "Mean": 0.1410357143,
+    "Std": null
+  },
+  {
+    "Dataset": "1. Cancer",
+    "Generator": "TVAE",
+    "Metric": "JS_Divergence",
+    "Mean": 0.0458095238,
+    "Std": null
+  },
+  {
+    "Dataset": "1. Cancer",
+    "Generator": "GaussianCopula",
+    "Metric": "JS_Divergence",
+    "Mean": 0.0372352941,
     "Std": null
   },
   {
@@ -228,6 +2755,20 @@
     "Generator": "CTABGAN",
     "Metric": "Wasserstein_Distance",
     "Mean": 0.037154,
+    "Std": null
+  },
+  {
+    "Dataset": "1. Cancer",
+    "Generator": "CTABGAN",
+    "Metric": "Gower_Distance",
+    "Mean": 0.845894,
+    "Std": null
+  },
+  {
+    "Dataset": "1. Cancer",
+    "Generator": "WGAN_GP",
+    "Metric": "Gower_Distance",
+    "Mean": 0.87225,
     "Std": null
   },
   {
@@ -302,16 +2843,30 @@
   },
   {
     "Dataset": "1. Cancer",
-    "Generator": "TabDDPM",
+    "Generator": "CTABGAN",
     "Metric": "KS_Complement",
-    "Mean": 0.684583,
+    "Mean": 0.8516,
     "Std": null
   },
   {
     "Dataset": "1. Cancer",
-    "Generator": "TabDDPM",
+    "Generator": "WGAN_GP",
+    "Metric": "KS_Complement",
+    "Mean": 0.949,
+    "Std": null
+  },
+  {
+    "Dataset": "1. Cancer",
+    "Generator": "CTABGAN",
     "Metric": "JS_Divergence",
-    "Mean": 0.946261,
+    "Mean": 0.0739615385,
+    "Std": null
+  },
+  {
+    "Dataset": "1. Cancer",
+    "Generator": "WGAN_GP",
+    "Metric": "JS_Divergence",
+    "Mean": 0.0239,
     "Std": null
   },
   {
@@ -326,6 +2881,20 @@
     "Generator": "TabDDPM",
     "Metric": "Wasserstein_Distance",
     "Mean": 0.424491,
+    "Std": null
+  },
+  {
+    "Dataset": "1. Cancer",
+    "Generator": "TabDDPM",
+    "Metric": "Gower_Distance",
+    "Mean": 0.478821,
+    "Std": null
+  },
+  {
+    "Dataset": "1. Cancer",
+    "Generator": "ForestDiffusion",
+    "Metric": "Gower_Distance",
+    "Mean": 0.860912,
     "Std": null
   },
   {
@@ -399,31 +2968,31 @@
     "Std": null
   },
   {
-    "Dataset": "2. Alzhimers",
-    "Generator": "CTGAN",
+    "Dataset": "1. Cancer",
+    "Generator": "TabDDPM",
     "Metric": "KS_Complement",
-    "Mean": 0.993617,
+    "Mean": 0.4014,
     "Std": null
   },
   {
-    "Dataset": "2. Alzhimers",
-    "Generator": "CopulaGAN",
+    "Dataset": "1. Cancer",
+    "Generator": "ForestDiffusion",
     "Metric": "KS_Complement",
-    "Mean": 0.964383,
+    "Mean": 0.9479,
     "Std": null
   },
   {
-    "Dataset": "2. Alzhimers",
-    "Generator": "CTGAN",
+    "Dataset": "1. Cancer",
+    "Generator": "TabDDPM",
     "Metric": "JS_Divergence",
-    "Mean": 0.368286,
+    "Mean": 0.6448333333,
     "Std": null
   },
   {
-    "Dataset": "2. Alzhimers",
-    "Generator": "CopulaGAN",
+    "Dataset": "1. Cancer",
+    "Generator": "ForestDiffusion",
     "Metric": "JS_Divergence",
-    "Mean": 0.380076,
+    "Mean": 0.0208333333,
     "Std": null
   },
   {
@@ -452,6 +3021,34 @@
     "Generator": "CopulaGAN",
     "Metric": "Wasserstein_Distance",
     "Mean": 0.109986,
+    "Std": null
+  },
+  {
+    "Dataset": "2. Alzhimers",
+    "Generator": "CTGAN",
+    "Metric": "Gower_Distance",
+    "Mean": 0.735633,
+    "Std": null
+  },
+  {
+    "Dataset": "2. Alzhimers",
+    "Generator": "CopulaGAN",
+    "Metric": "Gower_Distance",
+    "Mean": 0.733296,
+    "Std": null
+  },
+  {
+    "Dataset": "2. Alzhimers",
+    "Generator": "TVAE",
+    "Metric": "Gower_Distance",
+    "Mean": 0.788536,
+    "Std": null
+  },
+  {
+    "Dataset": "2. Alzhimers",
+    "Generator": "GaussianCopula",
+    "Metric": "Gower_Distance",
+    "Mean": 0.791535,
     "Std": null
   },
   {
@@ -596,30 +3193,58 @@
   },
   {
     "Dataset": "2. Alzhimers",
-    "Generator": "CTABGAN",
+    "Generator": "CTGAN",
     "Metric": "KS_Complement",
-    "Mean": 0.906188,
+    "Mean": 0.7539,
     "Std": null
   },
   {
     "Dataset": "2. Alzhimers",
-    "Generator": "WGAN_GP",
+    "Generator": "CopulaGAN",
     "Metric": "KS_Complement",
-    "Mean": 0.965383,
+    "Mean": 0.7252,
     "Std": null
   },
   {
     "Dataset": "2. Alzhimers",
-    "Generator": "CTABGAN",
-    "Metric": "JS_Divergence",
-    "Mean": 0.324626,
+    "Generator": "TVAE",
+    "Metric": "KS_Complement",
+    "Mean": 0.8161,
     "Std": null
   },
   {
     "Dataset": "2. Alzhimers",
-    "Generator": "WGAN_GP",
+    "Generator": "GaussianCopula",
+    "Metric": "KS_Complement",
+    "Mean": 0.8158,
+    "Std": null
+  },
+  {
+    "Dataset": "2. Alzhimers",
+    "Generator": "CTGAN",
     "Metric": "JS_Divergence",
-    "Mean": 0.626113,
+    "Mean": 0.192,
+    "Std": null
+  },
+  {
+    "Dataset": "2. Alzhimers",
+    "Generator": "CopulaGAN",
+    "Metric": "JS_Divergence",
+    "Mean": 0.1376,
+    "Std": null
+  },
+  {
+    "Dataset": "2. Alzhimers",
+    "Generator": "TVAE",
+    "Metric": "JS_Divergence",
+    "Mean": 0.1172,
+    "Std": null
+  },
+  {
+    "Dataset": "2. Alzhimers",
+    "Generator": "GaussianCopula",
+    "Metric": "JS_Divergence",
+    "Mean": 0.0985,
     "Std": null
   },
   {
@@ -634,6 +3259,20 @@
     "Generator": "CTABGAN",
     "Metric": "Wasserstein_Distance",
     "Mean": 0.058118,
+    "Std": null
+  },
+  {
+    "Dataset": "2. Alzhimers",
+    "Generator": "CTABGAN",
+    "Metric": "Gower_Distance",
+    "Mean": 0.779736,
+    "Std": null
+  },
+  {
+    "Dataset": "2. Alzhimers",
+    "Generator": "WGAN_GP",
+    "Metric": "Gower_Distance",
+    "Mean": 0.835927,
     "Std": null
   },
   {
@@ -708,30 +3347,30 @@
   },
   {
     "Dataset": "2. Alzhimers",
-    "Generator": "TabDDPM",
+    "Generator": "CTABGAN",
     "Metric": "KS_Complement",
-    "Mean": 0.7160429,
+    "Mean": 0.6842,
     "Std": null
   },
   {
     "Dataset": "2. Alzhimers",
-    "Generator": "ForestDiffusion",
+    "Generator": "WGAN_GP",
     "Metric": "KS_Complement",
-    "Mean": 0.9750697,
+    "Mean": 0.7823,
     "Std": null
   },
   {
     "Dataset": "2. Alzhimers",
-    "Generator": "TabDDPM",
+    "Generator": "CTABGAN",
     "Metric": "JS_Divergence",
-    "Mean": 0.45918,
+    "Mean": 0.14825,
     "Std": null
   },
   {
     "Dataset": "2. Alzhimers",
-    "Generator": "ForestDiffusion",
+    "Generator": "WGAN_GP",
     "Metric": "JS_Divergence",
-    "Mean": 0.063646,
+    "Mean": 0.20125,
     "Std": null
   },
   {
@@ -746,6 +3385,20 @@
     "Generator": "TabDDPM",
     "Metric": "Wasserstein_Distance",
     "Mean": 0.289061,
+    "Std": null
+  },
+  {
+    "Dataset": "2. Alzhimers",
+    "Generator": "TabDDPM",
+    "Metric": "Gower_Distance",
+    "Mean": 0.585711,
+    "Std": null
+  },
+  {
+    "Dataset": "2. Alzhimers",
+    "Generator": "ForestDiffusion",
+    "Metric": "Gower_Distance",
+    "Mean": 0.785988,
     "Std": null
   },
   {
@@ -819,213 +3472,129 @@
     "Std": null
   },
   {
-    "Dataset": "3. Adult",
-    "Generator": "CTGAN",
+    "Dataset": "2. Alzhimers",
+    "Generator": "TabDDPM",
     "Metric": "KS_Complement",
-    "Mean": 0.967098,
+    "Mean": 0.436,
     "Std": null
   },
   {
-    "Dataset": "3. Adult",
-    "Generator": "CopulaGAN",
+    "Dataset": "2. Alzhimers",
+    "Generator": "ForestDiffusion",
     "Metric": "KS_Complement",
-    "Mean": 0.973957,
+    "Mean": 0.7357,
     "Std": null
   },
   {
-    "Dataset": "3. Adult",
-    "Generator": "GaussianCopula",
-    "Metric": "Wasserstein_Distance",
-    "Mean": 0.006071,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "TVAE",
-    "Metric": "Wasserstein_Distance",
-    "Mean": 0.010608,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "CTGAN",
-    "Metric": "Wasserstein_Distance",
-    "Mean": 0.014904,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "CopulaGAN",
-    "Metric": "Wasserstein_Distance",
-    "Mean": 0.014979,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "TVAE",
-    "Metric": "MMD",
-    "Mean": 0.006875,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "CopulaGAN",
-    "Metric": "MMD",
-    "Mean": 0.013831,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "CTGAN",
-    "Metric": "MMD",
-    "Mean": 0.016426,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "GaussianCopula",
-    "Metric": "MMD",
-    "Mean": 0.080521,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "TVAE",
-    "Metric": "Cosine_Similarity",
-    "Mean": 0.005204,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "CTGAN",
-    "Metric": "Cosine_Similarity",
-    "Mean": -0.000376,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "CopulaGAN",
-    "Metric": "Cosine_Similarity",
-    "Mean": -0.000428,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "GaussianCopula",
-    "Metric": "Cosine_Similarity",
-    "Mean": -0.000576,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "CTGAN",
-    "Metric": "PCA_Mean_Error",
-    "Mean": 18.985418,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "CopulaGAN",
-    "Metric": "PCA_Mean_Error",
-    "Mean": 14.992197,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "TVAE",
-    "Metric": "PCA_Mean_Error",
-    "Mean": 17.725137,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "GaussianCopula",
-    "Metric": "PCA_Mean_Error",
-    "Mean": 675.631093,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "CTGAN",
-    "Metric": "PCA_Correlation_Diff",
-    "Mean": 0.061826,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "CopulaGAN",
-    "Metric": "PCA_Correlation_Diff",
-    "Mean": 0.079603,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "TVAE",
-    "Metric": "PCA_Correlation_Diff",
-    "Mean": 0.209649,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "GaussianCopula",
-    "Metric": "PCA_Correlation_Diff",
-    "Mean": 0.055255,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "TVAE",
-    "Metric": "MMD_Multivariate",
-    "Mean": 0.00721,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "CopulaGAN",
-    "Metric": "MMD_Multivariate",
-    "Mean": 0.012815,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "CTGAN",
-    "Metric": "MMD_Multivariate",
-    "Mean": 0.018062,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "GaussianCopula",
-    "Metric": "MMD_Multivariate",
-    "Mean": 0.077847,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "CTABGAN",
-    "Metric": "KS_Complement",
-    "Mean": 0.977,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "WGAN_GP",
-    "Metric": "KS_Complement",
-    "Mean": 0.956,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "CTABGAN",
+    "Dataset": "2. Alzhimers",
+    "Generator": "TabDDPM",
     "Metric": "JS_Divergence",
-    "Mean": 0.723181,
+    "Mean": 0.3603165,
+    "Std": null
+  },
+  {
+    "Dataset": "2. Alzhimers",
+    "Generator": "ForestDiffusion",
+    "Metric": "JS_Divergence",
+    "Mean": 0.0230402,
     "Std": null
   },
   {
     "Dataset": "3. Adult",
-    "Generator": "WGAN_GP",
+    "Generator": "TVAE",
+    "Metric": "Wasserstein_Distance",
+    "Mean": 0.013676,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "CTGAN",
+    "Metric": "Wasserstein_Distance",
+    "Mean": 0.01455,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "CopulaGAN",
+    "Metric": "Wasserstein_Distance",
+    "Mean": 0.017335,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "GaussianCopula",
+    "Metric": "Wasserstein_Distance",
+    "Mean": 0.058344,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "CTGAN",
+    "Metric": "Gower_Distance",
+    "Mean": 0.611885,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "CopulaGAN",
+    "Metric": "Gower_Distance",
+    "Mean": 0.614765,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "TVAE",
+    "Metric": "Gower_Distance",
+    "Mean": 0.646593,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "GaussianCopula",
+    "Metric": "Gower_Distance",
+    "Mean": 0.61611,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "CTGAN",
+    "Metric": "KS_Complement",
+    "Mean": 0.8681,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "CopulaGAN",
+    "Metric": "KS_Complement",
+    "Mean": 0.9159,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "TVAE",
+    "Metric": "KS_Complement",
+    "Mean": 0.9101,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "GaussianCopula",
+    "Metric": "KS_Complement",
+    "Mean": 0.8753,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "CTGAN",
     "Metric": "JS_Divergence",
-    "Mean": 0.903478,
+    "Mean": 0.0251296,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "CopulaGAN",
+    "Metric": "JS_Divergence",
+    "Mean": 0.0602624,
     "Std": null
   },
   {
@@ -1040,6 +3609,20 @@
     "Generator": "WGAN_GP",
     "Metric": "Wasserstein_Distance",
     "Mean": 0.075009,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "CTABGAN",
+    "Metric": "Gower_Distance",
+    "Mean": 0.61206,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "WGAN_GP",
+    "Metric": "Gower_Distance",
+    "Mean": 0.521082,
     "Std": null
   },
   {
@@ -1114,30 +3697,30 @@
   },
   {
     "Dataset": "3. Adult",
-    "Generator": "TabDDPM",
+    "Generator": "CTABGAN",
     "Metric": "KS_Complement",
-    "Mean": 0.994,
+    "Mean": 0.7981,
     "Std": null
   },
   {
     "Dataset": "3. Adult",
-    "Generator": "ForestDiffusion",
+    "Generator": "WGAN_GP",
     "Metric": "KS_Complement",
-    "Mean": 0.988,
+    "Mean": 0.6234,
     "Std": null
   },
   {
     "Dataset": "3. Adult",
-    "Generator": "TabDDPM",
+    "Generator": "CTABGAN",
     "Metric": "JS_Divergence",
-    "Mean": 0.969914,
+    "Mean": 0.120311,
     "Std": null
   },
   {
     "Dataset": "3. Adult",
-    "Generator": "ForestDiffusion",
+    "Generator": "WGAN_GP",
     "Metric": "JS_Divergence",
-    "Mean": 0.49456,
+    "Mean": 0.29984,
     "Std": null
   },
   {
@@ -1152,6 +3735,20 @@
     "Generator": "TabDDPM",
     "Metric": "Wasserstein_Distance",
     "Mean": 0.369429,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "TabDDPM",
+    "Metric": "Gower_Distance",
+    "Mean": 0.313479,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "ForestDiffusion",
+    "Metric": "Gower_Distance",
+    "Mean": 0.645353,
     "Std": null
   },
   {
@@ -1222,6 +3819,62 @@
     "Generator": "TabDDPM",
     "Metric": "MMD_Multivariate",
     "Mean": 0.35908,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "TabDDPM",
+    "Metric": "KS_Complement",
+    "Mean": 0.3953,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "ForestDiffusion",
+    "Metric": "KS_Complement",
+    "Mean": 0.8329,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "TabDDPM",
+    "Metric": "JS_Divergence",
+    "Mean": 0.614837,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "ForestDiffusion",
+    "Metric": "JS_Divergence",
+    "Mean": 0.118464,
+    "Std": null
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "CTGAN",
+    "Metric": "Gower_Distance",
+    "Mean": 0.902477,
+    "Std": null
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "CopulaGAN",
+    "Metric": "Gower_Distance",
+    "Mean": 0.901364,
+    "Std": null
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "TVAE",
+    "Metric": "Gower_Distance",
+    "Mean": 0.924451,
+    "Std": null
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "GaussianCopula",
+    "Metric": "Gower_Distance",
+    "Mean": 0.906039,
     "Std": null
   },
   {
@@ -1338,16 +3991,30 @@
   },
   {
     "Dataset": "4. Forest cover dataset",
-    "Generator": "CTABGAN",
+    "Generator": "CTGAN",
     "Metric": "KS_Complement",
-    "Mean": 1.0,
+    "Mean": 0.9576,
     "Std": null
   },
   {
     "Dataset": "4. Forest cover dataset",
-    "Generator": "CTABGAN",
-    "Metric": "JS_Divergence",
-    "Mean": 0.23604,
+    "Generator": "CopulaGAN",
+    "Metric": "KS_Complement",
+    "Mean": 0.9415,
+    "Std": null
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "TVAE",
+    "Metric": "KS_Complement",
+    "Mean": 0.9544,
+    "Std": null
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "GaussianCopula",
+    "Metric": "KS_Complement",
+    "Mean": 0.9829,
     "Std": null
   },
   {
@@ -1362,6 +4029,20 @@
     "Generator": "WGAN_GP",
     "Metric": "Wasserstein_Distance",
     "Mean": 0.040051,
+    "Std": null
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "CTABGAN",
+    "Metric": "Gower_Distance",
+    "Mean": 0.904271,
+    "Std": null
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "WGAN_GP",
+    "Metric": "Gower_Distance",
+    "Mean": 0.905784,
     "Std": null
   },
   {
@@ -1436,16 +4117,30 @@
   },
   {
     "Dataset": "4. Forest cover dataset",
-    "Generator": "TabDDPM",
+    "Generator": "CTABGAN",
     "Metric": "KS_Complement",
-    "Mean": 0.979,
+    "Mean": 0.9687,
     "Std": null
   },
   {
     "Dataset": "4. Forest cover dataset",
-    "Generator": "TabDDPM",
+    "Generator": "WGAN_GP",
+    "Metric": "KS_Complement",
+    "Mean": 0.9376,
+    "Std": null
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "CTABGAN",
     "Metric": "JS_Divergence",
-    "Mean": 0.936194,
+    "Mean": 0.011511,
+    "Std": null
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "WGAN_GP",
+    "Metric": "JS_Divergence",
+    "Mean": 0.015944,
     "Std": null
   },
   {
@@ -1460,6 +4155,20 @@
     "Generator": "TabDDPM",
     "Metric": "Wasserstein_Distance",
     "Mean": 0.313269,
+    "Std": null
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "TabDDPM",
+    "Metric": "Gower_Distance",
+    "Mean": 0.633701,
+    "Std": null
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "ForestDiffusion",
+    "Metric": "Gower_Distance",
+    "Mean": 0.911891,
     "Std": null
   },
   {
@@ -1533,6 +4242,34 @@
     "Std": null
   },
   {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "TabDDPM",
+    "Metric": "KS_Complement",
+    "Mean": 0.1043,
+    "Std": null
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "ForestDiffusion",
+    "Metric": "KS_Complement",
+    "Mean": 0.1889,
+    "Std": null
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "TabDDPM",
+    "Metric": "JS_Divergence",
+    "Mean": 0.214195,
+    "Std": null
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "ForestDiffusion",
+    "Metric": "JS_Divergence",
+    "Mean": 0.003717,
+    "Std": null
+  },
+  {
     "Dataset": "5. Bank Markting",
     "Generator": "CTGAN",
     "Metric": "Wasserstein_Distance",
@@ -1558,6 +4295,34 @@
     "Generator": "TVAE",
     "Metric": "Wasserstein_Distance",
     "Mean": 0.021784,
+    "Std": null
+  },
+  {
+    "Dataset": "5. Bank Markting",
+    "Generator": "CTGAN",
+    "Metric": "Gower_Distance",
+    "Mean": 0.627346,
+    "Std": null
+  },
+  {
+    "Dataset": "5. Bank Markting",
+    "Generator": "CopulaGAN",
+    "Metric": "Gower_Distance",
+    "Mean": 0.617333,
+    "Std": null
+  },
+  {
+    "Dataset": "5. Bank Markting",
+    "Generator": "TVAE",
+    "Metric": "Gower_Distance",
+    "Mean": 0.647807,
+    "Std": null
+  },
+  {
+    "Dataset": "5. Bank Markting",
+    "Generator": "GaussianCopula",
+    "Metric": "Gower_Distance",
+    "Mean": 0.626154,
     "Std": null
   },
   {
@@ -1702,30 +4467,30 @@
   },
   {
     "Dataset": "5. Bank Markting",
-    "Generator": "CTABGAN",
+    "Generator": "CTGAN",
     "Metric": "KS_Complement",
-    "Mean": 0.980473,
+    "Mean": 0.9019,
     "Std": null
   },
   {
     "Dataset": "5. Bank Markting",
-    "Generator": "WGAN_GP",
+    "Generator": "CopulaGAN",
     "Metric": "KS_Complement",
-    "Mean": 0.994,
+    "Mean": 0.863,
     "Std": null
   },
   {
     "Dataset": "5. Bank Markting",
-    "Generator": "CTABGAN",
-    "Metric": "JS_Divergence",
-    "Mean": 0.311972,
+    "Generator": "TVAE",
+    "Metric": "KS_Complement",
+    "Mean": 0.8815,
     "Std": null
   },
   {
     "Dataset": "5. Bank Markting",
-    "Generator": "WGAN_GP",
-    "Metric": "JS_Divergence",
-    "Mean": 0.720103,
+    "Generator": "GaussianCopula",
+    "Metric": "KS_Complement",
+    "Mean": 0.8642,
     "Std": null
   },
   {
@@ -1740,6 +4505,20 @@
     "Generator": "WGAN_GP",
     "Metric": "Wasserstein_Distance",
     "Mean": 0.057577,
+    "Std": null
+  },
+  {
+    "Dataset": "5. Bank Markting",
+    "Generator": "CTABGAN",
+    "Metric": "Gower_Distance",
+    "Mean": 0.60794,
+    "Std": null
+  },
+  {
+    "Dataset": "5. Bank Markting",
+    "Generator": "WGAN_GP",
+    "Metric": "Gower_Distance",
+    "Mean": 0.620311,
     "Std": null
   },
   {
@@ -1814,30 +4593,30 @@
   },
   {
     "Dataset": "5. Bank Markting",
-    "Generator": "TabDDPM",
+    "Generator": "CTABGAN",
     "Metric": "KS_Complement",
-    "Mean": 0.991,
+    "Mean": 0.8953,
     "Std": null
   },
   {
     "Dataset": "5. Bank Markting",
-    "Generator": "ForestDiffusion",
+    "Generator": "WGAN_GP",
     "Metric": "KS_Complement",
-    "Mean": 0.995,
+    "Mean": 0.7665,
     "Std": null
   },
   {
     "Dataset": "5. Bank Markting",
-    "Generator": "TabDDPM",
+    "Generator": "CTABGAN",
     "Metric": "JS_Divergence",
-    "Mean": 0.94879,
+    "Mean": 0.0604166667,
     "Std": null
   },
   {
     "Dataset": "5. Bank Markting",
-    "Generator": "ForestDiffusion",
+    "Generator": "WGAN_GP",
     "Metric": "JS_Divergence",
-    "Mean": 0.379046,
+    "Mean": 0.2274,
     "Std": null
   },
   {
@@ -1852,6 +4631,20 @@
     "Generator": "TabDDPM",
     "Metric": "Wasserstein_Distance",
     "Mean": 0.325253,
+    "Std": null
+  },
+  {
+    "Dataset": "5. Bank Markting",
+    "Generator": "TabDDPM",
+    "Metric": "Gower_Distance",
+    "Mean": 0.373353,
+    "Std": null
+  },
+  {
+    "Dataset": "5. Bank Markting",
+    "Generator": "ForestDiffusion",
+    "Metric": "Gower_Distance",
+    "Mean": 0.623875,
     "Std": null
   },
   {
@@ -1925,31 +4718,31 @@
     "Std": null
   },
   {
-    "Dataset": "6. Wine dataset",
-    "Generator": "CTGAN",
+    "Dataset": "5. Bank Markting",
+    "Generator": "TabDDPM",
     "Metric": "KS_Complement",
-    "Mean": 0.945052,
+    "Mean": 0.3986,
     "Std": null
   },
   {
-    "Dataset": "6. Wine dataset",
-    "Generator": "CopulaGAN",
+    "Dataset": "5. Bank Markting",
+    "Generator": "ForestDiffusion",
     "Metric": "KS_Complement",
-    "Mean": 0.954133,
+    "Mean": 0.8303,
     "Std": null
   },
   {
-    "Dataset": "6. Wine dataset",
-    "Generator": "CTGAN",
+    "Dataset": "5. Bank Markting",
+    "Generator": "TabDDPM",
     "Metric": "JS_Divergence",
-    "Mean": 0.147344,
+    "Mean": 0.6055,
     "Std": null
   },
   {
-    "Dataset": "6. Wine dataset",
-    "Generator": "CopulaGAN",
+    "Dataset": "5. Bank Markting",
+    "Generator": "ForestDiffusion",
     "Metric": "JS_Divergence",
-    "Mean": 0.147395,
+    "Mean": 0.0306666667,
     "Std": null
   },
   {
@@ -1978,6 +4771,34 @@
     "Generator": "CTGAN",
     "Metric": "Wasserstein_Distance",
     "Mean": 0.026365,
+    "Std": null
+  },
+  {
+    "Dataset": "6. Wine dataset",
+    "Generator": "CTGAN",
+    "Metric": "Gower_Distance",
+    "Mean": 0.881018,
+    "Std": null
+  },
+  {
+    "Dataset": "6. Wine dataset",
+    "Generator": "CopulaGAN",
+    "Metric": "Gower_Distance",
+    "Mean": 0.883799,
+    "Std": null
+  },
+  {
+    "Dataset": "6. Wine dataset",
+    "Generator": "TVAE",
+    "Metric": "Gower_Distance",
+    "Mean": 0.898376,
+    "Std": null
+  },
+  {
+    "Dataset": "6. Wine dataset",
+    "Generator": "GaussianCopula",
+    "Metric": "Gower_Distance",
+    "Mean": 0.889308,
     "Std": null
   },
   {
@@ -2122,30 +4943,58 @@
   },
   {
     "Dataset": "6. Wine dataset",
-    "Generator": "CTABGAN",
+    "Generator": "CTGAN",
     "Metric": "KS_Complement",
-    "Mean": 0.964,
+    "Mean": 0.8667,
     "Std": null
   },
   {
     "Dataset": "6. Wine dataset",
-    "Generator": "WGAN_GP",
+    "Generator": "CopulaGAN",
     "Metric": "KS_Complement",
-    "Mean": 0.93,
+    "Mean": 0.8839,
     "Std": null
   },
   {
     "Dataset": "6. Wine dataset",
-    "Generator": "CTABGAN",
-    "Metric": "JS_Divergence",
-    "Mean": 0.053522,
+    "Generator": "TVAE",
+    "Metric": "KS_Complement",
+    "Mean": 0.9186,
     "Std": null
   },
   {
     "Dataset": "6. Wine dataset",
-    "Generator": "WGAN_GP",
+    "Generator": "GaussianCopula",
+    "Metric": "KS_Complement",
+    "Mean": 0.9186,
+    "Std": null
+  },
+  {
+    "Dataset": "6. Wine dataset",
+    "Generator": "CTGAN",
     "Metric": "JS_Divergence",
-    "Mean": 0.21344,
+    "Mean": 0.03275,
+    "Std": null
+  },
+  {
+    "Dataset": "6. Wine dataset",
+    "Generator": "CopulaGAN",
+    "Metric": "JS_Divergence",
+    "Mean": 0.0342222222,
+    "Std": null
+  },
+  {
+    "Dataset": "6. Wine dataset",
+    "Generator": "TVAE",
+    "Metric": "JS_Divergence",
+    "Mean": 0.031,
+    "Std": null
+  },
+  {
+    "Dataset": "6. Wine dataset",
+    "Generator": "GaussianCopula",
+    "Metric": "JS_Divergence",
+    "Mean": 0.0393636364,
     "Std": null
   },
   {
@@ -2160,6 +5009,20 @@
     "Generator": "WGAN_GP",
     "Metric": "Wasserstein_Distance",
     "Mean": 0.057512,
+    "Std": null
+  },
+  {
+    "Dataset": "6. Wine dataset",
+    "Generator": "CTABGAN",
+    "Metric": "Gower_Distance",
+    "Mean": 0.851682,
+    "Std": null
+  },
+  {
+    "Dataset": "6. Wine dataset",
+    "Generator": "WGAN_GP",
+    "Metric": "Gower_Distance",
+    "Mean": 0.868162,
     "Std": null
   },
   {
@@ -2234,30 +5097,30 @@
   },
   {
     "Dataset": "6. Wine dataset",
-    "Generator": "TabDDPM",
+    "Generator": "CTABGAN",
     "Metric": "KS_Complement",
-    "Mean": 0.872,
+    "Mean": 0.834,
     "Std": null
   },
   {
     "Dataset": "6. Wine dataset",
-    "Generator": "ForestDiffusion",
+    "Generator": "WGAN_GP",
     "Metric": "KS_Complement",
-    "Mean": 0.958,
+    "Mean": 0.7164,
     "Std": null
   },
   {
     "Dataset": "6. Wine dataset",
-    "Generator": "TabDDPM",
+    "Generator": "CTABGAN",
     "Metric": "JS_Divergence",
-    "Mean": 0.172998,
+    "Mean": 0.0312,
     "Std": null
   },
   {
     "Dataset": "6. Wine dataset",
-    "Generator": "ForestDiffusion",
+    "Generator": "WGAN_GP",
     "Metric": "JS_Divergence",
-    "Mean": 0.032906,
+    "Mean": 0.1145454545,
     "Std": null
   },
   {
@@ -2272,6 +5135,20 @@
     "Generator": "TabDDPM",
     "Metric": "Wasserstein_Distance",
     "Mean": 0.097735,
+    "Std": null
+  },
+  {
+    "Dataset": "6. Wine dataset",
+    "Generator": "TabDDPM",
+    "Metric": "Gower_Distance",
+    "Mean": 0.767133,
+    "Std": null
+  },
+  {
+    "Dataset": "6. Wine dataset",
+    "Generator": "ForestDiffusion",
+    "Metric": "Gower_Distance",
+    "Mean": 0.858982,
     "Std": null
   },
   {
@@ -2345,17 +5222,31 @@
     "Std": null
   },
   {
-    "Dataset": "7. CDC diabetes dataset",
-    "Generator": "CTGAN",
+    "Dataset": "6. Wine dataset",
+    "Generator": "TabDDPM",
     "Metric": "KS_Complement",
-    "Mean": 0.9984,
+    "Mean": 0.7613,
     "Std": null
   },
   {
-    "Dataset": "7. CDC diabetes dataset",
-    "Generator": "CTGAN",
+    "Dataset": "6. Wine dataset",
+    "Generator": "ForestDiffusion",
+    "Metric": "KS_Complement",
+    "Mean": 0.8577,
+    "Std": null
+  },
+  {
+    "Dataset": "6. Wine dataset",
+    "Generator": "TabDDPM",
     "Metric": "JS_Divergence",
-    "Mean": 0.07833,
+    "Mean": 0.1431666667,
+    "Std": null
+  },
+  {
+    "Dataset": "6. Wine dataset",
+    "Generator": "ForestDiffusion",
+    "Metric": "JS_Divergence",
+    "Mean": 0.0164,
     "Std": null
   },
   {
@@ -2384,6 +5275,34 @@
     "Generator": "CopulaGAN",
     "Metric": "Wasserstein_Distance",
     "Mean": 0.062756,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "CTGAN",
+    "Metric": "Gower_Distance",
+    "Mean": 0.712221,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "CopulaGAN",
+    "Metric": "Gower_Distance",
+    "Mean": 0.714305,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "TVAE",
+    "Metric": "Gower_Distance",
+    "Mean": 0.752427,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "GaussianCopula",
+    "Metric": "Gower_Distance",
+    "Mean": 0.716012,
     "Std": null
   },
   {
@@ -2500,16 +5419,58 @@
   },
   {
     "Dataset": "7. CDC diabetes dataset",
-    "Generator": "CTABGAN",
+    "Generator": "CTGAN",
     "Metric": "KS_Complement",
-    "Mean": 0.99,
+    "Mean": 0.9051,
     "Std": null
   },
   {
     "Dataset": "7. CDC diabetes dataset",
-    "Generator": "CTABGAN",
+    "Generator": "CopulaGAN",
+    "Metric": "KS_Complement",
+    "Mean": 0.9145,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "TVAE",
+    "Metric": "KS_Complement",
+    "Mean": 0.9449,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "GaussianCopula",
+    "Metric": "KS_Complement",
+    "Mean": 0.9591,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "CTGAN",
     "Metric": "JS_Divergence",
-    "Mean": 0.779689,
+    "Mean": 0.0261,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "CopulaGAN",
+    "Metric": "JS_Divergence",
+    "Mean": 0.0308,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "TVAE",
+    "Metric": "JS_Divergence",
+    "Mean": 0.019,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "GaussianCopula",
+    "Metric": "JS_Divergence",
+    "Mean": 0.0376666667,
     "Std": null
   },
   {
@@ -2524,6 +5485,20 @@
     "Generator": "CTABGAN",
     "Metric": "Wasserstein_Distance",
     "Mean": 0.164295,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "CTABGAN",
+    "Metric": "Gower_Distance",
+    "Mean": 0.636716,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "WGAN_GP",
+    "Metric": "Gower_Distance",
+    "Mean": 0.845339,
     "Std": null
   },
   {
@@ -2598,16 +5573,30 @@
   },
   {
     "Dataset": "7. CDC diabetes dataset",
-    "Generator": "TabDDPM",
+    "Generator": "CTABGAN",
     "Metric": "KS_Complement",
-    "Mean": 0.993,
+    "Mean": 0.7603,
     "Std": null
   },
   {
     "Dataset": "7. CDC diabetes dataset",
-    "Generator": "TabDDPM",
+    "Generator": "WGAN_GP",
+    "Metric": "KS_Complement",
+    "Mean": 0.848,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "CTABGAN",
     "Metric": "JS_Divergence",
-    "Mean": 0.642231,
+    "Mean": 0.1225833333,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "WGAN_GP",
+    "Metric": "JS_Divergence",
+    "Mean": 0.06925,
     "Std": null
   },
   {
@@ -2622,6 +5611,20 @@
     "Generator": "TabDDPM",
     "Metric": "Wasserstein_Distance",
     "Mean": 0.181551,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "TabDDPM",
+    "Metric": "Gower_Distance",
+    "Mean": 0.62126,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "ForestDiffusion",
+    "Metric": "Gower_Distance",
+    "Mean": 0.73907,
     "Std": null
   },
   {
@@ -2667,10 +5670,31 @@
     "Std": null
   },
   {
-    "Dataset": "8. Mushroom dataset",
-    "Generator": "CTGAN",
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "TabDDPM",
+    "Metric": "KS_Complement",
+    "Mean": 0.7137,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "ForestDiffusion",
+    "Metric": "KS_Complement",
+    "Mean": 0.5118,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "TabDDPM",
     "Metric": "JS_Divergence",
-    "Mean": 0.036141,
+    "Mean": 0.28175,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "ForestDiffusion",
+    "Metric": "JS_Divergence",
+    "Mean": 0.1515714286,
     "Std": null
   },
   {
@@ -2699,6 +5723,34 @@
     "Generator": "TVAE",
     "Metric": "Wasserstein_Distance",
     "Mean": 0.02159,
+    "Std": null
+  },
+  {
+    "Dataset": "8. Mushroom dataset",
+    "Generator": "CTGAN",
+    "Metric": "Gower_Distance",
+    "Mean": 0.338231,
+    "Std": null
+  },
+  {
+    "Dataset": "8. Mushroom dataset",
+    "Generator": "CopulaGAN",
+    "Metric": "Gower_Distance",
+    "Mean": 0.33632,
+    "Std": null
+  },
+  {
+    "Dataset": "8. Mushroom dataset",
+    "Generator": "TVAE",
+    "Metric": "Gower_Distance",
+    "Mean": 0.357493,
+    "Std": null
+  },
+  {
+    "Dataset": "8. Mushroom dataset",
+    "Generator": "GaussianCopula",
+    "Metric": "Gower_Distance",
+    "Mean": 0.345135,
     "Std": null
   },
   {
@@ -2843,16 +5895,58 @@
   },
   {
     "Dataset": "8. Mushroom dataset",
-    "Generator": "CTABGAN",
+    "Generator": "CTGAN",
     "Metric": "KS_Complement",
-    "Mean": 1.0,
+    "Mean": 0.9179,
     "Std": null
   },
   {
     "Dataset": "8. Mushroom dataset",
-    "Generator": "CTABGAN",
+    "Generator": "CopulaGAN",
+    "Metric": "KS_Complement",
+    "Mean": 0.9233,
+    "Std": null
+  },
+  {
+    "Dataset": "8. Mushroom dataset",
+    "Generator": "TVAE",
+    "Metric": "KS_Complement",
+    "Mean": 0.922,
+    "Std": null
+  },
+  {
+    "Dataset": "8. Mushroom dataset",
+    "Generator": "GaussianCopula",
+    "Metric": "KS_Complement",
+    "Mean": 0.984,
+    "Std": null
+  },
+  {
+    "Dataset": "8. Mushroom dataset",
+    "Generator": "CTGAN",
     "Metric": "JS_Divergence",
-    "Mean": 0.500324,
+    "Mean": 0.0131428571,
+    "Std": null
+  },
+  {
+    "Dataset": "8. Mushroom dataset",
+    "Generator": "CopulaGAN",
+    "Metric": "JS_Divergence",
+    "Mean": 0.0109230769,
+    "Std": null
+  },
+  {
+    "Dataset": "8. Mushroom dataset",
+    "Generator": "TVAE",
+    "Metric": "JS_Divergence",
+    "Mean": 0.008,
+    "Std": null
+  },
+  {
+    "Dataset": "8. Mushroom dataset",
+    "Generator": "GaussianCopula",
+    "Metric": "JS_Divergence",
+    "Mean": 0.0236666667,
     "Std": null
   },
   {
@@ -2867,6 +5961,20 @@
     "Generator": "WGAN_GP",
     "Metric": "Wasserstein_Distance",
     "Mean": 0.08401,
+    "Std": null
+  },
+  {
+    "Dataset": "8. Mushroom dataset",
+    "Generator": "CTABGAN",
+    "Metric": "Gower_Distance",
+    "Mean": 0.338105,
+    "Std": null
+  },
+  {
+    "Dataset": "8. Mushroom dataset",
+    "Generator": "WGAN_GP",
+    "Metric": "Gower_Distance",
+    "Mean": 0.29057,
     "Std": null
   },
   {
@@ -2941,16 +6049,30 @@
   },
   {
     "Dataset": "8. Mushroom dataset",
-    "Generator": "TabDDPM",
+    "Generator": "CTABGAN",
     "Metric": "KS_Complement",
-    "Mean": 0.991,
+    "Mean": 0.9218,
     "Std": null
   },
   {
     "Dataset": "8. Mushroom dataset",
-    "Generator": "TabDDPM",
+    "Generator": "WGAN_GP",
+    "Metric": "KS_Complement",
+    "Mean": 0.6005,
+    "Std": null
+  },
+  {
+    "Dataset": "8. Mushroom dataset",
+    "Generator": "CTABGAN",
     "Metric": "JS_Divergence",
-    "Mean": 0.974728,
+    "Mean": 0.021,
+    "Std": null
+  },
+  {
+    "Dataset": "8. Mushroom dataset",
+    "Generator": "WGAN_GP",
+    "Metric": "JS_Divergence",
+    "Mean": 0.3174705882,
     "Std": null
   },
   {
@@ -2965,6 +6087,20 @@
     "Generator": "TabDDPM",
     "Metric": "Wasserstein_Distance",
     "Mean": 0.195305,
+    "Std": null
+  },
+  {
+    "Dataset": "8. Mushroom dataset",
+    "Generator": "TabDDPM",
+    "Metric": "Gower_Distance",
+    "Mean": 0.174698,
+    "Std": null
+  },
+  {
+    "Dataset": "8. Mushroom dataset",
+    "Generator": "ForestDiffusion",
+    "Metric": "Gower_Distance",
+    "Mean": 0.345428,
     "Std": null
   },
   {
@@ -3038,31 +6174,31 @@
     "Std": null
   },
   {
-    "Dataset": "9. MAGIC Gamma Telescope",
-    "Generator": "CTGAN",
+    "Dataset": "8. Mushroom dataset",
+    "Generator": "TabDDPM",
     "Metric": "KS_Complement",
-    "Mean": 0.968607,
+    "Mean": 0.4528,
     "Std": null
   },
   {
-    "Dataset": "9. MAGIC Gamma Telescope",
-    "Generator": "CopulaGAN",
+    "Dataset": "8. Mushroom dataset",
+    "Generator": "ForestDiffusion",
     "Metric": "KS_Complement",
-    "Mean": 0.95241,
+    "Mean": 0.574,
     "Std": null
   },
   {
-    "Dataset": "9. MAGIC Gamma Telescope",
-    "Generator": "CTGAN",
+    "Dataset": "8. Mushroom dataset",
+    "Generator": "TabDDPM",
     "Metric": "JS_Divergence",
-    "Mean": 0.088532,
+    "Mean": 0.4794117647,
     "Std": null
   },
   {
-    "Dataset": "9. MAGIC Gamma Telescope",
-    "Generator": "CopulaGAN",
+    "Dataset": "8. Mushroom dataset",
+    "Generator": "ForestDiffusion",
     "Metric": "JS_Divergence",
-    "Mean": 0.081458,
+    "Mean": 0.1098235294,
     "Std": null
   },
   {
@@ -3091,6 +6227,34 @@
     "Generator": "CopulaGAN",
     "Metric": "Wasserstein_Distance",
     "Mean": 0.034697,
+    "Std": null
+  },
+  {
+    "Dataset": "9. MAGIC Gamma Telescope",
+    "Generator": "CTGAN",
+    "Metric": "Gower_Distance",
+    "Mean": 0.853544,
+    "Std": null
+  },
+  {
+    "Dataset": "9. MAGIC Gamma Telescope",
+    "Generator": "CopulaGAN",
+    "Metric": "Gower_Distance",
+    "Mean": 0.847494,
+    "Std": null
+  },
+  {
+    "Dataset": "9. MAGIC Gamma Telescope",
+    "Generator": "TVAE",
+    "Metric": "Gower_Distance",
+    "Mean": 0.864338,
+    "Std": null
+  },
+  {
+    "Dataset": "9. MAGIC Gamma Telescope",
+    "Generator": "GaussianCopula",
+    "Metric": "Gower_Distance",
+    "Mean": 0.846668,
     "Std": null
   },
   {
@@ -3235,30 +6399,58 @@
   },
   {
     "Dataset": "9. MAGIC Gamma Telescope",
-    "Generator": "CTABGAN",
+    "Generator": "CTGAN",
     "Metric": "KS_Complement",
-    "Mean": 0.968365,
+    "Mean": 0.8917,
     "Std": null
   },
   {
     "Dataset": "9. MAGIC Gamma Telescope",
-    "Generator": "WGAN_GP",
+    "Generator": "CopulaGAN",
     "Metric": "KS_Complement",
-    "Mean": 0.99737,
+    "Mean": 0.9039,
     "Std": null
   },
   {
     "Dataset": "9. MAGIC Gamma Telescope",
-    "Generator": "CTABGAN",
-    "Metric": "JS_Divergence",
-    "Mean": 0.04502,
+    "Generator": "TVAE",
+    "Metric": "KS_Complement",
+    "Mean": 0.922,
     "Std": null
   },
   {
     "Dataset": "9. MAGIC Gamma Telescope",
-    "Generator": "WGAN_GP",
+    "Generator": "GaussianCopula",
+    "Metric": "KS_Complement",
+    "Mean": 0.91,
+    "Std": null
+  },
+  {
+    "Dataset": "9. MAGIC Gamma Telescope",
+    "Generator": "CTGAN",
     "Metric": "JS_Divergence",
-    "Mean": 0.052327,
+    "Mean": 0.034125,
+    "Std": null
+  },
+  {
+    "Dataset": "9. MAGIC Gamma Telescope",
+    "Generator": "CopulaGAN",
+    "Metric": "JS_Divergence",
+    "Mean": 0.0475,
+    "Std": null
+  },
+  {
+    "Dataset": "9. MAGIC Gamma Telescope",
+    "Generator": "TVAE",
+    "Metric": "JS_Divergence",
+    "Mean": 0.0375,
+    "Std": null
+  },
+  {
+    "Dataset": "9. MAGIC Gamma Telescope",
+    "Generator": "GaussianCopula",
+    "Metric": "JS_Divergence",
+    "Mean": 0.0353333333,
     "Std": null
   },
   {
@@ -3273,6 +6465,20 @@
     "Generator": "CTABGAN",
     "Metric": "Wasserstein_Distance",
     "Mean": 0.014038,
+    "Std": null
+  },
+  {
+    "Dataset": "9. MAGIC Gamma Telescope",
+    "Generator": "CTABGAN",
+    "Metric": "Gower_Distance",
+    "Mean": 0.83957,
+    "Std": null
+  },
+  {
+    "Dataset": "9. MAGIC Gamma Telescope",
+    "Generator": "WGAN_GP",
+    "Metric": "Gower_Distance",
+    "Mean": 0.854163,
     "Std": null
   },
   {
@@ -3347,30 +6553,30 @@
   },
   {
     "Dataset": "9. MAGIC Gamma Telescope",
-    "Generator": "TabDDPM",
+    "Generator": "CTABGAN",
     "Metric": "KS_Complement",
-    "Mean": 0.848,
+    "Mean": 0.9397,
     "Std": null
   },
   {
     "Dataset": "9. MAGIC Gamma Telescope",
-    "Generator": "ForestDiffusion",
+    "Generator": "WGAN_GP",
     "Metric": "KS_Complement",
-    "Mean": 0.965,
+    "Mean": 0.9494,
     "Std": null
   },
   {
     "Dataset": "9. MAGIC Gamma Telescope",
-    "Generator": "TabDDPM",
+    "Generator": "CTABGAN",
     "Metric": "JS_Divergence",
-    "Mean": 0.190961,
+    "Mean": 0.0267,
     "Std": null
   },
   {
     "Dataset": "9. MAGIC Gamma Telescope",
-    "Generator": "ForestDiffusion",
+    "Generator": "WGAN_GP",
     "Metric": "JS_Divergence",
-    "Mean": 0.038713,
+    "Mean": 0.031875,
     "Std": null
   },
   {
@@ -3385,6 +6591,20 @@
     "Generator": "TabDDPM",
     "Metric": "Wasserstein_Distance",
     "Mean": 0.11887,
+    "Std": null
+  },
+  {
+    "Dataset": "9. MAGIC Gamma Telescope",
+    "Generator": "TabDDPM",
+    "Metric": "Gower_Distance",
+    "Mean": 0.741751,
+    "Std": null
+  },
+  {
+    "Dataset": "9. MAGIC Gamma Telescope",
+    "Generator": "ForestDiffusion",
+    "Metric": "Gower_Distance",
+    "Mean": 0.842496,
     "Std": null
   },
   {
@@ -3458,45 +6678,31 @@
     "Std": null
   },
   {
-    "Dataset": "10. Metro interstate",
-    "Generator": "CTGAN",
+    "Dataset": "9. MAGIC Gamma Telescope",
+    "Generator": "TabDDPM",
     "Metric": "KS_Complement",
-    "Mean": 0.9982,
+    "Mean": 0.7226,
     "Std": null
   },
   {
-    "Dataset": "10. Metro interstate",
-    "Generator": "CopulaGAN",
+    "Dataset": "9. MAGIC Gamma Telescope",
+    "Generator": "ForestDiffusion",
     "Metric": "KS_Complement",
-    "Mean": 0.9982,
+    "Mean": 0.8671,
     "Std": null
   },
   {
-    "Dataset": "10. Metro interstate",
-    "Generator": "TVAE",
-    "Metric": "KS_Complement",
-    "Mean": 0.999,
-    "Std": null
-  },
-  {
-    "Dataset": "10. Metro interstate",
-    "Generator": "CTGAN",
+    "Dataset": "9. MAGIC Gamma Telescope",
+    "Generator": "TabDDPM",
     "Metric": "JS_Divergence",
-    "Mean": 0.998561,
+    "Mean": 0.3245,
     "Std": null
   },
   {
-    "Dataset": "10. Metro interstate",
-    "Generator": "CopulaGAN",
+    "Dataset": "9. MAGIC Gamma Telescope",
+    "Generator": "ForestDiffusion",
     "Metric": "JS_Divergence",
-    "Mean": 1.0,
-    "Std": null
-  },
-  {
-    "Dataset": "10. Metro interstate",
-    "Generator": "TVAE",
-    "Metric": "JS_Divergence",
-    "Mean": 0.998366,
+    "Mean": 0.0186817,
     "Std": null
   },
   {
@@ -3525,6 +6731,34 @@
     "Generator": "GaussianCopula",
     "Metric": "Wasserstein_Distance",
     "Mean": 0.237024,
+    "Std": null
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "CTGAN",
+    "Metric": "Gower_Distance",
+    "Mean": 0.665849,
+    "Std": null
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "CopulaGAN",
+    "Metric": "Gower_Distance",
+    "Mean": 0.665781,
+    "Std": null
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "TVAE",
+    "Metric": "Gower_Distance",
+    "Mean": 0.689928,
+    "Std": null
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "GaussianCopula",
+    "Metric": "Gower_Distance",
+    "Mean": 0.570833,
     "Std": null
   },
   {
@@ -3669,30 +6903,58 @@
   },
   {
     "Dataset": "10. Metro interstate",
-    "Generator": "CTABGAN",
+    "Generator": "CTGAN",
     "Metric": "KS_Complement",
-    "Mean": 1.0,
+    "Mean": 0.8336,
     "Std": null
   },
   {
     "Dataset": "10. Metro interstate",
-    "Generator": "WGAN_GP",
+    "Generator": "CopulaGAN",
     "Metric": "KS_Complement",
-    "Mean": 0.94,
+    "Mean": 0.7624,
     "Std": null
   },
   {
     "Dataset": "10. Metro interstate",
-    "Generator": "CTABGAN",
-    "Metric": "JS_Divergence",
-    "Mean": 0.915272,
+    "Generator": "TVAE",
+    "Metric": "KS_Complement",
+    "Mean": 0.9267,
     "Std": null
   },
   {
     "Dataset": "10. Metro interstate",
-    "Generator": "WGAN_GP",
+    "Generator": "GaussianCopula",
+    "Metric": "KS_Complement",
+    "Mean": 0.7024,
+    "Std": null
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "CTGAN",
     "Metric": "JS_Divergence",
-    "Mean": 1.0,
+    "Mean": 0.2128571429,
+    "Std": null
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "CopulaGAN",
+    "Metric": "JS_Divergence",
+    "Mean": 0.2198,
+    "Std": null
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "TVAE",
+    "Metric": "JS_Divergence",
+    "Mean": 0.01875,
+    "Std": null
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "GaussianCopula",
+    "Metric": "JS_Divergence",
+    "Mean": 0.3763333333,
     "Std": null
   },
   {
@@ -3707,6 +6969,20 @@
     "Generator": "WGAN_GP",
     "Metric": "Wasserstein_Distance",
     "Mean": 0.050029,
+    "Std": null
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "CTABGAN",
+    "Metric": "Gower_Distance",
+    "Mean": 0.575214,
+    "Std": null
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "WGAN_GP",
+    "Metric": "Gower_Distance",
+    "Mean": 0.657231,
     "Std": null
   },
   {
@@ -3781,30 +7057,30 @@
   },
   {
     "Dataset": "10. Metro interstate",
-    "Generator": "TabDDPM",
+    "Generator": "CTABGAN",
     "Metric": "KS_Complement",
-    "Mean": 0.709,
+    "Mean": 0.7036,
     "Std": null
   },
   {
     "Dataset": "10. Metro interstate",
-    "Generator": "ForestDiffusion",
+    "Generator": "WGAN_GP",
     "Metric": "KS_Complement",
-    "Mean": 0.999,
+    "Mean": 0.6805,
     "Std": null
   },
   {
     "Dataset": "10. Metro interstate",
-    "Generator": "TabDDPM",
+    "Generator": "CTABGAN",
     "Metric": "JS_Divergence",
-    "Mean": 0.536778,
+    "Mean": 0.2352,
     "Std": null
   },
   {
     "Dataset": "10. Metro interstate",
-    "Generator": "ForestDiffusion",
+    "Generator": "WGAN_GP",
     "Metric": "JS_Divergence",
-    "Mean": 0.369157,
+    "Mean": 0.2817,
     "Std": null
   },
   {
@@ -3819,6 +7095,20 @@
     "Generator": "TabDDPM",
     "Metric": "Wasserstein_Distance",
     "Mean": 0.274132,
+    "Std": null
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "TabDDPM",
+    "Metric": "Gower_Distance",
+    "Mean": 0.4366,
+    "Std": null
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "ForestDiffusion",
+    "Metric": "Gower_Distance",
+    "Mean": 0.669023,
     "Std": null
   },
   {
@@ -3892,31 +7182,31 @@
     "Std": null
   },
   {
-    "Dataset": "11. online shopping",
-    "Generator": "CTGAN",
+    "Dataset": "10. Metro interstate",
+    "Generator": "TabDDPM",
     "Metric": "KS_Complement",
-    "Mean": 1.0,
+    "Mean": 0.5631,
     "Std": null
   },
   {
-    "Dataset": "11. online shopping",
-    "Generator": "CopulaGAN",
+    "Dataset": "10. Metro interstate",
+    "Generator": "ForestDiffusion",
     "Metric": "KS_Complement",
-    "Mean": 1.0,
+    "Mean": 0.7487,
     "Std": null
   },
   {
-    "Dataset": "11. online shopping",
-    "Generator": "CTGAN",
+    "Dataset": "10. Metro interstate",
+    "Generator": "TabDDPM",
     "Metric": "JS_Divergence",
-    "Mean": 0.285609,
+    "Mean": 0.19475,
     "Std": null
   },
   {
-    "Dataset": "11. online shopping",
-    "Generator": "CopulaGAN",
+    "Dataset": "10. Metro interstate",
+    "Generator": "ForestDiffusion",
     "Metric": "JS_Divergence",
-    "Mean": 0.331762,
+    "Mean": 0.107,
     "Std": null
   },
   {
@@ -3945,6 +7235,34 @@
     "Generator": "TVAE",
     "Metric": "Wasserstein_Distance",
     "Mean": 0.099596,
+    "Std": null
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "CTGAN",
+    "Metric": "Gower_Distance",
+    "Mean": 0.651777,
+    "Std": null
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "CopulaGAN",
+    "Metric": "Gower_Distance",
+    "Mean": 0.653286,
+    "Std": null
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "TVAE",
+    "Metric": "Gower_Distance",
+    "Mean": 0.666402,
+    "Std": null
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "GaussianCopula",
+    "Metric": "Gower_Distance",
+    "Mean": 0.648611,
     "Std": null
   },
   {
@@ -4089,30 +7407,58 @@
   },
   {
     "Dataset": "11. online shopping",
-    "Generator": "CTABGAN",
+    "Generator": "CTGAN",
     "Metric": "KS_Complement",
-    "Mean": 0.821,
+    "Mean": 0.9088,
     "Std": null
   },
   {
     "Dataset": "11. online shopping",
-    "Generator": "WGAN_GP",
+    "Generator": "CopulaGAN",
     "Metric": "KS_Complement",
-    "Mean": 0.97,
+    "Mean": 0.9086,
     "Std": null
   },
   {
     "Dataset": "11. online shopping",
-    "Generator": "CTABGAN",
-    "Metric": "JS_Divergence",
-    "Mean": 0.073598,
+    "Generator": "TVAE",
+    "Metric": "KS_Complement",
+    "Mean": 0.7561,
     "Std": null
   },
   {
     "Dataset": "11. online shopping",
-    "Generator": "WGAN_GP",
+    "Generator": "GaussianCopula",
+    "Metric": "KS_Complement",
+    "Mean": 0.9198,
+    "Std": null
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "CTGAN",
     "Metric": "JS_Divergence",
-    "Mean": 0.649803,
+    "Mean": 0.02925,
+    "Std": null
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "CopulaGAN",
+    "Metric": "JS_Divergence",
+    "Mean": 0.06275,
+    "Std": null
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "TVAE",
+    "Metric": "JS_Divergence",
+    "Mean": 0.191,
+    "Std": null
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "GaussianCopula",
+    "Metric": "JS_Divergence",
+    "Mean": 0.1182,
     "Std": null
   },
   {
@@ -4127,6 +7473,20 @@
     "Generator": "WGAN_GP",
     "Metric": "Wasserstein_Distance",
     "Mean": 0.08708,
+    "Std": null
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "CTABGAN",
+    "Metric": "Gower_Distance",
+    "Mean": 0.670995,
+    "Std": null
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "WGAN_GP",
+    "Metric": "Gower_Distance",
+    "Mean": 0.652946,
     "Std": null
   },
   {
@@ -4201,30 +7561,30 @@
   },
   {
     "Dataset": "11. online shopping",
-    "Generator": "TabDDPM",
+    "Generator": "CTABGAN",
     "Metric": "KS_Complement",
-    "Mean": 1.0,
+    "Mean": 0.2004,
     "Std": null
   },
   {
     "Dataset": "11. online shopping",
-    "Generator": "ForestDiffusion",
+    "Generator": "WGAN_GP",
     "Metric": "KS_Complement",
-    "Mean": 1.0,
+    "Mean": 0.8012,
     "Std": null
   },
   {
     "Dataset": "11. online shopping",
-    "Generator": "TabDDPM",
+    "Generator": "CTABGAN",
     "Metric": "JS_Divergence",
-    "Mean": 0.489207,
+    "Mean": 0.0184,
     "Std": null
   },
   {
     "Dataset": "11. online shopping",
-    "Generator": "ForestDiffusion",
+    "Generator": "WGAN_GP",
     "Metric": "JS_Divergence",
-    "Mean": 0.312229,
+    "Mean": 0.0497,
     "Std": null
   },
   {
@@ -4239,6 +7599,20 @@
     "Generator": "TabDDPM",
     "Metric": "Wasserstein_Distance",
     "Mean": 0.22835,
+    "Std": null
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "TabDDPM",
+    "Metric": "Gower_Distance",
+    "Mean": 0.576314,
+    "Std": null
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "ForestDiffusion",
+    "Metric": "Gower_Distance",
+    "Mean": 0.710192,
     "Std": null
   },
   {
@@ -4312,31 +7686,31 @@
     "Std": null
   },
   {
-    "Dataset": "12. Air Quality",
-    "Generator": "CTGAN",
+    "Dataset": "11. online shopping",
+    "Generator": "TabDDPM",
     "Metric": "KS_Complement",
-    "Mean": 0.941,
+    "Mean": 0.4329,
     "Std": null
   },
   {
-    "Dataset": "12. Air Quality",
-    "Generator": "CopulaGAN",
+    "Dataset": "11. online shopping",
+    "Generator": "ForestDiffusion",
     "Metric": "KS_Complement",
-    "Mean": 0.912,
+    "Mean": 0.4649,
     "Std": null
   },
   {
-    "Dataset": "12. Air Quality",
-    "Generator": "CTGAN",
+    "Dataset": "11. online shopping",
+    "Generator": "TabDDPM",
     "Metric": "JS_Divergence",
-    "Mean": 0.779892,
+    "Mean": 0.3057142857,
     "Std": null
   },
   {
-    "Dataset": "12. Air Quality",
-    "Generator": "CopulaGAN",
+    "Dataset": "11. online shopping",
+    "Generator": "ForestDiffusion",
     "Metric": "JS_Divergence",
-    "Mean": 0.741649,
+    "Mean": 0.118875,
     "Std": null
   },
   {
@@ -4365,6 +7739,34 @@
     "Generator": "CopulaGAN",
     "Metric": "Wasserstein_Distance",
     "Mean": 0.101425,
+    "Std": null
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "CTGAN",
+    "Metric": "Gower_Distance",
+    "Mean": 0.804398,
+    "Std": null
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "CopulaGAN",
+    "Metric": "Gower_Distance",
+    "Mean": 0.784604,
+    "Std": null
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "TVAE",
+    "Metric": "Gower_Distance",
+    "Mean": 0.816653,
+    "Std": null
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "GaussianCopula",
+    "Metric": "Gower_Distance",
+    "Mean": 0.82247,
     "Std": null
   },
   {
@@ -4509,30 +7911,51 @@
   },
   {
     "Dataset": "12. Air Quality",
-    "Generator": "CTABGAN",
+    "Generator": "CTGAN",
     "Metric": "KS_Complement",
-    "Mean": 0.954,
+    "Mean": 0.8023,
     "Std": null
   },
   {
     "Dataset": "12. Air Quality",
-    "Generator": "WGAN_GP",
+    "Generator": "CopulaGAN",
     "Metric": "KS_Complement",
-    "Mean": 0.941,
+    "Mean": 0.6938,
     "Std": null
   },
   {
     "Dataset": "12. Air Quality",
-    "Generator": "CTABGAN",
-    "Metric": "JS_Divergence",
-    "Mean": 0.933336,
+    "Generator": "TVAE",
+    "Metric": "KS_Complement",
+    "Mean": 0.9016,
     "Std": null
   },
   {
     "Dataset": "12. Air Quality",
-    "Generator": "WGAN_GP",
+    "Generator": "GaussianCopula",
+    "Metric": "KS_Complement",
+    "Mean": 0.9098,
+    "Std": null
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "CTGAN",
     "Metric": "JS_Divergence",
-    "Mean": 0.793483,
+    "Mean": 0.122306,
+    "Std": null
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "CopulaGAN",
+    "Metric": "JS_Divergence",
+    "Mean": 0.2298,
+    "Std": null
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "GaussianCopula",
+    "Metric": "JS_Divergence",
+    "Mean": 0.0126666667,
     "Std": null
   },
   {
@@ -4547,6 +7970,20 @@
     "Generator": "WGAN_GP",
     "Metric": "Wasserstein_Distance",
     "Mean": 0.043182,
+    "Std": null
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "CTABGAN",
+    "Metric": "Gower_Distance",
+    "Mean": 0.823107,
+    "Std": null
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "WGAN_GP",
+    "Metric": "Gower_Distance",
+    "Mean": 0.852592,
     "Std": null
   },
   {
@@ -4621,30 +8058,30 @@
   },
   {
     "Dataset": "12. Air Quality",
-    "Generator": "TabDDPM",
+    "Generator": "CTABGAN",
     "Metric": "KS_Complement",
-    "Mean": 0.922,
+    "Mean": 0.873,
     "Std": null
   },
   {
     "Dataset": "12. Air Quality",
-    "Generator": "ForestDiffusion",
+    "Generator": "WGAN_GP",
     "Metric": "KS_Complement",
-    "Mean": 0.979,
+    "Mean": 0.8418,
     "Std": null
   },
   {
     "Dataset": "12. Air Quality",
-    "Generator": "TabDDPM",
+    "Generator": "CTABGAN",
     "Metric": "JS_Divergence",
-    "Mean": 0.262476,
+    "Mean": 0.0226666667,
     "Std": null
   },
   {
     "Dataset": "12. Air Quality",
-    "Generator": "ForestDiffusion",
+    "Generator": "WGAN_GP",
     "Metric": "JS_Divergence",
-    "Mean": 0.92544,
+    "Mean": 0.09,
     "Std": null
   },
   {
@@ -4659,6 +8096,20 @@
     "Generator": "TabDDPM",
     "Metric": "Wasserstein_Distance",
     "Mean": 0.149101,
+    "Std": null
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "TabDDPM",
+    "Metric": "Gower_Distance",
+    "Mean": 0.70232,
+    "Std": null
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "ForestDiffusion",
+    "Metric": "Gower_Distance",
+    "Mean": 0.824465,
     "Std": null
   },
   {
@@ -4732,45 +8183,31 @@
     "Std": null
   },
   {
-    "Dataset": "13. Concrete Compressive Strength",
-    "Generator": "CTGAN",
+    "Dataset": "12. Air Quality",
+    "Generator": "TabDDPM",
     "Metric": "KS_Complement",
-    "Mean": 0.894,
+    "Mean": 0.7731,
     "Std": null
   },
   {
-    "Dataset": "13. Concrete Compressive Strength",
-    "Generator": "CopulaGAN",
+    "Dataset": "12. Air Quality",
+    "Generator": "ForestDiffusion",
     "Metric": "KS_Complement",
-    "Mean": 0.933,
+    "Mean": 0.9196,
     "Std": null
   },
   {
-    "Dataset": "13. Concrete Compressive Strength",
-    "Generator": "TVAE",
-    "Metric": "KS_Complement",
-    "Mean": 0.901,
-    "Std": null
-  },
-  {
-    "Dataset": "13. Concrete Compressive Strength",
-    "Generator": "CTGAN",
+    "Dataset": "12. Air Quality",
+    "Generator": "TabDDPM",
     "Metric": "JS_Divergence",
-    "Mean": 0.39665,
+    "Mean": 0.2252857143,
     "Std": null
   },
   {
-    "Dataset": "13. Concrete Compressive Strength",
-    "Generator": "CopulaGAN",
+    "Dataset": "12. Air Quality",
+    "Generator": "ForestDiffusion",
     "Metric": "JS_Divergence",
-    "Mean": 0.433018,
-    "Std": null
-  },
-  {
-    "Dataset": "13. Concrete Compressive Strength",
-    "Generator": "TVAE",
-    "Metric": "JS_Divergence",
-    "Mean": 0.296593,
+    "Mean": 0.197,
     "Std": null
   },
   {
@@ -4799,6 +8236,34 @@
     "Generator": "CTGAN",
     "Metric": "Wasserstein_Distance",
     "Mean": 0.106878,
+    "Std": null
+  },
+  {
+    "Dataset": "13. Concrete Compressive Strength",
+    "Generator": "CTGAN",
+    "Metric": "Gower_Distance",
+    "Mean": 0.730471,
+    "Std": null
+  },
+  {
+    "Dataset": "13. Concrete Compressive Strength",
+    "Generator": "CopulaGAN",
+    "Metric": "Gower_Distance",
+    "Mean": 0.729719,
+    "Std": null
+  },
+  {
+    "Dataset": "13. Concrete Compressive Strength",
+    "Generator": "TVAE",
+    "Metric": "Gower_Distance",
+    "Mean": 0.778318,
+    "Std": null
+  },
+  {
+    "Dataset": "13. Concrete Compressive Strength",
+    "Generator": "GaussianCopula",
+    "Metric": "Gower_Distance",
+    "Mean": 0.739443,
     "Std": null
   },
   {
@@ -4943,30 +8408,58 @@
   },
   {
     "Dataset": "13. Concrete Compressive Strength",
-    "Generator": "CTABGAN",
+    "Generator": "CTGAN",
     "Metric": "KS_Complement",
-    "Mean": 0.957,
+    "Mean": 0.7018,
     "Std": null
   },
   {
     "Dataset": "13. Concrete Compressive Strength",
-    "Generator": "WGAN_GP",
+    "Generator": "CopulaGAN",
     "Metric": "KS_Complement",
-    "Mean": 0.897,
+    "Mean": 0.7297,
     "Std": null
   },
   {
     "Dataset": "13. Concrete Compressive Strength",
-    "Generator": "CTABGAN",
-    "Metric": "JS_Divergence",
-    "Mean": 0.405772,
+    "Generator": "TVAE",
+    "Metric": "KS_Complement",
+    "Mean": 0.8344,
     "Std": null
   },
   {
     "Dataset": "13. Concrete Compressive Strength",
-    "Generator": "WGAN_GP",
+    "Generator": "GaussianCopula",
+    "Metric": "KS_Complement",
+    "Mean": 0.7931,
+    "Std": null
+  },
+  {
+    "Dataset": "13. Concrete Compressive Strength",
+    "Generator": "CTGAN",
     "Metric": "JS_Divergence",
-    "Mean": 0.632215,
+    "Mean": 0.08775,
+    "Std": null
+  },
+  {
+    "Dataset": "13. Concrete Compressive Strength",
+    "Generator": "CopulaGAN",
+    "Metric": "JS_Divergence",
+    "Mean": 0.1435051111,
+    "Std": null
+  },
+  {
+    "Dataset": "13. Concrete Compressive Strength",
+    "Generator": "TVAE",
+    "Metric": "JS_Divergence",
+    "Mean": 0.2023745,
+    "Std": null
+  },
+  {
+    "Dataset": "13. Concrete Compressive Strength",
+    "Generator": "GaussianCopula",
+    "Metric": "JS_Divergence",
+    "Mean": 0.12875,
     "Std": null
   },
   {
@@ -4981,6 +8474,20 @@
     "Generator": "WGAN_GP",
     "Metric": "Wasserstein_Distance",
     "Mean": 0.100008,
+    "Std": null
+  },
+  {
+    "Dataset": "13. Concrete Compressive Strength",
+    "Generator": "CTABGAN",
+    "Metric": "Gower_Distance",
+    "Mean": 0.767293,
+    "Std": null
+  },
+  {
+    "Dataset": "13. Concrete Compressive Strength",
+    "Generator": "WGAN_GP",
+    "Metric": "Gower_Distance",
+    "Mean": 0.830615,
     "Std": null
   },
   {
@@ -5055,30 +8562,30 @@
   },
   {
     "Dataset": "13. Concrete Compressive Strength",
-    "Generator": "TabDDPM",
+    "Generator": "CTABGAN",
     "Metric": "KS_Complement",
-    "Mean": 0.975,
+    "Mean": 0.7723,
     "Std": null
   },
   {
     "Dataset": "13. Concrete Compressive Strength",
-    "Generator": "ForestDiffusion",
+    "Generator": "WGAN_GP",
     "Metric": "KS_Complement",
-    "Mean": 0.982,
+    "Mean": 0.7443,
     "Std": null
   },
   {
     "Dataset": "13. Concrete Compressive Strength",
-    "Generator": "TabDDPM",
+    "Generator": "CTABGAN",
     "Metric": "JS_Divergence",
-    "Mean": 0.069753,
+    "Mean": 0.09550825,
     "Std": null
   },
   {
     "Dataset": "13. Concrete Compressive Strength",
-    "Generator": "ForestDiffusion",
+    "Generator": "WGAN_GP",
     "Metric": "JS_Divergence",
-    "Mean": 0.01967,
+    "Mean": 0.0563333333,
     "Std": null
   },
   {
@@ -5093,6 +8600,20 @@
     "Generator": "TabDDPM",
     "Metric": "Wasserstein_Distance",
     "Mean": 0.019023,
+    "Std": null
+  },
+  {
+    "Dataset": "13. Concrete Compressive Strength",
+    "Generator": "TabDDPM",
+    "Metric": "Gower_Distance",
+    "Mean": 0.759916,
+    "Std": null
+  },
+  {
+    "Dataset": "13. Concrete Compressive Strength",
+    "Generator": "ForestDiffusion",
+    "Metric": "Gower_Distance",
+    "Mean": 0.762258,
     "Std": null
   },
   {
@@ -5166,45 +8687,31 @@
     "Std": null
   },
   {
-    "Dataset": "14. Energy Efficiency",
-    "Generator": "CTGAN",
+    "Dataset": "13. Concrete Compressive Strength",
+    "Generator": "TabDDPM",
     "Metric": "KS_Complement",
-    "Mean": 0.970052,
+    "Mean": 0.9489,
     "Std": null
   },
   {
-    "Dataset": "14. Energy Efficiency",
-    "Generator": "CopulaGAN",
+    "Dataset": "13. Concrete Compressive Strength",
+    "Generator": "ForestDiffusion",
     "Metric": "KS_Complement",
-    "Mean": 0.955729,
+    "Mean": 0.877,
     "Std": null
   },
   {
-    "Dataset": "14. Energy Efficiency",
-    "Generator": "TVAE",
-    "Metric": "KS_Complement",
-    "Mean": 0.981771,
-    "Std": null
-  },
-  {
-    "Dataset": "14. Energy Efficiency",
-    "Generator": "CTGAN",
+    "Dataset": "13. Concrete Compressive Strength",
+    "Generator": "TabDDPM",
     "Metric": "JS_Divergence",
-    "Mean": 0.437474,
+    "Mean": 0.031480875,
     "Std": null
   },
   {
-    "Dataset": "14. Energy Efficiency",
-    "Generator": "CopulaGAN",
+    "Dataset": "13. Concrete Compressive Strength",
+    "Generator": "ForestDiffusion",
     "Metric": "JS_Divergence",
-    "Mean": 0.336755,
-    "Std": null
-  },
-  {
-    "Dataset": "14. Energy Efficiency",
-    "Generator": "TVAE",
-    "Metric": "JS_Divergence",
-    "Mean": 0.346387,
+    "Mean": 0.007319,
     "Std": null
   },
   {
@@ -5233,6 +8740,34 @@
     "Generator": "CTGAN",
     "Metric": "Wasserstein_Distance",
     "Mean": 0.102021,
+    "Std": null
+  },
+  {
+    "Dataset": "14. Energy Efficiency",
+    "Generator": "CTGAN",
+    "Metric": "Gower_Distance",
+    "Mean": 0.61768,
+    "Std": null
+  },
+  {
+    "Dataset": "14. Energy Efficiency",
+    "Generator": "CopulaGAN",
+    "Metric": "Gower_Distance",
+    "Mean": 0.595962,
+    "Std": null
+  },
+  {
+    "Dataset": "14. Energy Efficiency",
+    "Generator": "TVAE",
+    "Metric": "Gower_Distance",
+    "Mean": 0.628166,
+    "Std": null
+  },
+  {
+    "Dataset": "14. Energy Efficiency",
+    "Generator": "GaussianCopula",
+    "Metric": "Gower_Distance",
+    "Mean": 0.611222,
     "Std": null
   },
   {
@@ -5377,30 +8912,51 @@
   },
   {
     "Dataset": "14. Energy Efficiency",
-    "Generator": "CTABGAN",
+    "Generator": "CTGAN",
     "Metric": "KS_Complement",
-    "Mean": 0.888,
+    "Mean": 0.7759,
     "Std": null
   },
   {
     "Dataset": "14. Energy Efficiency",
-    "Generator": "WGAN_GP",
+    "Generator": "CopulaGAN",
     "Metric": "KS_Complement",
-    "Mean": 0.893,
+    "Mean": 0.8096,
     "Std": null
   },
   {
     "Dataset": "14. Energy Efficiency",
-    "Generator": "CTABGAN",
-    "Metric": "JS_Divergence",
-    "Mean": 0.398413,
+    "Generator": "TVAE",
+    "Metric": "KS_Complement",
+    "Mean": 0.8604,
     "Std": null
   },
   {
     "Dataset": "14. Energy Efficiency",
-    "Generator": "WGAN_GP",
+    "Generator": "GaussianCopula",
+    "Metric": "KS_Complement",
+    "Mean": 0.7555,
+    "Std": null
+  },
+  {
+    "Dataset": "14. Energy Efficiency",
+    "Generator": "CTGAN",
     "Metric": "JS_Divergence",
-    "Mean": 0.715426,
+    "Mean": 0.131,
+    "Std": null
+  },
+  {
+    "Dataset": "14. Energy Efficiency",
+    "Generator": "CopulaGAN",
+    "Metric": "JS_Divergence",
+    "Mean": 0.1319796667,
+    "Std": null
+  },
+  {
+    "Dataset": "14. Energy Efficiency",
+    "Generator": "TVAE",
+    "Metric": "JS_Divergence",
+    "Mean": 0.272864,
     "Std": null
   },
   {
@@ -5415,6 +8971,20 @@
     "Generator": "CTABGAN",
     "Metric": "Wasserstein_Distance",
     "Mean": 0.154255,
+    "Std": null
+  },
+  {
+    "Dataset": "14. Energy Efficiency",
+    "Generator": "CTABGAN",
+    "Metric": "Gower_Distance",
+    "Mean": 0.632868,
+    "Std": null
+  },
+  {
+    "Dataset": "14. Energy Efficiency",
+    "Generator": "WGAN_GP",
+    "Metric": "Gower_Distance",
+    "Mean": 0.837679,
     "Std": null
   },
   {
@@ -5489,30 +9059,30 @@
   },
   {
     "Dataset": "14. Energy Efficiency",
-    "Generator": "TabDDPM",
+    "Generator": "CTABGAN",
     "Metric": "KS_Complement",
-    "Mean": 0.887,
+    "Mean": 0.7048,
     "Std": null
   },
   {
     "Dataset": "14. Energy Efficiency",
-    "Generator": "ForestDiffusion",
+    "Generator": "WGAN_GP",
     "Metric": "KS_Complement",
-    "Mean": 0.978958,
+    "Mean": 0.6267,
     "Std": null
   },
   {
     "Dataset": "14. Energy Efficiency",
-    "Generator": "TabDDPM",
+    "Generator": "CTABGAN",
     "Metric": "JS_Divergence",
-    "Mean": 0.339188,
+    "Mean": 0.1295,
     "Std": null
   },
   {
     "Dataset": "14. Energy Efficiency",
-    "Generator": "ForestDiffusion",
+    "Generator": "WGAN_GP",
     "Metric": "JS_Divergence",
-    "Mean": 0.045469,
+    "Mean": 0.12125,
     "Std": null
   },
   {
@@ -5527,6 +9097,20 @@
     "Generator": "TabDDPM",
     "Metric": "Wasserstein_Distance",
     "Mean": 0.162632,
+    "Std": null
+  },
+  {
+    "Dataset": "14. Energy Efficiency",
+    "Generator": "TabDDPM",
+    "Metric": "Gower_Distance",
+    "Mean": 0.551458,
+    "Std": null
+  },
+  {
+    "Dataset": "14. Energy Efficiency",
+    "Generator": "ForestDiffusion",
+    "Metric": "Gower_Distance",
+    "Mean": 0.623942,
     "Std": null
   },
   {
@@ -5600,59 +9184,31 @@
     "Std": null
   },
   {
-    "Dataset": "15. Real Estate Valuation",
-    "Generator": "CTGAN",
+    "Dataset": "14. Energy Efficiency",
+    "Generator": "TabDDPM",
     "Metric": "KS_Complement",
-    "Mean": 0.811594,
+    "Mean": 0.6547,
     "Std": null
   },
   {
-    "Dataset": "15. Real Estate Valuation",
-    "Generator": "CopulaGAN",
+    "Dataset": "14. Energy Efficiency",
+    "Generator": "ForestDiffusion",
     "Metric": "KS_Complement",
-    "Mean": 0.823671,
+    "Mean": 0.7087,
     "Std": null
   },
   {
-    "Dataset": "15. Real Estate Valuation",
-    "Generator": "TVAE",
-    "Metric": "KS_Complement",
-    "Mean": 0.934783,
-    "Std": null
-  },
-  {
-    "Dataset": "15. Real Estate Valuation",
-    "Generator": "GaussianCopula",
-    "Metric": "KS_Complement",
-    "Mean": 0.908213,
-    "Std": null
-  },
-  {
-    "Dataset": "15. Real Estate Valuation",
-    "Generator": "CTGAN",
+    "Dataset": "14. Energy Efficiency",
+    "Generator": "TabDDPM",
     "Metric": "JS_Divergence",
-    "Mean": 0.880895,
+    "Mean": 0.1153333333,
     "Std": null
   },
   {
-    "Dataset": "15. Real Estate Valuation",
-    "Generator": "CopulaGAN",
+    "Dataset": "14. Energy Efficiency",
+    "Generator": "ForestDiffusion",
     "Metric": "JS_Divergence",
-    "Mean": 0.880895,
-    "Std": null
-  },
-  {
-    "Dataset": "15. Real Estate Valuation",
-    "Generator": "TVAE",
-    "Metric": "JS_Divergence",
-    "Mean": 0.880895,
-    "Std": null
-  },
-  {
-    "Dataset": "15. Real Estate Valuation",
-    "Generator": "GaussianCopula",
-    "Metric": "JS_Divergence",
-    "Mean": 0.880895,
+    "Mean": 0.0135,
     "Std": null
   },
   {
@@ -5681,6 +9237,34 @@
     "Generator": "CopulaGAN",
     "Metric": "Wasserstein_Distance",
     "Mean": 340.846522,
+    "Std": null
+  },
+  {
+    "Dataset": "15. Real Estate Valuation",
+    "Generator": "CTGAN",
+    "Metric": "Gower_Distance",
+    "Mean": 0.708963,
+    "Std": null
+  },
+  {
+    "Dataset": "15. Real Estate Valuation",
+    "Generator": "CopulaGAN",
+    "Metric": "Gower_Distance",
+    "Mean": 0.667636,
+    "Std": null
+  },
+  {
+    "Dataset": "15. Real Estate Valuation",
+    "Generator": "TVAE",
+    "Metric": "Gower_Distance",
+    "Mean": 0.721756,
+    "Std": null
+  },
+  {
+    "Dataset": "15. Real Estate Valuation",
+    "Generator": "GaussianCopula",
+    "Metric": "Gower_Distance",
+    "Mean": 0.700365,
     "Std": null
   },
   {
@@ -5825,30 +9409,58 @@
   },
   {
     "Dataset": "15. Real Estate Valuation",
-    "Generator": "CTABGAN",
+    "Generator": "CTGAN",
     "Metric": "KS_Complement",
-    "Mean": 0.930971,
+    "Mean": 0.7721,
     "Std": null
   },
   {
     "Dataset": "15. Real Estate Valuation",
-    "Generator": "WGAN_GP",
+    "Generator": "CopulaGAN",
     "Metric": "KS_Complement",
-    "Mean": 0.832256,
+    "Mean": 0.7287,
     "Std": null
   },
   {
     "Dataset": "15. Real Estate Valuation",
-    "Generator": "CTABGAN",
-    "Metric": "JS_Divergence",
-    "Mean": 0.085641,
+    "Generator": "TVAE",
+    "Metric": "KS_Complement",
+    "Mean": 0.8945,
     "Std": null
   },
   {
     "Dataset": "15. Real Estate Valuation",
-    "Generator": "WGAN_GP",
+    "Generator": "GaussianCopula",
+    "Metric": "KS_Complement",
+    "Mean": 0.8043,
+    "Std": null
+  },
+  {
+    "Dataset": "15. Real Estate Valuation",
+    "Generator": "CTGAN",
     "Metric": "JS_Divergence",
-    "Mean": 0.288887,
+    "Mean": 0.3247696667,
+    "Std": null
+  },
+  {
+    "Dataset": "15. Real Estate Valuation",
+    "Generator": "CopulaGAN",
+    "Metric": "JS_Divergence",
+    "Mean": 0.3512481667,
+    "Std": null
+  },
+  {
+    "Dataset": "15. Real Estate Valuation",
+    "Generator": "TVAE",
+    "Metric": "JS_Divergence",
+    "Mean": 0.3109671667,
+    "Std": null
+  },
+  {
+    "Dataset": "15. Real Estate Valuation",
+    "Generator": "GaussianCopula",
+    "Metric": "JS_Divergence",
+    "Mean": 0.835606,
     "Std": null
   },
   {
@@ -5863,6 +9475,20 @@
     "Generator": "WGAN_GP",
     "Metric": "Wasserstein_Distance",
     "Mean": 0.107111,
+    "Std": null
+  },
+  {
+    "Dataset": "15. Real Estate Valuation",
+    "Generator": "CTABGAN",
+    "Metric": "Gower_Distance",
+    "Mean": 0.776166,
+    "Std": null
+  },
+  {
+    "Dataset": "15. Real Estate Valuation",
+    "Generator": "WGAN_GP",
+    "Metric": "Gower_Distance",
+    "Mean": 0.843701,
     "Std": null
   },
   {
@@ -5937,30 +9563,30 @@
   },
   {
     "Dataset": "15. Real Estate Valuation",
-    "Generator": "TabDDPM",
+    "Generator": "CTABGAN",
     "Metric": "KS_Complement",
-    "Mean": 0.701831,
+    "Mean": 0.9116,
     "Std": null
   },
   {
     "Dataset": "15. Real Estate Valuation",
-    "Generator": "ForestDiffusion",
+    "Generator": "WGAN_GP",
     "Metric": "KS_Complement",
-    "Mean": 0.964729,
+    "Mean": 0.7347,
     "Std": null
   },
   {
     "Dataset": "15. Real Estate Valuation",
-    "Generator": "TabDDPM",
+    "Generator": "CTABGAN",
     "Metric": "JS_Divergence",
-    "Mean": 0.344286,
+    "Mean": 0.1376666667,
     "Std": null
   },
   {
     "Dataset": "15. Real Estate Valuation",
-    "Generator": "ForestDiffusion",
+    "Generator": "WGAN_GP",
     "Metric": "JS_Divergence",
-    "Mean": 0.060767,
+    "Mean": 0.1768492,
     "Std": null
   },
   {
@@ -5975,6 +9601,20 @@
     "Generator": "TabDDPM",
     "Metric": "Wasserstein_Distance",
     "Mean": 0.227584,
+    "Std": null
+  },
+  {
+    "Dataset": "15. Real Estate Valuation",
+    "Generator": "TabDDPM",
+    "Metric": "Gower_Distance",
+    "Mean": 0.599162,
+    "Std": null
+  },
+  {
+    "Dataset": "15. Real Estate Valuation",
+    "Generator": "ForestDiffusion",
+    "Metric": "Gower_Distance",
+    "Mean": 0.76937,
     "Std": null
   },
   {
@@ -6045,6 +9685,34 @@
     "Generator": "TabDDPM",
     "Metric": "MMD_Multivariate",
     "Mean": 0.134849,
+    "Std": null
+  },
+  {
+    "Dataset": "15. Real Estate Valuation",
+    "Generator": "TabDDPM",
+    "Metric": "KS_Complement",
+    "Mean": 0.6593,
+    "Std": null
+  },
+  {
+    "Dataset": "15. Real Estate Valuation",
+    "Generator": "ForestDiffusion",
+    "Metric": "KS_Complement",
+    "Mean": 0.9445,
+    "Std": null
+  },
+  {
+    "Dataset": "15. Real Estate Valuation",
+    "Generator": "TabDDPM",
+    "Metric": "JS_Divergence",
+    "Mean": 0.2444146,
+    "Std": null
+  },
+  {
+    "Dataset": "15. Real Estate Valuation",
+    "Generator": "ForestDiffusion",
+    "Metric": "JS_Divergence",
+    "Mean": 0.007,
     "Std": null
   },
   {
@@ -6801,818 +10469,6 @@
     "Generator": "TabDDPM",
     "Metric": "Quality_Score",
     "Mean": 0.65929,
-    "Std": null
-  },
-  {
-    "Dataset": "1. Cancer",
-    "Generator": "CTGAN",
-    "Metric": "Gower_Distance",
-    "Mean": 0.825575,
-    "Std": null
-  },
-  {
-    "Dataset": "1. Cancer",
-    "Generator": "CopulaGAN",
-    "Metric": "Gower_Distance",
-    "Mean": 0.787046,
-    "Std": null
-  },
-  {
-    "Dataset": "1. Cancer",
-    "Generator": "TVAE",
-    "Metric": "Gower_Distance",
-    "Mean": 0.865425,
-    "Std": null
-  },
-  {
-    "Dataset": "1. Cancer",
-    "Generator": "GaussianCopula",
-    "Metric": "Gower_Distance",
-    "Mean": 0.851888,
-    "Std": null
-  },
-  {
-    "Dataset": "1. Cancer",
-    "Generator": "CTABGAN",
-    "Metric": "Gower_Distance",
-    "Mean": 0.845894,
-    "Std": null
-  },
-  {
-    "Dataset": "1. Cancer",
-    "Generator": "WGAN_GP",
-    "Metric": "Gower_Distance",
-    "Mean": 0.87225,
-    "Std": null
-  },
-  {
-    "Dataset": "1. Cancer",
-    "Generator": "TabDDPM",
-    "Metric": "Gower_Distance",
-    "Mean": 0.478821,
-    "Std": null
-  },
-  {
-    "Dataset": "1. Cancer",
-    "Generator": "ForestDiffusion",
-    "Metric": "Gower_Distance",
-    "Mean": 0.860912,
-    "Std": null
-  },
-  {
-    "Dataset": "2. Alzhimers",
-    "Generator": "CTGAN",
-    "Metric": "Gower_Distance",
-    "Mean": 0.735633,
-    "Std": null
-  },
-  {
-    "Dataset": "2. Alzhimers",
-    "Generator": "CopulaGAN",
-    "Metric": "Gower_Distance",
-    "Mean": 0.733296,
-    "Std": null
-  },
-  {
-    "Dataset": "2. Alzhimers",
-    "Generator": "TVAE",
-    "Metric": "Gower_Distance",
-    "Mean": 0.788536,
-    "Std": null
-  },
-  {
-    "Dataset": "2. Alzhimers",
-    "Generator": "GaussianCopula",
-    "Metric": "Gower_Distance",
-    "Mean": 0.791535,
-    "Std": null
-  },
-  {
-    "Dataset": "2. Alzhimers",
-    "Generator": "CTABGAN",
-    "Metric": "Gower_Distance",
-    "Mean": 0.779736,
-    "Std": null
-  },
-  {
-    "Dataset": "2. Alzhimers",
-    "Generator": "WGAN_GP",
-    "Metric": "Gower_Distance",
-    "Mean": 0.835927,
-    "Std": null
-  },
-  {
-    "Dataset": "2. Alzhimers",
-    "Generator": "TabDDPM",
-    "Metric": "Gower_Distance",
-    "Mean": 0.585711,
-    "Std": null
-  },
-  {
-    "Dataset": "2. Alzhimers",
-    "Generator": "ForestDiffusion",
-    "Metric": "Gower_Distance",
-    "Mean": 0.785988,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "CTABGAN",
-    "Metric": "Gower_Distance",
-    "Mean": 0.61206,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "WGAN_GP",
-    "Metric": "Gower_Distance",
-    "Mean": 0.521082,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "TabDDPM",
-    "Metric": "Gower_Distance",
-    "Mean": 0.313479,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "ForestDiffusion",
-    "Metric": "Gower_Distance",
-    "Mean": 0.645353,
-    "Std": null
-  },
-  {
-    "Dataset": "4. Forest cover dataset",
-    "Generator": "CTGAN",
-    "Metric": "Gower_Distance",
-    "Mean": 0.902477,
-    "Std": null
-  },
-  {
-    "Dataset": "4. Forest cover dataset",
-    "Generator": "CopulaGAN",
-    "Metric": "Gower_Distance",
-    "Mean": 0.901364,
-    "Std": null
-  },
-  {
-    "Dataset": "4. Forest cover dataset",
-    "Generator": "TVAE",
-    "Metric": "Gower_Distance",
-    "Mean": 0.924451,
-    "Std": null
-  },
-  {
-    "Dataset": "4. Forest cover dataset",
-    "Generator": "GaussianCopula",
-    "Metric": "Gower_Distance",
-    "Mean": 0.906039,
-    "Std": null
-  },
-  {
-    "Dataset": "4. Forest cover dataset",
-    "Generator": "CTABGAN",
-    "Metric": "Gower_Distance",
-    "Mean": 0.904271,
-    "Std": null
-  },
-  {
-    "Dataset": "4. Forest cover dataset",
-    "Generator": "WGAN_GP",
-    "Metric": "Gower_Distance",
-    "Mean": 0.905784,
-    "Std": null
-  },
-  {
-    "Dataset": "4. Forest cover dataset",
-    "Generator": "TabDDPM",
-    "Metric": "Gower_Distance",
-    "Mean": 0.633701,
-    "Std": null
-  },
-  {
-    "Dataset": "4. Forest cover dataset",
-    "Generator": "ForestDiffusion",
-    "Metric": "Gower_Distance",
-    "Mean": 0.911891,
-    "Std": null
-  },
-  {
-    "Dataset": "5. Bank Markting",
-    "Generator": "CTGAN",
-    "Metric": "Gower_Distance",
-    "Mean": 0.627346,
-    "Std": null
-  },
-  {
-    "Dataset": "5. Bank Markting",
-    "Generator": "CopulaGAN",
-    "Metric": "Gower_Distance",
-    "Mean": 0.617333,
-    "Std": null
-  },
-  {
-    "Dataset": "5. Bank Markting",
-    "Generator": "TVAE",
-    "Metric": "Gower_Distance",
-    "Mean": 0.647807,
-    "Std": null
-  },
-  {
-    "Dataset": "5. Bank Markting",
-    "Generator": "GaussianCopula",
-    "Metric": "Gower_Distance",
-    "Mean": 0.626154,
-    "Std": null
-  },
-  {
-    "Dataset": "5. Bank Markting",
-    "Generator": "CTABGAN",
-    "Metric": "Gower_Distance",
-    "Mean": 0.60794,
-    "Std": null
-  },
-  {
-    "Dataset": "5. Bank Markting",
-    "Generator": "WGAN_GP",
-    "Metric": "Gower_Distance",
-    "Mean": 0.620311,
-    "Std": null
-  },
-  {
-    "Dataset": "5. Bank Markting",
-    "Generator": "TabDDPM",
-    "Metric": "Gower_Distance",
-    "Mean": 0.373353,
-    "Std": null
-  },
-  {
-    "Dataset": "5. Bank Markting",
-    "Generator": "ForestDiffusion",
-    "Metric": "Gower_Distance",
-    "Mean": 0.623875,
-    "Std": null
-  },
-  {
-    "Dataset": "6. Wine dataset",
-    "Generator": "CTGAN",
-    "Metric": "Gower_Distance",
-    "Mean": 0.881018,
-    "Std": null
-  },
-  {
-    "Dataset": "6. Wine dataset",
-    "Generator": "CopulaGAN",
-    "Metric": "Gower_Distance",
-    "Mean": 0.883799,
-    "Std": null
-  },
-  {
-    "Dataset": "6. Wine dataset",
-    "Generator": "TVAE",
-    "Metric": "Gower_Distance",
-    "Mean": 0.898376,
-    "Std": null
-  },
-  {
-    "Dataset": "6. Wine dataset",
-    "Generator": "GaussianCopula",
-    "Metric": "Gower_Distance",
-    "Mean": 0.889308,
-    "Std": null
-  },
-  {
-    "Dataset": "6. Wine dataset",
-    "Generator": "CTABGAN",
-    "Metric": "Gower_Distance",
-    "Mean": 0.851682,
-    "Std": null
-  },
-  {
-    "Dataset": "6. Wine dataset",
-    "Generator": "WGAN_GP",
-    "Metric": "Gower_Distance",
-    "Mean": 0.868162,
-    "Std": null
-  },
-  {
-    "Dataset": "6. Wine dataset",
-    "Generator": "TabDDPM",
-    "Metric": "Gower_Distance",
-    "Mean": 0.767133,
-    "Std": null
-  },
-  {
-    "Dataset": "6. Wine dataset",
-    "Generator": "ForestDiffusion",
-    "Metric": "Gower_Distance",
-    "Mean": 0.858982,
-    "Std": null
-  },
-  {
-    "Dataset": "7. CDC diabetes dataset",
-    "Generator": "CTGAN",
-    "Metric": "Gower_Distance",
-    "Mean": 0.712221,
-    "Std": null
-  },
-  {
-    "Dataset": "7. CDC diabetes dataset",
-    "Generator": "CopulaGAN",
-    "Metric": "Gower_Distance",
-    "Mean": 0.714305,
-    "Std": null
-  },
-  {
-    "Dataset": "7. CDC diabetes dataset",
-    "Generator": "TVAE",
-    "Metric": "Gower_Distance",
-    "Mean": 0.752427,
-    "Std": null
-  },
-  {
-    "Dataset": "7. CDC diabetes dataset",
-    "Generator": "GaussianCopula",
-    "Metric": "Gower_Distance",
-    "Mean": 0.716012,
-    "Std": null
-  },
-  {
-    "Dataset": "7. CDC diabetes dataset",
-    "Generator": "CTABGAN",
-    "Metric": "Gower_Distance",
-    "Mean": 0.636716,
-    "Std": null
-  },
-  {
-    "Dataset": "7. CDC diabetes dataset",
-    "Generator": "WGAN_GP",
-    "Metric": "Gower_Distance",
-    "Mean": 0.845339,
-    "Std": null
-  },
-  {
-    "Dataset": "7. CDC diabetes dataset",
-    "Generator": "TabDDPM",
-    "Metric": "Gower_Distance",
-    "Mean": 0.62126,
-    "Std": null
-  },
-  {
-    "Dataset": "7. CDC diabetes dataset",
-    "Generator": "ForestDiffusion",
-    "Metric": "Gower_Distance",
-    "Mean": 0.73907,
-    "Std": null
-  },
-  {
-    "Dataset": "8. Mushroom dataset",
-    "Generator": "CTGAN",
-    "Metric": "Gower_Distance",
-    "Mean": 0.338231,
-    "Std": null
-  },
-  {
-    "Dataset": "8. Mushroom dataset",
-    "Generator": "CopulaGAN",
-    "Metric": "Gower_Distance",
-    "Mean": 0.33632,
-    "Std": null
-  },
-  {
-    "Dataset": "8. Mushroom dataset",
-    "Generator": "TVAE",
-    "Metric": "Gower_Distance",
-    "Mean": 0.357493,
-    "Std": null
-  },
-  {
-    "Dataset": "8. Mushroom dataset",
-    "Generator": "GaussianCopula",
-    "Metric": "Gower_Distance",
-    "Mean": 0.345135,
-    "Std": null
-  },
-  {
-    "Dataset": "8. Mushroom dataset",
-    "Generator": "CTABGAN",
-    "Metric": "Gower_Distance",
-    "Mean": 0.338105,
-    "Std": null
-  },
-  {
-    "Dataset": "8. Mushroom dataset",
-    "Generator": "WGAN_GP",
-    "Metric": "Gower_Distance",
-    "Mean": 0.29057,
-    "Std": null
-  },
-  {
-    "Dataset": "8. Mushroom dataset",
-    "Generator": "TabDDPM",
-    "Metric": "Gower_Distance",
-    "Mean": 0.174698,
-    "Std": null
-  },
-  {
-    "Dataset": "8. Mushroom dataset",
-    "Generator": "ForestDiffusion",
-    "Metric": "Gower_Distance",
-    "Mean": 0.345428,
-    "Std": null
-  },
-  {
-    "Dataset": "9. MAGIC Gamma Telescope",
-    "Generator": "CTGAN",
-    "Metric": "Gower_Distance",
-    "Mean": 0.853544,
-    "Std": null
-  },
-  {
-    "Dataset": "9. MAGIC Gamma Telescope",
-    "Generator": "CopulaGAN",
-    "Metric": "Gower_Distance",
-    "Mean": 0.847494,
-    "Std": null
-  },
-  {
-    "Dataset": "9. MAGIC Gamma Telescope",
-    "Generator": "TVAE",
-    "Metric": "Gower_Distance",
-    "Mean": 0.864338,
-    "Std": null
-  },
-  {
-    "Dataset": "9. MAGIC Gamma Telescope",
-    "Generator": "GaussianCopula",
-    "Metric": "Gower_Distance",
-    "Mean": 0.846668,
-    "Std": null
-  },
-  {
-    "Dataset": "9. MAGIC Gamma Telescope",
-    "Generator": "CTABGAN",
-    "Metric": "Gower_Distance",
-    "Mean": 0.83957,
-    "Std": null
-  },
-  {
-    "Dataset": "9. MAGIC Gamma Telescope",
-    "Generator": "WGAN_GP",
-    "Metric": "Gower_Distance",
-    "Mean": 0.854163,
-    "Std": null
-  },
-  {
-    "Dataset": "9. MAGIC Gamma Telescope",
-    "Generator": "TabDDPM",
-    "Metric": "Gower_Distance",
-    "Mean": 0.741751,
-    "Std": null
-  },
-  {
-    "Dataset": "9. MAGIC Gamma Telescope",
-    "Generator": "ForestDiffusion",
-    "Metric": "Gower_Distance",
-    "Mean": 0.842496,
-    "Std": null
-  },
-  {
-    "Dataset": "10. Metro interstate",
-    "Generator": "CTGAN",
-    "Metric": "Gower_Distance",
-    "Mean": 0.665849,
-    "Std": null
-  },
-  {
-    "Dataset": "10. Metro interstate",
-    "Generator": "CopulaGAN",
-    "Metric": "Gower_Distance",
-    "Mean": 0.665781,
-    "Std": null
-  },
-  {
-    "Dataset": "10. Metro interstate",
-    "Generator": "TVAE",
-    "Metric": "Gower_Distance",
-    "Mean": 0.689928,
-    "Std": null
-  },
-  {
-    "Dataset": "10. Metro interstate",
-    "Generator": "GaussianCopula",
-    "Metric": "Gower_Distance",
-    "Mean": 0.570833,
-    "Std": null
-  },
-  {
-    "Dataset": "10. Metro interstate",
-    "Generator": "CTABGAN",
-    "Metric": "Gower_Distance",
-    "Mean": 0.575214,
-    "Std": null
-  },
-  {
-    "Dataset": "10. Metro interstate",
-    "Generator": "WGAN_GP",
-    "Metric": "Gower_Distance",
-    "Mean": 0.657231,
-    "Std": null
-  },
-  {
-    "Dataset": "10. Metro interstate",
-    "Generator": "TabDDPM",
-    "Metric": "Gower_Distance",
-    "Mean": 0.4366,
-    "Std": null
-  },
-  {
-    "Dataset": "10. Metro interstate",
-    "Generator": "ForestDiffusion",
-    "Metric": "Gower_Distance",
-    "Mean": 0.669023,
-    "Std": null
-  },
-  {
-    "Dataset": "11. online shopping",
-    "Generator": "CTGAN",
-    "Metric": "Gower_Distance",
-    "Mean": 0.651777,
-    "Std": null
-  },
-  {
-    "Dataset": "11. online shopping",
-    "Generator": "CopulaGAN",
-    "Metric": "Gower_Distance",
-    "Mean": 0.653286,
-    "Std": null
-  },
-  {
-    "Dataset": "11. online shopping",
-    "Generator": "TVAE",
-    "Metric": "Gower_Distance",
-    "Mean": 0.666402,
-    "Std": null
-  },
-  {
-    "Dataset": "11. online shopping",
-    "Generator": "GaussianCopula",
-    "Metric": "Gower_Distance",
-    "Mean": 0.648611,
-    "Std": null
-  },
-  {
-    "Dataset": "11. online shopping",
-    "Generator": "CTABGAN",
-    "Metric": "Gower_Distance",
-    "Mean": 0.670995,
-    "Std": null
-  },
-  {
-    "Dataset": "11. online shopping",
-    "Generator": "WGAN_GP",
-    "Metric": "Gower_Distance",
-    "Mean": 0.652946,
-    "Std": null
-  },
-  {
-    "Dataset": "11. online shopping",
-    "Generator": "TabDDPM",
-    "Metric": "Gower_Distance",
-    "Mean": 0.576314,
-    "Std": null
-  },
-  {
-    "Dataset": "11. online shopping",
-    "Generator": "ForestDiffusion",
-    "Metric": "Gower_Distance",
-    "Mean": 0.710192,
-    "Std": null
-  },
-  {
-    "Dataset": "12. Air Quality",
-    "Generator": "CTGAN",
-    "Metric": "Gower_Distance",
-    "Mean": 0.804398,
-    "Std": null
-  },
-  {
-    "Dataset": "12. Air Quality",
-    "Generator": "CopulaGAN",
-    "Metric": "Gower_Distance",
-    "Mean": 0.784604,
-    "Std": null
-  },
-  {
-    "Dataset": "12. Air Quality",
-    "Generator": "TVAE",
-    "Metric": "Gower_Distance",
-    "Mean": 0.816653,
-    "Std": null
-  },
-  {
-    "Dataset": "12. Air Quality",
-    "Generator": "GaussianCopula",
-    "Metric": "Gower_Distance",
-    "Mean": 0.82247,
-    "Std": null
-  },
-  {
-    "Dataset": "12. Air Quality",
-    "Generator": "CTABGAN",
-    "Metric": "Gower_Distance",
-    "Mean": 0.823107,
-    "Std": null
-  },
-  {
-    "Dataset": "12. Air Quality",
-    "Generator": "WGAN_GP",
-    "Metric": "Gower_Distance",
-    "Mean": 0.852592,
-    "Std": null
-  },
-  {
-    "Dataset": "12. Air Quality",
-    "Generator": "TabDDPM",
-    "Metric": "Gower_Distance",
-    "Mean": 0.70232,
-    "Std": null
-  },
-  {
-    "Dataset": "12. Air Quality",
-    "Generator": "ForestDiffusion",
-    "Metric": "Gower_Distance",
-    "Mean": 0.824465,
-    "Std": null
-  },
-  {
-    "Dataset": "13. Concrete Compressive Strength",
-    "Generator": "CTGAN",
-    "Metric": "Gower_Distance",
-    "Mean": 0.730471,
-    "Std": null
-  },
-  {
-    "Dataset": "13. Concrete Compressive Strength",
-    "Generator": "CopulaGAN",
-    "Metric": "Gower_Distance",
-    "Mean": 0.729719,
-    "Std": null
-  },
-  {
-    "Dataset": "13. Concrete Compressive Strength",
-    "Generator": "TVAE",
-    "Metric": "Gower_Distance",
-    "Mean": 0.778318,
-    "Std": null
-  },
-  {
-    "Dataset": "13. Concrete Compressive Strength",
-    "Generator": "GaussianCopula",
-    "Metric": "Gower_Distance",
-    "Mean": 0.739443,
-    "Std": null
-  },
-  {
-    "Dataset": "13. Concrete Compressive Strength",
-    "Generator": "CTABGAN",
-    "Metric": "Gower_Distance",
-    "Mean": 0.767293,
-    "Std": null
-  },
-  {
-    "Dataset": "13. Concrete Compressive Strength",
-    "Generator": "WGAN_GP",
-    "Metric": "Gower_Distance",
-    "Mean": 0.830615,
-    "Std": null
-  },
-  {
-    "Dataset": "13. Concrete Compressive Strength",
-    "Generator": "TabDDPM",
-    "Metric": "Gower_Distance",
-    "Mean": 0.759916,
-    "Std": null
-  },
-  {
-    "Dataset": "13. Concrete Compressive Strength",
-    "Generator": "ForestDiffusion",
-    "Metric": "Gower_Distance",
-    "Mean": 0.762258,
-    "Std": null
-  },
-  {
-    "Dataset": "14. Energy Efficiency",
-    "Generator": "CTGAN",
-    "Metric": "Gower_Distance",
-    "Mean": 0.61768,
-    "Std": null
-  },
-  {
-    "Dataset": "14. Energy Efficiency",
-    "Generator": "CopulaGAN",
-    "Metric": "Gower_Distance",
-    "Mean": 0.595962,
-    "Std": null
-  },
-  {
-    "Dataset": "14. Energy Efficiency",
-    "Generator": "TVAE",
-    "Metric": "Gower_Distance",
-    "Mean": 0.628166,
-    "Std": null
-  },
-  {
-    "Dataset": "14. Energy Efficiency",
-    "Generator": "GaussianCopula",
-    "Metric": "Gower_Distance",
-    "Mean": 0.611222,
-    "Std": null
-  },
-  {
-    "Dataset": "14. Energy Efficiency",
-    "Generator": "CTABGAN",
-    "Metric": "Gower_Distance",
-    "Mean": 0.632868,
-    "Std": null
-  },
-  {
-    "Dataset": "14. Energy Efficiency",
-    "Generator": "WGAN_GP",
-    "Metric": "Gower_Distance",
-    "Mean": 0.837679,
-    "Std": null
-  },
-  {
-    "Dataset": "14. Energy Efficiency",
-    "Generator": "TabDDPM",
-    "Metric": "Gower_Distance",
-    "Mean": 0.551458,
-    "Std": null
-  },
-  {
-    "Dataset": "14. Energy Efficiency",
-    "Generator": "ForestDiffusion",
-    "Metric": "Gower_Distance",
-    "Mean": 0.623942,
-    "Std": null
-  },
-  {
-    "Dataset": "15. Real Estate Valuation",
-    "Generator": "CTGAN",
-    "Metric": "Gower_Distance",
-    "Mean": 0.708963,
-    "Std": null
-  },
-  {
-    "Dataset": "15. Real Estate Valuation",
-    "Generator": "CopulaGAN",
-    "Metric": "Gower_Distance",
-    "Mean": 0.667636,
-    "Std": null
-  },
-  {
-    "Dataset": "15. Real Estate Valuation",
-    "Generator": "TVAE",
-    "Metric": "Gower_Distance",
-    "Mean": 0.721756,
-    "Std": null
-  },
-  {
-    "Dataset": "15. Real Estate Valuation",
-    "Generator": "GaussianCopula",
-    "Metric": "Gower_Distance",
-    "Mean": 0.700365,
-    "Std": null
-  },
-  {
-    "Dataset": "15. Real Estate Valuation",
-    "Generator": "CTABGAN",
-    "Metric": "Gower_Distance",
-    "Mean": 0.776166,
-    "Std": null
-  },
-  {
-    "Dataset": "15. Real Estate Valuation",
-    "Generator": "WGAN_GP",
-    "Metric": "Gower_Distance",
-    "Mean": 0.843701,
-    "Std": null
-  },
-  {
-    "Dataset": "15. Real Estate Valuation",
-    "Generator": "TabDDPM",
-    "Metric": "Gower_Distance",
-    "Mean": 0.599162,
-    "Std": null
-  },
-  {
-    "Dataset": "15. Real Estate Valuation",
-    "Generator": "ForestDiffusion",
-    "Metric": "Gower_Distance",
-    "Mean": 0.76937,
     "Std": null
   }
 ]

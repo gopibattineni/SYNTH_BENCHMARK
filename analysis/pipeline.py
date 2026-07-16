@@ -66,9 +66,18 @@ class AnalysisPipeline:
                     [master.fidelity_long, frame], ignore_index=True
                 ).drop_duplicates(subset=["Dataset", "Generator", "Metric"], keep="last")
             else:
-                master.privacy_long = pd.concat(
+                combined = pd.concat(
                     [master.privacy_long, frame], ignore_index=True
-                ).drop_duplicates(subset=["Dataset", "Generator", "Metric"], keep="last")
+                )
+                # Excel Hungarian summaries are authoritative for Mean_Distance;
+                # notebooks fill gaps and still override other privacy metrics.
+                mean_d = combined[combined["Metric"] == "Mean_Distance"].drop_duplicates(
+                    subset=["Dataset", "Generator", "Metric"], keep="first"
+                )
+                other = combined[combined["Metric"] != "Mean_Distance"].drop_duplicates(
+                    subset=["Dataset", "Generator", "Metric"], keep="last"
+                )
+                master.privacy_long = pd.concat([mean_d, other], ignore_index=True)
 
         save_master_data(master, dirs["master"])
         unified = build_unified_master(master)

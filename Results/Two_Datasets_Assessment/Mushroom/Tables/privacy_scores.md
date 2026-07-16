@@ -1,10 +1,10 @@
 |    | Dataset             | Generator       |   LeakageLevel |   PrivacyScore |   PrivacyStd |   N_Privacy_Metrics |
 |---:|:--------------------|:----------------|---------------:|---------------:|-------------:|--------------------:|
-|  0 | 8. Mushroom dataset | CTABGAN         |              0 |       0.596518 |     0.242232 |                   4 |
-|  1 | 8. Mushroom dataset | CTGAN           |              0 |       0.589804 |     0.338244 |                   9 |
-|  2 | 8. Mushroom dataset | CopulaGAN       |              0 |       0.425875 |     0.44211  |                   9 |
-|  3 | 8. Mushroom dataset | ForestDiffusion |              0 |       0.874064 |     0.218127 |                   4 |
-|  4 | 8. Mushroom dataset | GaussianCopula  |              0 |       0.494953 |     0.414551 |                   9 |
-|  5 | 8. Mushroom dataset | TVAE            |              0 |       0.623839 |     0.378811 |                   9 |
-|  6 | 8. Mushroom dataset | TabDDPM         |              0 |       0.25     |     0.433013 |                   4 |
-|  7 | 8. Mushroom dataset | WGAN_GP         |              0 |       0.552066 |     0.251867 |                   4 |
+|  0 | 8. Mushroom dataset | CTABGAN         |              0 |       0.565147 |     0.305753 |                   6 |
+|  1 | 8. Mushroom dataset | CTGAN           |              0 |       0.679399 |     0.392027 |                  10 |
+|  2 | 8. Mushroom dataset | CopulaGAN       |              0 |       0.580711 |     0.474213 |                  10 |
+|  3 | 8. Mushroom dataset | ForestDiffusion |              0 |       0.650179 |     0.369777 |                   6 |
+|  4 | 8. Mushroom dataset | GaussianCopula  |              0 |       0.542977 |     0.454009 |                  10 |
+|  5 | 8. Mushroom dataset | TVAE            |              0 |       0.732529 |     0.384624 |                  10 |
+|  6 | 8. Mushroom dataset | TabDDPM         |              0 |       0.229457 |     0.371042 |                   6 |
+|  7 | 8. Mushroom dataset | WGAN_GP         |              0 |       0.518748 |     0.342482 |                   6 |

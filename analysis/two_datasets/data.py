@@ -45,9 +45,14 @@ def load_two_dataset_master(config: TwoDatasetConfig | None = None) -> dict[str,
                 subset=["Dataset", "Generator", "Metric"], keep="last"
             )
         else:
-            master.privacy_long = pd.concat([master.privacy_long, filtered], ignore_index=True).drop_duplicates(
+            combined = pd.concat([master.privacy_long, filtered], ignore_index=True)
+            mean_d = combined[combined["Metric"] == "Mean_Distance"].drop_duplicates(
+                subset=["Dataset", "Generator", "Metric"], keep="first"
+            )
+            other = combined[combined["Metric"] != "Mean_Distance"].drop_duplicates(
                 subset=["Dataset", "Generator", "Metric"], keep="last"
             )
+            master.privacy_long = pd.concat([mean_d, other], ignore_index=True)
 
     dataset_ids = set(DATASETS.values())
     return {

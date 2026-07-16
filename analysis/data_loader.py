@@ -27,7 +27,20 @@ UTILITY_SHEETS = {
 UTILITY_GENERATOR_SHEETS = set(GENERATORS)
 UTILITY_FILENAME_HINTS = ("TRTR_TSTR", "TRTR_TSTR_results")
 PRIVACY_FILENAME_HINTS = ("Mahalanobis", "Matching", "matching", "Hungarian")
+FIDELITY_PRIVACY_FILENAME_HINTS = ("fidelity_privacy_metrics", "fidelity_privacy")
 DATASET_DIR_PATTERN = re.compile(r"^(\d+)\.\s*(.+)$")
+
+# Columns in Fidelity_Summary sheets → canonical Metric names
+FIDELITY_SUMMARY_METRIC_MAP = {
+    "Quality_Score": "Quality_Score",
+    "Quality Score": "Quality_Score",
+    "Mean_Wasserstein": "Wasserstein_Distance",
+    "MMD_Score": "MMD",
+    "Avg_Cross_Real_vs_Synth": "Gower_Similarity",
+    "Average_Cosine_Similarity": "Cosine_Similarity",
+    "Mean_Error_pct": "PCA_Mean_Error_Pct",
+    "Avg_Abs_Diff_Outlier_Count": "Outlier_Count_Diff",
+}
 
 # Map privacy / Mahalanobis workbook labels to numbered dataset folders.
 DATASET_ALIASES: dict[str, str] = {
@@ -58,6 +71,14 @@ DATASET_ALIASES: dict[str, str] = {
     "alzheimer": "2. Alzhimers",
     "online_shopping": "11. online shopping",
     "shopping": "11. online shopping",
+    "eshop": "11. online shopping",
+}
+
+# Exact workbook stems that do not include a dataset token in the filename.
+PRIVACY_STEM_ALIASES: dict[str, str] = {
+    "hungarian_mahalanobis_four_models": "1. Cancer",
+    "hungarian_mahalanobis_four_models_ad": "2. Alzhimers",
+    "eshop_price_regression_hungarian_mahalanobis": "11. online shopping",
 }
 
 
@@ -69,6 +90,8 @@ def normalize_dataset_name(value: Any) -> str | None:
         return text
     key = re.sub(r"^\d+\.\s*", "", text).lower()
     key = re.sub(r"[_\s]+", "_", key).strip("_")
+    if key in PRIVACY_STEM_ALIASES:
+        return PRIVACY_STEM_ALIASES[key]
     for alias, canonical in DATASET_ALIASES.items():
         if alias in key.replace(" ", "_"):
             return canonical
@@ -162,7 +185,17 @@ def classify_excel_file(path: Path, config: PipelineConfig) -> ExcelFileRecord |
             priority = 1
         return ExcelFileRecord(path=path, file_type="utility", dataset=dataset, priority=priority)
 
+    if any(h in lower for h in FIDELITY_PRIVACY_FILENAME_HINTS):
+        return ExcelFileRecord(
+            path=path, file_type="fidelity_privacy", dataset=dataset, priority=2
+        )
+
     if any(h in name for h in PRIVACY_FILENAME_HINTS):
+        if dataset is None:
+            dataset = normalize_dataset_name(path.stem)
+            # Reject unresolved stems that are not numbered dataset folders.
+            if dataset and not DATASET_DIR_PATTERN.match(str(dataset)):
+                dataset = None
         return ExcelFileRecord(path=path, file_type="privacy", dataset=dataset, priority=1)
 
     return ExcelFileRecord(path=path, file_type="other", dataset=dataset, priority=0)
@@ -339,6 +372,9 @@ def _fidelity_from_quality(df: pd.DataFrame, dataset: str, source_file: str) -> 
             metric = str(col).replace(" ", "_")
             if metric.lower() == "quality_score" or col == "Quality Score":
                 metric = "Quality_Score"
+            # Skip non-quality diagnostic/score noise columns
+            if metric in {"Diagnostic_Score", "Unnamed:_0"} or metric.startswith("Unnamed"):
+                continue
             rows.append(
                 {
                     "Dataset": dataset,
@@ -362,6 +398,149 @@ def _fidelity_from_quality(df: pd.DataFrame, dataset: str, source_file: str) -> 
                 }
             )
     return pd.DataFrame(rows)
+
+
+def _fidelity_row(
+    dataset: str,
+    generator: str | None,
+    metric: str,
+    value: float,
+    source_file: str,
+) -> dict[str, Any]:
+    return {
+        "Dataset": dataset,
+        "Generator": generator,
+        "Seed": None,
+        "Experiment": "fidelity",
+        "Metric": metric,
+        "Value": float(value),
+        "Mean": float(value),
+        "Std": None,
+        "Classifier": None,
+        "RegressionModel": None,
+        "Regressor": None,
+        "Leakage": 0,
+        "LeakageLevel": 0,
+        "TrainingPercentage": 100,
+        "EvaluationType": "Score",
+        "Category": "Fidelity",
+        "MetricValue": float(value),
+        "SourceFile": source_file,
+    }
+
+
+def _fidelity_from_paper_workbook(path: Path, dataset: str | None) -> pd.DataFrame:
+    """Parse paper-results fidelity_privacy_metrics.xlsx into fidelity_long rows."""
+    rows: list[dict[str, Any]] = []
+    try:
+        sheets = _read_workbook(path)
+    except Exception:
+        return pd.DataFrame()
+
+    ds_name = normalize_dataset_name(dataset or path.parent.name) or (dataset or path.parent.name)
+    source = str(path)
+
+    # Prefer Fidelity_Summary (all generators) then Quality_Scores
+    for sheet in ("Fidelity_Summary", "Quality_Scores"):
+        df = sheets.get(sheet)
+        if df is None or df.empty:
+            continue
+        gen_col = next(
+            (c for c in ("Generator", "Model", "Synthetic_Model") if c in df.columns),
+            None,
+        )
+        if gen_col is None:
+            continue
+        for _, row in df.iterrows():
+            generator = normalize_generator(row.get(gen_col))
+            for col, metric in FIDELITY_SUMMARY_METRIC_MAP.items():
+                if col not in df.columns:
+                    continue
+                val = row.get(col)
+                if pd.isna(val):
+                    continue
+                try:
+                    rows.append(_fidelity_row(ds_name, generator, metric, float(val), source))
+                except (TypeError, ValueError):
+                    continue
+
+    # KS complement: mean per generator (KSComplement rows only)
+    ks = sheets.get("KS_ColumnShapes")
+    if ks is not None and not ks.empty and "Score" in ks.columns:
+        gen_col = next((c for c in ("Generator", "Model") if c in ks.columns), None)
+        metric_col = "Metric" if "Metric" in ks.columns else None
+        sub = ks
+        if metric_col is not None:
+            sub = ks[ks[metric_col].astype(str).str.contains("KS", case=False, na=False)]
+        if gen_col and not sub.empty:
+            for gen, grp in sub.groupby(gen_col):
+                vals = pd.to_numeric(grp["Score"], errors="coerce").dropna()
+                if vals.empty:
+                    continue
+                rows.append(
+                    _fidelity_row(
+                        ds_name,
+                        normalize_generator(gen),
+                        "KS_Complement",
+                        float(vals.mean()),
+                        source,
+                    )
+                )
+
+    # JS divergence: mean per generator
+    js = sheets.get("JS_Divergence")
+    if js is not None and not js.empty and "JS_Divergence" in js.columns:
+        gen_col = next((c for c in ("Generator", "Model") if c in js.columns), None)
+        if gen_col:
+            for gen, grp in js.groupby(gen_col):
+                vals = pd.to_numeric(grp["JS_Divergence"], errors="coerce").dropna()
+                if vals.empty:
+                    continue
+                rows.append(
+                    _fidelity_row(
+                        ds_name,
+                        normalize_generator(gen),
+                        "JS_Divergence",
+                        float(vals.mean()),
+                        source,
+                    )
+                )
+
+    # Wasserstein / MMD / Gower sheets if present as summaries
+    for sheet, col, metric in (
+        ("Wasserstein_Summary", "Mean_Wasserstein", "Wasserstein_Distance"),
+        ("MMD", "MMD_Score", "MMD"),
+        ("MMD_Multivariate", "Global_MMD_RBF", "MMD_Multivariate"),
+        ("Gower_Distance", "Avg_Cross_Real_vs_Synth", "Gower_Similarity"),
+    ):
+        df = sheets.get(sheet)
+        if df is None or df.empty or col not in df.columns:
+            continue
+        gen_col = next((c for c in ("Generator", "Model") if c in df.columns), None)
+        if not gen_col:
+            continue
+        for _, row in df.iterrows():
+            val = row.get(col)
+            if pd.isna(val):
+                continue
+            try:
+                rows.append(
+                    _fidelity_row(
+                        ds_name,
+                        normalize_generator(row.get(gen_col)),
+                        metric,
+                        float(val),
+                        source,
+                    )
+                )
+            except (TypeError, ValueError):
+                continue
+
+    if not rows:
+        return pd.DataFrame()
+    out = pd.DataFrame(rows)
+    # Prefer summary Quality_Score over duplicate sheet extractions
+    return out.drop_duplicates(subset=["Dataset", "Generator", "Metric"], keep="first")
 
 
 def _privacy_from_workbook(path: Path, dataset: str | None) -> tuple[pd.DataFrame, pd.DataFrame]:
@@ -479,6 +658,7 @@ def load_master_data(config: PipelineConfig) -> MasterData:
 
     utility_files = select_utility_files(records)
     privacy_files = [r for r in records if r.file_type == "privacy"]
+    fidelity_privacy_files = [r for r in records if r.file_type == "fidelity_privacy"]
 
     utility_frames: list[pd.DataFrame] = []
     summary_frames: list[pd.DataFrame] = []
@@ -514,6 +694,21 @@ def load_master_data(config: PipelineConfig) -> MasterData:
                     df_copy["Synthetic_Model"] = sheet_name
                 utility_frames.append(_utility_from_comparisons(df_copy, dataset, task_type, source))
 
+    # Paper-results fidelity_privacy_metrics.xlsx (classification + regression)
+    for record in fidelity_privacy_files:
+        # Prefer paper results over extracted copies under excel sheets/
+        if "excel sheets" in str(record.path):
+            continue
+        fid = _fidelity_from_paper_workbook(record.path, record.dataset)
+        if not fid.empty:
+            fidelity_frames.append(fid)
+        # Also pull Privacy_Summary / matching sheets from the same workbook
+        summary, detail = _privacy_from_workbook(record.path, record.dataset)
+        if not summary.empty:
+            privacy_frames.append(summary)
+        if not detail.empty:
+            privacy_detail_frames.append(detail)
+
     for record in privacy_files:
         dataset = record.dataset or record.path.stem
         summary, detail = _privacy_from_workbook(record.path, dataset)
@@ -522,10 +717,18 @@ def load_master_data(config: PipelineConfig) -> MasterData:
         if not detail.empty:
             privacy_detail_frames.append(detail)
 
+    fidelity_long = (
+        pd.concat(fidelity_frames, ignore_index=True) if fidelity_frames else pd.DataFrame()
+    )
+    if not fidelity_long.empty:
+        fidelity_long = fidelity_long.drop_duplicates(
+            subset=["Dataset", "Generator", "Metric"], keep="last"
+        )
+
     return MasterData(
         utility_long=pd.concat(utility_frames, ignore_index=True) if utility_frames else pd.DataFrame(),
         utility_summary=pd.concat(summary_frames, ignore_index=True) if summary_frames else pd.DataFrame(),
-        fidelity_long=pd.concat(fidelity_frames, ignore_index=True) if fidelity_frames else pd.DataFrame(),
+        fidelity_long=fidelity_long,
         privacy_long=pd.concat(privacy_frames, ignore_index=True) if privacy_frames else pd.DataFrame(),
         privacy_detail=pd.concat(privacy_detail_frames, ignore_index=True) if privacy_detail_frames else pd.DataFrame(),
         file_inventory=inventory,

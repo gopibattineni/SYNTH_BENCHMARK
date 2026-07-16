@@ -1,7 +1,21 @@
 [
   {
-    "id": "PCA_Mean_Error",
-    "label": "PCA Mean Error",
+    "id": "Gower_Distance",
+    "label": "Gower Distance",
+    "count": 120,
+    "higher_is_better": false,
+    "is_unit_interval": true
+  },
+  {
+    "id": "KS_Complement",
+    "label": "KS Complement",
+    "count": 120,
+    "higher_is_better": true,
+    "is_unit_interval": true
+  },
+  {
+    "id": "PCA_Mean_Error_Pct",
+    "label": "PCA Mean Error Pct",
     "count": 120,
     "higher_is_better": false,
     "is_unit_interval": false
@@ -21,11 +35,11 @@
     "is_unit_interval": false
   },
   {
-    "id": "Gower_Distance",
-    "label": "Gower Distance",
+    "id": "Gower_Similarity",
+    "label": "Gower Similarity",
     "count": 116,
-    "higher_is_better": false,
-    "is_unit_interval": true
+    "higher_is_better": true,
+    "is_unit_interval": false
   },
   {
     "id": "MMD_Multivariate",
@@ -35,8 +49,8 @@
     "is_unit_interval": false
   },
   {
-    "id": "Wasserstein_Distance",
-    "label": "Wasserstein Distance",
+    "id": "PCA_Mean_Error",
+    "label": "PCA Mean Error",
     "count": 116,
     "higher_is_better": false,
     "is_unit_interval": false
@@ -44,29 +58,36 @@
   {
     "id": "Quality_Score",
     "label": "Quality Score",
-    "count": 115,
+    "count": 116,
     "higher_is_better": true,
+    "is_unit_interval": true
+  },
+  {
+    "id": "Wasserstein_Distance",
+    "label": "Wasserstein Distance",
+    "count": 116,
+    "higher_is_better": false,
+    "is_unit_interval": false
+  },
+  {
+    "id": "JS_Divergence",
+    "label": "JS Divergence",
+    "count": 108,
+    "higher_is_better": false,
     "is_unit_interval": true
   },
   {
     "id": "PCA_Correlation_Diff",
     "label": "PCA Correlation Diff",
-    "count": 112,
+    "count": 108,
     "higher_is_better": false,
     "is_unit_interval": false
   },
   {
-    "id": "KS_Complement",
-    "label": "KS Complement",
-    "count": 79,
-    "higher_is_better": true,
-    "is_unit_interval": true
-  },
-  {
-    "id": "JS_Divergence",
-    "label": "JS Divergence",
-    "count": 78,
+    "id": "Outlier_Count_Diff",
+    "label": "Outlier Count Diff",
+    "count": 104,
     "higher_is_better": false,
-    "is_unit_interval": true
+    "is_unit_interval": false
   }
 ]

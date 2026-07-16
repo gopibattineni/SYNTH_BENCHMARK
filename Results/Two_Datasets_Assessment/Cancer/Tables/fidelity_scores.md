@@ -1,10 +1,10 @@
 |    | Dataset   | Generator       |   LeakageLevel |   FidelityScore |   FidelityStd |   N_Fidelity_Metrics |
 |---:|:----------|:----------------|---------------:|----------------:|--------------:|---------------------:|
-|  0 | 1. Cancer | CTABGAN         |              0 |        0.513386 |      0.419037 |                    9 |
-|  1 | 1. Cancer | CTGAN           |              0 |        0.475036 |      0.331326 |                    9 |
-|  2 | 1. Cancer | CopulaGAN       |              0 |        0.368288 |      0.247272 |                    7 |
-|  3 | 1. Cancer | ForestDiffusion |              0 |        0.264818 |      0.39732  |                    7 |
-|  4 | 1. Cancer | GaussianCopula  |              0 |        0.392824 |      0.446012 |                    7 |
-|  5 | 1. Cancer | TVAE            |              0 |        0.413774 |      0.436211 |                    7 |
-|  6 | 1. Cancer | TabDDPM         |              0 |        0.514394 |      0.473159 |                    9 |
-|  7 | 1. Cancer | WGAN_GP         |              0 |        0.255725 |      0.407272 |                    7 |
+|  0 | 1. Cancer | CTABGAN         |              0 |        0.527567 |      0.392535 |                   10 |
+|  1 | 1. Cancer | CTGAN           |              0 |        0.487279 |      0.279898 |                    9 |
+|  2 | 1. Cancer | CopulaGAN       |              0 |        0.493021 |      0.211307 |                    9 |
+|  3 | 1. Cancer | ForestDiffusion |              0 |        0.484966 |      0.472853 |                   10 |
+|  4 | 1. Cancer | GaussianCopula  |              0 |        0.519908 |      0.459556 |                    9 |
+|  5 | 1. Cancer | TVAE            |              0 |        0.537208 |      0.446541 |                    9 |
+|  6 | 1. Cancer | TabDDPM         |              0 |        0.462955 |      0.474664 |                   10 |
+|  7 | 1. Cancer | WGAN_GP         |              0 |        0.478516 |      0.481589 |                   10 |

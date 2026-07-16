@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 
 import pandas as pd
@@ -19,6 +20,140 @@ def _read_csv(name: str) -> pd.DataFrame:
     return pd.read_csv(path)
 
 
+def _is_benchmark_dataset(name: object) -> bool:
+    """Keep only numbered benchmark datasets (1–15), drop workbook sheet aliases."""
+    if name is None or (isinstance(name, float) and pd.isna(name)):
+        return False
+    text = str(name).strip()
+    return bool(re.match(r"^(?:[1-9]|1[0-5])\.", text))
+
+
+def _harmonize_num_matches(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Num_Matches in Hungarian summaries is len(matched pairs) = matching
+    subsample size, not a privacy-risk count.
+
+    Older SDV Excel runs often matched 5000 / 10000 / full-N rows, while Other
+    GAN and Diffusion notebooks used the 1000-sample protocol. When a dataset
+    mixes those sizes, snap inflated values down to the protocol size (1000
+    when present).
+    """
+    if df.empty or "Metric" not in df.columns or "Mean" not in df.columns:
+        return df
+    out = df.copy()
+    mask = out["Metric"] == "Num_Matches"
+    if not mask.any():
+        return out
+
+    for _, idx in out.loc[mask].groupby("Dataset").groups.items():
+        vals = pd.to_numeric(out.loc[idx, "Mean"], errors="coerce")
+        if (vals == 1000).any():
+            protocol = 1000.0
+        else:
+            small = vals[vals <= 1000]
+            if small.empty or not (vals > small.min()).any():
+                continue
+            protocol = float(small.min())
+        inflated = vals > protocol
+        if not inflated.any():
+            continue
+        targets = idx[inflated.to_numpy()]
+        out.loc[targets, "Mean"] = protocol
+        for col in ("MetricValue", "Value"):
+            if col in out.columns:
+                out.loc[targets, col] = protocol
+    return out
+
+
+def _extract_pca_error_stats() -> pd.DataFrame:
+    """
+    Average error by model (Mean / Median / Std Error %) for all 8 generators
+    × 15 datasets, from paper-results fidelity_privacy workbooks (notebook PCA tables).
+    """
+    try:
+        from analysis.data_loader import normalize_generator
+    except ImportError:
+        def normalize_generator(value):  # type: ignore[misc]
+            return None if value is None else str(value).strip()
+
+    paper = REPO_ROOT / "paper results"
+    if not paper.exists():
+        return pd.DataFrame()
+
+    rows: list[dict] = []
+    for ds_dir in sorted(p for p in paper.iterdir() if p.is_dir()):
+        fp = ds_dir / "fidelity_privacy_metrics.xlsx"
+        if not fp.exists():
+            continue
+        try:
+            df = pd.read_excel(fp, sheet_name="PCA_Mean_Errors")
+        except Exception:
+            continue
+        if df.empty:
+            continue
+
+        model_col = "Generator" if "Generator" in df.columns else ("Model" if "Model" in df.columns else None)
+        if model_col is None or "Mean Error %" not in df.columns:
+            continue
+
+        chunk = df.copy()
+        chunk["Generator"] = chunk[model_col].map(normalize_generator)
+        chunk = chunk.dropna(subset=["Generator"])
+        for gen, g in chunk.groupby("Generator", dropna=False):
+            # Prefer percentage-scale rows over rank-normalized 0–1 duplicates.
+            mean_abs = pd.to_numeric(g["Mean Error %"], errors="coerce").abs()
+            idx = mean_abs.idxmax()
+            r = g.loc[idx]
+            rows.append(
+                {
+                    "Dataset": ds_dir.name,
+                    "Generator": gen,
+                    "Mean_Error_Pct": float(pd.to_numeric(r["Mean Error %"], errors="coerce")),
+                    "Median_Error_Pct": float(pd.to_numeric(r.get("Median Error %"), errors="coerce")),
+                    "Std_Error_Pct": float(pd.to_numeric(r.get("Std Error %"), errors="coerce")),
+                    "Source_Group": None if pd.isna(r.get("Source_Group")) else str(r.get("Source_Group")),
+                }
+            )
+
+    return pd.DataFrame(rows)
+
+
+def _fill_mahalanobis_from_mean_distance(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Adult SDV (and similar) notebooks omit Synth_Mean_MD_2D tables, but Excel
+    Hungarian-Mahalanobis summaries store Mean_Distance for the same models.
+    Use Mean_Distance only to fill missing Mahalanobis_Distance cells.
+    """
+    if df.empty or "Metric" not in df.columns:
+        return df
+    out = df.copy()
+    mean_d = out[out["Metric"] == "Mean_Distance"][["Dataset", "Generator", "Mean"]].dropna()
+    if mean_d.empty:
+        return out
+    existing = {
+        (r.Dataset, r.Generator)
+        for r in out[out["Metric"] == "Mahalanobis_Distance"][["Dataset", "Generator"]].itertuples(index=False)
+    }
+    extras = []
+    for row in mean_d.itertuples(index=False):
+        key = (row.Dataset, row.Generator)
+        if key in existing:
+            continue
+        extras.append(
+            {
+                "Dataset": row.Dataset,
+                "Generator": row.Generator,
+                "Metric": "Mahalanobis_Distance",
+                "Mean": row.Mean,
+                "Std": None,
+            }
+        )
+        existing.add(key)
+    if extras:
+        out = pd.concat([out, pd.DataFrame(extras)], ignore_index=True)
+    return out
+
+
 def _load_privacy_long() -> pd.DataFrame:
     """Prefer unified Master_Data privacy rows (includes NNDR, Mahalanobis, cosine)."""
     for rel in ("Master_Data/privacy_long.csv", "MasterData/privacy_long.csv"):
@@ -31,8 +166,12 @@ def _load_privacy_long() -> pd.DataFrame:
         if "Mean" not in out.columns and "Value" in out.columns:
             out["Mean"] = out["Value"]
         out["Mean"] = pd.to_numeric(out["Mean"], errors="coerce")
+        if "Dataset" in out.columns:
+            out = out[out["Dataset"].map(_is_benchmark_dataset)]
         keep = [c for c in ["Dataset", "Generator", "Metric", "Mean", "Std"] if c in out.columns]
-        return out[keep].dropna(subset=["Mean"])
+        out = out[keep].dropna(subset=["Mean"])
+        out = _harmonize_num_matches(out)
+        return _fill_mahalanobis_from_mean_distance(out)
     return pd.DataFrame()
 
 
@@ -48,6 +187,10 @@ def _load_fidelity_long() -> pd.DataFrame:
         if "Mean" not in out.columns and "Value" in out.columns:
             out["Mean"] = out["Value"]
         out["Mean"] = pd.to_numeric(out["Mean"], errors="coerce")
+        if "Dataset" in out.columns:
+            out = out[out["Dataset"].map(_is_benchmark_dataset)]
+        if "Generator" in out.columns:
+            out = out[out["Generator"].notna() & (out["Generator"].astype(str).str.strip() != "")]
         keep = [c for c in ["Dataset", "Generator", "Metric", "Mean", "Std", "NormalizedScore"] if c in out.columns]
         return out[keep].dropna(subset=["Mean"])
     return pd.DataFrame()
@@ -61,6 +204,7 @@ def _fidelity_metric_catalog(df: pd.DataFrame) -> list[dict]:
         "Quality",
         "KS_Complement",
         "Cosine_Similarity",
+        "Gower_Similarity",
     }
     unit_interval = {
         "Quality_Score",
@@ -94,8 +238,10 @@ def _privacy_metric_catalog(df: pd.DataFrame) -> list[dict]:
             "lower_is_better": metric not in {
                 "Hungarian_Cosine_Similarity",
                 "Cosine_Similarity",
+                "Num_Matches",  # subsample size used for matching, not a risk score
             },
             "is_similarity": "Cosine" in str(metric) or metric == "MIA_AUC",
+            "is_sample_size": metric == "Num_Matches",
         })
     catalog.sort(key=lambda x: x["count"], reverse=True)
     return catalog
@@ -168,6 +314,24 @@ def export_dashboard_data(output_dir: Path | None = None) -> Path:
             json.dumps(_records(clf_detail), indent=2), encoding="utf-8"
         )
 
+        # Per regressor TRTR/TSTR for regression
+        reg_model_col = next(
+            (c for c in ("RegressionModel", "Regressor") if c in utility_long.columns),
+            None,
+        )
+        if reg_model_col:
+            reg_detail = utility_long[
+                (utility_long["TaskType"] == "regression")
+                & (utility_long["EvaluationType"].isin(["TRTR", "TSTR"]))
+                & (utility_long["Metric"].isin(["R2", "RMSE", "MAE", "MSE"]))
+                & (utility_long[reg_model_col].notna())
+            ][
+                ["Dataset", "Generator", reg_model_col, "Metric", "EvaluationType", "Mean", "Std"]
+            ].rename(columns={reg_model_col: "Regressor"})
+            (out / "utility_regressor.json").write_text(
+                json.dumps(_records(reg_detail), indent=2), encoding="utf-8"
+            )
+
         # Summary gaps per generator per dataset
         gaps = utility_long[
             utility_long["Metric"].str.contains("Drop|Increase|Gap", na=False, regex=True)
@@ -210,13 +374,19 @@ def export_dashboard_data(output_dir: Path | None = None) -> Path:
         )
 
     # --- Statistics ---
+    pca_errors = _extract_pca_error_stats()
     stats_payload = {
+        "pca_errors": _records(pca_errors),
         "wilcoxon": _records(wilcoxon),
         "effect_sizes": _records(effects),
         "classification_stats": _records(clf_stats, limit=2000),
         "regression_stats": _records(reg_stats, limit=2000),
     }
     (out / "statistics.json").write_text(json.dumps(stats_payload, indent=2), encoding="utf-8")
+    if not pca_errors.empty:
+        (out / "notebook_error_stats.json").write_text(
+            json.dumps(_records(pca_errors), indent=2), encoding="utf-8"
+        )
 
     # --- Coverage matrix ---
     if not utility_long.empty:

@@ -64,14 +64,16 @@ class TwoDatasetConfig:
         return mapping
 
     def comparison_dirs(self) -> dict[str, Path]:
-        base = self.output_root / "Comparison"
+        """Comparative Cancer-vs-Mushroom outputs (primary publication figures)."""
+        base = self.output_root
         mapping = {
             "root": base,
             "figures": base / "Figures",
             "tables": base / "Tables",
-            "tradeoff": base / "Tradeoff",
-            "correlations": base / "Correlations",
-            "rankings": base / "Rankings",
+            "statistics": base / "Statistics",
+            "tradeoff": base / "Figures",
+            "correlations": base / "Statistics",
+            "rankings": base / "Tables",
         }
         for p in mapping.values():
             p.mkdir(parents=True, exist_ok=True)

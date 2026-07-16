@@ -1,19 +1,30 @@
 {
-  "runtime_seconds": 168.01,
+  "runtime_seconds": 120.96,
   "datasets": {
     "Cancer": "Wisconsin Breast Cancer",
     "Mushroom": "Secondary Mushroom"
   },
-  "figures": {
-    "Cancer": 17,
-    "Mushroom": 17,
-    "Comparison": 5
-  },
+  "figures": [
+    "Figure01_utility_privacy_scatter",
+    "Figure02_bubble_tradeoff",
+    "Figure03_radar_comparison",
+    "Figure04_overall_ranking",
+    "Figure05_heatmap",
+    "Figure06_parallel_coordinates",
+    "Figure07_stability_errorbars",
+    "Figure08_critical_difference"
+  ],
+  "n_figures": 8,
   "weights": {
     "utility": 0.4,
     "fidelity": 0.3,
     "privacy": 0.3
   },
   "cancer_top_generator": "ForestDiffusion",
-  "mushroom_top_generator": "ForestDiffusion"
+  "mushroom_top_generator": "ForestDiffusion",
+  "output": {
+    "figures": "/home/gopi.battineni/SYNTH_BENCHMARK/Results/Two_Datasets_Assessment/Figures",
+    "tables": "/home/gopi.battineni/SYNTH_BENCHMARK/Results/Two_Datasets_Assessment/Tables",
+    "statistics": "/home/gopi.battineni/SYNTH_BENCHMARK/Results/Two_Datasets_Assessment/Statistics"
+  }
 }

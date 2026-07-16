@@ -617,6 +617,62 @@
   },
   {
     "Dataset": "10. Metro interstate",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "MAE_Gap",
+    "Mean": 15.6449179367
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "MAE_Increase",
+    "Mean": 15.6449179367
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "MSE_Gap",
+    "Mean": -179571.8982935201
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "MSE_Increase",
+    "Mean": -179571.89829352
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "R2_Drop",
+    "Mean": -0.0631925116
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "R2_Gap",
+    "Mean": -0.0631925116
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "RMSE_Gap",
+    "Mean": -34.597499167
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "RMSE_Increase",
+    "Mean": -34.597499167
+  },
+  {
+    "Dataset": "10. Metro interstate",
     "Generator": "GaussianCopula",
     "TaskType": "regression",
     "Metric": "MAE_Gap",
@@ -729,6 +785,62 @@
   },
   {
     "Dataset": "10. Metro interstate",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "MAE_Gap",
+    "Mean": 292.0914715509
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "MAE_Increase",
+    "Mean": 292.0914715509
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "MSE_Gap",
+    "Mean": 2034483.5623852666
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "MSE_Increase",
+    "Mean": 2034483.562385267
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "R2_Drop",
+    "Mean": 0.4712938992
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "R2_Gap",
+    "Mean": 0.4712938992
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "RMSE_Gap",
+    "Mean": 413.3563253454
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "RMSE_Increase",
+    "Mean": 413.3563253454
+  },
+  {
+    "Dataset": "10. Metro interstate",
     "Generator": "WGAN_GP",
     "TaskType": "regression",
     "Metric": "MAE_Gap",
@@ -953,6 +1065,62 @@
   },
   {
     "Dataset": "11. online shopping",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "MAE_Gap",
+    "Mean": 3.0135721102
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "MAE_Increase",
+    "Mean": 3.0135721102
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "MSE_Gap",
+    "Mean": 31.7909015339
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "MSE_Increase",
+    "Mean": 31.7909015339
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "R2_Drop",
+    "Mean": 0.1746422738
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "R2_Gap",
+    "Mean": 0.1746422738
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "RMSE_Gap",
+    "Mean": 3.2573346988
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "RMSE_Increase",
+    "Mean": 3.2573346988
+  },
+  {
+    "Dataset": "11. online shopping",
     "Generator": "GaussianCopula",
     "TaskType": "regression",
     "Metric": "MAE_Gap",
@@ -1062,6 +1230,62 @@
     "TaskType": "regression",
     "Metric": "RMSE_Increase",
     "Mean": 11.506649748
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "MAE_Gap",
+    "Mean": 15.7752399069
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "MAE_Increase",
+    "Mean": 15.7752399069
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "MSE_Gap",
+    "Mean": 514.6530422248
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "MSE_Increase",
+    "Mean": 514.6530422248
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "R2_Drop",
+    "Mean": 2.8272295908
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "R2_Gap",
+    "Mean": 2.8272295908
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "RMSE_Gap",
+    "Mean": 18.0520985064
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "RMSE_Increase",
+    "Mean": 18.0520985064
   },
   {
     "Dataset": "11. online shopping",
@@ -1289,6 +1513,62 @@
   },
   {
     "Dataset": "12. Air Quality",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "MAE_Gap",
+    "Mean": 0.09693747
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "MAE_Increase",
+    "Mean": 0.09693747
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "MSE_Gap",
+    "Mean": -289.4324928208
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "MSE_Increase",
+    "Mean": -289.4324928208
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "R2_Drop",
+    "Mean": -0.0055967668
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "R2_Gap",
+    "Mean": -0.0055967668
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "RMSE_Gap",
+    "Mean": 0.2013223915
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "RMSE_Increase",
+    "Mean": 0.2013223915
+  },
+  {
+    "Dataset": "12. Air Quality",
     "Generator": "GaussianCopula",
     "TaskType": "regression",
     "Metric": "MAE_Gap",
@@ -1398,6 +1678,62 @@
     "TaskType": "regression",
     "Metric": "RMSE_Increase",
     "Mean": 0.2765206735
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "MAE_Gap",
+    "Mean": 200.4986096405
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "MAE_Increase",
+    "Mean": 200.4986096405
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "MSE_Gap",
+    "Mean": 109160.3492350546
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "MSE_Increase",
+    "Mean": 109160.3492350546
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "R2_Drop",
+    "Mean": 2.1108377117
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "R2_Gap",
+    "Mean": 2.1108377117
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "RMSE_Gap",
+    "Mean": 233.4489778684
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "RMSE_Increase",
+    "Mean": 233.4489778684
   },
   {
     "Dataset": "12. Air Quality",
@@ -3865,6 +4201,62 @@
   },
   {
     "Dataset": "4. Forest cover dataset",
+    "Generator": "ForestDiffusion",
+    "TaskType": "classification",
+    "Metric": "Accuracy_Drop",
+    "Mean": -0.05545
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "ForestDiffusion",
+    "TaskType": "classification",
+    "Metric": "Accuracy_Gap",
+    "Mean": -0.05545
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "ForestDiffusion",
+    "TaskType": "classification",
+    "Metric": "F1_Drop",
+    "Mean": -0.0616913272
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "ForestDiffusion",
+    "TaskType": "classification",
+    "Metric": "F1_Gap",
+    "Mean": -0.0616913272
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "ForestDiffusion",
+    "TaskType": "classification",
+    "Metric": "Precision_Drop",
+    "Mean": -0.065031499
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "ForestDiffusion",
+    "TaskType": "classification",
+    "Metric": "Precision_Gap",
+    "Mean": -0.065031499
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "ForestDiffusion",
+    "TaskType": "classification",
+    "Metric": "Recall_Drop",
+    "Mean": -0.05545
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "ForestDiffusion",
+    "TaskType": "classification",
+    "Metric": "Recall_Gap",
+    "Mean": -0.05545
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
     "Generator": "GaussianCopula",
     "TaskType": "classification",
     "Metric": "Accuracy_Drop",
@@ -3974,6 +4366,62 @@
     "TaskType": "classification",
     "Metric": "Recall_Gap",
     "Mean": 0.2464
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "TabDDPM",
+    "TaskType": "classification",
+    "Metric": "Accuracy_Drop",
+    "Mean": 0.218
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "TabDDPM",
+    "TaskType": "classification",
+    "Metric": "Accuracy_Gap",
+    "Mean": 0.218
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "TabDDPM",
+    "TaskType": "classification",
+    "Metric": "F1_Drop",
+    "Mean": 0.2487419442
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "TabDDPM",
+    "TaskType": "classification",
+    "Metric": "F1_Gap",
+    "Mean": 0.2487419442
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "TabDDPM",
+    "TaskType": "classification",
+    "Metric": "Precision_Drop",
+    "Mean": 0.2662261341
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "TabDDPM",
+    "TaskType": "classification",
+    "Metric": "Precision_Gap",
+    "Mean": 0.2662261341
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "TabDDPM",
+    "TaskType": "classification",
+    "Metric": "Recall_Drop",
+    "Mean": 0.218
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "TabDDPM",
+    "TaskType": "classification",
+    "Metric": "Recall_Gap",
+    "Mean": 0.218
   },
   {
     "Dataset": "4. Forest cover dataset",
@@ -5100,56 +5548,56 @@
     "Generator": "ForestDiffusion",
     "TaskType": "classification",
     "Metric": "Accuracy_Drop",
-    "Mean": 0.0595713946
+    "Mean": 0.0254
   },
   {
     "Dataset": "7. CDC diabetes dataset",
     "Generator": "ForestDiffusion",
     "TaskType": "classification",
     "Metric": "Accuracy_Gap",
-    "Mean": 0.0595713946
+    "Mean": 0.0254
   },
   {
     "Dataset": "7. CDC diabetes dataset",
     "Generator": "ForestDiffusion",
     "TaskType": "classification",
     "Metric": "F1_Drop",
-    "Mean": 0.0012174638
+    "Mean": 0.0171589094
   },
   {
     "Dataset": "7. CDC diabetes dataset",
     "Generator": "ForestDiffusion",
     "TaskType": "classification",
     "Metric": "F1_Gap",
-    "Mean": 0.0012174638
+    "Mean": 0.0171589094
   },
   {
     "Dataset": "7. CDC diabetes dataset",
     "Generator": "ForestDiffusion",
     "TaskType": "classification",
     "Metric": "Precision_Drop",
-    "Mean": 0.0887972232
+    "Mean": 0.0039230327
   },
   {
     "Dataset": "7. CDC diabetes dataset",
     "Generator": "ForestDiffusion",
     "TaskType": "classification",
     "Metric": "Precision_Gap",
-    "Mean": 0.0887972232
+    "Mean": 0.0039230327
   },
   {
     "Dataset": "7. CDC diabetes dataset",
     "Generator": "ForestDiffusion",
     "TaskType": "classification",
     "Metric": "Recall_Drop",
-    "Mean": -0.0654154239
+    "Mean": 0.0254
   },
   {
     "Dataset": "7. CDC diabetes dataset",
     "Generator": "ForestDiffusion",
     "TaskType": "classification",
     "Metric": "Recall_Gap",
-    "Mean": -0.0654154239
+    "Mean": 0.0254
   },
   {
     "Dataset": "7. CDC diabetes dataset",
@@ -5268,56 +5716,56 @@
     "Generator": "TabDDPM",
     "TaskType": "classification",
     "Metric": "Accuracy_Drop",
-    "Mean": 0.0091821672
+    "Mean": 0.02165
   },
   {
     "Dataset": "7. CDC diabetes dataset",
     "Generator": "TabDDPM",
     "TaskType": "classification",
     "Metric": "Accuracy_Gap",
-    "Mean": 0.0091821672
+    "Mean": 0.02165
   },
   {
     "Dataset": "7. CDC diabetes dataset",
     "Generator": "TabDDPM",
     "TaskType": "classification",
     "Metric": "F1_Drop",
-    "Mean": 0.2281061758
+    "Mean": 0.0438472919
   },
   {
     "Dataset": "7. CDC diabetes dataset",
     "Generator": "TabDDPM",
     "TaskType": "classification",
     "Metric": "F1_Gap",
-    "Mean": 0.2281061758
+    "Mean": 0.0438472919
   },
   {
     "Dataset": "7. CDC diabetes dataset",
     "Generator": "TabDDPM",
     "TaskType": "classification",
     "Metric": "Precision_Drop",
-    "Mean": 0.377165729
+    "Mean": 0.1013921766
   },
   {
     "Dataset": "7. CDC diabetes dataset",
     "Generator": "TabDDPM",
     "TaskType": "classification",
     "Metric": "Precision_Gap",
-    "Mean": 0.377165729
+    "Mean": 0.1013921766
   },
   {
     "Dataset": "7. CDC diabetes dataset",
     "Generator": "TabDDPM",
     "TaskType": "classification",
     "Metric": "Recall_Drop",
-    "Mean": 0.1768328362
+    "Mean": 0.02165
   },
   {
     "Dataset": "7. CDC diabetes dataset",
     "Generator": "TabDDPM",
     "TaskType": "classification",
     "Metric": "Recall_Gap",
-    "Mean": 0.1768328362
+    "Mean": 0.02165
   },
   {
     "Dataset": "7. CDC diabetes dataset",
@@ -5548,56 +5996,56 @@
     "Generator": "ForestDiffusion",
     "TaskType": "classification",
     "Metric": "Accuracy_Drop",
-    "Mean": 0.0690993841
+    "Mean": 0.0840319627
   },
   {
     "Dataset": "8. Mushroom dataset",
     "Generator": "ForestDiffusion",
     "TaskType": "classification",
     "Metric": "Accuracy_Gap",
-    "Mean": 0.0690993841
+    "Mean": 0.0840319627
   },
   {
     "Dataset": "8. Mushroom dataset",
     "Generator": "ForestDiffusion",
     "TaskType": "classification",
     "Metric": "F1_Drop",
-    "Mean": 0.0613836261
+    "Mean": 0.0849400725
   },
   {
     "Dataset": "8. Mushroom dataset",
     "Generator": "ForestDiffusion",
     "TaskType": "classification",
     "Metric": "F1_Gap",
-    "Mean": 0.0613836261
+    "Mean": 0.0849400725
   },
   {
     "Dataset": "8. Mushroom dataset",
     "Generator": "ForestDiffusion",
     "TaskType": "classification",
     "Metric": "Precision_Drop",
-    "Mean": 0.0708141593
+    "Mean": 0.0847408528
   },
   {
     "Dataset": "8. Mushroom dataset",
     "Generator": "ForestDiffusion",
     "TaskType": "classification",
     "Metric": "Precision_Gap",
-    "Mean": 0.0708141593
+    "Mean": 0.0847408528
   },
   {
     "Dataset": "8. Mushroom dataset",
     "Generator": "ForestDiffusion",
     "TaskType": "classification",
     "Metric": "Recall_Drop",
-    "Mean": 0.0531723414
+    "Mean": 0.0840319627
   },
   {
     "Dataset": "8. Mushroom dataset",
     "Generator": "ForestDiffusion",
     "TaskType": "classification",
     "Metric": "Recall_Gap",
-    "Mean": 0.0531723414
+    "Mean": 0.0840319627
   },
   {
     "Dataset": "8. Mushroom dataset",
@@ -5716,56 +6164,56 @@
     "Generator": "TabDDPM",
     "TaskType": "classification",
     "Metric": "Accuracy_Drop",
-    "Mean": 0.3474271683
+    "Mean": 0.3587739304
   },
   {
     "Dataset": "8. Mushroom dataset",
     "Generator": "TabDDPM",
     "TaskType": "classification",
     "Metric": "Accuracy_Gap",
-    "Mean": 0.3474271683
+    "Mean": 0.3587739304
   },
   {
     "Dataset": "8. Mushroom dataset",
     "Generator": "TabDDPM",
     "TaskType": "classification",
     "Metric": "F1_Drop",
-    "Mean": 0.278868338
+    "Mean": 0.3840214666
   },
   {
     "Dataset": "8. Mushroom dataset",
     "Generator": "TabDDPM",
     "TaskType": "classification",
     "Metric": "F1_Gap",
-    "Mean": 0.278868338
+    "Mean": 0.3840214666
   },
   {
     "Dataset": "8. Mushroom dataset",
     "Generator": "TabDDPM",
     "TaskType": "classification",
     "Metric": "Precision_Drop",
-    "Mean": 0.3293868134
+    "Mean": 0.3480725873
   },
   {
     "Dataset": "8. Mushroom dataset",
     "Generator": "TabDDPM",
     "TaskType": "classification",
     "Metric": "Precision_Gap",
-    "Mean": 0.3293868134
+    "Mean": 0.3480725873
   },
   {
     "Dataset": "8. Mushroom dataset",
     "Generator": "TabDDPM",
     "TaskType": "classification",
     "Metric": "Recall_Drop",
-    "Mean": 0.2309434528
+    "Mean": 0.3587739304
   },
   {
     "Dataset": "8. Mushroom dataset",
     "Generator": "TabDDPM",
     "TaskType": "classification",
     "Metric": "Recall_Gap",
-    "Mean": 0.2309434528
+    "Mean": 0.3587739304
   },
   {
     "Dataset": "8. Mushroom dataset",
@@ -5996,56 +6444,56 @@
     "Generator": "ForestDiffusion",
     "TaskType": "classification",
     "Metric": "Accuracy_Drop",
-    "Mean": 0.0199395373
+    "Mean": 0.0199500526
   },
   {
     "Dataset": "9. MAGIC Gamma Telescope",
     "Generator": "ForestDiffusion",
     "TaskType": "classification",
     "Metric": "Accuracy_Gap",
-    "Mean": 0.0199395373
+    "Mean": 0.0199500526
   },
   {
     "Dataset": "9. MAGIC Gamma Telescope",
     "Generator": "ForestDiffusion",
     "TaskType": "classification",
     "Metric": "F1_Drop",
-    "Mean": 0.0159807197
+    "Mean": 0.0159894694
   },
   {
     "Dataset": "9. MAGIC Gamma Telescope",
     "Generator": "ForestDiffusion",
     "TaskType": "classification",
     "Metric": "F1_Gap",
-    "Mean": 0.0159807197
+    "Mean": 0.0159894694
   },
   {
     "Dataset": "9. MAGIC Gamma Telescope",
     "Generator": "ForestDiffusion",
     "TaskType": "classification",
     "Metric": "Precision_Drop",
-    "Mean": 0.0089634537
+    "Mean": 0.0089655197
   },
   {
     "Dataset": "9. MAGIC Gamma Telescope",
     "Generator": "ForestDiffusion",
     "TaskType": "classification",
     "Metric": "Precision_Gap",
-    "Mean": 0.0089634537
+    "Mean": 0.0089655197
   },
   {
     "Dataset": "9. MAGIC Gamma Telescope",
     "Generator": "ForestDiffusion",
     "TaskType": "classification",
     "Metric": "Recall_Drop",
-    "Mean": 0.0237631792
+    "Mean": 0.0237793998
   },
   {
     "Dataset": "9. MAGIC Gamma Telescope",
     "Generator": "ForestDiffusion",
     "TaskType": "classification",
     "Metric": "Recall_Gap",
-    "Mean": 0.0237631792
+    "Mean": 0.0237793998
   },
   {
     "Dataset": "9. MAGIC Gamma Telescope",
@@ -6164,56 +6612,56 @@
     "Generator": "TabDDPM",
     "TaskType": "classification",
     "Metric": "Accuracy_Drop",
-    "Mean": 0.2000893796
+    "Mean": 0.2198790747
   },
   {
     "Dataset": "9. MAGIC Gamma Telescope",
     "Generator": "TabDDPM",
     "TaskType": "classification",
     "Metric": "Accuracy_Gap",
-    "Mean": 0.2000893796
+    "Mean": 0.2198790747
   },
   {
     "Dataset": "9. MAGIC Gamma Telescope",
     "Generator": "TabDDPM",
     "TaskType": "classification",
     "Metric": "F1_Drop",
-    "Mean": 0.1177013016
+    "Mean": 0.1611382114
   },
   {
     "Dataset": "9. MAGIC Gamma Telescope",
     "Generator": "TabDDPM",
     "TaskType": "classification",
     "Metric": "F1_Gap",
-    "Mean": 0.1177013016
+    "Mean": 0.1611382114
   },
   {
     "Dataset": "9. MAGIC Gamma Telescope",
     "Generator": "TabDDPM",
     "TaskType": "classification",
     "Metric": "Precision_Drop",
-    "Mean": 0.182036723
+    "Mean": 0.1886613502
   },
   {
     "Dataset": "9. MAGIC Gamma Telescope",
     "Generator": "TabDDPM",
     "TaskType": "classification",
     "Metric": "Precision_Gap",
-    "Mean": 0.182036723
+    "Mean": 0.1886613502
   },
   {
     "Dataset": "9. MAGIC Gamma Telescope",
     "Generator": "TabDDPM",
     "TaskType": "classification",
     "Metric": "Recall_Drop",
-    "Mean": 0.0128142741
+    "Mean": 0.0948621249
   },
   {
     "Dataset": "9. MAGIC Gamma Telescope",
     "Generator": "TabDDPM",
     "TaskType": "classification",
     "Metric": "Recall_Gap",
-    "Mean": 0.0128142741
+    "Mean": 0.0948621249
   },
   {
     "Dataset": "9. MAGIC Gamma Telescope",

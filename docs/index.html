@@ -96,6 +96,30 @@
       </section>
 
       <section id="panel-statistics" class="panel">
+        <div class="controls">
+          <div class="control"><label>Dataset</label><select id="filter-stats-dataset"></select></div>
+          <div class="control"><label>Statistic</label><select id="filter-stats-metric"></select></div>
+        </div>
+        <div class="chart-grid two">
+          <div class="chart-card"><h3 id="stats-bar-title">Average error by model</h3><div id="stats-error-bar" class="plot"></div></div>
+          <div class="chart-card"><h3 id="stats-heat-title">Error heatmap (datasets × generators)</h3><div id="stats-error-heatmap" class="plot"></div></div>
+        </div>
+        <div class="table-wrap">
+          <h3 class="section-title">Average error by model</h3>
+          <table id="stats-error-table">
+            <thead>
+              <tr>
+                <th>Model</th>
+                <th>Mean Error %</th>
+                <th>Median Error %</th>
+                <th>Std Error %</th>
+                <th>Source</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <h3 class="section-title">Pairwise significance (Wilcoxon)</h3>
         <div class="chart-grid two">
           <div class="chart-card"><div id="stats-heat-0" class="plot"></div></div>
           <div class="chart-card"><div id="stats-heat-1" class="plot"></div></div>
@@ -108,9 +132,9 @@
 
   <footer>
     SYNTH Benchmark · Synthetic Tabular Data Generation ·
-    <a href="https://github.com/gopibattineni/SYNTH_BENCHMARK" style="color:#3b82f6">View on GitHub</a>
+    <a href="https://github.com/" style="color:#3b82f6">View on GitHub</a>
   </footer>
 
-  <script src="assets/app.js?v=13"></script>
+  <script src="assets/app.js?v=32"></script>
 </body>
 </html>

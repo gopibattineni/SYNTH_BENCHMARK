@@ -1,72 +1,82 @@
 [
   {
-    "id": "NNDR",
-    "label": "NNDR",
+    "id": "Mahalanobis_Distance",
+    "label": "Mahalanobis Distance",
     "count": 120,
     "lower_is_better": true,
-    "is_similarity": false
+    "is_similarity": false,
+    "is_sample_size": false
+  },
+  {
+    "id": "Mean_Distance",
+    "label": "Mean Distance",
+    "count": 120,
+    "lower_is_better": true,
+    "is_similarity": false,
+    "is_sample_size": false
   },
   {
     "id": "MIA_AUC",
     "label": "MIA AUC",
     "count": 116,
     "lower_is_better": true,
-    "is_similarity": true
+    "is_similarity": true,
+    "is_sample_size": false
   },
   {
-    "id": "Mahalanobis_Distance",
-    "label": "Mahalanobis Distance",
+    "id": "NNDR",
+    "label": "NNDR",
     "count": 116,
     "lower_is_better": true,
-    "is_similarity": false
+    "is_similarity": false,
+    "is_sample_size": false
   },
   {
     "id": "Num_Matches",
     "label": "Num Matches",
-    "count": 82,
-    "lower_is_better": true,
-    "is_similarity": false
-  },
-  {
-    "id": "Mean_Distance",
-    "label": "Mean Distance",
-    "count": 70,
-    "lower_is_better": true,
-    "is_similarity": false
-  },
-  {
-    "id": "Median_Distance",
-    "label": "Median Distance",
-    "count": 70,
-    "lower_is_better": true,
-    "is_similarity": false
-  },
-  {
-    "id": "Std_Distance",
-    "label": "Std Distance",
-    "count": 70,
-    "lower_is_better": true,
-    "is_similarity": false
+    "count": 116,
+    "lower_is_better": false,
+    "is_similarity": false,
+    "is_sample_size": true
   },
   {
     "id": "Hungarian_Cosine_Similarity",
     "label": "Hungarian Cosine Similarity",
-    "count": 66,
+    "count": 114,
     "lower_is_better": false,
-    "is_similarity": true
+    "is_similarity": true,
+    "is_sample_size": false
+  },
+  {
+    "id": "Median_Distance",
+    "label": "Median Distance",
+    "count": 66,
+    "lower_is_better": true,
+    "is_similarity": false,
+    "is_sample_size": false
+  },
+  {
+    "id": "Std_Distance",
+    "label": "Std Distance",
+    "count": 66,
+    "lower_is_better": true,
+    "is_similarity": false,
+    "is_sample_size": false
   },
   {
     "id": "Max_Distance",
     "label": "Max Distance",
-    "count": 66,
+    "count": 62,
     "lower_is_better": true,
-    "is_similarity": false
+    "is_similarity": false,
+    "is_sample_size": false
   },
   {
     "id": "Min_Distance",
     "label": "Min Distance",
-    "count": 66,
+    "count": 62,
     "lower_is_better": true,
-    "is_similarity": false
+    "is_similarity": false,
+    "is_sample_size": false
   }
 ]

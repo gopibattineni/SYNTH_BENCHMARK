@@ -1761,6 +1761,166 @@
   },
   {
     "Dataset": "10. Metro interstate",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "MAE",
+    "EvaluationType": "TRTR",
+    "Mean": 1892.7142206552,
+    "Std": 88.559120919,
+    "Count": 20
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "MAE",
+    "EvaluationType": "TSTR",
+    "Mean": 1908.3591385919,
+    "Std": 93.9972125974,
+    "Count": 20
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "MAE_Gap",
+    "EvaluationType": "Gap",
+    "Mean": 15.6449179367,
+    "Std": 93.9972125974,
+    "Count": 20
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "MAE_Increase",
+    "EvaluationType": "Gap",
+    "Mean": 15.6449179367,
+    "Std": null,
+    "Count": 20
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "MSE",
+    "EvaluationType": "TRTR",
+    "Mean": 5007117.785875048,
+    "Std": 454029.8342729995,
+    "Count": 20
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "MSE",
+    "EvaluationType": "TSTR",
+    "Mean": 4827545.887581527,
+    "Std": 421409.8988026682,
+    "Count": 20
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "MSE_Gap",
+    "EvaluationType": "Gap",
+    "Mean": -179571.8982935201,
+    "Std": 421409.8988026682,
+    "Count": 20
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "MSE_Increase",
+    "EvaluationType": "Gap",
+    "Mean": -179571.89829352,
+    "Std": null,
+    "Count": 20
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "R2",
+    "EvaluationType": "TRTR",
+    "Mean": -0.2201415241,
+    "Std": 0.1119662723,
+    "Count": 20
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "R2",
+    "EvaluationType": "TSTR",
+    "Mean": -0.1569490125,
+    "Std": 0.0795856086,
+    "Count": 20
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "R2_Drop",
+    "EvaluationType": "Gap",
+    "Mean": -0.0631925116,
+    "Std": null,
+    "Count": 20
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "R2_Gap",
+    "EvaluationType": "Gap",
+    "Mean": -0.0631925116,
+    "Std": 0.0795856086,
+    "Count": 20
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "RMSE",
+    "EvaluationType": "TRTR",
+    "Mean": 2221.8911687093,
+    "Std": 98.4344483603,
+    "Count": 20
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "RMSE",
+    "EvaluationType": "TSTR",
+    "Mean": 2187.2936695423,
+    "Std": 93.4428739242,
+    "Count": 20
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "RMSE_Gap",
+    "EvaluationType": "Gap",
+    "Mean": -34.597499167,
+    "Std": 93.4428739242,
+    "Count": 20
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "RMSE_Increase",
+    "EvaluationType": "Gap",
+    "Mean": -34.597499167,
+    "Std": null,
+    "Count": 20
+  },
+  {
+    "Dataset": "10. Metro interstate",
     "Generator": "GaussianCopula",
     "TaskType": "regression",
     "Metric": "MAE",
@@ -2076,6 +2236,166 @@
     "Metric": "RMSE_Increase",
     "EvaluationType": "Gap",
     "Mean": 425.0145966081,
+    "Std": null,
+    "Count": 20
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "MAE",
+    "EvaluationType": "TRTR",
+    "Mean": 1892.7142206552,
+    "Std": 88.559120919,
+    "Count": 20
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "MAE",
+    "EvaluationType": "TSTR",
+    "Mean": 2184.8056922061,
+    "Std": 113.9376984046,
+    "Count": 20
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "MAE_Gap",
+    "EvaluationType": "Gap",
+    "Mean": 292.0914715509,
+    "Std": 113.9376984046,
+    "Count": 20
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "MAE_Increase",
+    "EvaluationType": "Gap",
+    "Mean": 292.0914715509,
+    "Std": null,
+    "Count": 20
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "MSE",
+    "EvaluationType": "TRTR",
+    "Mean": 5007117.785875048,
+    "Std": 454029.8342729995,
+    "Count": 20
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "MSE",
+    "EvaluationType": "TSTR",
+    "Mean": 7041601.348260313,
+    "Std": 722733.8610685009,
+    "Count": 20
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "MSE_Gap",
+    "EvaluationType": "Gap",
+    "Mean": 2034483.5623852666,
+    "Std": 722733.8610685009,
+    "Count": 20
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "MSE_Increase",
+    "EvaluationType": "Gap",
+    "Mean": 2034483.562385267,
+    "Std": null,
+    "Count": 20
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "R2",
+    "EvaluationType": "TRTR",
+    "Mean": -0.2201415241,
+    "Std": 0.1119662723,
+    "Count": 20
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "R2",
+    "EvaluationType": "TSTR",
+    "Mean": -0.6914354232,
+    "Std": 0.1930686285,
+    "Count": 20
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "R2_Drop",
+    "EvaluationType": "Gap",
+    "Mean": 0.4712938992,
+    "Std": null,
+    "Count": 20
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "R2_Gap",
+    "EvaluationType": "Gap",
+    "Mean": 0.4712938992,
+    "Std": 0.1930686285,
+    "Count": 20
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "RMSE",
+    "EvaluationType": "TRTR",
+    "Mean": 2221.8911687093,
+    "Std": 98.4344483603,
+    "Count": 20
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "RMSE",
+    "EvaluationType": "TSTR",
+    "Mean": 2635.2474940547,
+    "Std": 136.2772698922,
+    "Count": 20
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "RMSE_Gap",
+    "EvaluationType": "Gap",
+    "Mean": 413.3563253454,
+    "Std": 136.2772698922,
+    "Count": 20
+  },
+  {
+    "Dataset": "10. Metro interstate",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "RMSE_Increase",
+    "EvaluationType": "Gap",
+    "Mean": 413.3563253454,
     "Std": null,
     "Count": 20
   },
@@ -2721,6 +3041,166 @@
   },
   {
     "Dataset": "11. online shopping",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "MAE",
+    "EvaluationType": "TRTR",
+    "Mean": 3.0186111587,
+    "Std": 0.1378404371,
+    "Count": 20
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "MAE",
+    "EvaluationType": "TSTR",
+    "Mean": 6.0321832689,
+    "Std": 0.1555357514,
+    "Count": 20
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "MAE_Gap",
+    "EvaluationType": "Gap",
+    "Mean": 3.0135721102,
+    "Std": 0.1555357514,
+    "Count": 20
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "MAE_Increase",
+    "EvaluationType": "Gap",
+    "Mean": 3.0135721102,
+    "Std": null,
+    "Count": 20
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "MSE",
+    "EvaluationType": "TRTR",
+    "Mean": 41.1420834594,
+    "Std": 3.2290421738,
+    "Count": 20
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "MSE",
+    "EvaluationType": "TSTR",
+    "Mean": 72.9329849933,
+    "Std": 3.5802193827,
+    "Count": 20
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "MSE_Gap",
+    "EvaluationType": "Gap",
+    "Mean": 31.7909015339,
+    "Std": 3.5802193827,
+    "Count": 20
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "MSE_Increase",
+    "EvaluationType": "Gap",
+    "Mean": 31.7909015339,
+    "Std": null,
+    "Count": 20
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "R2",
+    "EvaluationType": "TRTR",
+    "Mean": 0.7739873153,
+    "Std": 0.0177386372,
+    "Count": 20
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "R2",
+    "EvaluationType": "TSTR",
+    "Mean": 0.5993450414,
+    "Std": 0.0196678176,
+    "Count": 20
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "R2_Drop",
+    "EvaluationType": "Gap",
+    "Mean": 0.1746422738,
+    "Std": null,
+    "Count": 20
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "R2_Gap",
+    "EvaluationType": "Gap",
+    "Mean": 0.1746422738,
+    "Std": 0.0196678176,
+    "Count": 20
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "RMSE",
+    "EvaluationType": "TRTR",
+    "Mean": 4.8213397703,
+    "Std": 0.3650555281,
+    "Count": 20
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "RMSE",
+    "EvaluationType": "TSTR",
+    "Mean": 8.0786744691,
+    "Std": 0.2181741886,
+    "Count": 20
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "RMSE_Gap",
+    "EvaluationType": "Gap",
+    "Mean": 3.2573346988,
+    "Std": 0.2181741886,
+    "Count": 20
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "RMSE_Increase",
+    "EvaluationType": "Gap",
+    "Mean": 3.2573346988,
+    "Std": null,
+    "Count": 20
+  },
+  {
+    "Dataset": "11. online shopping",
     "Generator": "GaussianCopula",
     "TaskType": "regression",
     "Metric": "MAE",
@@ -3036,6 +3516,166 @@
     "Metric": "RMSE_Increase",
     "EvaluationType": "Gap",
     "Mean": 11.506649748,
+    "Std": null,
+    "Count": 20
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "MAE",
+    "EvaluationType": "TRTR",
+    "Mean": 3.0186111587,
+    "Std": 0.1378404371,
+    "Count": 20
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "MAE",
+    "EvaluationType": "TSTR",
+    "Mean": 18.7938510656,
+    "Std": 2.6833462603,
+    "Count": 20
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "MAE_Gap",
+    "EvaluationType": "Gap",
+    "Mean": 15.7752399069,
+    "Std": 2.6833462603,
+    "Count": 20
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "MAE_Increase",
+    "EvaluationType": "Gap",
+    "Mean": 15.7752399069,
+    "Std": null,
+    "Count": 20
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "MSE",
+    "EvaluationType": "TRTR",
+    "Mean": 41.1420834594,
+    "Std": 3.2290421738,
+    "Count": 20
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "MSE",
+    "EvaluationType": "TSTR",
+    "Mean": 555.7951256841,
+    "Std": 134.0294375417,
+    "Count": 20
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "MSE_Gap",
+    "EvaluationType": "Gap",
+    "Mean": 514.6530422248,
+    "Std": 134.0294375417,
+    "Count": 20
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "MSE_Increase",
+    "EvaluationType": "Gap",
+    "Mean": 514.6530422248,
+    "Std": null,
+    "Count": 20
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "R2",
+    "EvaluationType": "TRTR",
+    "Mean": 0.7739873153,
+    "Std": 0.0177386372,
+    "Count": 20
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "R2",
+    "EvaluationType": "TSTR",
+    "Mean": -2.0532422755,
+    "Std": 0.7362863148,
+    "Count": 20
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "R2_Drop",
+    "EvaluationType": "Gap",
+    "Mean": 2.8272295908,
+    "Std": null,
+    "Count": 20
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "R2_Gap",
+    "EvaluationType": "Gap",
+    "Mean": 2.8272295908,
+    "Std": 0.7362863148,
+    "Count": 20
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "RMSE",
+    "EvaluationType": "TRTR",
+    "Mean": 4.8213397703,
+    "Std": 0.3650555281,
+    "Count": 20
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "RMSE",
+    "EvaluationType": "TSTR",
+    "Mean": 22.8734382767,
+    "Std": 2.751395236,
+    "Count": 20
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "RMSE_Gap",
+    "EvaluationType": "Gap",
+    "Mean": 18.0520985064,
+    "Std": 2.751395236,
+    "Count": 20
+  },
+  {
+    "Dataset": "11. online shopping",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "RMSE_Increase",
+    "EvaluationType": "Gap",
+    "Mean": 18.0520985064,
     "Std": null,
     "Count": 20
   },
@@ -3681,6 +4321,166 @@
   },
   {
     "Dataset": "12. Air Quality",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "MAE",
+    "EvaluationType": "TRTR",
+    "Mean": 64.4461869543,
+    "Std": 0.2688451723,
+    "Count": 20
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "MAE",
+    "EvaluationType": "TSTR",
+    "Mean": 64.5431244243,
+    "Std": 0.1925681275,
+    "Count": 20
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "MAE_Gap",
+    "EvaluationType": "Gap",
+    "Mean": 0.09693747,
+    "Std": 0.1925681275,
+    "Count": 20
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "MAE_Increase",
+    "EvaluationType": "Gap",
+    "Mean": 0.09693747,
+    "Std": null,
+    "Count": 20
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "MSE",
+    "EvaluationType": "TRTR",
+    "Mean": 8484.7117599429,
+    "Std": 72.7235948392,
+    "Count": 20
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "MSE",
+    "EvaluationType": "TSTR",
+    "Mean": 8195.2792671221,
+    "Std": 60.4981105823,
+    "Count": 20
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "MSE_Gap",
+    "EvaluationType": "Gap",
+    "Mean": -289.4324928208,
+    "Std": 60.4981105823,
+    "Count": 20
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "MSE_Increase",
+    "EvaluationType": "Gap",
+    "Mean": -289.4324928208,
+    "Std": null,
+    "Count": 20
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "R2",
+    "EvaluationType": "TRTR",
+    "Mean": 0.8359308148,
+    "Std": 0.0014062588,
+    "Count": 20
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "R2",
+    "EvaluationType": "TSTR",
+    "Mean": 0.8415275816,
+    "Std": 0.0011698542,
+    "Count": 20
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "R2_Drop",
+    "EvaluationType": "Gap",
+    "Mean": -0.0055967668,
+    "Std": null,
+    "Count": 20
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "R2_Gap",
+    "EvaluationType": "Gap",
+    "Mean": -0.0055967668,
+    "Std": 0.0011698542,
+    "Count": 20
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "RMSE",
+    "EvaluationType": "TRTR",
+    "Mean": 86.9961307697,
+    "Std": 0.3981608106,
+    "Count": 20
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "RMSE",
+    "EvaluationType": "TSTR",
+    "Mean": 87.1974531612,
+    "Std": 0.3344324825,
+    "Count": 20
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "RMSE_Gap",
+    "EvaluationType": "Gap",
+    "Mean": 0.2013223915,
+    "Std": 0.3344324825,
+    "Count": 20
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "ForestDiffusion",
+    "TaskType": "regression",
+    "Metric": "RMSE_Increase",
+    "EvaluationType": "Gap",
+    "Mean": 0.2013223915,
+    "Std": null,
+    "Count": 20
+  },
+  {
+    "Dataset": "12. Air Quality",
     "Generator": "GaussianCopula",
     "TaskType": "regression",
     "Metric": "MAE",
@@ -3996,6 +4796,166 @@
     "Metric": "RMSE_Increase",
     "EvaluationType": "Gap",
     "Mean": 0.2765206735,
+    "Std": null,
+    "Count": 20
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "MAE",
+    "EvaluationType": "TRTR",
+    "Mean": 64.4461869543,
+    "Std": 0.2688451723,
+    "Count": 20
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "MAE",
+    "EvaluationType": "TSTR",
+    "Mean": 264.9447965948,
+    "Std": 2.3103917723,
+    "Count": 20
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "MAE_Gap",
+    "EvaluationType": "Gap",
+    "Mean": 200.4986096405,
+    "Std": 2.3103917723,
+    "Count": 20
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "MAE_Increase",
+    "EvaluationType": "Gap",
+    "Mean": 200.4986096405,
+    "Std": null,
+    "Count": 20
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "MSE",
+    "EvaluationType": "TRTR",
+    "Mean": 8484.7117599429,
+    "Std": 72.7235948392,
+    "Count": 20
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "MSE",
+    "EvaluationType": "TSTR",
+    "Mean": 117645.0609949975,
+    "Std": 1503.7919519762,
+    "Count": 20
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "MSE_Gap",
+    "EvaluationType": "Gap",
+    "Mean": 109160.3492350546,
+    "Std": 1503.7919519762,
+    "Count": 20
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "MSE_Increase",
+    "EvaluationType": "Gap",
+    "Mean": 109160.3492350546,
+    "Std": null,
+    "Count": 20
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "R2",
+    "EvaluationType": "TRTR",
+    "Mean": 0.8359308148,
+    "Std": 0.0014062588,
+    "Count": 20
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "R2",
+    "EvaluationType": "TSTR",
+    "Mean": -1.2749068969,
+    "Std": 0.0290788806,
+    "Count": 20
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "R2_Drop",
+    "EvaluationType": "Gap",
+    "Mean": 2.1108377117,
+    "Std": null,
+    "Count": 20
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "R2_Gap",
+    "EvaluationType": "Gap",
+    "Mean": 2.1108377117,
+    "Std": 0.0290788806,
+    "Count": 20
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "RMSE",
+    "EvaluationType": "TRTR",
+    "Mean": 86.9961307697,
+    "Std": 0.3981608106,
+    "Count": 20
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "RMSE",
+    "EvaluationType": "TSTR",
+    "Mean": 320.4451086382,
+    "Std": 2.4202082785,
+    "Count": 20
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "RMSE_Gap",
+    "EvaluationType": "Gap",
+    "Mean": 233.4489778684,
+    "Std": 2.4202082785,
+    "Count": 20
+  },
+  {
+    "Dataset": "12. Air Quality",
+    "Generator": "TabDDPM",
+    "TaskType": "regression",
+    "Metric": "RMSE_Increase",
+    "EvaluationType": "Gap",
+    "Mean": 233.4489778684,
     "Std": null,
     "Count": 20
   },
@@ -11041,6 +12001,166 @@
   },
   {
     "Dataset": "4. Forest cover dataset",
+    "Generator": "ForestDiffusion",
+    "TaskType": "classification",
+    "Metric": "Accuracy",
+    "EvaluationType": "TRTR",
+    "Mean": 0.62935,
+    "Std": 0.0223736037,
+    "Count": 20
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "ForestDiffusion",
+    "TaskType": "classification",
+    "Metric": "Accuracy",
+    "EvaluationType": "TSTR",
+    "Mean": 0.6848,
+    "Std": 0.0188971855,
+    "Count": 20
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "ForestDiffusion",
+    "TaskType": "classification",
+    "Metric": "Accuracy_Drop",
+    "EvaluationType": "Gap",
+    "Mean": -0.05545,
+    "Std": null,
+    "Count": 20
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "ForestDiffusion",
+    "TaskType": "classification",
+    "Metric": "Accuracy_Gap",
+    "EvaluationType": "Gap",
+    "Mean": -0.05545,
+    "Std": 0.0188971855,
+    "Count": 20
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "ForestDiffusion",
+    "TaskType": "classification",
+    "Metric": "F1",
+    "EvaluationType": "TRTR",
+    "Mean": 0.6101748771,
+    "Std": 0.021664598,
+    "Count": 20
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "ForestDiffusion",
+    "TaskType": "classification",
+    "Metric": "F1",
+    "EvaluationType": "TSTR",
+    "Mean": 0.6718662043,
+    "Std": 0.0186650121,
+    "Count": 20
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "ForestDiffusion",
+    "TaskType": "classification",
+    "Metric": "F1_Drop",
+    "EvaluationType": "Gap",
+    "Mean": -0.0616913272,
+    "Std": null,
+    "Count": 20
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "ForestDiffusion",
+    "TaskType": "classification",
+    "Metric": "F1_Gap",
+    "EvaluationType": "Gap",
+    "Mean": -0.0616913272,
+    "Std": 0.0186650121,
+    "Count": 20
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "ForestDiffusion",
+    "TaskType": "classification",
+    "Metric": "Precision",
+    "EvaluationType": "TRTR",
+    "Mean": 0.6143748331,
+    "Std": 0.0266013571,
+    "Count": 20
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "ForestDiffusion",
+    "TaskType": "classification",
+    "Metric": "Precision",
+    "EvaluationType": "TSTR",
+    "Mean": 0.6794063321,
+    "Std": 0.0179376134,
+    "Count": 20
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "ForestDiffusion",
+    "TaskType": "classification",
+    "Metric": "Precision_Drop",
+    "EvaluationType": "Gap",
+    "Mean": -0.065031499,
+    "Std": null,
+    "Count": 20
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "ForestDiffusion",
+    "TaskType": "classification",
+    "Metric": "Precision_Gap",
+    "EvaluationType": "Gap",
+    "Mean": -0.065031499,
+    "Std": 0.0179376134,
+    "Count": 20
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "ForestDiffusion",
+    "TaskType": "classification",
+    "Metric": "Recall",
+    "EvaluationType": "TRTR",
+    "Mean": 0.62935,
+    "Std": 0.0223736037,
+    "Count": 20
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "ForestDiffusion",
+    "TaskType": "classification",
+    "Metric": "Recall",
+    "EvaluationType": "TSTR",
+    "Mean": 0.6848,
+    "Std": 0.0188971855,
+    "Count": 20
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "ForestDiffusion",
+    "TaskType": "classification",
+    "Metric": "Recall_Drop",
+    "EvaluationType": "Gap",
+    "Mean": -0.05545,
+    "Std": null,
+    "Count": 20
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "ForestDiffusion",
+    "TaskType": "classification",
+    "Metric": "Recall_Gap",
+    "EvaluationType": "Gap",
+    "Mean": -0.05545,
+    "Std": 0.0188971855,
+    "Count": 20
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
     "Generator": "GaussianCopula",
     "TaskType": "classification",
     "Metric": "Accuracy",
@@ -11357,6 +12477,166 @@
     "EvaluationType": "Gap",
     "Mean": 0.2464,
     "Std": 0.041888558,
+    "Count": 20
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "TabDDPM",
+    "TaskType": "classification",
+    "Metric": "Accuracy",
+    "EvaluationType": "TRTR",
+    "Mean": 0.62935,
+    "Std": 0.0223736037,
+    "Count": 20
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "TabDDPM",
+    "TaskType": "classification",
+    "Metric": "Accuracy",
+    "EvaluationType": "TSTR",
+    "Mean": 0.41135,
+    "Std": 0.0305458449,
+    "Count": 20
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "TabDDPM",
+    "TaskType": "classification",
+    "Metric": "Accuracy_Drop",
+    "EvaluationType": "Gap",
+    "Mean": 0.218,
+    "Std": null,
+    "Count": 20
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "TabDDPM",
+    "TaskType": "classification",
+    "Metric": "Accuracy_Gap",
+    "EvaluationType": "Gap",
+    "Mean": 0.218,
+    "Std": 0.0305458449,
+    "Count": 20
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "TabDDPM",
+    "TaskType": "classification",
+    "Metric": "F1",
+    "EvaluationType": "TRTR",
+    "Mean": 0.6101748771,
+    "Std": 0.021664598,
+    "Count": 20
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "TabDDPM",
+    "TaskType": "classification",
+    "Metric": "F1",
+    "EvaluationType": "TSTR",
+    "Mean": 0.3614329329,
+    "Std": 0.0285718026,
+    "Count": 20
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "TabDDPM",
+    "TaskType": "classification",
+    "Metric": "F1_Drop",
+    "EvaluationType": "Gap",
+    "Mean": 0.2487419442,
+    "Std": null,
+    "Count": 20
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "TabDDPM",
+    "TaskType": "classification",
+    "Metric": "F1_Gap",
+    "EvaluationType": "Gap",
+    "Mean": 0.2487419442,
+    "Std": 0.0285718026,
+    "Count": 20
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "TabDDPM",
+    "TaskType": "classification",
+    "Metric": "Precision",
+    "EvaluationType": "TRTR",
+    "Mean": 0.6143748331,
+    "Std": 0.0266013571,
+    "Count": 20
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "TabDDPM",
+    "TaskType": "classification",
+    "Metric": "Precision",
+    "EvaluationType": "TSTR",
+    "Mean": 0.348148699,
+    "Std": 0.0284981517,
+    "Count": 20
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "TabDDPM",
+    "TaskType": "classification",
+    "Metric": "Precision_Drop",
+    "EvaluationType": "Gap",
+    "Mean": 0.2662261341,
+    "Std": null,
+    "Count": 20
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "TabDDPM",
+    "TaskType": "classification",
+    "Metric": "Precision_Gap",
+    "EvaluationType": "Gap",
+    "Mean": 0.2662261341,
+    "Std": 0.0284981517,
+    "Count": 20
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "TabDDPM",
+    "TaskType": "classification",
+    "Metric": "Recall",
+    "EvaluationType": "TRTR",
+    "Mean": 0.62935,
+    "Std": 0.0223736037,
+    "Count": 20
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "TabDDPM",
+    "TaskType": "classification",
+    "Metric": "Recall",
+    "EvaluationType": "TSTR",
+    "Mean": 0.41135,
+    "Std": 0.0305458449,
+    "Count": 20
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "TabDDPM",
+    "TaskType": "classification",
+    "Metric": "Recall_Drop",
+    "EvaluationType": "Gap",
+    "Mean": 0.218,
+    "Std": null,
+    "Count": 20
+  },
+  {
+    "Dataset": "4. Forest cover dataset",
+    "Generator": "TabDDPM",
+    "TaskType": "classification",
+    "Metric": "Recall_Gap",
+    "EvaluationType": "Gap",
+    "Mean": 0.218,
+    "Std": 0.0305458449,
     "Count": 20
   },
   {
@@ -14565,8 +15845,8 @@
     "TaskType": "classification",
     "Metric": "Accuracy",
     "EvaluationType": "TRTR",
-    "Mean": 0.850788151,
-    "Std": 0.0008983214,
+    "Mean": 0.85655,
+    "Std": 0.0267628987,
     "Count": 20
   },
   {
@@ -14575,8 +15855,8 @@
     "TaskType": "classification",
     "Metric": "Accuracy",
     "EvaluationType": "TSTR",
-    "Mean": 0.7912167564,
-    "Std": 0.0038418635,
+    "Mean": 0.83115,
+    "Std": 0.0357400485,
     "Count": 20
   },
   {
@@ -14585,7 +15865,7 @@
     "TaskType": "classification",
     "Metric": "Accuracy_Drop",
     "EvaluationType": "Gap",
-    "Mean": 0.0595713946,
+    "Mean": 0.0254,
     "Std": null,
     "Count": 20
   },
@@ -14595,8 +15875,8 @@
     "TaskType": "classification",
     "Metric": "Accuracy_Gap",
     "EvaluationType": "Gap",
-    "Mean": 0.0595713946,
-    "Std": 0.0038418635,
+    "Mean": 0.0254,
+    "Std": 0.0357400485,
     "Count": 20
   },
   {
@@ -14605,8 +15885,8 @@
     "TaskType": "classification",
     "Metric": "F1",
     "EvaluationType": "TRTR",
-    "Mean": 0.2529704298,
-    "Std": 0.0077783353,
+    "Mean": 0.8338049349,
+    "Std": 0.0291252935,
     "Count": 20
   },
   {
@@ -14615,8 +15895,8 @@
     "TaskType": "classification",
     "Metric": "F1",
     "EvaluationType": "TSTR",
-    "Mean": 0.251752966,
-    "Std": 0.0165988733,
+    "Mean": 0.8166460256,
+    "Std": 0.0368985656,
     "Count": 20
   },
   {
@@ -14625,7 +15905,7 @@
     "TaskType": "classification",
     "Metric": "F1_Drop",
     "EvaluationType": "Gap",
-    "Mean": 0.0012174638,
+    "Mean": 0.0171589094,
     "Std": null,
     "Count": 20
   },
@@ -14635,8 +15915,8 @@
     "TaskType": "classification",
     "Metric": "F1_Gap",
     "EvaluationType": "Gap",
-    "Mean": 0.0012174638,
-    "Std": 0.0165988733,
+    "Mean": 0.0171589094,
+    "Std": 0.0368985656,
     "Count": 20
   },
   {
@@ -14645,8 +15925,8 @@
     "TaskType": "classification",
     "Metric": "Precision",
     "EvaluationType": "TRTR",
-    "Mean": 0.4894533977,
-    "Std": 0.0091292904,
+    "Mean": 0.8536123155,
+    "Std": 0.0155149586,
     "Count": 20
   },
   {
@@ -14655,8 +15935,8 @@
     "TaskType": "classification",
     "Metric": "Precision",
     "EvaluationType": "TSTR",
-    "Mean": 0.4006561745,
-    "Std": 0.0160066991,
+    "Mean": 0.8496892828,
+    "Std": 0.0153485769,
     "Count": 20
   },
   {
@@ -14665,7 +15945,7 @@
     "TaskType": "classification",
     "Metric": "Precision_Drop",
     "EvaluationType": "Gap",
-    "Mean": 0.0887972232,
+    "Mean": 0.0039230327,
     "Std": null,
     "Count": 20
   },
@@ -14675,8 +15955,8 @@
     "TaskType": "classification",
     "Metric": "Precision_Gap",
     "EvaluationType": "Gap",
-    "Mean": 0.0887972232,
-    "Std": 0.0160066991,
+    "Mean": 0.0039230327,
+    "Std": 0.0153485769,
     "Count": 20
   },
   {
@@ -14685,8 +15965,8 @@
     "TaskType": "classification",
     "Metric": "Recall",
     "EvaluationType": "TRTR",
-    "Mean": 0.1998920608,
-    "Std": 0.0071393631,
+    "Mean": 0.85655,
+    "Std": 0.0267628987,
     "Count": 20
   },
   {
@@ -14695,8 +15975,8 @@
     "TaskType": "classification",
     "Metric": "Recall",
     "EvaluationType": "TSTR",
-    "Mean": 0.2653074847,
-    "Std": 0.0173280043,
+    "Mean": 0.83115,
+    "Std": 0.0357400485,
     "Count": 20
   },
   {
@@ -14705,7 +15985,7 @@
     "TaskType": "classification",
     "Metric": "Recall_Drop",
     "EvaluationType": "Gap",
-    "Mean": -0.0654154239,
+    "Mean": 0.0254,
     "Std": null,
     "Count": 20
   },
@@ -14715,8 +15995,8 @@
     "TaskType": "classification",
     "Metric": "Recall_Gap",
     "EvaluationType": "Gap",
-    "Mean": -0.0654154239,
-    "Std": 0.0173280043,
+    "Mean": 0.0254,
+    "Std": 0.0357400485,
     "Count": 20
   },
   {
@@ -15045,8 +16325,8 @@
     "TaskType": "classification",
     "Metric": "Accuracy",
     "EvaluationType": "TRTR",
-    "Mean": 0.850788151,
-    "Std": 0.0008983214,
+    "Mean": 0.85655,
+    "Std": 0.0267628987,
     "Count": 20
   },
   {
@@ -15055,8 +16335,8 @@
     "TaskType": "classification",
     "Metric": "Accuracy",
     "EvaluationType": "TSTR",
-    "Mean": 0.8416059839,
-    "Std": 0.0066021213,
+    "Mean": 0.8349,
+    "Std": 0.0123342454,
     "Count": 20
   },
   {
@@ -15065,7 +16345,7 @@
     "TaskType": "classification",
     "Metric": "Accuracy_Drop",
     "EvaluationType": "Gap",
-    "Mean": 0.0091821672,
+    "Mean": 0.02165,
     "Std": null,
     "Count": 20
   },
@@ -15075,8 +16355,8 @@
     "TaskType": "classification",
     "Metric": "Accuracy_Gap",
     "EvaluationType": "Gap",
-    "Mean": 0.0091821672,
-    "Std": 0.0066021213,
+    "Mean": 0.02165,
+    "Std": 0.0123342454,
     "Count": 20
   },
   {
@@ -15085,8 +16365,8 @@
     "TaskType": "classification",
     "Metric": "F1",
     "EvaluationType": "TRTR",
-    "Mean": 0.2529704298,
-    "Std": 0.0077783353,
+    "Mean": 0.8338049349,
+    "Std": 0.0291252935,
     "Count": 20
   },
   {
@@ -15095,8 +16375,8 @@
     "TaskType": "classification",
     "Metric": "F1",
     "EvaluationType": "TSTR",
-    "Mean": 0.024864254,
-    "Std": 0.0063320631,
+    "Mean": 0.789957643,
+    "Std": 0.0068609416,
     "Count": 20
   },
   {
@@ -15105,7 +16385,7 @@
     "TaskType": "classification",
     "Metric": "F1_Drop",
     "EvaluationType": "Gap",
-    "Mean": 0.2281061758,
+    "Mean": 0.0438472919,
     "Std": null,
     "Count": 20
   },
@@ -15115,8 +16395,8 @@
     "TaskType": "classification",
     "Metric": "F1_Gap",
     "EvaluationType": "Gap",
-    "Mean": 0.2281061758,
-    "Std": 0.0063320631,
+    "Mean": 0.0438472919,
+    "Std": 0.0068609416,
     "Count": 20
   },
   {
@@ -15125,8 +16405,8 @@
     "TaskType": "classification",
     "Metric": "Precision",
     "EvaluationType": "TRTR",
-    "Mean": 0.4894533977,
-    "Std": 0.0091292904,
+    "Mean": 0.8536123155,
+    "Std": 0.0155149586,
     "Count": 20
   },
   {
@@ -15135,8 +16415,8 @@
     "TaskType": "classification",
     "Metric": "Precision",
     "EvaluationType": "TSTR",
-    "Mean": 0.1122876686,
-    "Std": 0.0721869513,
+    "Mean": 0.7522201388,
+    "Std": 0.0071055987,
     "Count": 20
   },
   {
@@ -15145,7 +16425,7 @@
     "TaskType": "classification",
     "Metric": "Precision_Drop",
     "EvaluationType": "Gap",
-    "Mean": 0.377165729,
+    "Mean": 0.1013921766,
     "Std": null,
     "Count": 20
   },
@@ -15155,8 +16435,8 @@
     "TaskType": "classification",
     "Metric": "Precision_Gap",
     "EvaluationType": "Gap",
-    "Mean": 0.377165729,
-    "Std": 0.0721869513,
+    "Mean": 0.1013921766,
+    "Std": 0.0071055987,
     "Count": 20
   },
   {
@@ -15165,8 +16445,8 @@
     "TaskType": "classification",
     "Metric": "Recall",
     "EvaluationType": "TRTR",
-    "Mean": 0.1998920608,
-    "Std": 0.0071393631,
+    "Mean": 0.85655,
+    "Std": 0.0267628987,
     "Count": 20
   },
   {
@@ -15175,8 +16455,8 @@
     "TaskType": "classification",
     "Metric": "Recall",
     "EvaluationType": "TSTR",
-    "Mean": 0.0230592245,
-    "Std": 0.0068153152,
+    "Mean": 0.8349,
+    "Std": 0.0123342454,
     "Count": 20
   },
   {
@@ -15185,7 +16465,7 @@
     "TaskType": "classification",
     "Metric": "Recall_Drop",
     "EvaluationType": "Gap",
-    "Mean": 0.1768328362,
+    "Mean": 0.02165,
     "Std": null,
     "Count": 20
   },
@@ -15195,8 +16475,8 @@
     "TaskType": "classification",
     "Metric": "Recall_Gap",
     "EvaluationType": "Gap",
-    "Mean": 0.1768328362,
-    "Std": 0.0068153152,
+    "Mean": 0.02165,
+    "Std": 0.0123342454,
     "Count": 20
   },
   {
@@ -15845,8 +17125,8 @@
     "TaskType": "classification",
     "Metric": "Accuracy",
     "EvaluationType": "TRTR",
-    "Mean": 0.8328208756,
-    "Std": 0.0031216246,
+    "Mean": 0.8341335109,
+    "Std": 0.0018139287,
     "Count": 20
   },
   {
@@ -15855,8 +17135,8 @@
     "TaskType": "classification",
     "Metric": "Accuracy",
     "EvaluationType": "TSTR",
-    "Mean": 0.7637214916,
-    "Std": 0.0086531,
+    "Mean": 0.7501015482,
+    "Std": 0.0087278228,
     "Count": 20
   },
   {
@@ -15865,7 +17145,7 @@
     "TaskType": "classification",
     "Metric": "Accuracy_Drop",
     "EvaluationType": "Gap",
-    "Mean": 0.0690993841,
+    "Mean": 0.0840319627,
     "Std": null,
     "Count": 20
   },
@@ -15875,8 +17155,8 @@
     "TaskType": "classification",
     "Metric": "Accuracy_Gap",
     "EvaluationType": "Gap",
-    "Mean": 0.0690993841,
-    "Std": 0.0086531,
+    "Mean": 0.0840319627,
+    "Std": 0.0087278228,
     "Count": 20
   },
   {
@@ -15885,8 +17165,8 @@
     "TaskType": "classification",
     "Metric": "F1",
     "EvaluationType": "TRTR",
-    "Mean": 0.8410101056,
-    "Std": 0.0032008822,
+    "Mean": 0.8315744962,
+    "Std": 0.0018401092,
     "Count": 20
   },
   {
@@ -15895,8 +17175,8 @@
     "TaskType": "classification",
     "Metric": "F1",
     "EvaluationType": "TSTR",
-    "Mean": 0.7796264796,
-    "Std": 0.008068756,
+    "Mean": 0.7466344237,
+    "Std": 0.0099067345,
     "Count": 20
   },
   {
@@ -15905,7 +17185,7 @@
     "TaskType": "classification",
     "Metric": "F1_Drop",
     "EvaluationType": "Gap",
-    "Mean": 0.0613836261,
+    "Mean": 0.0849400725,
     "Std": null,
     "Count": 20
   },
@@ -15915,8 +17195,8 @@
     "TaskType": "classification",
     "Metric": "F1_Gap",
     "EvaluationType": "Gap",
-    "Mean": 0.0613836261,
-    "Std": 0.008068756,
+    "Mean": 0.0849400725,
+    "Std": 0.0099067345,
     "Count": 20
   },
   {
@@ -15925,8 +17205,8 @@
     "TaskType": "classification",
     "Metric": "Precision",
     "EvaluationType": "TRTR",
-    "Mean": 0.8603391939,
-    "Std": 0.0043174121,
+    "Mean": 0.8401839641,
+    "Std": 0.0018103119,
     "Count": 20
   },
   {
@@ -15935,8 +17215,8 @@
     "TaskType": "classification",
     "Metric": "Precision",
     "EvaluationType": "TSTR",
-    "Mean": 0.7895250346,
-    "Std": 0.0094697101,
+    "Mean": 0.7554431113,
+    "Std": 0.0090267455,
     "Count": 20
   },
   {
@@ -15945,7 +17225,7 @@
     "TaskType": "classification",
     "Metric": "Precision_Drop",
     "EvaluationType": "Gap",
-    "Mean": 0.0708141593,
+    "Mean": 0.0847408528,
     "Std": null,
     "Count": 20
   },
@@ -15955,8 +17235,8 @@
     "TaskType": "classification",
     "Metric": "Precision_Gap",
     "EvaluationType": "Gap",
-    "Mean": 0.0708141593,
-    "Std": 0.0094697101,
+    "Mean": 0.0847408528,
+    "Std": 0.0090267455,
     "Count": 20
   },
   {
@@ -15965,8 +17245,8 @@
     "TaskType": "classification",
     "Metric": "Recall",
     "EvaluationType": "TRTR",
-    "Mean": 0.8343617819,
-    "Std": 0.0057262166,
+    "Mean": 0.8341335109,
+    "Std": 0.0018139287,
     "Count": 20
   },
   {
@@ -15975,8 +17255,8 @@
     "TaskType": "classification",
     "Metric": "Recall",
     "EvaluationType": "TSTR",
-    "Mean": 0.7811894405,
-    "Std": 0.0140248671,
+    "Mean": 0.7501015482,
+    "Std": 0.0087278228,
     "Count": 20
   },
   {
@@ -15985,7 +17265,7 @@
     "TaskType": "classification",
     "Metric": "Recall_Drop",
     "EvaluationType": "Gap",
-    "Mean": 0.0531723414,
+    "Mean": 0.0840319627,
     "Std": null,
     "Count": 20
   },
@@ -15995,8 +17275,8 @@
     "TaskType": "classification",
     "Metric": "Recall_Gap",
     "EvaluationType": "Gap",
-    "Mean": 0.0531723414,
-    "Std": 0.0140248671,
+    "Mean": 0.0840319627,
+    "Std": 0.0087278228,
     "Count": 20
   },
   {
@@ -16325,8 +17605,8 @@
     "TaskType": "classification",
     "Metric": "Accuracy",
     "EvaluationType": "TRTR",
-    "Mean": 0.8328208756,
-    "Std": 0.0031216246,
+    "Mean": 0.8341335109,
+    "Std": 0.0018139287,
     "Count": 20
   },
   {
@@ -16335,8 +17615,8 @@
     "TaskType": "classification",
     "Metric": "Accuracy",
     "EvaluationType": "TSTR",
-    "Mean": 0.4853937073,
-    "Std": 0.0164072851,
+    "Mean": 0.4753595805,
+    "Std": 0.0190430329,
     "Count": 20
   },
   {
@@ -16345,7 +17625,7 @@
     "TaskType": "classification",
     "Metric": "Accuracy_Drop",
     "EvaluationType": "Gap",
-    "Mean": 0.3474271683,
+    "Mean": 0.3587739304,
     "Std": null,
     "Count": 20
   },
@@ -16355,8 +17635,8 @@
     "TaskType": "classification",
     "Metric": "Accuracy_Gap",
     "EvaluationType": "Gap",
-    "Mean": 0.3474271683,
-    "Std": 0.0164072851,
+    "Mean": 0.3587739304,
+    "Std": 0.0190430329,
     "Count": 20
   },
   {
@@ -16365,8 +17645,8 @@
     "TaskType": "classification",
     "Metric": "F1",
     "EvaluationType": "TRTR",
-    "Mean": 0.8410101056,
-    "Std": 0.0032008822,
+    "Mean": 0.8315744962,
+    "Std": 0.0018401092,
     "Count": 20
   },
   {
@@ -16375,8 +17655,8 @@
     "TaskType": "classification",
     "Metric": "F1",
     "EvaluationType": "TSTR",
-    "Mean": 0.5621417677,
-    "Std": 0.0280961297,
+    "Mean": 0.4475530296,
+    "Std": 0.0288973255,
     "Count": 20
   },
   {
@@ -16385,7 +17665,7 @@
     "TaskType": "classification",
     "Metric": "F1_Drop",
     "EvaluationType": "Gap",
-    "Mean": 0.278868338,
+    "Mean": 0.3840214666,
     "Std": null,
     "Count": 20
   },
@@ -16395,8 +17675,8 @@
     "TaskType": "classification",
     "Metric": "F1_Gap",
     "EvaluationType": "Gap",
-    "Mean": 0.278868338,
-    "Std": 0.0280961297,
+    "Mean": 0.3840214666,
+    "Std": 0.0288973255,
     "Count": 20
   },
   {
@@ -16405,8 +17685,8 @@
     "TaskType": "classification",
     "Metric": "Precision",
     "EvaluationType": "TRTR",
-    "Mean": 0.8603391939,
-    "Std": 0.0043174121,
+    "Mean": 0.8401839641,
+    "Std": 0.0018103119,
     "Count": 20
   },
   {
@@ -16415,8 +17695,8 @@
     "TaskType": "classification",
     "Metric": "Precision",
     "EvaluationType": "TSTR",
-    "Mean": 0.5309523804,
-    "Std": 0.0124754424,
+    "Mean": 0.4921113768,
+    "Std": 0.0288189484,
     "Count": 20
   },
   {
@@ -16425,7 +17705,7 @@
     "TaskType": "classification",
     "Metric": "Precision_Drop",
     "EvaluationType": "Gap",
-    "Mean": 0.3293868134,
+    "Mean": 0.3480725873,
     "Std": null,
     "Count": 20
   },
@@ -16435,8 +17715,8 @@
     "TaskType": "classification",
     "Metric": "Precision_Gap",
     "EvaluationType": "Gap",
-    "Mean": 0.3293868134,
-    "Std": 0.0124754424,
+    "Mean": 0.3480725873,
+    "Std": 0.0288189484,
     "Count": 20
   },
   {
@@ -16445,8 +17725,8 @@
     "TaskType": "classification",
     "Metric": "Recall",
     "EvaluationType": "TRTR",
-    "Mean": 0.8343617819,
-    "Std": 0.0057262166,
+    "Mean": 0.8341335109,
+    "Std": 0.0018139287,
     "Count": 20
   },
   {
@@ -16455,8 +17735,8 @@
     "TaskType": "classification",
     "Metric": "Recall",
     "EvaluationType": "TSTR",
-    "Mean": 0.6034183291,
-    "Std": 0.054434698,
+    "Mean": 0.4753595805,
+    "Std": 0.0190430329,
     "Count": 20
   },
   {
@@ -16465,7 +17745,7 @@
     "TaskType": "classification",
     "Metric": "Recall_Drop",
     "EvaluationType": "Gap",
-    "Mean": 0.2309434528,
+    "Mean": 0.3587739304,
     "Std": null,
     "Count": 20
   },
@@ -16475,8 +17755,8 @@
     "TaskType": "classification",
     "Metric": "Recall_Gap",
     "EvaluationType": "Gap",
-    "Mean": 0.2309434528,
-    "Std": 0.054434698,
+    "Mean": 0.3587739304,
+    "Std": 0.0190430329,
     "Count": 20
   },
   {
@@ -17135,8 +18415,8 @@
     "TaskType": "classification",
     "Metric": "Accuracy",
     "EvaluationType": "TSTR",
-    "Mean": 0.8095084122,
-    "Std": 0.007059451,
+    "Mean": 0.809497897,
+    "Std": 0.0070547905,
     "Count": 20
   },
   {
@@ -17145,7 +18425,7 @@
     "TaskType": "classification",
     "Metric": "Accuracy_Drop",
     "EvaluationType": "Gap",
-    "Mean": 0.0199395373,
+    "Mean": 0.0199500526,
     "Std": null,
     "Count": 20
   },
@@ -17155,8 +18435,8 @@
     "TaskType": "classification",
     "Metric": "Accuracy_Gap",
     "EvaluationType": "Gap",
-    "Mean": 0.0199395373,
-    "Std": 0.007059451,
+    "Mean": 0.0199500526,
+    "Std": 0.0070547905,
     "Count": 20
   },
   {
@@ -17175,8 +18455,8 @@
     "TaskType": "classification",
     "Metric": "F1",
     "EvaluationType": "TSTR",
-    "Mean": 0.8592933266,
-    "Std": 0.0054403646,
+    "Mean": 0.8592845768,
+    "Std": 0.0054360587,
     "Count": 20
   },
   {
@@ -17185,7 +18465,7 @@
     "TaskType": "classification",
     "Metric": "F1_Drop",
     "EvaluationType": "Gap",
-    "Mean": 0.0159807197,
+    "Mean": 0.0159894694,
     "Std": null,
     "Count": 20
   },
@@ -17195,8 +18475,8 @@
     "TaskType": "classification",
     "Metric": "F1_Gap",
     "EvaluationType": "Gap",
-    "Mean": 0.0159807197,
-    "Std": 0.0054403646,
+    "Mean": 0.0159894694,
+    "Std": 0.0054360587,
     "Count": 20
   },
   {
@@ -17215,8 +18495,8 @@
     "TaskType": "classification",
     "Metric": "Precision",
     "EvaluationType": "TSTR",
-    "Mean": 0.8282662845,
-    "Std": 0.0064133773,
+    "Mean": 0.8282642185,
+    "Std": 0.006413153,
     "Count": 20
   },
   {
@@ -17225,7 +18505,7 @@
     "TaskType": "classification",
     "Metric": "Precision_Drop",
     "EvaluationType": "Gap",
-    "Mean": 0.0089634537,
+    "Mean": 0.0089655197,
     "Std": null,
     "Count": 20
   },
@@ -17235,8 +18515,8 @@
     "TaskType": "classification",
     "Metric": "Precision_Gap",
     "EvaluationType": "Gap",
-    "Mean": 0.0089634537,
-    "Std": 0.0064133773,
+    "Mean": 0.0089655197,
+    "Std": 0.006413153,
     "Count": 20
   },
   {
@@ -17255,8 +18535,8 @@
     "TaskType": "classification",
     "Metric": "Recall",
     "EvaluationType": "TSTR",
-    "Mean": 0.8946918086,
-    "Std": 0.0088355453,
+    "Mean": 0.894675588,
+    "Std": 0.0088247499,
     "Count": 20
   },
   {
@@ -17265,7 +18545,7 @@
     "TaskType": "classification",
     "Metric": "Recall_Drop",
     "EvaluationType": "Gap",
-    "Mean": 0.0237631792,
+    "Mean": 0.0237793998,
     "Std": null,
     "Count": 20
   },
@@ -17275,8 +18555,8 @@
     "TaskType": "classification",
     "Metric": "Recall_Gap",
     "EvaluationType": "Gap",
-    "Mean": 0.0237631792,
-    "Std": 0.0088355453,
+    "Mean": 0.0237793998,
+    "Std": 0.0088247499,
     "Count": 20
   },
   {
@@ -17615,8 +18895,8 @@
     "TaskType": "classification",
     "Metric": "Accuracy",
     "EvaluationType": "TSTR",
-    "Mean": 0.6293585699,
-    "Std": 0.0080390547,
+    "Mean": 0.6095688749,
+    "Std": 0.0214644532,
     "Count": 20
   },
   {
@@ -17625,7 +18905,7 @@
     "TaskType": "classification",
     "Metric": "Accuracy_Drop",
     "EvaluationType": "Gap",
-    "Mean": 0.2000893796,
+    "Mean": 0.2198790747,
     "Std": null,
     "Count": 20
   },
@@ -17635,8 +18915,8 @@
     "TaskType": "classification",
     "Metric": "Accuracy_Gap",
     "EvaluationType": "Gap",
-    "Mean": 0.2000893796,
-    "Std": 0.0080390547,
+    "Mean": 0.2198790747,
+    "Std": 0.0214644532,
     "Count": 20
   },
   {
@@ -17655,8 +18935,8 @@
     "TaskType": "classification",
     "Metric": "F1",
     "EvaluationType": "TSTR",
-    "Mean": 0.7575727447,
-    "Std": 0.0056858021,
+    "Mean": 0.7141358349,
+    "Std": 0.0293541881,
     "Count": 20
   },
   {
@@ -17665,7 +18945,7 @@
     "TaskType": "classification",
     "Metric": "F1_Drop",
     "EvaluationType": "Gap",
-    "Mean": 0.1177013016,
+    "Mean": 0.1611382114,
     "Std": null,
     "Count": 20
   },
@@ -17675,8 +18955,8 @@
     "TaskType": "classification",
     "Metric": "F1_Gap",
     "EvaluationType": "Gap",
-    "Mean": 0.1177013016,
-    "Std": 0.0056858021,
+    "Mean": 0.1611382114,
+    "Std": 0.0293541881,
     "Count": 20
   },
   {
@@ -17695,8 +18975,8 @@
     "TaskType": "classification",
     "Metric": "Precision",
     "EvaluationType": "TSTR",
-    "Mean": 0.6551930153,
-    "Std": 0.0053091281,
+    "Mean": 0.648568388,
+    "Std": 0.0175162314,
     "Count": 20
   },
   {
@@ -17705,7 +18985,7 @@
     "TaskType": "classification",
     "Metric": "Precision_Drop",
     "EvaluationType": "Gap",
-    "Mean": 0.182036723,
+    "Mean": 0.1886613502,
     "Std": null,
     "Count": 20
   },
@@ -17715,8 +18995,8 @@
     "TaskType": "classification",
     "Metric": "Precision_Gap",
     "EvaluationType": "Gap",
-    "Mean": 0.182036723,
-    "Std": 0.0053091281,
+    "Mean": 0.1886613502,
+    "Std": 0.0175162314,
     "Count": 20
   },
   {
@@ -17735,8 +19015,8 @@
     "TaskType": "classification",
     "Metric": "Recall",
     "EvaluationType": "TSTR",
-    "Mean": 0.9056407137,
-    "Std": 0.0104931483,
+    "Mean": 0.8235928629,
+    "Std": 0.0446965509,
     "Count": 20
   },
   {
@@ -17745,7 +19025,7 @@
     "TaskType": "classification",
     "Metric": "Recall_Drop",
     "EvaluationType": "Gap",
-    "Mean": 0.0128142741,
+    "Mean": 0.0948621249,
     "Std": null,
     "Count": 20
   },
@@ -17755,8 +19035,8 @@
     "TaskType": "classification",
     "Metric": "Recall_Gap",
     "EvaluationType": "Gap",
-    "Mean": 0.0128142741,
-    "Std": 0.0104931483,
+    "Mean": 0.0948621249,
+    "Std": 0.0446965509,
     "Count": 20
   },
   {

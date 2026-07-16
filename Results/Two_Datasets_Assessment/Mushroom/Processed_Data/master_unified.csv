@@ -2559,7 +2559,6 @@ Dataset,Generator,Seed,LeakageLevel,Metric,MetricValue,Classifier,Regressor,Cate
 8. Mushroom dataset,ForestDiffusion,,,F1_Drop,,Naive Bayes,,,Gap,0.02129519570523652,,classification,Generators/Experiment with utility data leak/utility results/8. Mushroom dataset/TRTR_TSTR_results_merged.xlsx,utility,0.02129519570523652,,0.0,100.0
 8. Mushroom dataset,ForestDiffusion,,,Precision_Drop,,Naive Bayes,,,Gap,0.01980134332531103,,classification,Generators/Experiment with utility data leak/utility results/8. Mushroom dataset/TRTR_TSTR_results_merged.xlsx,utility,0.01980134332531103,,0.0,100.0
 8. Mushroom dataset,ForestDiffusion,,,Recall_Drop,,Naive Bayes,,,Gap,0.01949902504874756,,classification,Generators/Experiment with utility data leak/utility results/8. Mushroom dataset/TRTR_TSTR_results_merged.xlsx,utility,0.01949902504874756,,0.0,100.0
-8. Mushroom dataset,CTGAN,,0.0,JS_Divergence,0.036141,,,Fidelity,Score,0.036141,,,Generators/SDV models/8. Mushroom.ipynb,,,,,
 8. Mushroom dataset,CopulaGAN,,0.0,Wasserstein_Distance,0.009572,,,Fidelity,Score,0.009572,,,Generators/SDV models/8. Mushroom.ipynb,,,,,
 8. Mushroom dataset,CTGAN,,0.0,Wasserstein_Distance,0.010058,,,Fidelity,Score,0.010058,,,Generators/SDV models/8. Mushroom.ipynb,,,,,
 8. Mushroom dataset,GaussianCopula,,0.0,Wasserstein_Distance,0.010206,,,Fidelity,Score,0.010206,,,Generators/SDV models/8. Mushroom.ipynb,,,,,
@@ -2588,8 +2587,14 @@ Dataset,Generator,Seed,LeakageLevel,Metric,MetricValue,Classifier,Regressor,Cate
 8. Mushroom dataset,CTGAN,,0.0,MMD_Multivariate,0.004699,,,Fidelity,Score,0.004699,,,Generators/SDV models/8. Mushroom.ipynb,,,,,
 8. Mushroom dataset,CopulaGAN,,0.0,MMD_Multivariate,0.006553,,,Fidelity,Score,0.006553,,,Generators/SDV models/8. Mushroom.ipynb,,,,,
 8. Mushroom dataset,TVAE,,0.0,MMD_Multivariate,0.024753,,,Fidelity,Score,0.024753,,,Generators/SDV models/8. Mushroom.ipynb,,,,,
-8. Mushroom dataset,CTABGAN,,0.0,KS_Complement,1.0,,,Fidelity,Score,1.0,,,Generators/Other GANS/8. Mushroom_other GAN.ipynb,,,,,
-8. Mushroom dataset,CTABGAN,,0.0,JS_Divergence,0.500324,,,Fidelity,Score,0.500324,,,Generators/Other GANS/8. Mushroom_other GAN.ipynb,,,,,
+8. Mushroom dataset,CTGAN,,0.0,KS_Complement,0.9179,,,Fidelity,Score,0.9179,,,Generators/SDV models/8. Mushroom.ipynb,,,,,
+8. Mushroom dataset,CopulaGAN,,0.0,KS_Complement,0.9233,,,Fidelity,Score,0.9233,,,Generators/SDV models/8. Mushroom.ipynb,,,,,
+8. Mushroom dataset,TVAE,,0.0,KS_Complement,0.922,,,Fidelity,Score,0.922,,,Generators/SDV models/8. Mushroom.ipynb,,,,,
+8. Mushroom dataset,GaussianCopula,,0.0,KS_Complement,0.9840000000000001,,,Fidelity,Score,0.9840000000000001,,,Generators/SDV models/8. Mushroom.ipynb,,,,,
+8. Mushroom dataset,CTGAN,,0.0,JS_Divergence,0.0131428571428571,,,Fidelity,Score,0.0131428571428571,,,Results/Supplementary/js_divergence_from_plots.csv,,,,,
+8. Mushroom dataset,CopulaGAN,,0.0,JS_Divergence,0.0109230769230769,,,Fidelity,Score,0.0109230769230769,,,Results/Supplementary/js_divergence_from_plots.csv,,,,,
+8. Mushroom dataset,TVAE,,0.0,JS_Divergence,0.008,,,Fidelity,Score,0.008,,,Results/Supplementary/js_divergence_from_plots.csv,,,,,
+8. Mushroom dataset,GaussianCopula,,0.0,JS_Divergence,0.0236666666666666,,,Fidelity,Score,0.0236666666666666,,,Results/Supplementary/js_divergence_from_plots.csv,,,,,
 8. Mushroom dataset,CTABGAN,,0.0,Wasserstein_Distance,0.013457,,,Fidelity,Score,0.013457,,,Generators/Other GANS/8. Mushroom_other GAN.ipynb,,,,,
 8. Mushroom dataset,WGAN_GP,,0.0,Wasserstein_Distance,0.08401,,,Fidelity,Score,0.08401,,,Generators/Other GANS/8. Mushroom_other GAN.ipynb,,,,,
 8. Mushroom dataset,CTABGAN,,0.0,Gower_Distance,0.338105,,,Fidelity,Score,0.338105,,,Generators/Other GANS/8. Mushroom_other GAN.ipynb,,,,,
@@ -2604,8 +2609,10 @@ Dataset,Generator,Seed,LeakageLevel,Metric,MetricValue,Classifier,Regressor,Cate
 8. Mushroom dataset,WGAN_GP,,0.0,PCA_Correlation_Diff,0.165821,,,Fidelity,Score,0.165821,,,Generators/Other GANS/8. Mushroom_other GAN.ipynb,,,,,
 8. Mushroom dataset,WGAN_GP,,0.0,MMD_Multivariate,0.027574,,,Fidelity,Score,0.027574,,,Generators/Other GANS/8. Mushroom_other GAN.ipynb,,,,,
 8. Mushroom dataset,CTABGAN,,0.0,MMD_Multivariate,0.064502,,,Fidelity,Score,0.064502,,,Generators/Other GANS/8. Mushroom_other GAN.ipynb,,,,,
-8. Mushroom dataset,TabDDPM,,0.0,KS_Complement,0.991,,,Fidelity,Score,0.991,,,Generators/Diffusion GANs/8. Mushroom_diffusion.ipynb,,,,,
-8. Mushroom dataset,TabDDPM,,0.0,JS_Divergence,0.974728,,,Fidelity,Score,0.974728,,,Generators/Diffusion GANs/8. Mushroom_diffusion.ipynb,,,,,
+8. Mushroom dataset,CTABGAN,,0.0,KS_Complement,0.9218000000000001,,,Fidelity,Score,0.9218000000000001,,,Generators/Other GANS/8. Mushroom_other GAN.ipynb,,,,,
+8. Mushroom dataset,WGAN_GP,,0.0,KS_Complement,0.6004999999999999,,,Fidelity,Score,0.6004999999999999,,,Generators/Other GANS/8. Mushroom_other GAN.ipynb,,,,,
+8. Mushroom dataset,CTABGAN,,0.0,JS_Divergence,0.021,,,Fidelity,Score,0.021,,,Results/Supplementary/js_divergence_from_plots.csv,,,,,
+8. Mushroom dataset,WGAN_GP,,0.0,JS_Divergence,0.3174705882352941,,,Fidelity,Score,0.3174705882352941,,,Results/Supplementary/js_divergence_from_plots.csv,,,,,
 8. Mushroom dataset,ForestDiffusion,,0.0,Wasserstein_Distance,0.128891,,,Fidelity,Score,0.128891,,,Generators/Diffusion GANs/8. Mushroom_diffusion.ipynb,,,,,
 8. Mushroom dataset,TabDDPM,,0.0,Wasserstein_Distance,0.195305,,,Fidelity,Score,0.195305,,,Generators/Diffusion GANs/8. Mushroom_diffusion.ipynb,,,,,
 8. Mushroom dataset,TabDDPM,,0.0,Gower_Distance,0.174698,,,Fidelity,Score,0.174698,,,Generators/Diffusion GANs/8. Mushroom_diffusion.ipynb,,,,,
@@ -2620,38 +2627,54 @@ Dataset,Generator,Seed,LeakageLevel,Metric,MetricValue,Classifier,Regressor,Cate
 8. Mushroom dataset,ForestDiffusion,,0.0,PCA_Correlation_Diff,0.050646,,,Fidelity,Score,0.050646,,,Generators/Diffusion GANs/8. Mushroom_diffusion.ipynb,,,,,
 8. Mushroom dataset,ForestDiffusion,,0.0,MMD_Multivariate,0.035106,,,Fidelity,Score,0.035106,,,Generators/Diffusion GANs/8. Mushroom_diffusion.ipynb,,,,,
 8. Mushroom dataset,TabDDPM,,0.0,MMD_Multivariate,0.326503,,,Fidelity,Score,0.326503,,,Generators/Diffusion GANs/8. Mushroom_diffusion.ipynb,,,,,
+8. Mushroom dataset,TabDDPM,,0.0,KS_Complement,0.45280000000000004,,,Fidelity,Score,0.45280000000000004,,,Generators/Diffusion GANs/8. Mushroom_diffusion.ipynb,,,,,
+8. Mushroom dataset,ForestDiffusion,,0.0,KS_Complement,0.574,,,Fidelity,Score,0.574,,,Generators/Diffusion GANs/8. Mushroom_diffusion.ipynb,,,,,
+8. Mushroom dataset,TabDDPM,,0.0,JS_Divergence,0.4794117647058823,,,Fidelity,Score,0.4794117647058823,,,Results/Supplementary/js_divergence_from_plots.csv,,,,,
+8. Mushroom dataset,ForestDiffusion,,0.0,JS_Divergence,0.1098235294117647,,,Fidelity,Score,0.1098235294117647,,,Results/Supplementary/js_divergence_from_plots.csv,,,,,
 8. Mushroom dataset,TVAE,,0.0,Quality_Score,0.914558,,,Fidelity,,0.914558,,,Generators/SDV models/8. Mushroom.ipynb,fidelity,0.914558,,,
 8. Mushroom dataset,GaussianCopula,,0.0,Quality_Score,0.909833,,,Fidelity,,0.909833,,,Generators/SDV models/8. Mushroom.ipynb,fidelity,0.909833,,,
 8. Mushroom dataset,CopulaGAN,,0.0,Quality_Score,0.892834,,,Fidelity,,0.892834,,,Generators/SDV models/8. Mushroom.ipynb,fidelity,0.892834,,,
 8. Mushroom dataset,CTGAN,,0.0,Quality_Score,0.878921,,,Fidelity,,0.878921,,,Generators/SDV models/8. Mushroom.ipynb,fidelity,0.878921,,,
+8. Mushroom dataset,CTABGAN,,0.0,Quality_Score,0.921772,,,Fidelity,,0.921772,,,Generators/Other GANS/8. Mushroom_other GAN.ipynb,fidelity,0.921772,,,
+8. Mushroom dataset,WGAN_GP,,0.0,Quality_Score,0.600454,,,Fidelity,,0.600454,,,Generators/Other GANS/8. Mushroom_other GAN.ipynb,fidelity,0.600454,,,
+8. Mushroom dataset,ForestDiffusion,,0.0,Quality_Score,0.573974,,,Fidelity,,0.573974,,,Generators/Diffusion GANs/8. Mushroom_diffusion.ipynb,fidelity,0.573974,,,
+8. Mushroom dataset,TabDDPM,,0.0,Quality_Score,0.452807,,,Fidelity,,0.452807,,,Generators/Diffusion GANs/8. Mushroom_diffusion.ipynb,fidelity,0.452807,,,
 8. Mushroom dataset,GaussianCopula,,0.0,Mean_Distance,0.3940570978261434,,,Privacy,Score,0.3940570978261434,,,/home/gopi.battineni/SYNTH_BENCHMARK/Generators/SDV models/Excel sheets/Hungarian_Mahalanobis_Four_Models_Secondary_Mushroom.xlsx,privacy,0.3940570978261434,,0.0,100.0
+8. Mushroom dataset,TVAE,,0.0,Mean_Distance,0.4330184728020023,,,Privacy,Score,0.4330184728020023,,,/home/gopi.battineni/SYNTH_BENCHMARK/Generators/SDV models/Excel sheets/Hungarian_Mahalanobis_Four_Models_Secondary_Mushroom.xlsx,privacy,0.4330184728020023,,0.0,100.0
+8. Mushroom dataset,CTGAN,,0.0,Mean_Distance,0.4861690905004704,,,Privacy,Score,0.4861690905004704,,,/home/gopi.battineni/SYNTH_BENCHMARK/Generators/SDV models/Excel sheets/Hungarian_Mahalanobis_Four_Models_Secondary_Mushroom.xlsx,privacy,0.4861690905004704,,0.0,100.0
+8. Mushroom dataset,CopulaGAN,,0.0,Mean_Distance,0.5394674015084815,,,Privacy,Score,0.5394674015084815,,,/home/gopi.battineni/SYNTH_BENCHMARK/Generators/SDV models/Excel sheets/Hungarian_Mahalanobis_Four_Models_Secondary_Mushroom.xlsx,privacy,0.5394674015084815,,0.0,100.0
+8. Mushroom dataset,WGAN_GP,,0.0,Mean_Distance,1.040747,,,Privacy,Score,1.040747,,,Generators/Other GANS/8. Mushroom_other GAN.ipynb,,,,,
+8. Mushroom dataset,CTABGAN,,0.0,Mean_Distance,1.817611,,,Privacy,Score,1.817611,,,Generators/Other GANS/8. Mushroom_other GAN.ipynb,,,,,
+8. Mushroom dataset,ForestDiffusion,,0.0,Mean_Distance,0.527554,,,Privacy,Score,0.527554,,,Generators/Diffusion GANs/8. Mushroom_diffusion.ipynb,,,,,
+8. Mushroom dataset,TabDDPM,,0.0,Mean_Distance,9.243277,,,Privacy,Score,9.243277,,,Generators/Diffusion GANs/8. Mushroom_diffusion.ipynb,,,,,
 8. Mushroom dataset,GaussianCopula,,0.0,Median_Distance,0.2254726919414616,,,Privacy,Score,0.2254726919414616,,,/home/gopi.battineni/SYNTH_BENCHMARK/Generators/SDV models/Excel sheets/Hungarian_Mahalanobis_Four_Models_Secondary_Mushroom.xlsx,privacy,0.2254726919414616,,0.0,100.0
 8. Mushroom dataset,GaussianCopula,,0.0,Std_Distance,0.6656111910637376,,,Privacy,Score,0.6656111910637376,,,/home/gopi.battineni/SYNTH_BENCHMARK/Generators/SDV models/Excel sheets/Hungarian_Mahalanobis_Four_Models_Secondary_Mushroom.xlsx,privacy,0.6656111910637376,,0.0,100.0
 8. Mushroom dataset,GaussianCopula,,0.0,Min_Distance,0.002146086828991257,,,Privacy,Score,0.002146086828991257,,,/home/gopi.battineni/SYNTH_BENCHMARK/Generators/SDV models/Excel sheets/Hungarian_Mahalanobis_Four_Models_Secondary_Mushroom.xlsx,privacy,0.002146086828991257,,0.0,100.0
 8. Mushroom dataset,GaussianCopula,,0.0,Max_Distance,8.674030931532393,,,Privacy,Score,8.674030931532393,,,/home/gopi.battineni/SYNTH_BENCHMARK/Generators/SDV models/Excel sheets/Hungarian_Mahalanobis_Four_Models_Secondary_Mushroom.xlsx,privacy,8.674030931532393,,0.0,100.0
-8. Mushroom dataset,TVAE,,0.0,Mean_Distance,0.4330184728020023,,,Privacy,Score,0.4330184728020023,,,/home/gopi.battineni/SYNTH_BENCHMARK/Generators/SDV models/Excel sheets/Hungarian_Mahalanobis_Four_Models_Secondary_Mushroom.xlsx,privacy,0.4330184728020023,,0.0,100.0
 8. Mushroom dataset,TVAE,,0.0,Median_Distance,0.2391303192908091,,,Privacy,Score,0.2391303192908091,,,/home/gopi.battineni/SYNTH_BENCHMARK/Generators/SDV models/Excel sheets/Hungarian_Mahalanobis_Four_Models_Secondary_Mushroom.xlsx,privacy,0.2391303192908091,,0.0,100.0
 8. Mushroom dataset,TVAE,,0.0,Std_Distance,0.5819500932247141,,,Privacy,Score,0.5819500932247141,,,/home/gopi.battineni/SYNTH_BENCHMARK/Generators/SDV models/Excel sheets/Hungarian_Mahalanobis_Four_Models_Secondary_Mushroom.xlsx,privacy,0.5819500932247141,,0.0,100.0
 8. Mushroom dataset,TVAE,,0.0,Min_Distance,0.002386147886231051,,,Privacy,Score,0.002386147886231051,,,/home/gopi.battineni/SYNTH_BENCHMARK/Generators/SDV models/Excel sheets/Hungarian_Mahalanobis_Four_Models_Secondary_Mushroom.xlsx,privacy,0.002386147886231051,,0.0,100.0
 8. Mushroom dataset,TVAE,,0.0,Max_Distance,7.677494416667606,,,Privacy,Score,7.677494416667606,,,/home/gopi.battineni/SYNTH_BENCHMARK/Generators/SDV models/Excel sheets/Hungarian_Mahalanobis_Four_Models_Secondary_Mushroom.xlsx,privacy,7.677494416667606,,0.0,100.0
-8. Mushroom dataset,CTGAN,,0.0,Mean_Distance,0.4861690905004704,,,Privacy,Score,0.4861690905004704,,,/home/gopi.battineni/SYNTH_BENCHMARK/Generators/SDV models/Excel sheets/Hungarian_Mahalanobis_Four_Models_Secondary_Mushroom.xlsx,privacy,0.4861690905004704,,0.0,100.0
 8. Mushroom dataset,CTGAN,,0.0,Median_Distance,0.2672439677717343,,,Privacy,Score,0.2672439677717343,,,/home/gopi.battineni/SYNTH_BENCHMARK/Generators/SDV models/Excel sheets/Hungarian_Mahalanobis_Four_Models_Secondary_Mushroom.xlsx,privacy,0.2672439677717343,,0.0,100.0
 8. Mushroom dataset,CTGAN,,0.0,Std_Distance,0.6432292575753934,,,Privacy,Score,0.6432292575753934,,,/home/gopi.battineni/SYNTH_BENCHMARK/Generators/SDV models/Excel sheets/Hungarian_Mahalanobis_Four_Models_Secondary_Mushroom.xlsx,privacy,0.6432292575753934,,0.0,100.0
 8. Mushroom dataset,CTGAN,,0.0,Min_Distance,0.0,,,Privacy,Score,0.0,,,/home/gopi.battineni/SYNTH_BENCHMARK/Generators/SDV models/Excel sheets/Hungarian_Mahalanobis_Four_Models_Secondary_Mushroom.xlsx,privacy,0.0,,0.0,100.0
 8. Mushroom dataset,CTGAN,,0.0,Max_Distance,7.073248842283225,,,Privacy,Score,7.073248842283225,,,/home/gopi.battineni/SYNTH_BENCHMARK/Generators/SDV models/Excel sheets/Hungarian_Mahalanobis_Four_Models_Secondary_Mushroom.xlsx,privacy,7.073248842283225,,0.0,100.0
-8. Mushroom dataset,CopulaGAN,,0.0,Mean_Distance,0.5394674015084815,,,Privacy,Score,0.5394674015084815,,,/home/gopi.battineni/SYNTH_BENCHMARK/Generators/SDV models/Excel sheets/Hungarian_Mahalanobis_Four_Models_Secondary_Mushroom.xlsx,privacy,0.5394674015084815,,0.0,100.0
 8. Mushroom dataset,CopulaGAN,,0.0,Median_Distance,0.2874242337085394,,,Privacy,Score,0.2874242337085394,,,/home/gopi.battineni/SYNTH_BENCHMARK/Generators/SDV models/Excel sheets/Hungarian_Mahalanobis_Four_Models_Secondary_Mushroom.xlsx,privacy,0.2874242337085394,,0.0,100.0
 8. Mushroom dataset,CopulaGAN,,0.0,Std_Distance,0.7106181738402562,,,Privacy,Score,0.7106181738402562,,,/home/gopi.battineni/SYNTH_BENCHMARK/Generators/SDV models/Excel sheets/Hungarian_Mahalanobis_Four_Models_Secondary_Mushroom.xlsx,privacy,0.7106181738402562,,0.0,100.0
 8. Mushroom dataset,CopulaGAN,,0.0,Min_Distance,0.0,,,Privacy,Score,0.0,,,/home/gopi.battineni/SYNTH_BENCHMARK/Generators/SDV models/Excel sheets/Hungarian_Mahalanobis_Four_Models_Secondary_Mushroom.xlsx,privacy,0.0,,0.0,100.0
 8. Mushroom dataset,CopulaGAN,,0.0,Max_Distance,7.220497162081333,,,Privacy,Score,7.220497162081333,,,/home/gopi.battineni/SYNTH_BENCHMARK/Generators/SDV models/Excel sheets/Hungarian_Mahalanobis_Four_Models_Secondary_Mushroom.xlsx,privacy,7.220497162081333,,0.0,100.0
-8. Mushroom dataset,GaussianCopula,,0.0,Num_Matches,10000.0,,,Privacy,Score,10000.0,,,/home/gopi.battineni/SYNTH_BENCHMARK/Generators/SDV models/Excel sheets/Matchings_All_Models_Secondary_Mushroom.xlsx,privacy,10000.0,,0.0,100.0
-8. Mushroom dataset,CopulaGAN,,0.0,Num_Matches,10000.0,,,Privacy,Score,10000.0,,,/home/gopi.battineni/SYNTH_BENCHMARK/Generators/SDV models/Excel sheets/Matchings_All_Models_Secondary_Mushroom.xlsx,privacy,10000.0,,0.0,100.0
-8. Mushroom dataset,CTGAN,,0.0,Num_Matches,10000.0,,,Privacy,Score,10000.0,,,/home/gopi.battineni/SYNTH_BENCHMARK/Generators/SDV models/Excel sheets/Matchings_All_Models_Secondary_Mushroom.xlsx,privacy,10000.0,,0.0,100.0
-8. Mushroom dataset,TVAE,,0.0,Num_Matches,10000.0,,,Privacy,Score,10000.0,,,/home/gopi.battineni/SYNTH_BENCHMARK/Generators/SDV models/Excel sheets/Matchings_All_Models_Secondary_Mushroom.xlsx,privacy,10000.0,,0.0,100.0
 8. Mushroom dataset,CopulaGAN,,0.0,NNDR,0.168347,,,Privacy,Score,0.168347,,,Generators/SDV models/8. Mushroom.ipynb,,,,,
 8. Mushroom dataset,CTGAN,,0.0,NNDR,0.159398,,,Privacy,Score,0.159398,,,Generators/SDV models/8. Mushroom.ipynb,,,,,
 8. Mushroom dataset,GaussianCopula,,0.0,NNDR,0.132641,,,Privacy,Score,0.132641,,,Generators/SDV models/8. Mushroom.ipynb,,,,,
 8. Mushroom dataset,TVAE,,0.0,NNDR,0.082171,,,Privacy,Score,0.082171,,,Generators/SDV models/8. Mushroom.ipynb,,,,,
+8. Mushroom dataset,GaussianCopula,,0.0,Hungarian_Cosine_Similarity,0.994428,,,Privacy,Score,0.994428,,,Generators/SDV models/8. Mushroom.ipynb,,,,,
+8. Mushroom dataset,GaussianCopula,,0.0,Num_Matches,10000.0,,,Privacy,Score,10000.0,,,Generators/SDV models/8. Mushroom.ipynb,,,,,
+8. Mushroom dataset,CopulaGAN,,0.0,Hungarian_Cosine_Similarity,0.989882,,,Privacy,Score,0.989882,,,Generators/SDV models/8. Mushroom.ipynb,,,,,
+8. Mushroom dataset,CopulaGAN,,0.0,Num_Matches,10000.0,,,Privacy,Score,10000.0,,,Generators/SDV models/8. Mushroom.ipynb,,,,,
+8. Mushroom dataset,CTGAN,,0.0,Hungarian_Cosine_Similarity,0.988783,,,Privacy,Score,0.988783,,,Generators/SDV models/8. Mushroom.ipynb,,,,,
+8. Mushroom dataset,CTGAN,,0.0,Num_Matches,10000.0,,,Privacy,Score,10000.0,,,Generators/SDV models/8. Mushroom.ipynb,,,,,
+8. Mushroom dataset,TVAE,,0.0,Hungarian_Cosine_Similarity,0.983587,,,Privacy,Score,0.983587,,,Generators/SDV models/8. Mushroom.ipynb,,,,,
+8. Mushroom dataset,TVAE,,0.0,Num_Matches,10000.0,,,Privacy,Score,10000.0,,,Generators/SDV models/8. Mushroom.ipynb,,,,,
 8. Mushroom dataset,TVAE,,0.0,Mahalanobis_Distance,0.796929,,,Privacy,Score,0.796929,,,Generators/SDV models/8. Mushroom.ipynb,,,,,
 8. Mushroom dataset,CopulaGAN,,0.0,Mahalanobis_Distance,1.115481,,,Privacy,Score,1.115481,,,Generators/SDV models/8. Mushroom.ipynb,,,,,
 8. Mushroom dataset,GaussianCopula,,0.0,Mahalanobis_Distance,1.124839,,,Privacy,Score,1.124839,,,Generators/SDV models/8. Mushroom.ipynb,,,,,
@@ -2663,16 +2686,20 @@ Dataset,Generator,Seed,LeakageLevel,Metric,MetricValue,Classifier,Regressor,Cate
 8. Mushroom dataset,WGAN_GP,,0.0,NNDR,19.131607,,,Privacy,Score,19.131607,,,Generators/Other GANS/8. Mushroom_other GAN.ipynb,,,,,
 8. Mushroom dataset,CTABGAN,,0.0,NNDR,10.347531,,,Privacy,Score,10.347531,,,Generators/Other GANS/8. Mushroom_other GAN.ipynb,,,,,
 8. Mushroom dataset,CTABGAN,,0.0,Hungarian_Cosine_Similarity,0.9666,,,Privacy,Score,0.9666,,,Generators/Other GANS/8. Mushroom_other GAN.ipynb,,,,,
+8. Mushroom dataset,CTABGAN,,0.0,Num_Matches,1000.0,,,Privacy,Score,1000.0,,,Generators/Other GANS/8. Mushroom_other GAN.ipynb,,,,,
 8. Mushroom dataset,WGAN_GP,,0.0,Hungarian_Cosine_Similarity,0.864065,,,Privacy,Score,0.864065,,,Generators/Other GANS/8. Mushroom_other GAN.ipynb,,,,,
+8. Mushroom dataset,WGAN_GP,,0.0,Num_Matches,1000.0,,,Privacy,Score,1000.0,,,Generators/Other GANS/8. Mushroom_other GAN.ipynb,,,,,
 8. Mushroom dataset,WGAN_GP,,0.0,Mahalanobis_Distance,1.508143,,,Privacy,Score,1.508143,,,Generators/Other GANS/8. Mushroom_other GAN.ipynb,,,,,
 8. Mushroom dataset,CTABGAN,,0.0,Mahalanobis_Distance,2.030192,,,Privacy,Score,2.030192,,,Generators/Other GANS/8. Mushroom_other GAN.ipynb,,,,,
-8. Mushroom dataset,WGAN_GP,,0.0,MIA_AUC,0.76683,,,Privacy,Score,0.76683,,,Generators/Other GANS/8. Mushroom_other GAN.ipynb,,,,,
-8. Mushroom dataset,CTABGAN,,0.0,MIA_AUC,0.75725,,,Privacy,Score,0.75725,,,Generators/Other GANS/8. Mushroom_other GAN.ipynb,,,,,
+8. Mushroom dataset,CTABGAN,,0.0,MIA_AUC,0.493407,,,Privacy,Score,0.493407,,,Generators/Other GANS/8. Mushroom_other GAN.ipynb,,,,,
+8. Mushroom dataset,WGAN_GP,,0.0,MIA_AUC,0.539532,,,Privacy,Score,0.539532,,,Generators/Other GANS/8. Mushroom_other GAN.ipynb,,,,,
 8. Mushroom dataset,TabDDPM,,0.0,NNDR,26.552123,,,Privacy,Score,26.552123,,,Generators/Diffusion GANs/8. Mushroom_diffusion.ipynb,,,,,
 8. Mushroom dataset,ForestDiffusion,,0.0,NNDR,13.218077,,,Privacy,Score,13.218077,,,Generators/Diffusion GANs/8. Mushroom_diffusion.ipynb,,,,,
 8. Mushroom dataset,ForestDiffusion,,0.0,Hungarian_Cosine_Similarity,0.988409,,,Privacy,Score,0.988409,,,Generators/Diffusion GANs/8. Mushroom_diffusion.ipynb,,,,,
+8. Mushroom dataset,ForestDiffusion,,0.0,Num_Matches,1000.0,,,Privacy,Score,1000.0,,,Generators/Diffusion GANs/8. Mushroom_diffusion.ipynb,,,,,
 8. Mushroom dataset,TabDDPM,,0.0,Hungarian_Cosine_Similarity,0.810579,,,Privacy,Score,0.810579,,,Generators/Diffusion GANs/8. Mushroom_diffusion.ipynb,,,,,
+8. Mushroom dataset,TabDDPM,,0.0,Num_Matches,1000.0,,,Privacy,Score,1000.0,,,Generators/Diffusion GANs/8. Mushroom_diffusion.ipynb,,,,,
 8. Mushroom dataset,ForestDiffusion,,0.0,Mahalanobis_Distance,0.710741,,,Privacy,Score,0.710741,,,Generators/Diffusion GANs/8. Mushroom_diffusion.ipynb,,,,,
 8. Mushroom dataset,TabDDPM,,0.0,Mahalanobis_Distance,7.135189,,,Privacy,Score,7.135189,,,Generators/Diffusion GANs/8. Mushroom_diffusion.ipynb,,,,,
-8. Mushroom dataset,TabDDPM,,0.0,MIA_AUC,0.975454,,,Privacy,Score,0.975454,,,Generators/Diffusion GANs/8. Mushroom_diffusion.ipynb,,,,,
-8. Mushroom dataset,ForestDiffusion,,0.0,MIA_AUC,0.306686,,,Privacy,Score,0.306686,,,Generators/Diffusion GANs/8. Mushroom_diffusion.ipynb,,,,,
+8. Mushroom dataset,ForestDiffusion,,0.0,MIA_AUC,0.50757,,,Privacy,Score,0.50757,,,Generators/Diffusion GANs/8. Mushroom_diffusion.ipynb,,,,,
+8. Mushroom dataset,TabDDPM,,0.0,MIA_AUC,0.52337,,,Privacy,Score,0.52337,,,Generators/Diffusion GANs/8. Mushroom_diffusion.ipynb,,,,,
