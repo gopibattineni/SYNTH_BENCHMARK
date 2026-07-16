@@ -9,35 +9,24 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ## [Unreleased]
 
 ### Added
-- **Automated publication analysis pipeline** (`analysis/`, `run_analysis.py`)
-  - Auto-discovers and merges all Excel files (no hardcoded filenames)
-  - Cumulative Utility / Fidelity / Privacy scores (0–1) with configurable weights (default 40/30/30)
-  - Friedman + Nemenyi + Wilcoxon statistical tests with effect sizes
-  - Pareto frontier analysis, composite rankings, critical difference diagrams
-  - Seed stability (coefficient of variation across 10 seeds)
-  - 60+ publication figures at 300 DPI (PNG, PDF, SVG, EPS)
-- **Two-dataset case study** (`analysis/two_datasets/`, `run_two_datasets_assessment.py`)
-  - Dedicated Cancer & Mushroom assessment with 18 figures per dataset
-  - Cross-dataset comparison plots and tables
-  - Output: `Results/Two_Datasets_Assessment/`
-- **Paper results extraction** (`scripts/extract_paper_results.py`)
-  - Per-dataset `TRTR_TSTR_results_*.xlsx` and `fidelity_privacy_metrics.xlsx`
-  - t-SNE figure extraction from notebooks
-- **GitHub Pages dashboard** (`dashboard/`, `.github/workflows/deploy-pages.yml`)
-  - Static site built from pipeline outputs in `docs/`
-- **Feature-level fidelity heatmaps** from generator notebook HTML tables (KS, JS)
+- **Correlation trade-off analysis** (`analysis/correlation_tradeoff/`, `run_correlation_tradeoff_analysis.py`)
+  - Primary figures: one point per generator (mean over Cancer & Mushroom, classifiers, seeds)
+  - Supplementary figures: seed-level scatters (Cancer ○ / Mushroom □)
+  - Pearson / Spearman / R² / *p*, OLS + 95% CI; MIA and NNDR privacy variants
+  - Output: `Results/Correlation_Tradeoff_Analysis/`
+- **Utility drop analysis** (`analysis/utility_drop/`, `run_utility_drop_analysis.py`)
+- **Representative metrics trade-off** (`analysis/representative_tradeoff/`, `run_representative_tradeoff.py`)
+- **Dashboard Statistics tab** — Average error by model (Mean / Median / Std Error %) for 8 generators × 15 datasets
+- Curated `excel sheets/` fidelity / privacy / utility extracts
 
 ### Changed
-- README rewritten for clarity — quick start, badges, mermaid workflow, updated folder paths
-- Repository layout documented with current `Generators/` structure
-- Privacy dataset name normalization for cross-domain joins
+- Two-datasets comparative figures with labelled trade-off scatters
+- Dashboard fidelity/privacy filters and Adult Gower coverage for all 8 generators
+- Notebook loader prefers live notebooks over `*.BACKUP*` copies
 
 ### Fixed
-- Pareto frontier analysis (privacy dataset name mapping)
-- Empty regression stats crash in utility analysis
-- Metro TRTR evaluation for categorical features
-- Forest Cover diffusion evaluation and ForestDiffusion speed
-- Online Shopping TabDDPM training
+- Adult SDV Gower distance missing for CTGAN / CopulaGAN / TVAE / GaussianCopula in the dashboard
+- Utility merge for TabDDPM / ForestDiffusion on regression datasets
 
 ---
 

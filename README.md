@@ -98,7 +98,7 @@ Outputs land in [`Results/`](Results/).
 
 ### 3. Run the Cancer & Mushroom case study (~3 min)
 
-Focused two-dataset assessment with 18 figures per dataset:
+Focused two-dataset assessment with comparative figures and tables:
 
 ```bash
 python run_two_datasets_assessment.py
@@ -106,7 +106,25 @@ python run_two_datasets_assessment.py
 
 Outputs land in [`Results/Two_Datasets_Assessment/`](Results/Two_Datasets_Assessment/).
 
-### 4. Extract paper-ready workbooks (optional)
+### 4. Correlation trade-off analysis (Cancer & Mushroom)
+
+Publication figures relating **Utility × Fidelity × Privacy** (primary: one point per generator; supplementary: seed-level):
+
+```bash
+python run_correlation_tradeoff_analysis.py
+```
+
+Outputs: [`Results/Correlation_Tradeoff_Analysis/`](Results/Correlation_Tradeoff_Analysis/)  
+(also mirrored under `Results/Two_Datasets_Assessment/Correlation_Tradeoff_Analysis/`).
+
+### 5. Utility drop & representative trade-off (optional)
+
+```bash
+python run_utility_drop_analysis.py          # → Results/Utility_Drop_Analysis/
+python run_representative_tradeoff.py        # → Results/Representative_Metrics_Tradeoff/
+```
+
+### 6. Extract paper-ready workbooks (optional)
 
 ```bash
 python scripts/extract_paper_results.py
@@ -118,7 +136,7 @@ Creates per-dataset `TRTR_TSTR_results_*.xlsx` and `fidelity_privacy_metrics.xls
 
 ## Analysis pipelines
 
-Two automated pipelines turn raw experiment Excel files into journal-ready outputs. **No filenames are hardcoded** — new results are picked up automatically on the next run.
+Automated pipelines turn raw experiment Excel files into journal-ready outputs. **No filenames are hardcoded** — new results are picked up automatically on the next run.
 
 ### Full benchmark (`run_analysis.py`)
 
@@ -136,11 +154,34 @@ python run_analysis.py --utility-weight 0.4 --privacy-weight 0.3 --fidelity-weig
 
 ### Two-dataset case study (`run_two_datasets_assessment.py`)
 
-Dedicated module for **Wisconsin Breast Cancer** and **Secondary Mushroom** — side-by-side comparison, 18 figures each, cross-dataset bar charts.
+Dedicated module for **Wisconsin Breast Cancer** and **Secondary Mushroom** — side-by-side comparison, rankings, and trade-off figures.
 
 ```bash
 python run_two_datasets_assessment.py
 ```
+
+### Correlation trade-off (`run_correlation_tradeoff_analysis.py`)
+
+Investigates relationships between Utility, Fidelity, and Privacy on Cancer & Mushroom:
+
+| Figure set | Points | Metrics |
+|-----------|--------|---------|
+| **Primary** | 8 generators (mean over datasets × classifiers × seeds) | Accuracy/F1 × Quality Score × MIA or NNDR |
+| **Supplementary** | Generator × Seed × Dataset | Same axes; Cancer = ○, Mushroom = □ |
+
+Each scatter reports Pearson *r*, Spearman *ρ*, R², *p*, OLS fit, and 95% CI.
+
+```bash
+python run_correlation_tradeoff_analysis.py
+```
+
+### Utility drop (`run_utility_drop_analysis.py`)
+
+Generator/classifier utility under data leakage (Cancer & Mushroom focus), heatmaps, CD diagrams, and robustness tables → `Results/Utility_Drop_Analysis/`.
+
+### Representative metrics trade-off (`run_representative_tradeoff.py`)
+
+F1 / NNDR / Quality Score dual trade-offs (classifier-independent and best-classifier views) → `Results/Representative_Metrics_Tradeoff/`.
 
 ### Key modules
 
@@ -148,6 +189,9 @@ python run_two_datasets_assessment.py
 |------|---------|
 | [`analysis/`](analysis/) | Core pipeline — data loading, scoring, statistics, figures |
 | [`analysis/two_datasets/`](analysis/two_datasets/) | Cancer & Mushroom case study |
+| [`analysis/correlation_tradeoff/`](analysis/correlation_tradeoff/) | Utility–Fidelity–Privacy correlation figures |
+| [`analysis/utility_drop/`](analysis/utility_drop/) | Utility drop / leakage analysis |
+| [`analysis/representative_tradeoff/`](analysis/representative_tradeoff/) | Representative-metric trade-offs |
 | [`scripts/extract_paper_results.py`](scripts/extract_paper_results.py) | Notebook → paper Excel workbooks |
 | [`dashboard/`](dashboard/) | Static GitHub Pages dashboard builder |
 
@@ -159,28 +203,25 @@ After running the pipelines:
 
 ```
 Results/
-├── Master_Data/              # Merged long-format CSV (utility, fidelity, privacy)
-├── Processed_Data/           # Cumulative scores & generator rankings
-├── Figures/
-│   ├── Tradeoff/             # Figures 1–5, 14 — utility/fidelity/privacy trade-offs
-│   ├── Statistical/          # Rankings, CD diagrams, correlations
-│   ├── Utility/              # TRTR/TSTR, classifier heatmaps
-│   ├── Fidelity/             # Quality scores, feature heatmaps
-│   ├── Privacy/              # Mahalanobis, privacy distributions
-│   ├── Leakage/              # Leakage sensitivity curves
-│   └── Benchmark/            # Pareto, composite, seed stability
-├── Tables/                   # CSV, XLSX, LaTeX (best=**bold**, 2nd=_underline_)
-├── Supplementary/            # Statistical test outputs, correlations
-└── Two_Datasets_Assessment/  # Cancer & Mushroom case study
+├── Master_Data/                     # Merged long-format CSV (utility, fidelity, privacy)
+├── Processed_Data/                  # Cumulative scores & generator rankings
+├── Figures/                         # Full-benchmark publication figures
+├── Tables/                          # CSV, XLSX, LaTeX
+├── Supplementary/                   # Statistical test outputs, correlations
+├── Correlation_Tradeoff_Analysis/   # Primary + seed-level U/F/P scatters
+├── Utility_Drop_Analysis/           # Leakage / utility-drop study
+├── Representative_Metrics_Tradeoff/ # F1–NNDR–Quality trade-offs
+└── Two_Datasets_Assessment/         # Cancer & Mushroom case study
     ├── Cancer/
     ├── Mushroom/
+    ├── Figures/                     # Comparative Figures 1–8
     └── Comparison/
 ```
 
-**Preview a figure:**
+**Preview — correlation trade-off (primary):**
 
 <p align="center">
-  <img src="Results/Figures/Statistical/Figure06_overall_ranking.png" alt="Overall generator ranking" width="600"/>
+  <img src="Results/Correlation_Tradeoff_Analysis/Figures/Primary/Accuracy_NNDR_Figure01_fidelity_vs_utility_Accuracy.png" alt="Fidelity vs Utility (Accuracy)" width="700"/>
 </p>
 
 ---
@@ -270,9 +311,19 @@ pip install "libzero==0.0.8" "rtdl==0.0.13" --no-deps   # torch 2.x compatible
 
 ## Dashboard
 
-Interactive Plotly dashboard (utility, fidelity, privacy, trade-offs, rankings):
+Interactive Plotly dashboard (utility, fidelity, privacy, trade-offs, rankings, **statistics**):
 
 **[https://gopibattineni.github.io/SYNTH_BENCHMARK/](https://gopibattineni.github.io/SYNTH_BENCHMARK/)**
+
+| Tab | Contents |
+|-----|----------|
+| Overview | Utility-gap heatmap + generator coverage |
+| Utility | TRTR vs TSTR by task/metric/dataset |
+| Fidelity | Quality, KS, Gower, Wasserstein, … by dataset |
+| Privacy | MIA, NNDR, Mahalanobis, matching distances |
+| Trade-offs | Privacy–utility scatter / 3D |
+| Rankings | Weighted score + Borda |
+| Statistics | PCA mean/median/std error % (8 gens × 15 datasets) + Wilcoxon heatmaps |
 
 If you see a **404**, enable Pages once: **Settings → Pages → Source → Deploy from branch → `main` → `/docs`**.  
 See [dashboard/README.md](dashboard/README.md) for full deployment steps.
@@ -280,7 +331,6 @@ See [dashboard/README.md](dashboard/README.md) for full deployment steps.
 Rebuild locally:
 
 ```bash
-python run_analysis.py --dashboard
 python dashboard/build_pages.py
 python -m http.server 8080 --directory docs   # preview at http://localhost:8080
 ```
