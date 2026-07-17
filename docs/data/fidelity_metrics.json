@@ -28,13 +28,6 @@
     "is_unit_interval": false
   },
   {
-    "id": "MMD",
-    "label": "MMD",
-    "count": 118,
-    "higher_is_better": false,
-    "is_unit_interval": false
-  },
-  {
     "id": "Gower_Similarity",
     "label": "Gower Similarity",
     "count": 116,
@@ -56,18 +49,25 @@
     "is_unit_interval": false
   },
   {
-    "id": "Quality_Score",
-    "label": "Quality Score",
-    "count": 116,
-    "higher_is_better": true,
-    "is_unit_interval": true
-  },
-  {
     "id": "Wasserstein_Distance",
     "label": "Wasserstein Distance",
     "count": 116,
     "higher_is_better": false,
     "is_unit_interval": false
+  },
+  {
+    "id": "MMD",
+    "label": "MMD",
+    "count": 114,
+    "higher_is_better": false,
+    "is_unit_interval": false
+  },
+  {
+    "id": "Quality_Score",
+    "label": "Quality Score",
+    "count": 112,
+    "higher_is_better": true,
+    "is_unit_interval": true
   },
   {
     "id": "JS_Divergence",
@@ -87,6 +87,13 @@
     "id": "Outlier_Count_Diff",
     "label": "Outlier Count Diff",
     "count": 104,
+    "higher_is_better": false,
+    "is_unit_interval": false
+  },
+  {
+    "id": "Mean_Error_Pct",
+    "label": "Mean Error Pct",
+    "count": 8,
     "higher_is_better": false,
     "is_unit_interval": false
   }

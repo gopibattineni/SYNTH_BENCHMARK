@@ -16,19 +16,19 @@
     "is_sample_size": false
   },
   {
+    "id": "NNDR",
+    "label": "NNDR",
+    "count": 120,
+    "lower_is_better": true,
+    "is_similarity": false,
+    "is_sample_size": false
+  },
+  {
     "id": "MIA_AUC",
     "label": "MIA AUC",
     "count": 116,
     "lower_is_better": true,
     "is_similarity": true,
-    "is_sample_size": false
-  },
-  {
-    "id": "NNDR",
-    "label": "NNDR",
-    "count": 116,
-    "lower_is_better": true,
-    "is_similarity": false,
     "is_sample_size": false
   },
   {

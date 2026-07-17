@@ -162,7 +162,12 @@ def _load_privacy_long() -> pd.DataFrame:
             continue
         out = df.copy()
         if "MetricValue" in out.columns:
-            out["Mean"] = out["MetricValue"]
+            mv = pd.to_numeric(out["MetricValue"], errors="coerce")
+            if "Mean" in out.columns:
+                mean = pd.to_numeric(out["Mean"], errors="coerce")
+                out["Mean"] = mean.fillna(mv)
+            else:
+                out["Mean"] = mv
         if "Mean" not in out.columns and "Value" in out.columns:
             out["Mean"] = out["Value"]
         out["Mean"] = pd.to_numeric(out["Mean"], errors="coerce")
@@ -183,7 +188,12 @@ def _load_fidelity_long() -> pd.DataFrame:
             continue
         out = df.copy()
         if "MetricValue" in out.columns:
-            out["Mean"] = out["MetricValue"]
+            mv = pd.to_numeric(out["MetricValue"], errors="coerce")
+            if "Mean" in out.columns:
+                mean = pd.to_numeric(out["Mean"], errors="coerce")
+                out["Mean"] = mean.fillna(mv)
+            else:
+                out["Mean"] = mv
         if "Mean" not in out.columns and "Value" in out.columns:
             out["Mean"] = out["Value"]
         out["Mean"] = pd.to_numeric(out["Mean"], errors="coerce")

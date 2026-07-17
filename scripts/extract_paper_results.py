@@ -147,7 +147,11 @@ def extract_tables_from_notebook(nb_path: Path) -> list[pd.DataFrame]:
             try:
                 tables.extend(pd.read_html(StringIO(html), flavor="lxml"))
             except Exception:
-                continue
+                try:
+                    # Fallback when lxml is not installed
+                    tables.extend(pd.read_html(StringIO(html)))
+                except Exception:
+                    continue
     return tables
 
 
