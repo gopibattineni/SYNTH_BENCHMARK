@@ -76,6 +76,37 @@ def _legend_handles(panel: pd.DataFrame) -> list[Line2D]:
     return handles
 
 
+def _place_horizontal_legend(fig, handles: list[Line2D], *, ncol: int | None = None) -> None:
+    """Legend in a single horizontal band under the figure (never over data)."""
+    n = len(handles)
+    if n == 0:
+        return
+    if ncol is None:
+        # Prefer one or two rows under the plot
+        ncol = min(6, n) if n <= 12 else 6
+    # Drop any axes-attached legends first
+    for ax in fig.axes:
+        leg = ax.get_legend()
+        if leg is not None:
+            leg.remove()
+    fig.legend(
+        handles=handles,
+        loc="upper center",
+        bbox_to_anchor=(0.5, 0.02),
+        bbox_transform=fig.transFigure,
+        ncol=ncol,
+        frameon=True,
+        fancybox=False,
+        edgecolor="0.7",
+        framealpha=0.95,
+        fontsize=7.5,
+        columnspacing=1.1,
+        handletextpad=0.4,
+        borderaxespad=0.0,
+    )
+    fig.subplots_adjust(bottom=0.20, left=0.07, right=0.98, top=0.90)
+
+
 def _add_stats_box(ax, res: CorrResult) -> None:
     text = "Overall fit\n" + stats_box_text(res)
     ax.text(
@@ -108,8 +139,10 @@ def _scatter_with_regression(
     out_stem: Path,
     cfg: CorrelationTradeoffConfig,
 ) -> CorrResult:
+    from analysis.figure_tables import add_side_values_table, make_plot_with_table
+
     _apply_style()
-    fig, ax = plt.subplots(figsize=(8.2, 6.4))
+    fig, ax, ax_tab = make_plot_with_table(figsize=(11.8, 7.4), width_ratios=(2.9, 1.5))
 
     x = panel[x_col].to_numpy(dtype=float)
     y = panel[y_col].to_numpy(dtype=float)
@@ -179,6 +212,23 @@ def _scatter_with_regression(
     ax.grid(True, which="major", linestyle=":", linewidth=0.45, alpha=0.35)
     ax.set_axisbelow(True)
 
+    # Side table: generator means (readable values; seed cloud stays unlabeled)
+    x_tag = {"Fidelity": "F", "Utility": "U", "Privacy": "P"}.get(x_col, "X")
+    y_tag = {"Fidelity": "F", "Utility": "U", "Privacy": "P"}.get(y_col, "Y")
+    cell_text = []
+    for i, gen in enumerate([g for g in GENERATORS if g in set(panel["Generator"])], start=1):
+        sub = panel[panel["Generator"] == gen]
+        cell_text.append([
+            str(i),
+            gen,
+            f"{float(sub[x_col].mean()):.3f}",
+            f"{float(sub[y_col].mean()):.3f}",
+        ])
+    add_side_values_table(
+        ax_tab, cell_text, ["#", "Generator", f"μ{x_tag}", f"μ{y_tag}"],
+        generator_colors=GENERATOR_COLORS,
+    )
+
     handles = _legend_handles(panel)
     if np.isfinite(y_hat).any():
         handles.extend(
@@ -189,23 +239,8 @@ def _scatter_with_regression(
         )
     handles.extend(ds_line_handles)
 
-    # Horizontal legend below the axes — does not cover data points
-    n_handles = len(handles)
-    ncol = 4 if n_handles >= 8 else min(3, n_handles)
-    ax.legend(
-        handles=handles,
-        loc="upper center",
-        bbox_to_anchor=(0.5, -0.16),
-        ncol=ncol,
-        frameon=True,
-        fancybox=False,
-        edgecolor="0.7",
-        framealpha=0.95,
-        fontsize=7.5,
-        columnspacing=1.0,
-        handletextpad=0.4,
-    )
-    fig.subplots_adjust(bottom=0.28, left=0.12, right=0.96, top=0.92)
+    # Horizontal legend under the whole figure (not over data)
+    _place_horizontal_legend(fig, handles, ncol=6)
 
     save_figure(fig, out_stem, cfg.figure_formats, cfg.figure_dpi)
     return res
@@ -372,7 +407,7 @@ def _scatter_primary_generator(
     Instead: colour-coded markers + a side values table + bottom legend.
     """
     _apply_style()
-    fig = plt.figure(figsize=(10.6, 6.2))
+    fig = plt.figure(figsize=(11.0, 7.0))
     gs = fig.add_gridspec(
         1,
         2,
@@ -381,7 +416,7 @@ def _scatter_primary_generator(
         left=0.08,
         right=0.98,
         top=0.90,
-        bottom=0.20,
+        bottom=0.22,
     )
     ax = fig.add_subplot(gs[0, 0])
     ax_tab = fig.add_subplot(gs[0, 1])
@@ -477,17 +512,7 @@ def _scatter_primary_generator(
                 Line2D([0], [0], color="0.45", lw=6, alpha=0.35, label="95% CI"),
             ]
         )
-    ax.legend(
-        handles=handles,
-        loc="upper center",
-        bbox_to_anchor=(0.5, -0.14),
-        ncol=4,
-        frameon=True,
-        fancybox=False,
-        edgecolor="0.7",
-        framealpha=0.95,
-        fontsize=7.5,
-    )
+    _place_horizontal_legend(fig, handles, ncol=5)
 
     save_figure(fig, out_stem, cfg.figure_formats, cfg.figure_dpi)
     return res

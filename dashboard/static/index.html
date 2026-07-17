@@ -6,8 +6,8 @@
   <title>SYNTH Benchmark — Interactive Results Dashboard</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/style.css?v=37" />
   <script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
 </head>
 <body>
@@ -82,9 +82,57 @@
       </section>
 
       <section id="panel-tradeoff" class="panel">
+        <div class="controls">
+          <div class="control"><label>Problem type</label><select id="filter-tradeoff-problem"></select></div>
+          <div class="control"><label>Utility metric</label><select id="filter-tradeoff-utility"></select></div>
+          <div class="control"><label>Fidelity metric</label><select id="filter-tradeoff-fidelity"></select></div>
+          <div class="control"><label>Privacy metric</label><select id="filter-tradeoff-privacy"></select></div>
+        </div>
+        <div class="tradeoff-picker" aria-label="Dataset comparison picker">
+          <div class="ds-pane">
+            <div class="ds-pane-head">
+              <span>Available datasets</span>
+              <span class="ds-count" id="tradeoff-avail-count">0</span>
+            </div>
+            <div id="tradeoff-available" class="ds-chip-list" data-list="available"></div>
+            <p class="ds-hint">Click or drag into Compare</p>
+          </div>
+          <div class="ds-arrow" aria-hidden="true">⇄</div>
+          <div class="ds-pane ds-pane-compare">
+            <div class="ds-pane-head">
+              <span>Compare</span>
+              <span class="ds-count" id="tradeoff-selected-count">0</span>
+            </div>
+            <div id="tradeoff-selected" class="ds-chip-list" data-list="selected"></div>
+            <p class="ds-hint">Drag to reorder · drop here to add (2+) · click to remove</p>
+          </div>
+        </div>
+        <p class="section-title" id="tradeoff-subtitle" style="margin-top:0">
+          Generator means across selected datasets — numbered markers; values in the table
+        </p>
+        <p id="tradeoff-dataset-list" style="color:var(--muted);font-size:0.9rem;margin:-0.35rem 0 1rem;padding:0 0.25rem"></p>
         <div class="chart-grid two">
-          <div class="chart-card"><h3>Privacy vs Utility</h3><div id="tradeoff-scatter" class="plot"></div></div>
-          <div class="chart-card"><h3>3D trade-off</h3><div id="tradeoff-3d" class="plot"></div></div>
+          <div class="chart-card"><h3 id="tradeoff-fidelity-utility-title">Fidelity vs Utility</h3><div id="tradeoff-fidelity-utility" class="plot"></div></div>
+          <div class="chart-card"><h3 id="tradeoff-privacy-utility-title">Privacy vs Utility</h3><div id="tradeoff-privacy-utility" class="plot"></div></div>
+        </div>
+        <div class="chart-grid two" style="margin-top:1.25rem">
+          <div class="chart-card"><h3 id="tradeoff-fidelity-privacy-title">Fidelity vs Privacy</h3><div id="tradeoff-fidelity-privacy" class="plot"></div></div>
+          <div class="table-wrap" style="margin-top:0">
+            <h3 class="section-title">Generator values (mean over selected datasets)</h3>
+            <table id="tradeoff-values-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Generator</th>
+                  <th>Utility</th>
+                  <th>Fidelity</th>
+                  <th>Privacy</th>
+                  <th>N ds</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
         </div>
       </section>
 
@@ -132,9 +180,9 @@
 
   <footer>
     SYNTH Benchmark · Synthetic Tabular Data Generation ·
-    <a href="https://github.com/" style="color:#3b82f6">View on GitHub</a>
+    <a href="https://github.com/gopibattineni/SYNTH_BENCHMARK">View on GitHub</a>
   </footer>
 
-  <script src="assets/app.js?v=32"></script>
+  <script src="assets/app.js?v=37"></script>
 </body>
 </html>

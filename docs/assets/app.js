@@ -5,6 +5,17 @@ const GENERATORS = [
   "WGAN_GP", "CTABGAN", "TabDDPM", "ForestDiffusion",
 ];
 
+const GENERATOR_COLORS = {
+  CTGAN: "#1f77b4",
+  CopulaGAN: "#ff7f0e",
+  TVAE: "#2ca02c",
+  GaussianCopula: "#d62728",
+  WGAN_GP: "#9467bd",
+  CTABGAN: "#8c564b",
+  TabDDPM: "#e377c2",
+  ForestDiffusion: "#7f7f7f",
+};
+
 const UNIT_INTERVAL_METRICS = new Set([
   "Accuracy", "F1", "Precision", "Recall",
   "OverallScore", "WeightedScore", "Utility", "Privacy", "Fidelity",
@@ -68,14 +79,43 @@ const FIDELITY_PREFERRED_ORDER = [
   "PCA_Mean_Error",
 ];
 
+const DASH_FONT = '"Abadi MT Condensed Light", "Abadi MT", Abadi, Cabin, "Segoe UI", "Helvetica Neue", Arial, sans-serif';
+
 const PLOTLY_LAYOUT = {
   paper_bgcolor: "rgba(0,0,0,0)",
   plot_bgcolor: "rgba(0,0,0,0)",
-  font: { color: "#e7ecf3", family: "Inter, system-ui, sans-serif", size: 12 },
-  margin: { l: 56, r: 24, t: 44, b: 88 },
-  xaxis: { gridcolor: "#2d3a4f", zerolinecolor: "#2d3a4f" },
-  yaxis: { gridcolor: "#2d3a4f", zerolinecolor: "#2d3a4f", type: "linear" },
-  legend: { bgcolor: "rgba(0,0,0,0)" },
+  font: {
+    color: "#eef2f7",
+    family: DASH_FONT,
+    size: 12,
+  },
+  margin: { l: 64, r: 28, t: 40, b: 92 },
+  xaxis: {
+    gridcolor: "rgba(154, 168, 188, 0.16)",
+    zerolinecolor: "rgba(154, 168, 188, 0.28)",
+    linecolor: "rgba(154, 168, 188, 0.35)",
+    tickfont: { size: 11, family: DASH_FONT },
+    title: { font: { size: 12, family: DASH_FONT } },
+  },
+  yaxis: {
+    gridcolor: "rgba(154, 168, 188, 0.16)",
+    zerolinecolor: "rgba(154, 168, 188, 0.28)",
+    linecolor: "rgba(154, 168, 188, 0.35)",
+    type: "linear",
+    tickfont: { size: 11, family: DASH_FONT },
+    title: { font: { size: 12, family: DASH_FONT } },
+  },
+  legend: {
+    bgcolor: "rgba(26, 34, 46, 0.82)",
+    bordercolor: "rgba(79, 140, 255, 0.35)",
+    borderwidth: 1,
+    font: { size: 11, family: DASH_FONT },
+    orientation: "h",
+    y: -0.18,
+    x: 0.5,
+    xanchor: "center",
+  },
+  colorway: ["#4f8cff", "#3ecf8e", "#f0b429", "#ff6b6b", "#9b8ec4", "#22d3ee", "#fb7185", "#94a3b8"],
 };
 
 const PLOTLY_CONFIG = { responsive: true, displayModeBar: true, displaylogo: false };
@@ -411,22 +451,22 @@ function axisSpec(metric, values, { clampUnit = false } = {}) {
   };
 }
 
-const DATA_VERSION = "20260716e";
+const DATA_VERSION = "20260717e";
 
 async function loadJSON(name) {
   const url = `data/${name}?v=${DATA_VERSION}`;
   try {
     const res = await fetch(url, { cache: "no-store" });
-    if (!res.ok) return name === "meta.json" ? {} : (name === "statistics.json" ? {} : []);
+    if (!res.ok) return name === "meta.json" ? {} : (name === "statistics.json" || name === "correlation_tradeoff.json" ? {} : []);
     return res.json();
   } catch {
-    return name.endsWith(".json") && name.includes("stat") ? {} : [];
+    return name.endsWith(".json") && (name.includes("stat") || name.includes("correlation")) ? {} : [];
   }
 }
 
 async function loadAllData() {
   const [meta, utilityAgg, utilityClf, utilityReg, utilityGaps, fidelity, fidelityMetrics, privacy, privacyMetrics, tradeoff,
-         weighted, borda, statistics, coverage] = await Promise.all([
+         weighted, borda, statistics, coverage, correlationTradeoff] = await Promise.all([
     loadJSON("meta.json"),
     loadJSON("utility_agg.json"),
     loadJSON("utility_classifier.json"),
@@ -441,6 +481,7 @@ async function loadAllData() {
     loadJSON("rankings_borda.json"),
     loadJSON("statistics.json"),
     loadJSON("coverage.json"),
+    loadJSON("correlation_tradeoff.json"),
   ]);
 
   DATA = {
@@ -458,6 +499,7 @@ async function loadAllData() {
     borda: borda || [],
     statistics: statistics || {},
     coverage: coverage || [],
+    correlationTradeoff: correlationTradeoff || { analyses: [] },
   };
 }
 
@@ -515,10 +557,13 @@ function plot(id, traces, layout = {}, config = {}) {
   if (isHeatmap && xaxis.type !== "category" && xaxis.type !== "linear") {
     xaxis.type = "category";
   }
+  const legend = { ...PLOTLY_LAYOUT.legend, ...(layout.legend || {}) };
+  const margin = { ...PLOTLY_LAYOUT.margin, ...(layout.margin || {}) };
+  if (legend.orientation === "h" && margin.b < 96) margin.b = 96;
   Plotly.newPlot(
     id,
     traces,
-    { ...PLOTLY_LAYOUT, ...layout, xaxis, yaxis },
+    { ...PLOTLY_LAYOUT, ...layout, xaxis, yaxis, legend, margin },
     { ...PLOTLY_CONFIG, ...config },
   );
 }
@@ -563,6 +608,10 @@ function renderOverview() {
     }),
   );
 
+  const zText = z.map(row =>
+    row.map(v => (v == null ? "" : `${Math.round(v * 100)}%`)),
+  );
+
   plot("overview-heatmap", [{
     type: "heatmap",
     x: datasets.map(shortDatasetLabel),
@@ -570,18 +619,33 @@ function renderOverview() {
     z,
     zmin: 0,
     zmax: 1,
-    colorscale: "RdYlGn",
-    reversescale: true,
+    colorscale: [
+      [0, "#2f5d50"],
+      [0.35, "#8fad7a"],
+      [0.55, "#c4a35a"],
+      [0.75, "#d08b6b"],
+      [1, "#9b4d4d"],
+    ],
     hovertemplate: "%{y} · %{x}<br>Gap: %{z:.1%}<extra></extra>",
-    colorbar: { title: "Utility gap", tickformat: ".0%", thickness: 14, len: 0.75 },
-    xgap: 1,
-    ygap: 1,
+    colorbar: {
+      title: { text: "Utility gap", font: { size: 12 } },
+      tickformat: ".0%",
+      thickness: 14,
+      len: 0.75,
+      outlinewidth: 0,
+    },
+    text: zText,
+    texttemplate: "%{text}",
+    textfont: { size: 10, color: "#f8fafc", family: DASH_FONT },
+    xgap: 2,
+    ygap: 2,
   }], {
     title: { text: "" },
-    height: 480,
-    margin: { l: 130, r: 80, t: 20, b: 100 },
-    xaxis: { type: "category", tickangle: -40, automargin: true },
+    height: 500,
+    margin: { l: 140, r: 90, t: 24, b: 110 },
+    xaxis: { type: "category", tickangle: -35, automargin: true },
     yaxis: { ...generatorYAxis(), automargin: true },
+    legend: { orientation: "v", y: 1, x: 1.02 },
   });
 
   const cov = DATA.coverage;
@@ -997,62 +1061,576 @@ function setupPrivacyFilters() {
   });
 }
 
-function renderTradeoff() {
-  const t = DATA.tradeoff;
-  if (!t.length) return;
+function tradeoffUtilityMetrics(problemType = "all") {
+  const rows = DATA.utilityAgg || [];
+  const preferredClf = ["Accuracy", "F1", "Precision", "Recall"];
+  const preferredReg = ["R2", "RMSE", "MAE"];
+  const preferred =
+    problemType === "regression" ? preferredReg.concat(preferredClf)
+    : problemType === "classification" ? preferredClf.concat(preferredReg)
+    : ["Accuracy", "F1", "Precision", "Recall", "R2", "RMSE", "MAE"];
+  const available = new Set(
+    rows
+      .filter(r => {
+        if (r.EvaluationType !== "TSTR" || !r.Metric) return false;
+        if (String(r.Metric).includes("Drop") || String(r.Metric).includes("Gap") || String(r.Metric).includes("Increase")) return false;
+        if (!matchesProblemType(r.Dataset, problemType)) return false;
+        return true;
+      })
+      .map(r => r.Metric),
+  );
+  return preferred.filter(m => available.has(m)).concat(
+    [...available].filter(m => !preferred.includes(m)).sort(),
+  );
+}
 
-  const utility = t.map(r => toNum(r.Utility));
-  const privacy = t.map(r => toNum(r.Privacy));
-  const fidelity = t.map(r => toNum(r.Fidelity));
-
-  plot("tradeoff-scatter", [{
-    x: utility,
-    y: privacy,
-    text: t.map(r => r.Generator),
-    mode: "markers+text",
-    textposition: "top center",
-    marker: {
-      size: fidelity.map(v => 12 + (v || 0) * 20),
-      color: fidelity,
-      colorscale: "Viridis",
-      cmin: 0,
-      cmax: 1,
-      showscale: true,
-      colorbar: { title: "Fidelity", tickformat: ".0%" },
-    },
-    type: "scatter",
-  }], {
-    title: "Privacy vs Utility (bubble size = Fidelity)",
-    height: 480,
-    xaxis: { title: "Utility", ...axisSpec("Utility", utility, { clampUnit: true }) },
-    yaxis: { title: "Privacy", ...axisSpec("Privacy", privacy, { clampUnit: true }) },
-  });
-
-  if (t[0].Fidelity !== undefined) {
-    plot("tradeoff-3d", [{
-      type: "scatter3d",
-      x: utility,
-      y: privacy,
-      z: fidelity,
-      text: t.map(r => r.Generator),
-      mode: "markers+text",
-      marker: {
-        size: 6,
-        color: t.map(r => toNum(r.OverallScore ?? r.Utility)),
-        colorscale: "Portland",
-        cmin: 0,
-        cmax: 1,
-      },
-    }], {
-      title: "3D trade-off",
-      height: 500,
-      scene: {
-        xaxis: { title: "Utility", range: [0, 1], tickformat: ".0%" },
-        yaxis: { title: "Privacy", range: [0, 1], tickformat: ".0%" },
-        zaxis: { title: "Fidelity", range: [0, 1], tickformat: ".0%" },
-      },
+function tradeoffFidelityMetrics() {
+  const catalog = DATA.fidelityMetrics || [];
+  const fromData = new Set((DATA.fidelity || []).map(r => r.Metric).filter(Boolean));
+  const ordered = FIDELITY_PREFERRED_ORDER.filter(id => fromData.has(id));
+  const rest = [...fromData].filter(id => !ordered.includes(id)).sort();
+  const ids = ordered.concat(rest);
+  if (catalog.length) {
+    return ids.map(id => {
+      const c = catalog.find(x => x.id === id);
+      return { id, label: c?.label || fidelityLabel(id), higher_is_better: c?.higher_is_better !== false };
     });
   }
+  return ids.map(id => ({ id, label: fidelityLabel(id), higher_is_better: true }));
+}
+
+function tradeoffPrivacyMetrics() {
+  const catalog = DATA.privacyMetrics || [];
+  const fromData = new Set((DATA.privacy || []).map(r => r.Metric).filter(Boolean));
+  const preferred = ["NNDR", "MIA_AUC", "Mahalanobis_Distance", "Mean_Distance", "Hungarian_Cosine_Similarity"];
+  const ordered = preferred.filter(id => fromData.has(id));
+  const rest = [...fromData].filter(id => !ordered.includes(id) && id !== "Num_Matches").sort();
+  const ids = ordered.concat(rest);
+  return ids.map(id => {
+    const c = catalog.find(x => x.id === id);
+    let higherIsPrivate = true;
+    if (id === "MIA_AUC" || id.includes("Similarity")) higherIsPrivate = false;
+    if (id === "NNDR" || id.includes("Distance")) higherIsPrivate = true;
+    return {
+      id,
+      label: c?.label || privacyLabel(id),
+      higher_is_private: higherIsPrivate,
+    };
+  });
+}
+
+/** Ordered list of datasets currently in the Compare pane. */
+let tradeoffSelectedDatasets = [];
+let tradeoffPickerBound = false;
+let tradeoffDragDataset = null;
+
+function tradeoffEligibleDatasets(utilMetric, fidMetric, privMetric, problemType = "all") {
+  const utilDs = new Set(
+    (DATA.utilityAgg || [])
+      .filter(r => r.EvaluationType === "TSTR" && r.Metric === utilMetric && toNum(r.Mean) != null)
+      .map(r => r.Dataset),
+  );
+  const fidDs = new Set(
+    (DATA.fidelity || [])
+      .filter(r => r.Metric === fidMetric && toNum(r.Mean) != null)
+      .map(r => r.Dataset),
+  );
+  const privDs = new Set(
+    (DATA.privacy || [])
+      .filter(r => r.Metric === privMetric && toNum(r.Mean) != null)
+      .map(r => r.Dataset),
+  );
+  return filterDatasetsByProblem(
+    uniqueDatasets(
+      [...utilDs].filter(d => fidDs.has(d) && privDs.has(d)).map(d => ({ Dataset: d })),
+    ),
+    problemType,
+  );
+}
+
+function setupTradeoffFilters() {
+  setupProblemTypeSelect("filter-tradeoff-problem", () => {
+    refreshTradeoffUtilityOptions();
+    refreshTradeoffDatasetPicker({ ensureMin: true });
+    renderTradeoff();
+  }, "classification");
+
+  refreshTradeoffUtilityOptions();
+
+  const fidMetrics = tradeoffFidelityMetrics();
+  const privMetrics = tradeoffPrivacyMetrics();
+  const fidIds = fidMetrics.map(m => m.id);
+  fillSelect(
+    "filter-tradeoff-fidelity",
+    fidIds,
+    fidIds.includes("Quality_Score") ? "Quality_Score" : fidIds[0],
+  );
+  const fidSel = document.getElementById("filter-tradeoff-fidelity");
+  if (fidSel) {
+    [...fidSel.options].forEach(opt => {
+      const m = fidMetrics.find(x => x.id === opt.value);
+      if (m) opt.textContent = m.label;
+    });
+  }
+  const privIds = privMetrics.map(m => m.id);
+  fillSelect(
+    "filter-tradeoff-privacy",
+    privIds,
+    privIds.includes("NNDR") ? "NNDR" : (privIds.includes("MIA_AUC") ? "MIA_AUC" : privIds[0]),
+  );
+  const privSel = document.getElementById("filter-tradeoff-privacy");
+  if (privSel) {
+    [...privSel.options].forEach(opt => {
+      const m = privMetrics.find(x => x.id === opt.value);
+      if (m) opt.textContent = m.label;
+    });
+  }
+
+  bindTradeoffDatasetPicker();
+  refreshTradeoffDatasetPicker({ ensureMin: true });
+}
+
+function refreshTradeoffUtilityOptions() {
+  const problemType = document.getElementById("filter-tradeoff-problem")?.value || "all";
+  const utilMetrics = tradeoffUtilityMetrics(problemType);
+  const prev = document.getElementById("filter-tradeoff-utility")?.value;
+  const preferred =
+    problemType === "regression"
+      ? (utilMetrics.includes("R2") ? "R2" : utilMetrics[0])
+      : (utilMetrics.includes("Accuracy") ? "Accuracy" : utilMetrics[0]);
+  fillSelect(
+    "filter-tradeoff-utility",
+    utilMetrics,
+    prev && utilMetrics.includes(prev) ? prev : preferred,
+  );
+}
+
+function currentTradeoffEligible() {
+  const util = document.getElementById("filter-tradeoff-utility")?.value;
+  const fid = document.getElementById("filter-tradeoff-fidelity")?.value;
+  const priv = document.getElementById("filter-tradeoff-privacy")?.value;
+  const problemType = document.getElementById("filter-tradeoff-problem")?.value || "all";
+  if (!util || !fid || !priv) return [];
+  return tradeoffEligibleDatasets(util, fid, priv, problemType);
+}
+
+function refreshTradeoffDatasetPicker({ ensureMin = false } = {}) {
+  const eligible = currentTradeoffEligible();
+  const eligibleSet = new Set(eligible);
+  tradeoffSelectedDatasets = tradeoffSelectedDatasets.filter(d => eligibleSet.has(d));
+
+  if (ensureMin && tradeoffSelectedDatasets.length < 2) {
+    for (const d of eligible) {
+      if (tradeoffSelectedDatasets.length >= 2) break;
+      if (!tradeoffSelectedDatasets.includes(d)) tradeoffSelectedDatasets.push(d);
+    }
+  }
+
+  renderTradeoffDatasetPicker(eligible);
+}
+
+function renderTradeoffDatasetPicker(eligible) {
+  const availEl = document.getElementById("tradeoff-available");
+  const selEl = document.getElementById("tradeoff-selected");
+  if (!availEl || !selEl) return;
+
+  const selectedSet = new Set(tradeoffSelectedDatasets);
+  const available = eligible.filter(d => !selectedSet.has(d));
+  const selected = tradeoffSelectedDatasets.filter(d => eligible.includes(d));
+
+  const chipHtml = (ds, list) => `
+    <button type="button" class="ds-chip" draggable="true"
+      data-dataset="${escapeAttr(ds)}" data-list="${list}"
+      title="${escapeAttr(ds)}">${escapeHtml(shortDatasetLabel(ds))}</button>
+  `;
+
+  availEl.innerHTML = available.length
+    ? available.map(d => chipHtml(d, "available")).join("")
+    : `<div class="ds-chip-empty">No more datasets for this problem type / metrics</div>`;
+  selEl.innerHTML = selected.length
+    ? selected.map(d => chipHtml(d, "selected")).join("")
+    : `<div class="ds-chip-empty">Drag 2+ datasets here to compare</div>`;
+
+  const availCount = document.getElementById("tradeoff-avail-count");
+  const selCount = document.getElementById("tradeoff-selected-count");
+  if (availCount) availCount.textContent = String(available.length);
+  if (selCount) selCount.textContent = String(selected.length);
+}
+
+function escapeHtml(s) {
+  return String(s)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+function escapeAttr(s) {
+  return escapeHtml(s).replace(/'/g, "&#39;");
+}
+
+function addTradeoffDataset(ds, index = null) {
+  if (!ds || tradeoffSelectedDatasets.includes(ds)) return;
+  if (index == null || index < 0 || index > tradeoffSelectedDatasets.length) {
+    tradeoffSelectedDatasets.push(ds);
+  } else {
+    tradeoffSelectedDatasets.splice(index, 0, ds);
+  }
+}
+
+function removeTradeoffDataset(ds) {
+  tradeoffSelectedDatasets = tradeoffSelectedDatasets.filter(d => d !== ds);
+}
+
+function moveTradeoffDataset(ds, toList, insertBeforeDs = null) {
+  if (!ds) return;
+  if (toList === "selected") {
+    const fromIdx = tradeoffSelectedDatasets.indexOf(ds);
+    if (fromIdx >= 0) tradeoffSelectedDatasets.splice(fromIdx, 1);
+    let insertAt = tradeoffSelectedDatasets.length;
+    if (insertBeforeDs) {
+      const i = tradeoffSelectedDatasets.indexOf(insertBeforeDs);
+      if (i >= 0) insertAt = i;
+    }
+    addTradeoffDataset(ds, insertAt);
+  } else {
+    removeTradeoffDataset(ds);
+  }
+}
+
+function bindTradeoffDatasetPicker() {
+  if (tradeoffPickerBound) return;
+  const availEl = document.getElementById("tradeoff-available");
+  const selEl = document.getElementById("tradeoff-selected");
+  if (!availEl || !selEl) return;
+  tradeoffPickerBound = true;
+
+  const onDragStart = (e) => {
+    const chip = e.target.closest(".ds-chip");
+    if (!chip) return;
+    tradeoffDragDataset = chip.dataset.dataset;
+    chip.classList.add("dragging");
+    e.dataTransfer.effectAllowed = "move";
+    e.dataTransfer.setData("text/plain", tradeoffDragDataset);
+  };
+  const onDragEnd = (e) => {
+    const chip = e.target.closest(".ds-chip");
+    if (chip) chip.classList.remove("dragging");
+    tradeoffDragDataset = null;
+    availEl.classList.remove("drag-over");
+    selEl.classList.remove("drag-over");
+  };
+  const onDragOver = (e) => {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = "move";
+    const list = e.currentTarget;
+    list.classList.add("drag-over");
+  };
+  const onDragLeave = (e) => {
+    if (!e.currentTarget.contains(e.relatedTarget)) {
+      e.currentTarget.classList.remove("drag-over");
+    }
+  };
+  const onDrop = (e) => {
+    e.preventDefault();
+    const listEl = e.currentTarget;
+    listEl.classList.remove("drag-over");
+    const ds = tradeoffDragDataset || e.dataTransfer.getData("text/plain");
+    if (!ds) return;
+    const toList = listEl.dataset.list;
+    const overChip = e.target.closest(".ds-chip");
+    const insertBefore = overChip && overChip.dataset.list === "selected"
+      ? overChip.dataset.dataset
+      : null;
+    moveTradeoffDataset(ds, toList, insertBefore === ds ? null : insertBefore);
+    refreshTradeoffDatasetPicker();
+    renderTradeoff({ skipPickerRefresh: true });
+  };
+  const onClick = (e) => {
+    const chip = e.target.closest(".ds-chip");
+    if (!chip) return;
+    const ds = chip.dataset.dataset;
+    const list = chip.dataset.list;
+    if (list === "available") addTradeoffDataset(ds);
+    else removeTradeoffDataset(ds);
+    refreshTradeoffDatasetPicker();
+    renderTradeoff({ skipPickerRefresh: true });
+  };
+
+  [availEl, selEl].forEach(el => {
+    el.addEventListener("dragstart", onDragStart);
+    el.addEventListener("dragend", onDragEnd);
+    el.addEventListener("dragover", onDragOver);
+    el.addEventListener("dragleave", onDragLeave);
+    el.addEventListener("drop", onDrop);
+    el.addEventListener("click", onClick);
+  });
+}
+
+function buildTradeoffGeneratorMeans(utilMetric, fidMetric, privMetric, selectedDatasets) {
+  const dsSet = new Set(selectedDatasets);
+  const rows = [];
+  for (const gen of GENERATORS) {
+    const utilVals = (DATA.utilityAgg || [])
+      .filter(r =>
+        r.Generator === gen
+        && r.EvaluationType === "TSTR"
+        && r.Metric === utilMetric
+        && dsSet.has(r.Dataset),
+      )
+      .map(r => toNum(r.Mean))
+      .filter(v => v != null);
+    const fidVals = (DATA.fidelity || [])
+      .filter(r => r.Generator === gen && r.Metric === fidMetric && dsSet.has(r.Dataset))
+      .map(r => toNum(r.Mean))
+      .filter(v => v != null);
+    const privVals = (DATA.privacy || [])
+      .filter(r => r.Generator === gen && r.Metric === privMetric && dsSet.has(r.Dataset))
+      .map(r => toNum(r.Mean))
+      .filter(v => v != null);
+    if (!utilVals.length && !fidVals.length && !privVals.length) continue;
+    rows.push({
+      Generator: gen,
+      Utility: mean(utilVals),
+      Fidelity: mean(fidVals),
+      Privacy: mean(privVals),
+      NDatasets: Math.max(utilVals.length, fidVals.length, privVals.length),
+    });
+  }
+  rows.forEach((r, i) => { r.PointId = i + 1; });
+  return rows;
+}
+
+function renderTradeoff({ skipPickerRefresh = false } = {}) {
+  if (!document.getElementById("filter-tradeoff-utility")?.options.length) {
+    setupTradeoffFilters();
+  }
+
+  const utilMetric = document.getElementById("filter-tradeoff-utility")?.value;
+  const fidMetric = document.getElementById("filter-tradeoff-fidelity")?.value;
+  const privMetric = document.getElementById("filter-tradeoff-privacy")?.value;
+  const problemType = document.getElementById("filter-tradeoff-problem")?.value || "all";
+  if (!utilMetric || !fidMetric || !privMetric) {
+    renderTradeoffLegacy();
+    return;
+  }
+
+  if (!skipPickerRefresh) refreshTradeoffDatasetPicker();
+
+  const eligible = currentTradeoffEligible();
+  const selected = tradeoffSelectedDatasets.filter(d => eligible.includes(d));
+  const rows = buildTradeoffGeneratorMeans(utilMetric, fidMetric, privMetric, selected);
+
+  const fidMeta = tradeoffFidelityMetrics().find(m => m.id === fidMetric);
+  const privMeta = tradeoffPrivacyMetrics().find(m => m.id === privMetric);
+  const privNote = privMeta?.higher_is_private ? "higher is more private" : "lower is more private";
+  const fidNote = fidMeta?.higher_is_better === false ? "lower is better fidelity" : "higher is better fidelity";
+  const problemNote = problemType !== "all" ? ` · ${problemTypeLabel(problemType)}` : "";
+
+  const sub = document.getElementById("tradeoff-subtitle");
+  if (sub) {
+    sub.textContent = `Trade-off across ${selected.length} dataset(s)${problemNote} · TSTR ${utilMetric} · ${fidMeta?.label || fidMetric} · ${privMeta?.label || privMetric} (${privNote})`;
+  }
+  const listEl = document.getElementById("tradeoff-dataset-list");
+  if (listEl) {
+    if (!selected.length) {
+      listEl.textContent = "Select at least 2 datasets in Compare (drag or click).";
+    } else if (selected.length === 1) {
+      listEl.textContent = `Only 1 dataset selected (${shortDatasetLabel(selected[0])}) — add more to compare.`;
+    } else {
+      listEl.textContent = `Datasets: ${selected.map(shortDatasetLabel).join(" · ")}`;
+    }
+  }
+
+  const setTitle = (id, text) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = text;
+  };
+  setTitle("tradeoff-fidelity-utility-title", `Fidelity vs Utility (${utilMetric})`);
+  setTitle("tradeoff-privacy-utility-title", `Privacy vs Utility (${utilMetric})`);
+  setTitle("tradeoff-fidelity-privacy-title", `Fidelity vs Privacy`);
+
+  if (selected.length < 2 || !rows.length) {
+    ["tradeoff-fidelity-utility", "tradeoff-privacy-utility", "tradeoff-fidelity-privacy"].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.innerHTML = `<p style="padding:2rem;color:#9aa8bc">${
+          selected.length < 2
+            ? "Drag or click 2+ datasets into Compare to plot generator means."
+            : "No generator means for this selection."
+        }</p>`;
+      }
+    });
+    const tbody = document.querySelector("#tradeoff-values-table tbody");
+    if (tbody) tbody.innerHTML = "";
+    return;
+  }
+
+  plotNumberedTradeoff(
+    "tradeoff-fidelity-utility",
+    rows,
+    "Fidelity",
+    "Utility",
+    `Fidelity (${fidMeta?.label || fidMetric}; ${fidNote})`,
+    `Mean TSTR ${utilMetric}`,
+  );
+  plotNumberedTradeoff(
+    "tradeoff-privacy-utility",
+    rows,
+    "Privacy",
+    "Utility",
+    `Privacy (${privMeta?.label || privMetric}; ${privNote})`,
+    `Mean TSTR ${utilMetric}`,
+  );
+  plotNumberedTradeoff(
+    "tradeoff-fidelity-privacy",
+    rows,
+    "Privacy",
+    "Fidelity",
+    `Privacy (${privMeta?.label || privMetric}; ${privNote})`,
+    `Fidelity (${fidMeta?.label || fidMetric})`,
+  );
+
+  const tbody = document.querySelector("#tradeoff-values-table tbody");
+  if (tbody) {
+    tbody.innerHTML = rows.map(r => `
+      <tr>
+        <td style="color:${GENERATOR_COLORS[r.Generator] || "#ccc"};font-weight:700">${r.PointId}</td>
+        <td style="color:${GENERATOR_COLORS[r.Generator] || "#ccc"}">${r.Generator}</td>
+        <td>${fmtTrade(r.Utility)}</td>
+        <td>${fmtTrade(r.Fidelity)}</td>
+        <td>${fmtTrade(r.Privacy)}</td>
+        <td>${r.NDatasets}</td>
+      </tr>
+    `).join("");
+  }
+}
+
+function fmtTrade(v) {
+  const n = toNum(v);
+  return n == null ? "—" : n.toFixed(3);
+}
+
+function plotNumberedTradeoff(plotId, rows, xKey, yKey, xlabel, ylabel) {
+  const xs = rows.map(r => toNum(r[xKey]));
+  const ys = rows.map(r => toNum(r[yKey]));
+  const colors = rows.map(r => GENERATOR_COLORS[r.Generator] || "#888");
+  const ids = rows.map(r => String(r.PointId));
+
+  const paired = xs.map((x, i) => ({ x, y: ys[i] })).filter(p => p.x != null && p.y != null);
+  let fitTrace = null;
+  if (paired.length >= 3) {
+    const n = paired.length;
+    const mx = paired.reduce((s, p) => s + p.x, 0) / n;
+    const my = paired.reduce((s, p) => s + p.y, 0) / n;
+    let num = 0;
+    let den = 0;
+    paired.forEach(p => {
+      num += (p.x - mx) * (p.y - my);
+      den += (p.x - mx) ** 2;
+    });
+    if (den > 1e-12) {
+      const slope = num / den;
+      const intercept = my - slope * mx;
+      const xMin = Math.min(...paired.map(p => p.x));
+      const xMax = Math.max(...paired.map(p => p.x));
+      const pad = (xMax - xMin) * 0.05 || 0.02;
+      const x0 = xMin - pad;
+      const x1 = xMax + pad;
+      fitTrace = {
+        type: "scatter",
+        mode: "lines",
+        x: [x0, x1],
+        y: [intercept + slope * x0, intercept + slope * x1],
+        name: "OLS fit",
+        line: { color: "rgba(238,242,247,0.7)", width: 2 },
+        hoverinfo: "skip",
+      };
+    }
+  }
+
+  const markers = {
+    type: "scatter",
+    mode: "markers+text",
+    x: xs,
+    y: ys,
+    text: ids,
+    textposition: "middle center",
+    textfont: {
+      family: DASH_FONT,
+      size: 12,
+      color: colors.map(c => contrastText(c)),
+    },
+    marker: {
+      size: 22,
+      color: colors,
+      line: { width: 1.2, color: "#111" },
+    },
+    customdata: rows.map(r => r.Generator),
+    hovertemplate: "#%{text} %{customdata}<br>%{xaxis.title.text}: %{x:.3f}<br>%{yaxis.title.text}: %{y:.3f}<extra></extra>",
+    name: "Generators",
+    showlegend: false,
+  };
+
+  const legendTraces = GENERATORS.filter(g => rows.some(r => r.Generator === g)).map((g, i) => ({
+    type: "scatter",
+    mode: "markers",
+    x: [null],
+    y: [null],
+    name: `${i + 1}. ${g}`,
+    marker: { size: 10, color: GENERATOR_COLORS[g], line: { width: 1, color: "#111" } },
+  }));
+
+  const traces = [markers, ...legendTraces];
+  if (fitTrace) traces.unshift(fitTrace);
+
+  plot(plotId, traces, {
+    height: 440,
+    margin: { l: 64, r: 24, t: 20, b: 88 },
+    xaxis: { title: xlabel, automargin: true, zeroline: false },
+    yaxis: { title: ylabel, automargin: true, zeroline: false },
+    showlegend: true,
+    legend: { orientation: "h", y: -0.22, x: 0.5, xanchor: "center" },
+  });
+}
+
+function contrastText(hex) {
+  try {
+    const h = hex.replace("#", "");
+    const r = parseInt(h.slice(0, 2), 16);
+    const g = parseInt(h.slice(2, 4), 16);
+    const b = parseInt(h.slice(4, 6), 16);
+    const lum = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+    return lum > 0.55 ? "#111111" : "#FFFFFF";
+  } catch {
+    return "#FFFFFF";
+  }
+}
+
+function renderTradeoffLegacy() {
+  const t = DATA.tradeoff;
+  if (!t.length) return;
+  const el = document.getElementById("tradeoff-fidelity-utility");
+  if (!el) return;
+  const rows = t.map((r, i) => ({
+    PointId: i + 1,
+    Generator: r.Generator,
+    Utility: toNum(r.Utility),
+    Fidelity: toNum(r.Fidelity),
+    Privacy: toNum(r.Privacy),
+  }));
+  plotNumberedTradeoff(el.id, rows, "Fidelity", "Utility", "Fidelity", "Utility");
+}
+
+function bindTradeoffFilters() {
+  ["filter-tradeoff-utility", "filter-tradeoff-fidelity", "filter-tradeoff-privacy"].forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.addEventListener("change", () => {
+      refreshTradeoffDatasetPicker({ ensureMin: true });
+      renderTradeoff({ skipPickerRefresh: true });
+    });
+  });
 }
 
 function renderRankings() {
@@ -1345,6 +1923,7 @@ async function init() {
     setupFidelityFilters();
     setupPrivacyFilters();
     setupStatisticsFilters();
+    bindTradeoffFilters();
     renderOverview();
     renderUtility();
     renderFidelity();

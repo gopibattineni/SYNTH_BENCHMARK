@@ -12,6 +12,13 @@ from matplotlib.lines import Line2D
 
 from analysis.benchmarking import friedman_average_ranks, nemenyi_significance_groups
 from analysis.config import GENERATORS, PLOT_RC
+from analysis.figure_tables import (
+    add_side_values_table,
+    draw_numbered_marker,
+    export_values_csv,
+    make_plot_with_table,
+    order_generator_dataset,
+)
 from analysis.figures import save_figure
 from analysis.representative_tradeoff.config import DATASET_LABELS, RepresentativeTradeoffConfig
 
@@ -58,43 +65,61 @@ def _caption_suffix(analysis: str) -> str:
     return " (Primary — classifier-independent)"
 
 
-def _label(row: pd.Series, *metrics: tuple[str, str]) -> str:
-    parts = [str(row["Generator"])]
-    for col, short in metrics:
-        if col in row and pd.notna(row[col]):
-            parts.append(f"{short}={float(row[col]):.3f}")
-    return "\n".join(parts)
+def _rep_side_table(
+    ax_tab,
+    ordered: pd.DataFrame,
+    metric_cols: list[tuple[str, str]],
+) -> None:
+    cell_text: list[list[str]] = []
+    for _, row in ordered.iterrows():
+        entry = [
+            str(int(row["PointId"])),
+            str(row["Generator"]),
+            DATASET_LABELS.get(str(row["DatasetKey"]), str(row["DatasetKey"])),
+        ]
+        for col, _short in metric_cols:
+            val = row.get(col)
+            entry.append(f"{float(val):.3f}" if pd.notna(val) else "—")
+        cell_text.append(entry)
+    col_labels = ["#", "Generator", "Dataset"] + [s for _, s in metric_cols]
+    add_side_values_table(ax_tab, cell_text, col_labels, generator_colors=GENERATOR_COLORS)
 
 
 def figure01_utility_privacy(scores: pd.DataFrame, out: Path, cfg: RepresentativeTradeoffConfig, analysis: str) -> str | None:
     if scores.empty:
         return None
     _apply_style()
-    fig, ax = plt.subplots(figsize=(10, 7.5))
-    for _, row in scores.iterrows():
-        gen, ds = row["Generator"], row["DatasetKey"]
+    ordered = order_generator_dataset(scores, generators=GENERATORS)
+    fig, ax, ax_tab = make_plot_with_table()
+    for _, row in ordered.iterrows():
+        gen, ds = str(row["Generator"]), str(row["DatasetKey"])
         color = GENERATOR_COLORS.get(gen, "gray")
-        xerr = [[row["F1"] - row["F1_CI_Low"]], [row["F1_CI_High"] - row["F1"]]] if pd.notna(row.get("F1_CI_Low")) else None
-        yerr = None
-        ax.errorbar(
-            row["F1"], row["NNDR"],
-            xerr=xerr, yerr=yerr,
-            fmt=DATASET_MARKERS.get(ds, "o"),
-            color=color, ms=10, capsize=3, markeredgecolor="k", markeredgewidth=0.5, zorder=3,
+        x, y = float(row["F1"]), float(row["NNDR"])
+        if pd.notna(row.get("F1_CI_Low")):
+            xerr = [[x - float(row["F1_CI_Low"])], [float(row["F1_CI_High"]) - x]]
+            ax.errorbar(
+                x, y, xerr=xerr, fmt="none", ecolor=color, capsize=3, lw=1.0, zorder=2,
+            )
+        draw_numbered_marker(
+            ax, x, y, int(row["PointId"]),
+            color=color, marker=DATASET_MARKERS.get(ds, "o"), size=200,
         )
-        ax.annotate(
-            _label(row, ("F1", "F1"), ("NNDR", "NNDR")),
-            (row["F1"], row["NNDR"]),
-            xytext=(6, 6), textcoords="offset points", fontsize=6.5, color=color,
-        )
-    frontier = _pareto_xy(scores, "F1", "NNDR")
+    frontier = _pareto_xy(ordered, "F1", "NNDR")
     if len(frontier) >= 2:
         ax.plot(frontier["F1"], frontier["NNDR"], "k--", lw=1.5, alpha=0.75, label="Pareto frontier")
+    _rep_side_table(ax_tab, ordered, [("F1", "F1"), ("NNDR", "NNDR")])
     ax.set_xlabel("Utility — Mean F1-score")
     ax.set_ylabel("Privacy — Mean NNDR (Avg NN distance; higher = more private)")
     ax.set_title(f"Utility vs Privacy{_caption_suffix(analysis)}")
     ax.grid(alpha=0.3)
-    _dual_legend(ax, scores, show_pareto=len(frontier) >= 2)
+    _dual_legend(ax, ordered, show_pareto=len(frontier) >= 2)
+    export_values_csv(
+        ordered[["PointId", "Generator", "DatasetKey", "F1", "NNDR"]].rename(
+            columns={"PointId": "#", "DatasetKey": "Dataset"}
+        ),
+        out.parent / "Tables" / "Figure01_utility_vs_privacy_values.csv",
+        round_cols=["F1", "NNDR"],
+    )
     save_figure(fig, out / "Figure01_utility_vs_privacy", cfg.figure_formats, cfg.figure_dpi)
     return "Figure01_utility_vs_privacy"
 
@@ -103,25 +128,32 @@ def figure02_utility_fidelity(scores: pd.DataFrame, out: Path, cfg: Representati
     if scores.empty:
         return None
     _apply_style()
-    fig, ax = plt.subplots(figsize=(10, 7.5))
-    for _, row in scores.iterrows():
-        gen, ds = row["Generator"], row["DatasetKey"]
-        color = GENERATOR_COLORS.get(gen, "gray")
-        ax.scatter(row["F1"], row["Quality"], c=color, marker=DATASET_MARKERS.get(ds, "o"),
-                   s=110, edgecolors="k", linewidths=0.5, zorder=3)
-        ax.annotate(
-            _label(row, ("F1", "F1"), ("Quality", "Q")),
-            (row["F1"], row["Quality"]), xytext=(6, 6), textcoords="offset points", fontsize=6.5, color=color,
+    ordered = order_generator_dataset(scores, generators=GENERATORS)
+    fig, ax, ax_tab = make_plot_with_table()
+    for _, row in ordered.iterrows():
+        gen, ds = str(row["Generator"]), str(row["DatasetKey"])
+        draw_numbered_marker(
+            ax, float(row["F1"]), float(row["Quality"]), int(row["PointId"]),
+            color=GENERATOR_COLORS.get(gen, "gray"),
+            marker=DATASET_MARKERS.get(ds, "o"), size=200,
         )
-    frontier = _pareto_xy(scores.dropna(subset=["F1", "Quality"]), "F1", "Quality")
+    frontier = _pareto_xy(ordered.dropna(subset=["F1", "Quality"]), "F1", "Quality")
     if len(frontier) >= 2:
         ax.plot(frontier["F1"], frontier["Quality"], "k--", lw=1.5, alpha=0.75, label="Pareto frontier")
+    _rep_side_table(ax_tab, ordered, [("F1", "F1"), ("Quality", "Q")])
     ax.set_xlabel("Utility — Mean F1-score")
     ax.set_ylabel("Fidelity — SDMetrics Quality Score")
     ax.set_title(f"Utility vs Fidelity{_caption_suffix(analysis)}")
     ax.set_ylim(-0.02, 1.05)
     ax.grid(alpha=0.3)
-    _dual_legend(ax, scores, show_pareto=len(frontier) >= 2)
+    _dual_legend(ax, ordered, show_pareto=len(frontier) >= 2)
+    export_values_csv(
+        ordered[["PointId", "Generator", "DatasetKey", "F1", "Quality"]].rename(
+            columns={"PointId": "#", "DatasetKey": "Dataset"}
+        ),
+        out.parent / "Tables" / "Figure02_utility_vs_fidelity_values.csv",
+        round_cols=["F1", "Quality"],
+    )
     save_figure(fig, out / "Figure02_utility_vs_fidelity", cfg.figure_formats, cfg.figure_dpi)
     return "Figure02_utility_vs_fidelity"
 
@@ -130,89 +162,32 @@ def figure03_privacy_fidelity(scores: pd.DataFrame, out: Path, cfg: Representati
     if scores.empty:
         return None
     _apply_style()
-    # Scatter on top; value table below (avoids overlapping point labels)
-    fig = plt.figure(figsize=(11, 10))
-    gs = fig.add_gridspec(2, 1, height_ratios=[3.0, 1.5], hspace=0.45)
-    ax = fig.add_subplot(gs[0])
-    ax_table = fig.add_subplot(gs[1])
-    ax_table.axis("off")
-
-    for _, row in scores.iterrows():
-        gen, ds = row["Generator"], row["DatasetKey"]
-        color = GENERATOR_COLORS.get(gen, "gray")
-        ax.scatter(
-            row["NNDR"],
-            row["Quality"],
-            c=color,
-            marker=DATASET_MARKERS.get(ds, "o"),
-            s=110,
-            edgecolors="k",
-            linewidths=0.5,
-            zorder=3,
+    ordered = order_generator_dataset(scores, generators=GENERATORS)
+    fig, ax, ax_tab = make_plot_with_table()
+    for _, row in ordered.iterrows():
+        gen, ds = str(row["Generator"]), str(row["DatasetKey"])
+        draw_numbered_marker(
+            ax, float(row["NNDR"]), float(row["Quality"]), int(row["PointId"]),
+            color=GENERATOR_COLORS.get(gen, "gray"),
+            marker=DATASET_MARKERS.get(ds, "o"), size=200,
         )
-
-    frontier = _pareto_xy(scores.dropna(subset=["NNDR", "Quality"]), "NNDR", "Quality")
+    frontier = _pareto_xy(ordered.dropna(subset=["NNDR", "Quality"]), "NNDR", "Quality")
     if len(frontier) >= 2:
         ax.plot(frontier["NNDR"], frontier["Quality"], "k--", lw=1.5, alpha=0.75, label="Pareto frontier")
-
+    _rep_side_table(ax_tab, ordered, [("NNDR", "NNDR"), ("Quality", "Q")])
     ax.set_xlabel("Privacy — Mean NNDR (higher = more private)")
     ax.set_ylabel("Fidelity — SDMetrics Quality Score")
     ax.set_title(f"Privacy vs Fidelity{_caption_suffix(analysis)}")
     ax.set_ylim(-0.02, 1.05)
     ax.grid(alpha=0.3)
-    _dual_legend(ax, scores, show_pareto=len(frontier) >= 2)
-
-    # Per-generator value table under the plot
-    gens = [g for g in GENERATORS if g in set(scores["Generator"])]
-    col_labels = [
-        "Generator",
-        "Cancer NNDR",
-        "Cancer Quality",
-        "Mushroom NNDR",
-        "Mushroom Quality",
-    ]
-    cell_text: list[list[str]] = []
-    cell_colors: list[list[str]] = []
-    for gen in gens:
-        row_vals = [gen]
-        row_colors = ["#f5f5f5"]
-        for ds in ("Cancer", "Mushroom"):
-            sub = scores[(scores["Generator"] == gen) & (scores["DatasetKey"] == ds)]
-            if sub.empty:
-                row_vals.extend(["—", "—"])
-            else:
-                r = sub.iloc[0]
-                nndr = f"{float(r['NNDR']):.3f}" if pd.notna(r["NNDR"]) else "—"
-                qual = f"{float(r['Quality']):.3f}" if pd.notna(r["Quality"]) else "—"
-                row_vals.extend([nndr, qual])
-            row_colors.extend(["white", "white"])
-        # light tint for generator column
-        row_colors[0] = "#f0f0f0"
-        cell_text.append(row_vals)
-        cell_colors.append(row_colors)
-
-    table = ax_table.table(
-        cellText=cell_text,
-        colLabels=col_labels,
-        cellColours=cell_colors,
-        colColours=["#e8e8e8"] * len(col_labels),
-        loc="center",
-        cellLoc="center",
+    _dual_legend(ax, ordered, show_pareto=len(frontier) >= 2)
+    export_values_csv(
+        ordered[["PointId", "Generator", "DatasetKey", "NNDR", "Quality"]].rename(
+            columns={"PointId": "#", "DatasetKey": "Dataset"}
+        ),
+        out.parent / "Tables" / "Figure03_privacy_vs_fidelity_values.csv",
+        round_cols=["NNDR", "Quality"],
     )
-    table.auto_set_font_size(False)
-    table.set_fontsize(8.5)
-    table.scale(1.0, 1.45)
-    for (row_i, col_i), cell in table.get_celld().items():
-        cell.set_edgecolor("#bbbbbb")
-        cell.set_linewidth(0.6)
-        if row_i == 0:
-            cell.set_text_props(fontweight="bold")
-        elif col_i == 0:
-            cell.set_text_props(fontweight="bold", color=GENERATOR_COLORS.get(cell_text[row_i - 1][0], "black"))
-
-    ax_table.set_title("Generator values (NNDR / Quality)", fontsize=10, pad=12)
-    fig.subplots_adjust(top=0.94, bottom=0.06)
-
     save_figure(fig, out / "Figure03_privacy_vs_fidelity", cfg.figure_formats, cfg.figure_dpi)
     return "Figure03_privacy_vs_fidelity"
 
@@ -221,22 +196,30 @@ def figure04_bubble(scores: pd.DataFrame, out: Path, cfg: RepresentativeTradeoff
     if scores.empty:
         return None
     _apply_style()
-    fig, ax = plt.subplots(figsize=(10, 7.5))
-    for _, row in scores.iterrows():
-        gen, ds = row["Generator"], row["DatasetKey"]
+    ordered = order_generator_dataset(scores, generators=GENERATORS)
+    fig, ax, ax_tab = make_plot_with_table()
+    for _, row in ordered.iterrows():
+        gen, ds = str(row["Generator"]), str(row["DatasetKey"])
         q = float(row["Quality"]) if pd.notna(row["Quality"]) else 0.5
-        size = 80 + 450 * q
-        ax.scatter(row["F1"], row["NNDR"], s=size, c=GENERATOR_COLORS.get(gen, "gray"),
-                   marker=DATASET_MARKERS.get(ds, "o"), alpha=0.8, edgecolors="k", linewidths=0.6)
-        ax.annotate(
-            _label(row, ("F1", "F1"), ("NNDR", "NNDR"), ("Quality", "Q")),
-            (row["F1"], row["NNDR"]), xytext=(5, 5), textcoords="offset points", fontsize=6,
+        size = 120 + 380 * q
+        draw_numbered_marker(
+            ax, float(row["F1"]), float(row["NNDR"]), int(row["PointId"]),
+            color=GENERATOR_COLORS.get(gen, "gray"),
+            marker=DATASET_MARKERS.get(ds, "o"), size=size, alpha=0.82,
         )
+    _rep_side_table(ax_tab, ordered, [("F1", "F1"), ("NNDR", "NNDR"), ("Quality", "Q")])
     ax.set_xlabel("Mean F1-score")
     ax.set_ylabel("Mean NNDR")
     ax.set_title(f"Bubble Trade-off (size = Quality){_caption_suffix(analysis)}")
     ax.grid(alpha=0.3)
-    _dual_legend(ax, scores, size_note=True)
+    _dual_legend(ax, ordered, size_note=True)
+    export_values_csv(
+        ordered[["PointId", "Generator", "DatasetKey", "F1", "NNDR", "Quality"]].rename(
+            columns={"PointId": "#", "DatasetKey": "Dataset"}
+        ),
+        out.parent / "Tables" / "Figure04_bubble_chart_values.csv",
+        round_cols=["F1", "NNDR", "Quality"],
+    )
     save_figure(fig, out / "Figure04_bubble_chart", cfg.figure_formats, cfg.figure_dpi)
     return "Figure04_bubble_chart"
 

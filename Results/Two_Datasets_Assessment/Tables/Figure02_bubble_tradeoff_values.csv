@@ -1,0 +1,17 @@
+#,Generator,Dataset,Utility,Privacy,Fidelity
+1,CTGAN,Cancer,0.704,0.201,0.487
+2,CTGAN,Mushroom,0.221,0.679,0.51
+3,CopulaGAN,Cancer,0.373,0.172,0.493
+4,CopulaGAN,Mushroom,0.4,0.581,0.494
+5,TVAE,Cancer,0.923,0.582,0.537
+6,TVAE,Mushroom,0.367,0.733,0.51
+7,GaussianCopula,Cancer,0.82,0.812,0.52
+8,GaussianCopula,Mushroom,0.336,0.543,0.482
+9,WGAN_GP,Cancer,0.936,0.726,0.479
+10,WGAN_GP,Mushroom,0.51,0.519,0.286
+11,CTABGAN,Cancer,0.853,0.667,0.528
+12,CTABGAN,Mushroom,0.377,0.565,0.548
+13,TabDDPM,Cancer,0.322,0.72,0.463
+14,TabDDPM,Mushroom,0.172,0.229,0.479
+15,ForestDiffusion,Cancer,0.968,0.728,0.485
+16,ForestDiffusion,Mushroom,0.685,0.65,0.247

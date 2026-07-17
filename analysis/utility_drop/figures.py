@@ -10,6 +10,13 @@ import pandas as pd
 import seaborn as sns
 from analysis.benchmarking import friedman_average_ranks, nemenyi_significance_groups
 from analysis.config import GENERATORS, PLOT_RC
+from analysis.figure_tables import (
+    add_side_values_table,
+    export_values_csv,
+    make_plot_with_table,
+    marker_text_color,
+    order_generator_dataset,
+)
 from analysis.figures import save_figure
 from analysis.utility_drop.config import FOCUS_DATASETS, UtilityDropConfig
 from analysis.utility_drop.data import reconstruct_seed_samples
@@ -50,28 +57,31 @@ def figure01_utility_vs_leakage(
     inv = {v: k for k, v in FOCUS_DATASETS.items()}
     focus["DatasetKey"] = focus["Dataset"].map(inv)
     _style()
-    fig, ax = plt.subplots(figsize=(11, 6.5))
+    fig, ax, ax_tab = make_plot_with_table(figsize=(12.0, 6.8), width_ratios=(2.7, 1.7))
 
+    table_rows: list[list[str]] = []
     if multi_leakage and focus["Leakage"].nunique() > 1:
-        for gen in _gens(focus):
-            for ds in ("Cancer", "Mushroom"):
-                sub = focus[(focus["Generator"] == gen) & (focus["DatasetKey"] == ds)].sort_values("Leakage")
-                if sub.empty:
-                    continue
-                ax.errorbar(
-                    sub["Leakage"], sub["Mean"], yerr=sub["Std"].fillna(0),
-                    color=GENERATOR_COLORS.get(gen, "gray"), ls=DS_STYLE[ds],
-                    marker=DS_MARKER[ds], capsize=3, lw=1.8, label=f"{gen} ({ds})",
-                )
-                for _, r in sub.iterrows():
-                    ax.text(r["Leakage"], r["Mean"] + 0.01, f"{r['Mean']:.3f}", fontsize=6, ha="center",
-                            color=GENERATOR_COLORS.get(gen, "gray"))
+        ordered = order_generator_dataset(focus, generators=GENERATORS)
+        for _, row in ordered.iterrows():
+            gen, ds = str(row["Generator"]), str(row["DatasetKey"])
+            ax.errorbar(
+                float(row["Leakage"]), float(row["Mean"]), yerr=float(row["Std"]) if pd.notna(row.get("Std")) else 0,
+                color=GENERATOR_COLORS.get(gen, "gray"), ls=DS_STYLE.get(ds, "-"),
+                marker=DS_MARKER.get(ds, "o"), capsize=3, lw=1.8, label="_nolegend_",
+            )
+            table_rows.append([
+                str(int(row["PointId"])), gen, ds,
+                f"{float(row['Leakage']):.0f}",
+                f"{float(row['Mean']):.3f}",
+                f"{float(row['Std']):.3f}" if pd.notna(row.get("Std")) else "—",
+            ])
         ax.set_xlabel("Leakage Percentage")
         ax.set_title("Mean Accuracy ± SD vs Leakage — Cancer & Mushroom")
+        col_labels = ["#", "Generator", "Dataset", "Leak%", "Mean", "SD"]
     else:
-        # Single leakage level: grouped lines by dataset across generators
         gens = _gens(focus)
         x = np.arange(len(gens))
+        pid = 1
         for ds, offset in (("Cancer", -0.05), ("Mushroom", 0.05)):
             sub = focus[focus["DatasetKey"] == ds].set_index("Generator").reindex(gens)
             means = sub["Mean"].astype(float).values
@@ -82,18 +92,45 @@ def figure01_utility_vs_leakage(
             )
             for i, gen in enumerate(gens):
                 color = GENERATOR_COLORS.get(gen, "gray")
-                ax.scatter([x[i] + offset], [means[i]], c=color, s=70, zorder=3, edgecolors="k", lw=0.4)
+                ax.scatter([x[i] + offset], [means[i]], c=color, s=90, zorder=3, edgecolors="k", lw=0.4)
                 if np.isfinite(means[i]):
-                    ax.text(x[i] + offset, means[i] + 0.015, f"{means[i]:.3f}", fontsize=6.5, ha="center", color=color)
+                    ax.text(
+                        x[i] + offset, means[i], str(pid),
+                        ha="center", va="center", fontsize=6.5, fontweight="bold",
+                        color=marker_text_color(color),
+                        zorder=4,
+                    )
+                    table_rows.append([
+                        str(pid), gen, ds,
+                        f"{means[i]:.3f}",
+                        f"{stds[i]:.3f}",
+                    ])
+                    pid += 1
         ax.set_xticks(x)
         ax.set_xticklabels(gens, rotation=30, ha="right")
         ax.set_xlabel("Generator")
         ax.set_title("Mean Accuracy ± SD (Leakage = 0% only)")
+        col_labels = ["#", "Generator", "Dataset", "Mean", "SD"]
 
+        # Dataset legend only (values live in the table)
+        from matplotlib.lines import Line2D
+        ds_handles = [
+            Line2D([0], [0], marker=DS_MARKER[d], color="k", ls=DS_STYLE[d], markersize=7, label=d)
+            for d in ("Cancer", "Mushroom")
+        ]
+        ax.legend(handles=ds_handles, loc="lower left", fontsize=8)
+
+    add_side_values_table(ax_tab, table_rows, col_labels, generator_colors=GENERATOR_COLORS, fontsize=6.5)
     ax.set_ylabel("Mean Accuracy")
     ax.set_ylim(0, 1.08)
     ax.grid(alpha=0.3, axis="y")
-    ax.legend(fontsize=7, ncol=2, loc="lower left")
+    if multi_leakage and focus["Leakage"].nunique() > 1:
+        ax.legend(fontsize=7, ncol=2, loc="lower left")
+
+    export_values_csv(
+        pd.DataFrame(table_rows, columns=col_labels),
+        out.parent / "Tables" / "Figure01_utility_vs_leakage_values.csv",
+    )
     save_figure(fig, out / "Figure01_utility_vs_leakage", cfg.figure_formats, cfg.figure_dpi)
     return "Figure01_utility_vs_leakage"
 
@@ -115,29 +152,47 @@ def figure02_classifier_comparison(tstr: pd.DataFrame, out: Path, cfg: UtilityDr
         return None
 
     _style()
-    fig, ax = plt.subplots(figsize=(14, 6.5))
+    fig, ax, ax_tab = make_plot_with_table(figsize=(14.5, 6.8), width_ratios=(3.2, 1.4))
     x = np.arange(len(classifiers))
     width = 0.8 / max(len(gens), 1)
     for i, gen in enumerate(gens):
         sub = pivot[pivot["Generator"] == gen].set_index("Classifier").reindex(classifiers)
         vals = sub["Mean"].astype(float).values
         errs = sub["Std"].fillna(0).astype(float).values
-        bars = ax.bar(
+        ax.bar(
             x + i * width - 0.4 + width / 2, vals, width,
             yerr=errs, capsize=2, label=gen, color=GENERATOR_COLORS.get(gen, "gray"),
             edgecolor="k", lw=0.3, alpha=0.9,
         )
-        for b, v in zip(bars, vals):
-            if np.isfinite(v):
-                ax.text(b.get_x() + b.get_width() / 2, v + 0.01, f"{v:.2f}", ha="center", va="bottom", fontsize=5, rotation=90)
 
     ax.set_xticks(x)
     ax.set_xticklabels(classifiers, rotation=35, ha="right")
     ax.set_ylabel("Mean Accuracy ± SD")
     ax.set_ylim(0, 1.15)
     ax.set_title("Classifier Comparison — Mean Accuracy by Generator (Cancer+Mushroom avg)")
-    ax.legend(ncol=4, fontsize=8, loc="upper right")
+    ax.legend(ncol=2, fontsize=7, loc="upper right")
     ax.grid(axis="y", alpha=0.3)
+
+    # Compact mean table: Classifier rows × Generator columns is too wide;
+    # instead list generator means averaged across classifiers.
+    cell_text = []
+    for i, gen in enumerate(gens):
+        sub = pivot[pivot["Generator"] == gen]
+        cell_text.append([
+            str(i + 1),
+            gen,
+            f"{sub['Mean'].mean():.3f}",
+            f"{sub['Std'].mean():.3f}",
+        ])
+    add_side_values_table(
+        ax_tab, cell_text, ["#", "Generator", "Mean", "SD"],
+        generator_colors=GENERATOR_COLORS,
+    )
+    export_values_csv(
+        pivot.rename(columns={"Mean": "Accuracy", "Std": "SD"}),
+        out.parent / "Tables" / "Figure02_classifier_comparison_values.csv",
+        round_cols=["Accuracy", "SD"],
+    )
     save_figure(fig, out / "Figure02_classifier_comparison", cfg.figure_formats, cfg.figure_dpi)
     return "Figure02_classifier_comparison"
 
@@ -158,7 +213,7 @@ def figure03_generator_comparison(gen_sum: pd.DataFrame, out: Path, cfg: Utility
         return None
     ranks = agg["Mean"].rank(ascending=False)
     _style()
-    fig, ax = plt.subplots(figsize=(10, 5.5))
+    fig, ax, ax_tab = make_plot_with_table(figsize=(11.0, 5.8), width_ratios=(2.6, 1.5))
     colors = []
     for gen in agg.index:
         if ranks[gen] == 1:
@@ -169,12 +224,26 @@ def figure03_generator_comparison(gen_sum: pd.DataFrame, out: Path, cfg: Utility
             colors.append(GENERATOR_COLORS.get(gen, "gray"))
     ax.barh(agg.index.astype(str), agg["Mean"], xerr=agg["Std"].fillna(0),
             color=colors, edgecolor="k", lw=0.4, capsize=3)
-    for gen, row in agg.iterrows():
-        ax.text(row["Mean"] + 0.01, gen, f"{row['Mean']:.3f} ± {row['Std']:.3f}", va="center", fontsize=8)
     ax.set_xlabel("Mean Accuracy ± SD")
-    ax.set_xlim(0, 1.25)
+    ax.set_xlim(0, 1.15)
     ax.set_title("Generator Comparison (best=green, second=light green)")
     ax.grid(axis="x", alpha=0.3)
+
+    # Ranked table (best first)
+    ranked = agg.sort_values("Mean", ascending=False)
+    cell_text = [
+        [str(i), gen, f"{row['Mean']:.3f}", f"{row['Std']:.3f}"]
+        for i, (gen, row) in enumerate(ranked.iterrows(), start=1)
+    ]
+    add_side_values_table(
+        ax_tab, cell_text, ["#", "Generator", "Mean", "SD"],
+        generator_colors=GENERATOR_COLORS,
+    )
+    export_values_csv(
+        ranked.reset_index().rename(columns={"Mean": "Accuracy", "Std": "SD"}),
+        out.parent / "Tables" / "Figure03_generator_comparison_values.csv",
+        round_cols=["Accuracy", "SD"],
+    )
     save_figure(fig, out / "Figure03_generator_comparison", cfg.figure_formats, cfg.figure_dpi)
     return "Figure03_generator_comparison"
 
@@ -286,10 +355,6 @@ def figure06_utility_loss(loss_df: pd.DataFrame, out: Path, cfg: UtilityDropConf
                 x + off, sub["Mean"].fillna(0), 0.28, yerr=sub["Std"].fillna(0),
                 capsize=3, label=ds, alpha=0.85,
             )
-            for i, gen in enumerate(gens):
-                v = sub.loc[gen, "Mean"] if gen in sub.index else np.nan
-                if pd.notna(v):
-                    ax.text(i + off, v + 0.01, f"{v:.3f}", ha="center", fontsize=6)
         ax.set_xticks(x)
         ax.set_xticklabels(gens, rotation=30, ha="right")
         ax.set_xlabel("Generator")
@@ -298,6 +363,9 @@ def figure06_utility_loss(loss_df: pd.DataFrame, out: Path, cfg: UtilityDropConf
     ax.axhline(0, color="k", lw=0.8)
     ax.legend(fontsize=8)
     ax.grid(axis="y", alpha=0.3)
+    # Values table (avoid on-bar text overlap)
+    tab = agg.copy()
+    tab.to_csv(out.parent / "Tables" / "Figure06_utility_loss_values.csv", index=False)
     save_figure(fig, out / "Figure06_utility_loss", cfg.figure_formats, cfg.figure_dpi)
     return "Figure06_utility_loss"
 
@@ -315,21 +383,24 @@ def figure07_classifier_stability(tstr: pd.DataFrame, out: Path, cfg: UtilityDro
     stats["CV"] = (stats["Std"].abs() / stats["Mean"].abs()).replace([np.inf, -np.inf], np.nan)
     stats = stats.sort_values("Mean", ascending=True)
     _style()
-    fig, ax = plt.subplots(figsize=(10, 5.5))
+    fig, ax, ax_tab = make_plot_with_table(figsize=(11.0, 5.8), width_ratios=(2.5, 1.7))
     ax.barh(stats["Classifier"], stats["Mean"], xerr=stats["Std"].fillna(0),
             color="#4C78A8", edgecolor="k", lw=0.3, capsize=3)
-    for _, r in stats.iterrows():
-        ax.text(
-            r["Mean"] + 0.01, r["Classifier"],
-            f"{r['Mean']:.3f} ± {r['Std']:.3f}  (CV={r['CV']:.3f})",
-            va="center", fontsize=7.5,
-        )
     ax.set_xlabel("Mean Accuracy ± SD (across generators/datasets)")
-    ax.set_xlim(0, 1.35)
+    ax.set_xlim(0, 1.15)
     ax.set_title("Classifier Stability Ranking")
     ax.grid(axis="x", alpha=0.3)
-    save_figure(fig, out / "Figure07_classifier_stability", cfg.figure_formats, cfg.figure_dpi)
+    ranked = stats.sort_values("Mean", ascending=False)
+    cell_text = [
+        [str(i), str(r["Classifier"]), f"{r['Mean']:.3f}", f"{r['Std']:.3f}", f"{r['CV']:.3f}"]
+        for i, (_, r) in enumerate(ranked.iterrows(), start=1)
+    ]
+    add_side_values_table(
+        ax_tab, cell_text, ["#", "Classifier", "Mean", "SD", "CV"],
+        generator_col_idx=1, generator_colors={},
+    )
     stats.to_csv(out.parent / "Tables" / "classifier_stability.csv", index=False)
+    save_figure(fig, out / "Figure07_classifier_stability", cfg.figure_formats, cfg.figure_dpi)
     return "Figure07_classifier_stability"
 
 
@@ -571,10 +642,13 @@ def figure12_violins(tstr: pd.DataFrame, out: Path, cfg: UtilityDropConfig) -> s
         hue_order=order, legend=False, ax=ax, inner="box",
         palette=[GENERATOR_COLORS.get(g, "gray") for g in order],
     )
-    # mean labels
-    for i, gen in enumerate(order):
-        m = long[long["Generator"] == gen]["Accuracy"].mean()
-        ax.text(i, min(m + 0.05, 1.02), f"{m:.3f}", ha="center", fontsize=8)
+    # mean labels live in CSV — avoid overlapping on-violin text
+    means = (
+        long.groupby("Generator")["Accuracy"].mean()
+        .reindex(order)
+        .reset_index()
+    )
+    means.to_csv(out.parent / "Tables" / "Figure12_violin_means.csv", index=False)
     ax.set_ylim(0, 1.08)
     ax.set_title("Violin Plots — Accuracy by Generator (approx. seed distribution)")
     ax.tick_params(axis="x", rotation=30)

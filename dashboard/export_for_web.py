@@ -388,6 +388,12 @@ def export_dashboard_data(output_dir: Path | None = None) -> Path:
             json.dumps(_records(pca_errors), indent=2), encoding="utf-8"
         )
 
+    # --- Correlation trade-off (Cancer + Mushroom primary means) ---
+    corr_payload = _export_correlation_tradeoff()
+    (out / "correlation_tradeoff.json").write_text(
+        json.dumps(corr_payload, indent=2), encoding="utf-8"
+    )
+
     # --- Coverage matrix ---
     if not utility_long.empty:
         coverage = (
@@ -401,6 +407,80 @@ def export_dashboard_data(output_dir: Path | None = None) -> Path:
         )
 
     return out
+
+
+def _export_correlation_tradeoff() -> dict:
+    """
+    Primary generator-mean panels from Correlation Trade-off Analysis
+    (Cancer + Mushroom), matching Results/.../Correlation_Tradeoff_Analysis.
+    """
+    roots = [
+        REPO_ROOT / "Results" / "Two_Datasets_Assessment" / "Correlation_Tradeoff_Analysis",
+        REPO_ROOT / "Results" / "Correlation_Tradeoff_Analysis",
+    ]
+    root = next((p for p in roots if p.exists()), None)
+    analyses: list[dict] = []
+    if root is None:
+        return {"analyses": [], "source": None}
+
+    # Prefer Processed_Data flat CSVs; fall back to nested analysis folders
+    candidates = sorted((root / "Processed_Data").glob("generator_means_*.csv"))
+    if not candidates:
+        candidates = sorted(root.rglob("generator_means_*.csv"))
+
+    seen: set[str] = set()
+    for path in candidates:
+        key = path.stem.replace("generator_means_", "")  # e.g. Accuracy_MIA
+        if key in seen:
+            continue
+        seen.add(key)
+        parts = key.split("_", 1)
+        util_metric = parts[0] if parts else key
+        priv_key = parts[1] if len(parts) > 1 else "MIA"
+        df = pd.read_csv(path)
+        if df.empty or "Generator" not in df.columns:
+            continue
+        rows = []
+        for i, row in df.iterrows():
+            rows.append({
+                "PointId": int(i) + 1 if "PointId" not in df.columns else int(row.get("PointId", i) + 1),
+                "Generator": str(row["Generator"]),
+                "Utility": float(row["Utility"]) if pd.notna(row.get("Utility")) else None,
+                "UtilityStd": float(row["UtilityStd"]) if pd.notna(row.get("UtilityStd")) else None,
+                "Fidelity": float(row["Fidelity"]) if pd.notna(row.get("Fidelity")) else None,
+                "FidelityStd": float(row["FidelityStd"]) if pd.notna(row.get("FidelityStd")) else None,
+                "Privacy": float(row["Privacy"]) if pd.notna(row.get("Privacy")) else None,
+                "PrivacyStd": float(row["PrivacyStd"]) if pd.notna(row.get("PrivacyStd")) else None,
+                "UtilityMetric": str(row.get("UtilityMetric", util_metric)),
+                "FidelityMetric": str(row.get("FidelityMetric", "Quality_Score")),
+                "PrivacyMetric": str(row.get("PrivacyMetric", priv_key)),
+                "PrivacyLabel": str(row.get("PrivacyLabel", priv_key)),
+                "HigherIsPrivate": bool(row.get("HigherIsPrivate", True))
+                if not pd.isna(row.get("HigherIsPrivate", True))
+                else True,
+            })
+        # Stable generator order
+        order = {
+            "CTGAN": 0, "CopulaGAN": 1, "TVAE": 2, "GaussianCopula": 3,
+            "WGAN_GP": 4, "CTABGAN": 5, "TabDDPM": 6, "ForestDiffusion": 7,
+        }
+        rows.sort(key=lambda r: order.get(r["Generator"], 99))
+        for i, r in enumerate(rows, start=1):
+            r["PointId"] = i
+        analyses.append({
+            "id": key,
+            "label": f"{util_metric} · {priv_key}",
+            "utility_metric": util_metric,
+            "privacy_metric": priv_key,
+            "privacy_label": rows[0]["PrivacyLabel"] if rows else priv_key,
+            "higher_is_private": rows[0]["HigherIsPrivate"] if rows else True,
+            "generators": rows,
+        })
+
+    return {
+        "source": str(root.relative_to(REPO_ROOT)) if root else None,
+        "analyses": analyses,
+    }
 
 
 if __name__ == "__main__":
