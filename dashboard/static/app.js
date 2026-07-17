@@ -451,22 +451,26 @@ function axisSpec(metric, values, { clampUnit = false } = {}) {
   };
 }
 
-const DATA_VERSION = "20260717e";
+const DATA_VERSION = "20260717f";
 
 async function loadJSON(name) {
   const url = `data/${name}?v=${DATA_VERSION}`;
   try {
     const res = await fetch(url, { cache: "no-store" });
-    if (!res.ok) return name === "meta.json" ? {} : (name === "statistics.json" || name === "correlation_tradeoff.json" ? {} : []);
+    if (!res.ok) {
+      if (name === "meta.json" || name === "statistics.json" || name === "correlation_tradeoff.json") return {};
+      return [];
+    }
     return res.json();
   } catch {
-    return name.endsWith(".json") && (name.includes("stat") || name.includes("correlation")) ? {} : [];
+    if (name === "meta.json" || name === "statistics.json" || name === "correlation_tradeoff.json") return {};
+    return [];
   }
 }
 
 async function loadAllData() {
   const [meta, utilityAgg, utilityClf, utilityReg, utilityGaps, fidelity, fidelityMetrics, privacy, privacyMetrics, tradeoff,
-         weighted, borda, statistics, coverage, correlationTradeoff] = await Promise.all([
+         weighted, borda, statistics, notebookErrors, coverage, correlationTradeoff] = await Promise.all([
     loadJSON("meta.json"),
     loadJSON("utility_agg.json"),
     loadJSON("utility_classifier.json"),
@@ -480,9 +484,18 @@ async function loadAllData() {
     loadJSON("rankings_weighted.json"),
     loadJSON("rankings_borda.json"),
     loadJSON("statistics.json"),
+    loadJSON("notebook_error_stats.json"),
     loadJSON("coverage.json"),
     loadJSON("correlation_tradeoff.json"),
   ]);
+
+  const stats = statistics && typeof statistics === "object" ? { ...statistics } : {};
+  // GitHub Pages sometimes serves a stale statistics.json with empty pca_errors.
+  // Fall back to the dedicated notebook export when needed.
+  if ((!Array.isArray(stats.pca_errors) || stats.pca_errors.length === 0)
+      && Array.isArray(notebookErrors) && notebookErrors.length) {
+    stats.pca_errors = notebookErrors;
+  }
 
   DATA = {
     meta: meta || {},
@@ -497,7 +510,7 @@ async function loadAllData() {
     tradeoff: tradeoff || [],
     weighted: weighted || [],
     borda: borda || [],
-    statistics: statistics || {},
+    statistics: stats,
     coverage: coverage || [],
     correlationTradeoff: correlationTradeoff || { analyses: [] },
   };
@@ -1749,19 +1762,20 @@ function renderPcaErrorCharts() {
     return mean(subset.map(r => toNum(r[metricField])).filter(v => v != null));
   });
 
+  // Mean_Error_Pct values are already on a percent scale (e.g. 10.5 = 10.5%).
   plot("stats-error-bar", [
     barChartTrace({
       x: GENERATORS,
-      y: barY.map(v => (v == null ? null : v / 100)),
+      y: barY,
       name: metricLabel,
       color: "#3b82f6",
-      asPercent: true,
+      asPercent: false,
       decimals: 2,
     }),
   ], {
     height: 420,
     showlegend: false,
-    yaxis: { title: metricLabel, ticksuffix: "%", automargin: true },
+    yaxis: { title: metricLabel, ticksuffix: "%", automargin: true, rangemode: "tozero" },
     xaxis: { tickangle: -25, automargin: true },
   });
 
