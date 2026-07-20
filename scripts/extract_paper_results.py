@@ -228,6 +228,69 @@ def classify_table(df: pd.DataFrame) -> str | None:
     return None
 
 
+def _infer_model_order(nb_path: Path) -> list[str]:
+    """Read model_order = [...] from notebook source (first match)."""
+    if not nb_path.is_file():
+        return []
+    nb = json.loads(nb_path.read_text(encoding="utf-8"))
+    for cell in nb.get("cells", []):
+        src = "".join(cell.get("source", []))
+        m = re.search(r"model_order\s*=\s*\[(.*?)\]", src, re.DOTALL)
+        if m:
+            return re.findall(r"""['"]([^'"]+)['"]""", m.group(1))
+    return []
+
+
+def extract_quality_from_streams(nb_path: Path) -> pd.DataFrame:
+    """
+  Parse SDMetrics QualityReport overall scores from notebook stdout.
+
+  Other GAN / Diffusion notebooks often lack the HTML summary table but print:
+  Overall Score (Average): XX.XX%
+  """
+    if not nb_path.is_file():
+        return pd.DataFrame()
+    nb = json.loads(nb_path.read_text(encoding="utf-8"))
+    scores: list[float] = []
+    for cell in nb.get("cells", []):
+        for out in cell.get("outputs", []):
+            if out.get("output_type") != "stream":
+                continue
+            text = out.get("text", "")
+            if isinstance(text, list):
+                text = "".join(text)
+            for m in re.finditer(r"Overall Score \(Average\):\s*([\d.]+)%", text):
+                scores.append(float(m.group(1)) / 100.0)
+    if not scores:
+        return pd.DataFrame()
+
+    model_order = _infer_model_order(nb_path)
+    if not model_order:
+        return pd.DataFrame()
+
+    if len(scores) == len(model_order):
+        paired = list(zip(model_order, scores))
+    elif len(scores) == 2 * len(model_order):
+        # SDV training cells: diagnostic 100% then quality per model — keep quality lines
+        paired = list(zip(model_order, scores[1::2]))
+    elif len(scores) > len(model_order):
+        paired = list(zip(model_order, scores[-len(model_order) :]))
+    else:
+        return pd.DataFrame()
+
+    rows = [
+        {
+            "Model": g,
+            "Generator": g,
+            "Diagnostic Score": 1.0,
+            "Quality Score": v,
+        }
+        for g, v in paired
+        if g in ALL_GENERATORS
+    ]
+    return pd.DataFrame(rows)
+
+
 def _tag_df(df: pd.DataFrame, source_group: str) -> pd.DataFrame:
     out = df.copy()
     out["Source_Group"] = source_group
@@ -256,7 +319,27 @@ def parse_notebook_metrics(nb_path: Path, source_group: str, allowed_generators:
             continue
         buckets.setdefault(kind, []).append(tagged)
 
-    return {k: pd.concat(v, ignore_index=True).drop_duplicates() for k, v in buckets.items()}
+    result = {k: pd.concat(v, ignore_index=True).drop_duplicates() for k, v in buckets.items()}
+
+    stream_q = extract_quality_from_streams(nb_path)
+    if not stream_q.empty:
+        stream_q = _tag_df(stream_q, source_group)
+        stream_q = stream_q[stream_q["Generator"].astype(str).isin(allowed_generators)]
+        if not stream_q.empty:
+            existing = result.get("quality_overall")
+            if existing is not None and not existing.empty:
+                have = set(existing["Generator"].astype(str))
+                stream_q = stream_q[~stream_q["Generator"].astype(str).isin(have)]
+            if not stream_q.empty:
+                if "quality_overall" in result:
+                    result["quality_overall"] = pd.concat(
+                        [result["quality_overall"], stream_q],
+                        ignore_index=True,
+                    ).drop_duplicates(subset=["Generator"], keep="last")
+                else:
+                    result["quality_overall"] = stream_q
+
+    return result
 
 
 def load_mahalanobis_excel(path: Path) -> dict[str, pd.DataFrame]:

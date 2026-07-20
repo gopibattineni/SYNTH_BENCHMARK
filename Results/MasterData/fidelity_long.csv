@@ -1459,22 +1459,18 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 15. Real Estate Valuation,WGAN_GP,,fidelity,Quality_Score,0.734693,0.734693,,,,,,0.0,,,Fidelity,0.734693,Generators/Other GANS/15. Real Estate Valuation_other GAN.ipynb
 15. Real Estate Valuation,ForestDiffusion,,fidelity,Quality_Score,0.944539,0.944539,,,,,,0.0,,,Fidelity,0.944539,Generators/Diffusion GANs/15. Real Estate Valuation_diffusion.ipynb
 15. Real Estate Valuation,TabDDPM,,fidelity,Quality_Score,0.65929,0.65929,,,,,,0.0,,,Fidelity,0.65929,Generators/Diffusion GANs/15. Real Estate Valuation_diffusion.ipynb
-3. Adult,CTGAN,,,Quality_Score,0.787637,0.787637,,,,,,,,,,0.787637,
 3. Adult,CTGAN,,,Wasserstein_Distance,0.044069,0.044069,,,,,,,,,,0.044069,
 3. Adult,CTGAN,,,Gower_Similarity,0.606159,0.606159,,,,,,,,,,0.606159,
 3. Adult,CTGAN,,,Cosine_Similarity,0.01415,0.01415,,,,,,,,,,0.01415,
 3. Adult,CTGAN,,,Mean_Error_Pct,18.279341,18.279341,,,,,,,,,,18.279341,
-3. Adult,CopulaGAN,,,Quality_Score,0.759809,0.759809,,,,,,,,,,0.759809,
 3. Adult,CopulaGAN,,,Wasserstein_Distance,0.063869,0.063869,,,,,,,,,,0.063869,
 3. Adult,CopulaGAN,,,Gower_Similarity,0.60362,0.60362,,,,,,,,,,0.60362,
 3. Adult,CopulaGAN,,,Cosine_Similarity,0.015996,0.015996,,,,,,,,,,0.015996,
 3. Adult,CopulaGAN,,,Mean_Error_Pct,25.356947,25.356947,,,,,,,,,,25.356947,
-3. Adult,TVAE,,,Quality_Score,0.486688,0.486688,,,,,,,,,,0.486688,
 3. Adult,TVAE,,,Wasserstein_Distance,0.097094,0.097094,,,,,,,,,,0.097094,
 3. Adult,TVAE,,,Gower_Similarity,0.702597,0.702597,,,,,,,,,,0.702597,
 3. Adult,TVAE,,,Cosine_Similarity,0.028617,0.028617,,,,,,,,,,0.028617,
 3. Adult,TVAE,,,Mean_Error_Pct,13.458949,13.458949,,,,,,,,,,13.458949,
-3. Adult,GaussianCopula,,,Quality_Score,0.783155,0.783155,,,,,,,,,,0.783155,
 3. Adult,GaussianCopula,,,Wasserstein_Distance,0.098072,0.098072,,,,,,,,,,0.098072,
 3. Adult,GaussianCopula,,,Gower_Similarity,0.572546,0.572546,,,,,,,,,,0.572546,
 3. Adult,GaussianCopula,,,Cosine_Similarity,-0.021114,-0.021114,,,,,,,,,,-0.021114,
@@ -1499,3 +1495,13 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 3. Adult,ForestDiffusion,,,Gower_Similarity,0.645353,0.645353,,,,,,,,,,0.645353,
 3. Adult,ForestDiffusion,,,Cosine_Similarity,0.020289,0.020289,,,,,,,,,,0.020289,
 3. Adult,ForestDiffusion,,,Mean_Error_Pct,7.545889,7.545889,,,,,,,,,,7.545889,
+3. Adult,CTGAN,,fidelity,Quality_Score,0.851945,0.851945,,,,,0.0,0.0,100.0,Score,Fidelity,0.851945,paper results/3. Adult/fidelity_privacy_metrics.xlsx
+3. Adult,CopulaGAN,,fidelity,Quality_Score,0.768821,0.768821,,,,,0.0,0.0,100.0,Score,Fidelity,0.768821,paper results/3. Adult/fidelity_privacy_metrics.xlsx
+3. Adult,TVAE,,fidelity,Quality_Score,0.514101,0.514101,,,,,0.0,0.0,100.0,Score,Fidelity,0.514101,paper results/3. Adult/fidelity_privacy_metrics.xlsx
+3. Adult,GaussianCopula,,fidelity,Quality_Score,0.763417,0.763417,,,,,0.0,0.0,100.0,Score,Fidelity,0.763417,paper results/3. Adult/fidelity_privacy_metrics.xlsx
+3. Adult,CTABGAN,,fidelity,Quality_Score,0.7234999999999999,0.7234999999999999,,,,,0.0,0.0,100.0,Score,Fidelity,0.7234999999999999,paper results/3. Adult/fidelity_privacy_metrics.xlsx
+3. Adult,WGAN_GP,,fidelity,Quality_Score,0.4676,0.4676,,,,,0.0,0.0,100.0,Score,Fidelity,0.4676,paper results/3. Adult/fidelity_privacy_metrics.xlsx
+3. Adult,TabDDPM,,fidelity,Quality_Score,0.2522,0.2522,,,,,0.0,0.0,100.0,Score,Fidelity,0.2522,paper results/3. Adult/fidelity_privacy_metrics.xlsx
+3. Adult,ForestDiffusion,,fidelity,Quality_Score,0.7954000000000001,0.7954000000000001,,,,,0.0,0.0,100.0,Score,Fidelity,0.7954000000000001,paper results/3. Adult/fidelity_privacy_metrics.xlsx
+3. Adult,TVAE,,,JS_Divergence,,0.21726666666666666,,,,,,0.0,,Score,Fidelity,0.21726666666666666,Generators/SDV models/3. Adult census.ipynb
+3. Adult,GaussianCopula,,,JS_Divergence,,0.04473333333333333,,,,,,0.0,,Score,Fidelity,0.04473333333333333,Generators/SDV models/3. Adult census.ipynb

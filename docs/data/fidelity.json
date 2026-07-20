@@ -10194,13 +10194,6 @@
   {
     "Dataset": "3. Adult",
     "Generator": "CTGAN",
-    "Metric": "Quality_Score",
-    "Mean": 0.787637,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "CTGAN",
     "Metric": "Wasserstein_Distance",
     "Mean": 0.044069,
     "Std": null
@@ -10224,13 +10217,6 @@
     "Generator": "CTGAN",
     "Metric": "Mean_Error_Pct",
     "Mean": 18.279341,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "CopulaGAN",
-    "Metric": "Quality_Score",
-    "Mean": 0.759809,
     "Std": null
   },
   {
@@ -10264,13 +10250,6 @@
   {
     "Dataset": "3. Adult",
     "Generator": "TVAE",
-    "Metric": "Quality_Score",
-    "Mean": 0.486688,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "TVAE",
     "Metric": "Wasserstein_Distance",
     "Mean": 0.097094,
     "Std": null
@@ -10294,13 +10273,6 @@
     "Generator": "TVAE",
     "Metric": "Mean_Error_Pct",
     "Mean": 13.458949,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "GaussianCopula",
-    "Metric": "Quality_Score",
-    "Mean": 0.783155,
     "Std": null
   },
   {
@@ -10469,6 +10441,76 @@
     "Generator": "ForestDiffusion",
     "Metric": "Mean_Error_Pct",
     "Mean": 7.545889,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "CTGAN",
+    "Metric": "Quality_Score",
+    "Mean": 0.851945,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "CopulaGAN",
+    "Metric": "Quality_Score",
+    "Mean": 0.768821,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "TVAE",
+    "Metric": "Quality_Score",
+    "Mean": 0.514101,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "GaussianCopula",
+    "Metric": "Quality_Score",
+    "Mean": 0.763417,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "CTABGAN",
+    "Metric": "Quality_Score",
+    "Mean": 0.7235,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "WGAN_GP",
+    "Metric": "Quality_Score",
+    "Mean": 0.4676,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "TabDDPM",
+    "Metric": "Quality_Score",
+    "Mean": 0.2522,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "ForestDiffusion",
+    "Metric": "Quality_Score",
+    "Mean": 0.7954,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "TVAE",
+    "Metric": "JS_Divergence",
+    "Mean": 0.2172666667,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "GaussianCopula",
+    "Metric": "JS_Divergence",
+    "Mean": 0.0447333333,
     "Std": null
   }
 ]

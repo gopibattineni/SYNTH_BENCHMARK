@@ -49,6 +49,13 @@
     "is_unit_interval": false
   },
   {
+    "id": "Quality_Score",
+    "label": "Quality Score",
+    "count": 116,
+    "higher_is_better": true,
+    "is_unit_interval": true
+  },
+  {
     "id": "Wasserstein_Distance",
     "label": "Wasserstein Distance",
     "count": 116,
@@ -63,16 +70,9 @@
     "is_unit_interval": false
   },
   {
-    "id": "Quality_Score",
-    "label": "Quality Score",
-    "count": 112,
-    "higher_is_better": true,
-    "is_unit_interval": true
-  },
-  {
     "id": "JS_Divergence",
     "label": "JS Divergence",
-    "count": 108,
+    "count": 110,
     "higher_is_better": false,
     "is_unit_interval": true
   },
