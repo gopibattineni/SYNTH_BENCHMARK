@@ -10313,13 +10313,6 @@
   {
     "Dataset": "3. Adult",
     "Generator": "CTABGAN",
-    "Metric": "MMD",
-    "Mean": 0.100346,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "CTABGAN",
     "Metric": "Gower_Similarity",
     "Mean": 0.61206,
     "Std": null
@@ -10343,13 +10336,6 @@
     "Generator": "WGAN_GP",
     "Metric": "Wasserstein_Distance",
     "Mean": 0.075009,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "WGAN_GP",
-    "Metric": "MMD",
-    "Mean": 0.081653,
     "Std": null
   },
   {
@@ -10383,13 +10369,6 @@
   {
     "Dataset": "3. Adult",
     "Generator": "TabDDPM",
-    "Metric": "MMD",
-    "Mean": 0.564577,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "TabDDPM",
     "Metric": "Gower_Similarity",
     "Mean": 0.313479,
     "Std": null
@@ -10413,13 +10392,6 @@
     "Generator": "ForestDiffusion",
     "Metric": "Wasserstein_Distance",
     "Mean": 0.016267,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "ForestDiffusion",
-    "Metric": "MMD",
-    "Mean": 0.007571,
     "Std": null
   },
   {
@@ -10511,6 +10483,62 @@
     "Generator": "GaussianCopula",
     "Metric": "JS_Divergence",
     "Mean": 0.0447333333,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "CTGAN",
+    "Metric": "MMD",
+    "Mean": 0.064738,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "CopulaGAN",
+    "Metric": "MMD",
+    "Mean": 0.204773,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "TVAE",
+    "Metric": "MMD",
+    "Mean": 0.175298,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "GaussianCopula",
+    "Metric": "MMD",
+    "Mean": 0.644094,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "CTABGAN",
+    "Metric": "MMD",
+    "Mean": 0.100346,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "WGAN_GP",
+    "Metric": "MMD",
+    "Mean": 0.081653,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "TabDDPM",
+    "Metric": "MMD",
+    "Mean": 0.564577,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "ForestDiffusion",
+    "Metric": "MMD",
+    "Mean": 0.007571,
     "Std": null
   }
 ]

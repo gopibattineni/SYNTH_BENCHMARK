@@ -1476,22 +1476,18 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 3. Adult,GaussianCopula,,,Cosine_Similarity,-0.021114,-0.021114,,,,,,,,,,-0.021114,
 3. Adult,GaussianCopula,,,Mean_Error_Pct,462.643438,462.643438,,,,,,,,,,462.643438,
 3. Adult,CTABGAN,,,Wasserstein_Distance,0.04297,0.04297,,,,,,,,,,0.04297,
-3. Adult,CTABGAN,,,MMD,0.100346,0.100346,,,,,,,,,,0.100346,
 3. Adult,CTABGAN,,,Gower_Similarity,0.61206,0.61206,,,,,,,,,,0.61206,
 3. Adult,CTABGAN,,,Cosine_Similarity,-0.031479,-0.031479,,,,,,,,,,-0.031479,
 3. Adult,CTABGAN,,,Mean_Error_Pct,71.5257555,71.5257555,,,,,,,,,,71.5257555,
 3. Adult,WGAN_GP,,,Wasserstein_Distance,0.075009,0.075009,,,,,,,,,,0.075009,
-3. Adult,WGAN_GP,,,MMD,0.081653,0.081653,,,,,,,,,,0.081653,
 3. Adult,WGAN_GP,,,Gower_Similarity,0.521082,0.521082,,,,,,,,,,0.521082,
 3. Adult,WGAN_GP,,,Cosine_Similarity,0.000121,0.000121,,,,,,,,,,0.000121,
 3. Adult,WGAN_GP,,,Mean_Error_Pct,24.589703,24.589703,,,,,,,,,,24.589703,
 3. Adult,TabDDPM,,,Wasserstein_Distance,0.369429,0.369429,,,,,,,,,,0.369429,
-3. Adult,TabDDPM,,,MMD,0.564577,0.564577,,,,,,,,,,0.564577,
 3. Adult,TabDDPM,,,Gower_Similarity,0.313479,0.313479,,,,,,,,,,0.313479,
 3. Adult,TabDDPM,,,Cosine_Similarity,-0.054662,-0.054662,,,,,,,,,,-0.054662,
 3. Adult,TabDDPM,,,Mean_Error_Pct,394.3303465,394.3303465,,,,,,,,,,394.3303465,
 3. Adult,ForestDiffusion,,,Wasserstein_Distance,0.016267,0.016267,,,,,,,,,,0.016267,
-3. Adult,ForestDiffusion,,,MMD,0.007571,0.007571,,,,,,,,,,0.007571,
 3. Adult,ForestDiffusion,,,Gower_Similarity,0.645353,0.645353,,,,,,,,,,0.645353,
 3. Adult,ForestDiffusion,,,Cosine_Similarity,0.020289,0.020289,,,,,,,,,,0.020289,
 3. Adult,ForestDiffusion,,,Mean_Error_Pct,7.545889,7.545889,,,,,,,,,,7.545889,
@@ -1503,5 +1499,13 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 3. Adult,WGAN_GP,,fidelity,Quality_Score,0.4676,0.4676,,,,,0.0,0.0,100.0,Score,Fidelity,0.4676,paper results/3. Adult/fidelity_privacy_metrics.xlsx
 3. Adult,TabDDPM,,fidelity,Quality_Score,0.2522,0.2522,,,,,0.0,0.0,100.0,Score,Fidelity,0.2522,paper results/3. Adult/fidelity_privacy_metrics.xlsx
 3. Adult,ForestDiffusion,,fidelity,Quality_Score,0.7954000000000001,0.7954000000000001,,,,,0.0,0.0,100.0,Score,Fidelity,0.7954000000000001,paper results/3. Adult/fidelity_privacy_metrics.xlsx
-3. Adult,TVAE,,,JS_Divergence,,0.21726666666666666,,,,,,0.0,,Score,Fidelity,0.21726666666666666,Generators/SDV models/3. Adult census.ipynb
-3. Adult,GaussianCopula,,,JS_Divergence,,0.04473333333333333,,,,,,0.0,,Score,Fidelity,0.04473333333333333,Generators/SDV models/3. Adult census.ipynb
+3. Adult,TVAE,,,JS_Divergence,,0.2172666666666666,,,,,,0.0,,Score,Fidelity,0.2172666666666666,Generators/SDV models/3. Adult census.ipynb
+3. Adult,GaussianCopula,,,JS_Divergence,,0.0447333333333333,,,,,,0.0,,Score,Fidelity,0.0447333333333333,Generators/SDV models/3. Adult census.ipynb
+3. Adult,CTGAN,,fidelity,MMD,0.064738,0.064738,,,,,0.0,0.0,100.0,Score,Fidelity,0.064738,paper results/3. Adult/fidelity_privacy_metrics.xlsx
+3. Adult,CopulaGAN,,fidelity,MMD,0.204773,0.204773,,,,,0.0,0.0,100.0,Score,Fidelity,0.204773,paper results/3. Adult/fidelity_privacy_metrics.xlsx
+3. Adult,TVAE,,fidelity,MMD,0.175298,0.175298,,,,,0.0,0.0,100.0,Score,Fidelity,0.175298,paper results/3. Adult/fidelity_privacy_metrics.xlsx
+3. Adult,GaussianCopula,,fidelity,MMD,0.644094,0.644094,,,,,0.0,0.0,100.0,Score,Fidelity,0.644094,paper results/3. Adult/fidelity_privacy_metrics.xlsx
+3. Adult,CTABGAN,,fidelity,MMD,0.100346,0.100346,,,,,0.0,0.0,100.0,Score,Fidelity,0.100346,paper results/3. Adult/fidelity_privacy_metrics.xlsx
+3. Adult,WGAN_GP,,fidelity,MMD,0.081653,0.081653,,,,,0.0,0.0,100.0,Score,Fidelity,0.081653,paper results/3. Adult/fidelity_privacy_metrics.xlsx
+3. Adult,TabDDPM,,fidelity,MMD,0.564577,0.564577,,,,,0.0,0.0,100.0,Score,Fidelity,0.564577,paper results/3. Adult/fidelity_privacy_metrics.xlsx
+3. Adult,ForestDiffusion,,fidelity,MMD,0.007571,0.007571,,,,,0.0,0.0,100.0,Score,Fidelity,0.007571,paper results/3. Adult/fidelity_privacy_metrics.xlsx

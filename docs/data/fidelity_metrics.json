@@ -28,6 +28,13 @@
     "is_unit_interval": false
   },
   {
+    "id": "MMD",
+    "label": "MMD",
+    "count": 118,
+    "higher_is_better": false,
+    "is_unit_interval": false
+  },
+  {
     "id": "Gower_Similarity",
     "label": "Gower Similarity",
     "count": 116,
@@ -59,13 +66,6 @@
     "id": "Wasserstein_Distance",
     "label": "Wasserstein Distance",
     "count": 116,
-    "higher_is_better": false,
-    "is_unit_interval": false
-  },
-  {
-    "id": "MMD",
-    "label": "MMD",
-    "count": 114,
     "higher_is_better": false,
     "is_unit_interval": false
   },
