@@ -88,5 +88,13 @@ Dataset,Generator,Metric,MetricValue,Source
 14. Energy Efficiency,TabDDPM,JS_Divergence,0.1153333333333333,plot_ocr
 14. Energy Efficiency,ForestDiffusion,JS_Divergence,0.0135,plot_ocr
 15. Real Estate Valuation,ForestDiffusion,JS_Divergence,0.007,plot_ocr
-3. Adult,TVAE,JS_Divergence,0.21726666666666666,plot_ocr
-3. Adult,GaussianCopula,JS_Divergence,0.04473333333333333,plot_ocr
+3. Adult,TVAE,JS_Divergence,0.2172666666666666,plot_ocr
+3. Adult,GaussianCopula,JS_Divergence,0.0447333333333333,plot_ocr
+4. Forest cover dataset,CTGAN,JS_Divergence,0.010397,plot_digitized_top10_over_54
+4. Forest cover dataset,CopulaGAN,JS_Divergence,0.015801,plot_digitized_top10_over_54
+4. Forest cover dataset,TVAE,JS_Divergence,0.006718,plot_digitized_top10_over_54
+4. Forest cover dataset,GaussianCopula,JS_Divergence,0.005124,plot_digitized_top10_over_54
+5. Bank Markting,CTGAN,JS_Divergence,0.0085541875,notebook_top10_over_16
+5. Bank Markting,CopulaGAN,JS_Divergence,0.013730375,notebook_top10_over_16
+5. Bank Markting,TVAE,JS_Divergence,0.0341435,notebook_top10_over_16
+5. Bank Markting,GaussianCopula,JS_Divergence,0.021484125,notebook_top10_over_16

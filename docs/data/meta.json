@@ -11,7 +11,7 @@
   ],
   "n_datasets": 15,
   "n_utility_rows": 38336,
-  "n_fidelity_rows": 1510,
+  "n_fidelity_rows": 1556,
   "n_privacy_rows": 1042,
   "n_files": 129,
   "runtime_seconds": 227.67,

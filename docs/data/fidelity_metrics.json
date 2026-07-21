@@ -7,6 +7,20 @@
     "is_unit_interval": true
   },
   {
+    "id": "Gower_Similarity",
+    "label": "Gower Similarity",
+    "count": 120,
+    "higher_is_better": true,
+    "is_unit_interval": false
+  },
+  {
+    "id": "JS_Divergence",
+    "label": "JS Divergence",
+    "count": 120,
+    "higher_is_better": false,
+    "is_unit_interval": true
+  },
+  {
     "id": "KS_Complement",
     "label": "KS Complement",
     "count": 120,
@@ -14,8 +28,36 @@
     "is_unit_interval": true
   },
   {
+    "id": "MMD_Multivariate",
+    "label": "MMD Multivariate",
+    "count": 120,
+    "higher_is_better": false,
+    "is_unit_interval": false
+  },
+  {
+    "id": "PCA_Mean_Error",
+    "label": "PCA Mean Error",
+    "count": 120,
+    "higher_is_better": false,
+    "is_unit_interval": false
+  },
+  {
     "id": "PCA_Mean_Error_Pct",
     "label": "PCA Mean Error Pct",
+    "count": 120,
+    "higher_is_better": false,
+    "is_unit_interval": false
+  },
+  {
+    "id": "Quality_Score",
+    "label": "Quality Score",
+    "count": 120,
+    "higher_is_better": true,
+    "is_unit_interval": true
+  },
+  {
+    "id": "Wasserstein_Distance",
+    "label": "Wasserstein Distance",
     "count": 120,
     "higher_is_better": false,
     "is_unit_interval": false
@@ -35,58 +77,16 @@
     "is_unit_interval": false
   },
   {
-    "id": "Gower_Similarity",
-    "label": "Gower Similarity",
-    "count": 116,
-    "higher_is_better": true,
-    "is_unit_interval": false
-  },
-  {
-    "id": "MMD_Multivariate",
-    "label": "MMD Multivariate",
-    "count": 116,
-    "higher_is_better": false,
-    "is_unit_interval": false
-  },
-  {
-    "id": "PCA_Mean_Error",
-    "label": "PCA Mean Error",
-    "count": 116,
-    "higher_is_better": false,
-    "is_unit_interval": false
-  },
-  {
-    "id": "Quality_Score",
-    "label": "Quality Score",
-    "count": 116,
-    "higher_is_better": true,
-    "is_unit_interval": true
-  },
-  {
-    "id": "Wasserstein_Distance",
-    "label": "Wasserstein Distance",
-    "count": 116,
-    "higher_is_better": false,
-    "is_unit_interval": false
-  },
-  {
-    "id": "JS_Divergence",
-    "label": "JS Divergence",
-    "count": 110,
-    "higher_is_better": false,
-    "is_unit_interval": true
-  },
-  {
     "id": "PCA_Correlation_Diff",
     "label": "PCA Correlation Diff",
-    "count": 108,
+    "count": 116,
     "higher_is_better": false,
     "is_unit_interval": false
   },
   {
     "id": "Outlier_Count_Diff",
     "label": "Outlier Count Diff",
-    "count": 104,
+    "count": 112,
     "higher_is_better": false,
     "is_unit_interval": false
   },
