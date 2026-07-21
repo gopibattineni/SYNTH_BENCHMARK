@@ -35,6 +35,13 @@
     "is_unit_interval": false
   },
   {
+    "id": "PCA_Correlation_Diff",
+    "label": "PCA Correlation Diff",
+    "count": 120,
+    "higher_is_better": false,
+    "is_unit_interval": false
+  },
+  {
     "id": "PCA_Mean_Error",
     "label": "PCA Mean Error",
     "count": 120,
@@ -77,23 +84,9 @@
     "is_unit_interval": false
   },
   {
-    "id": "PCA_Correlation_Diff",
-    "label": "PCA Correlation Diff",
-    "count": 116,
-    "higher_is_better": false,
-    "is_unit_interval": false
-  },
-  {
     "id": "Outlier_Count_Diff",
     "label": "Outlier Count Diff",
     "count": 112,
-    "higher_is_better": false,
-    "is_unit_interval": false
-  },
-  {
-    "id": "Mean_Error_Pct",
-    "label": "Mean Error Pct",
-    "count": 8,
     "higher_is_better": false,
     "is_unit_interval": false
   }

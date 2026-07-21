@@ -64,6 +64,9 @@ const FIDELITY_LABELS = {
   Wasserstein_Distance: "Wasserstein distance",
   PCA_Correlation_Diff: "PCA correlation difference",
   PCA_Mean_Error: "PCA mean error",
+  PCA_Mean_Error_Pct: "PCA mean error %",
+  Outlier_Count_Diff: "Outlier count difference",
+  Gower_Similarity: "Gower similarity",
 };
 
 const FIDELITY_PREFERRED_ORDER = [
@@ -77,6 +80,9 @@ const FIDELITY_PREFERRED_ORDER = [
   "Wasserstein_Distance",
   "PCA_Correlation_Diff",
   "PCA_Mean_Error",
+  "PCA_Mean_Error_Pct",
+  "Outlier_Count_Diff",
+  "Gower_Similarity",
 ];
 
 const DASH_FONT = '"Abadi MT Condensed Light", "Abadi MT", Abadi, Cabin, "Segoe UI", "Helvetica Neue", Arial, sans-serif';
@@ -451,7 +457,7 @@ function axisSpec(metric, values, { clampUnit = false } = {}) {
   };
 }
 
-const DATA_VERSION = "20260720k";
+const DATA_VERSION = "20260721a";
 
 async function loadJSON(name) {
   const url = `data/${name}?v=${DATA_VERSION}`;

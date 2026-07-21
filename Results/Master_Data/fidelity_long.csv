@@ -1461,39 +1461,31 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 2. Alzhimers,WGAN_GP,,,JS_Divergence,,0.20125,,,,,,0.0,,Score,Fidelity,0.20125,Results/Supplementary/js_divergence_from_plots.csv
 2. Alzhimers,CTGAN,,,JS_Divergence,,0.1919999999999999,,,,,,0.0,,Score,Fidelity,0.1919999999999999,Results/Supplementary/js_divergence_from_plots.csv
 2. Alzhimers,CopulaGAN,,,JS_Divergence,,0.1376,,,,,,0.0,,Score,Fidelity,0.1376,Results/Supplementary/js_divergence_from_plots.csv
-3. Adult,CopulaGAN,,,Mean_Error_Pct,25.356947,25.356947,,,,,,,,,,25.356947,
 3. Adult,TVAE,,,Wasserstein_Distance,0.097094,0.097094,,,,,,,,,,0.097094,
 3. Adult,TVAE,,,Gower_Similarity,0.702597,0.702597,,,,,,,,,,0.702597,
 3. Adult,TVAE,,,Cosine_Similarity,0.028617,0.028617,,,,,,,,,,0.028617,
-3. Adult,CTGAN,,,Mean_Error_Pct,18.279341,18.279341,,,,,,,,,,18.279341,
 3. Adult,CopulaGAN,,,Wasserstein_Distance,0.063869,0.063869,,,,,,,,,,0.063869,
 3. Adult,CopulaGAN,,,Gower_Similarity,0.60362,0.60362,,,,,,,,,,0.60362,
 3. Adult,CopulaGAN,,,Cosine_Similarity,0.015996,0.015996,,,,,,,,,,0.015996,
-3. Adult,TVAE,,,Mean_Error_Pct,13.458949,13.458949,,,,,,,,,,13.458949,
 3. Adult,GaussianCopula,,,Wasserstein_Distance,0.098072,0.098072,,,,,,,,,,0.098072,
 3. Adult,GaussianCopula,,,Gower_Similarity,0.572546,0.572546,,,,,,,,,,0.572546,
 3. Adult,GaussianCopula,,,Cosine_Similarity,-0.021114,-0.021114,,,,,,,,,,-0.021114,
 3. Adult,CTABGAN,,,Wasserstein_Distance,0.04297,0.04297,,,,,,,,,,0.04297,
 3. Adult,CTABGAN,,,Gower_Similarity,0.61206,0.61206,,,,,,,,,,0.61206,
-3. Adult,GaussianCopula,,,Mean_Error_Pct,462.643438,462.643438,,,,,,,,,,462.643438,
 12. Air Quality,WGAN_GP,,,JS_Divergence,,0.09,,,,,,0.0,,Score,Fidelity,0.09,Results/Supplementary/js_divergence_from_plots.csv
 6. Wine dataset,ForestDiffusion,,,JS_Divergence,,0.0163999999999999,,,,,,0.0,,Score,Fidelity,0.0163999999999999,Results/Supplementary/js_divergence_from_plots.csv
 6. Wine dataset,CTABGAN,,,JS_Divergence,,0.0311999999999999,,,,,,0.0,,Score,Fidelity,0.0311999999999999,Results/Supplementary/js_divergence_from_plots.csv
 10. Metro interstate,CopulaGAN,,,JS_Divergence,,0.2198,,,,,,0.0,,Score,Fidelity,0.2198,Results/Supplementary/js_divergence_from_plots.csv
 10. Metro interstate,CTGAN,,,JS_Divergence,,0.2128571428571428,,,,,,0.0,,Score,Fidelity,0.2128571428571428,Results/Supplementary/js_divergence_from_plots.csv
-3. Adult,CTABGAN,,,Mean_Error_Pct,71.5257555,71.5257555,,,,,,,,,,71.5257555,
 3. Adult,WGAN_GP,,,Wasserstein_Distance,0.075009,0.075009,,,,,,,,,,0.075009,
 3. Adult,WGAN_GP,,,Gower_Similarity,0.521082,0.521082,,,,,,,,,,0.521082,
 3. Adult,CTABGAN,,,Cosine_Similarity,-0.031479,-0.031479,,,,,,,,,,-0.031479,
-3. Adult,WGAN_GP,,,Mean_Error_Pct,24.589703,24.589703,,,,,,,,,,24.589703,
 3. Adult,TabDDPM,,,Wasserstein_Distance,0.369429,0.369429,,,,,,,,,,0.369429,
 3. Adult,TabDDPM,,,Gower_Similarity,0.313479,0.313479,,,,,,,,,,0.313479,
 3. Adult,TabDDPM,,,Cosine_Similarity,-0.054662,-0.054662,,,,,,,,,,-0.054662,
-3. Adult,TabDDPM,,,Mean_Error_Pct,394.3303465,394.3303465,,,,,,,,,,394.3303465,
 3. Adult,ForestDiffusion,,,Wasserstein_Distance,0.016267,0.016267,,,,,,,,,,0.016267,
 3. Adult,ForestDiffusion,,,Gower_Similarity,0.645353,0.645353,,,,,,,,,,0.645353,
 3. Adult,WGAN_GP,,,Cosine_Similarity,0.000121,0.000121,,,,,,,,,,0.000121,
-3. Adult,ForestDiffusion,,,Mean_Error_Pct,7.545889,7.545889,,,,,,,,,,7.545889,
 8. Mushroom dataset,WGAN_GP,,,JS_Divergence,,0.3174705882352941,,,,,,0.0,,Score,Fidelity,0.3174705882352941,Results/Supplementary/js_divergence_from_plots.csv
 8. Mushroom dataset,CTGAN,,,JS_Divergence,,0.0131428571428571,,,,,,0.0,,Score,Fidelity,0.0131428571428571,Results/Supplementary/js_divergence_from_plots.csv
 8. Mushroom dataset,CopulaGAN,,,JS_Divergence,,0.0109230769230769,,,,,,0.0,,Score,Fidelity,0.0109230769230769,Results/Supplementary/js_divergence_from_plots.csv
@@ -1555,3 +1547,7 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 11. online shopping,CTGAN,,fidelity,Outlier_Count_Diff,161.090909,161.090909,,,,,0.0,0.0,100.0,Score,Fidelity,161.090909,Generators/SDV models/11. Online Shopping.ipynb (Avg Abs Diff outlier count)
 11. online shopping,GaussianCopula,,fidelity,Outlier_Count_Diff,201.090909,201.090909,,,,,0.0,0.0,100.0,Score,Fidelity,201.090909,Generators/SDV models/11. Online Shopping.ipynb (Avg Abs Diff outlier count)
 11. online shopping,TVAE,,fidelity,Outlier_Count_Diff,333.0,333.0,,,,,0.0,0.0,100.0,Score,Fidelity,333.0,Generators/SDV models/11. Online Shopping.ipynb (Avg Abs Diff outlier count)
+1. Cancer,CTGAN,,,PCA_Correlation_Diff,1.004611,1.004611,,,,,,0.0,,Score,Fidelity,1.004611,Generators/Other GANS/1. Cancer_other GAN.ipynb
+1. Cancer,CopulaGAN,,,PCA_Correlation_Diff,1.072034,1.072034,,,,,,0.0,,Score,Fidelity,1.072034,Generators/Other GANS/1. Cancer_other GAN.ipynb
+1. Cancer,TVAE,,,PCA_Correlation_Diff,0.568466,0.568466,,,,,,0.0,,Score,Fidelity,0.568466,Generators/Other GANS/1. Cancer_other GAN.ipynb
+1. Cancer,GaussianCopula,,,PCA_Correlation_Diff,0.232499,0.232499,,,,,,0.0,,Score,Fidelity,0.232499,Generators/Other GANS/1. Cancer_other GAN.ipynb

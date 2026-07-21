@@ -201,6 +201,11 @@ def _load_fidelity_long() -> pd.DataFrame:
             out = out[out["Dataset"].map(_is_benchmark_dataset)]
         if "Generator" in out.columns:
             out = out[out["Generator"].notna() & (out["Generator"].astype(str).str.strip() != "")]
+        # Adult-only Mean_Error_Pct rows are a mislabeled PCA duplicate; the
+        # Fidelity tab uses PCA_Mean_Error_Pct (full 15×8 coverage). Statistics
+        # still exposes Mean Error % via notebook_error_stats / PCA sheets.
+        if "Metric" in out.columns:
+            out = out[out["Metric"] != "Mean_Error_Pct"]
         keep = [c for c in ["Dataset", "Generator", "Metric", "Mean", "Std", "NormalizedScore"] if c in out.columns]
         return out[keep].dropna(subset=["Mean"])
     return pd.DataFrame()
@@ -223,11 +228,17 @@ def _fidelity_metric_catalog(df: pd.DataFrame) -> list[dict]:
         "JS_Divergence",
         "Gower_Distance",
     }
+    labels = {
+        "PCA_Mean_Error": "PCA Mean Error",
+        "PCA_Mean_Error_Pct": "PCA Mean Error Pct",
+        "Outlier_Count_Diff": "Outlier Count Diff",
+        "Gower_Similarity": "Gower Similarity",
+    }
     catalog = []
     for metric, grp in df.groupby("Metric", dropna=False):
         catalog.append({
             "id": metric,
-            "label": str(metric).replace("_", " "),
+            "label": labels.get(metric, str(metric).replace("_", " ")),
             "count": int(len(grp)),
             "higher_is_better": metric in higher_better,
             "is_unit_interval": metric in unit_interval,

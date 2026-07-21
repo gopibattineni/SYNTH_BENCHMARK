@@ -826,7 +826,6 @@ Dataset,Generator,Metric,Mean,Count,Std,CI_Low,CI_High,NormalizedScore
 3. Adult,CTABGAN,KS_Complement,0.7981,1,0.0,0.7981,0.7981,0.7981
 3. Adult,CTABGAN,MMD,0.100346,1,0.0,0.100346,0.100346,0.100346
 3. Adult,CTABGAN,MMD_Multivariate,0.07775,1,0.0,0.07775,0.07775,0.07775
-3. Adult,CTABGAN,Mean_Error_Pct,71.5257555,1,0.0,71.5257555,71.5257555,71.5257555
 3. Adult,CTABGAN,Outlier_Count_Diff,76.833333,1,0.0,76.833333,76.833333,76.833333
 3. Adult,CTABGAN,PCA_Correlation_Diff,0.296554,1,0.0,0.296554,0.296554,0.296554
 3. Adult,CTABGAN,PCA_Mean_Error,142.051511,1,0.0,142.051511,142.051511,142.051511
@@ -840,7 +839,6 @@ Dataset,Generator,Metric,Mean,Count,Std,CI_Low,CI_High,NormalizedScore
 3. Adult,CTGAN,KS_Complement,0.8681,1,0.0,0.8681,0.8681,0.8681
 3. Adult,CTGAN,MMD,0.064738,1,0.0,0.064738,0.064738,0.064738
 3. Adult,CTGAN,MMD_Multivariate,0.018062,1,0.0,0.018062,0.018062,0.018062
-3. Adult,CTGAN,Mean_Error_Pct,18.279341,1,0.0,18.279341,18.279341,18.279341
 3. Adult,CTGAN,Outlier_Count_Diff,3324.0,1,0.0,3324.0,3324.0,3324.0
 3. Adult,CTGAN,PCA_Correlation_Diff,0.162565,1,0.0,0.162565,0.162565,0.162565
 3. Adult,CTGAN,PCA_Mean_Error,38.298415,1,0.0,38.298415,38.298415,38.298415
@@ -854,7 +852,6 @@ Dataset,Generator,Metric,Mean,Count,Std,CI_Low,CI_High,NormalizedScore
 3. Adult,CopulaGAN,KS_Complement,0.9159,1,0.0,0.9159,0.9159,0.9159
 3. Adult,CopulaGAN,MMD,0.204773,1,0.0,0.204773,0.204773,0.204773
 3. Adult,CopulaGAN,MMD_Multivariate,0.012815,1,0.0,0.012815,0.012815,0.012815
-3. Adult,CopulaGAN,Mean_Error_Pct,25.356947,1,0.0,25.356947,25.356947,25.356947
 3. Adult,CopulaGAN,Outlier_Count_Diff,3402.666667,1,0.0,3402.666667,3402.666667,3402.666667
 3. Adult,CopulaGAN,PCA_Correlation_Diff,0.156685,1,0.0,0.156685,0.156685,0.156685
 3. Adult,CopulaGAN,PCA_Mean_Error,48.729227,1,0.0,48.729227,48.729227,48.729227
@@ -868,7 +865,6 @@ Dataset,Generator,Metric,Mean,Count,Std,CI_Low,CI_High,NormalizedScore
 3. Adult,ForestDiffusion,KS_Complement,0.8329000000000001,1,0.0,0.8329000000000001,0.8329000000000001,0.8329000000000001
 3. Adult,ForestDiffusion,MMD,0.007571,1,0.0,0.007571,0.007571,0.007571
 3. Adult,ForestDiffusion,MMD_Multivariate,0.006923,1,0.0,0.006923,0.006923,0.006923
-3. Adult,ForestDiffusion,Mean_Error_Pct,7.545889,1,0.0,7.545889,7.545889,7.545889
 3. Adult,ForestDiffusion,Outlier_Count_Diff,38.0,1,0.0,38.0,38.0,38.0
 3. Adult,ForestDiffusion,PCA_Correlation_Diff,0.110073,1,0.0,0.110073,0.110073,0.110073
 3. Adult,ForestDiffusion,PCA_Mean_Error,15.091778,1,0.0,15.091778,15.091778,15.091778
@@ -882,7 +878,6 @@ Dataset,Generator,Metric,Mean,Count,Std,CI_Low,CI_High,NormalizedScore
 3. Adult,GaussianCopula,KS_Complement,0.8753,1,0.0,0.8753,0.8753,0.8753
 3. Adult,GaussianCopula,MMD,0.644094,1,0.0,0.644094,0.644094,0.644094
 3. Adult,GaussianCopula,MMD_Multivariate,0.077847,1,0.0,0.077847,0.077847,0.077847
-3. Adult,GaussianCopula,Mean_Error_Pct,462.643438,1,0.0,462.643438,462.643438,462.643438
 3. Adult,GaussianCopula,Outlier_Count_Diff,3402.833333,1,0.0,3402.833333,3402.833333,3402.833333
 3. Adult,GaussianCopula,PCA_Correlation_Diff,0.162811,1,0.0,0.162811,0.162811,0.162811
 3. Adult,GaussianCopula,PCA_Mean_Error,595.285454,1,0.0,595.285454,595.285454,595.285454
@@ -896,7 +891,6 @@ Dataset,Generator,Metric,Mean,Count,Std,CI_Low,CI_High,NormalizedScore
 3. Adult,TVAE,KS_Complement,0.9101,1,0.0,0.9101,0.9101,0.9101
 3. Adult,TVAE,MMD,0.175298,1,0.0,0.175298,0.175298,0.175298
 3. Adult,TVAE,MMD_Multivariate,0.00721,1,0.0,0.00721,0.00721,0.00721
-3. Adult,TVAE,Mean_Error_Pct,13.458949,1,0.0,13.458949,13.458949,13.458949
 3. Adult,TVAE,Outlier_Count_Diff,3174.5,1,0.0,3174.5,3174.5,3174.5
 3. Adult,TVAE,PCA_Correlation_Diff,0.159209,1,0.0,0.159209,0.159209,0.159209
 3. Adult,TVAE,PCA_Mean_Error,40.344942,1,0.0,40.344942,40.344942,40.344942
@@ -910,7 +904,6 @@ Dataset,Generator,Metric,Mean,Count,Std,CI_Low,CI_High,NormalizedScore
 3. Adult,TabDDPM,KS_Complement,0.3953,1,0.0,0.3953,0.3953,0.3953
 3. Adult,TabDDPM,MMD,0.564577,1,0.0,0.564577,0.564577,0.564577
 3. Adult,TabDDPM,MMD_Multivariate,0.35908,1,0.0,0.35908,0.35908,0.35908
-3. Adult,TabDDPM,Mean_Error_Pct,394.3303465,1,0.0,394.3303465,394.3303465,394.3303465
 3. Adult,TabDDPM,Outlier_Count_Diff,76.5,1,0.0,76.5,76.5,76.5
 3. Adult,TabDDPM,PCA_Correlation_Diff,0.78344,1,0.0,0.78344,0.78344,0.78344
 3. Adult,TabDDPM,PCA_Mean_Error,787.660693,1,0.0,787.660693,787.660693,787.660693
@@ -924,7 +917,6 @@ Dataset,Generator,Metric,Mean,Count,Std,CI_Low,CI_High,NormalizedScore
 3. Adult,WGAN_GP,KS_Complement,0.6234000000000001,1,0.0,0.6234000000000001,0.6234000000000001,0.6234000000000001
 3. Adult,WGAN_GP,MMD,0.081653,1,0.0,0.081653,0.081653,0.081653
 3. Adult,WGAN_GP,MMD_Multivariate,0.060505,1,0.0,0.060505,0.060505,0.060505
-3. Adult,WGAN_GP,Mean_Error_Pct,24.589703,1,0.0,24.589703,24.589703,24.589703
 3. Adult,WGAN_GP,Outlier_Count_Diff,61.166667,1,0.0,61.166667,61.166667,61.166667
 3. Adult,WGAN_GP,PCA_Correlation_Diff,0.40812,1,0.0,0.40812,0.40812,0.40812
 3. Adult,WGAN_GP,PCA_Mean_Error,49.179406,1,0.0,49.179406,49.179406,49.179406
@@ -1551,3 +1543,7 @@ Dataset,Generator,Metric,Mean,Count,Std,CI_Low,CI_High,NormalizedScore
 11. online shopping,CTGAN,Outlier_Count_Diff,161.090909,1,0.0,161.090909,161.090909,161.090909
 11. online shopping,GaussianCopula,Outlier_Count_Diff,201.090909,1,0.0,201.090909,201.090909,201.090909
 11. online shopping,TVAE,Outlier_Count_Diff,333.0,1,0.0,333.0,333.0,333.0
+1. Cancer,CTGAN,PCA_Correlation_Diff,1.004611,1,0.0,1.004611,1.004611,1.004611
+1. Cancer,CopulaGAN,PCA_Correlation_Diff,1.072034,1,0.0,1.072034,1.072034,1.072034
+1. Cancer,TVAE,PCA_Correlation_Diff,0.568466,1,0.0,0.568466,0.568466,0.568466
+1. Cancer,GaussianCopula,PCA_Correlation_Diff,0.232499,1,0.0,0.232499,0.232499,0.232499

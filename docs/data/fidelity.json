@@ -10207,13 +10207,6 @@
   },
   {
     "Dataset": "3. Adult",
-    "Generator": "CopulaGAN",
-    "Metric": "Mean_Error_Pct",
-    "Mean": 25.356947,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
     "Generator": "TVAE",
     "Metric": "Wasserstein_Distance",
     "Mean": 0.097094,
@@ -10235,13 +10228,6 @@
   },
   {
     "Dataset": "3. Adult",
-    "Generator": "CTGAN",
-    "Metric": "Mean_Error_Pct",
-    "Mean": 18.279341,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
     "Generator": "CopulaGAN",
     "Metric": "Wasserstein_Distance",
     "Mean": 0.063869,
@@ -10259,13 +10245,6 @@
     "Generator": "CopulaGAN",
     "Metric": "Cosine_Similarity",
     "Mean": 0.015996,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "TVAE",
-    "Metric": "Mean_Error_Pct",
-    "Mean": 13.458949,
     "Std": null
   },
   {
@@ -10301,13 +10280,6 @@
     "Generator": "CTABGAN",
     "Metric": "Gower_Similarity",
     "Mean": 0.61206,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "GaussianCopula",
-    "Metric": "Mean_Error_Pct",
-    "Mean": 462.643438,
     "Std": null
   },
   {
@@ -10347,13 +10319,6 @@
   },
   {
     "Dataset": "3. Adult",
-    "Generator": "CTABGAN",
-    "Metric": "Mean_Error_Pct",
-    "Mean": 71.5257555,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
     "Generator": "WGAN_GP",
     "Metric": "Wasserstein_Distance",
     "Mean": 0.075009,
@@ -10371,13 +10336,6 @@
     "Generator": "CTABGAN",
     "Metric": "Cosine_Similarity",
     "Mean": -0.031479,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "WGAN_GP",
-    "Metric": "Mean_Error_Pct",
-    "Mean": 24.589703,
     "Std": null
   },
   {
@@ -10403,13 +10361,6 @@
   },
   {
     "Dataset": "3. Adult",
-    "Generator": "TabDDPM",
-    "Metric": "Mean_Error_Pct",
-    "Mean": 394.3303465,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
     "Generator": "ForestDiffusion",
     "Metric": "Wasserstein_Distance",
     "Mean": 0.016267,
@@ -10427,13 +10378,6 @@
     "Generator": "WGAN_GP",
     "Metric": "Cosine_Similarity",
     "Mean": 0.000121,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "ForestDiffusion",
-    "Metric": "Mean_Error_Pct",
-    "Mean": 7.545889,
     "Std": null
   },
   {
@@ -10861,6 +10805,34 @@
     "Generator": "TVAE",
     "Metric": "Outlier_Count_Diff",
     "Mean": 333.0,
+    "Std": null
+  },
+  {
+    "Dataset": "1. Cancer",
+    "Generator": "CTGAN",
+    "Metric": "PCA_Correlation_Diff",
+    "Mean": 1.004611,
+    "Std": null
+  },
+  {
+    "Dataset": "1. Cancer",
+    "Generator": "CopulaGAN",
+    "Metric": "PCA_Correlation_Diff",
+    "Mean": 1.072034,
+    "Std": null
+  },
+  {
+    "Dataset": "1. Cancer",
+    "Generator": "TVAE",
+    "Metric": "PCA_Correlation_Diff",
+    "Mean": 0.568466,
+    "Std": null
+  },
+  {
+    "Dataset": "1. Cancer",
+    "Generator": "GaussianCopula",
+    "Metric": "PCA_Correlation_Diff",
+    "Mean": 0.232499,
     "Std": null
   }
 ]
