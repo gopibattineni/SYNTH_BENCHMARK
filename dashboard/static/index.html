@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/style.css?v=39" />
+  <link rel="stylesheet" href="assets/style.css?v=50" />
   <script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
 </head>
 <body>
@@ -29,6 +29,7 @@
     <nav class="tabs">
       <button class="active" data-panel="panel-overview">Overview</button>
       <button data-panel="panel-utility">Utility</button>
+      <button data-panel="panel-utility-dataleak">Utility with dataleak</button>
       <button data-panel="panel-fidelity">Fidelity</button>
       <button data-panel="panel-privacy">Privacy</button>
       <button data-panel="panel-tradeoff">Trade-offs</button>
@@ -47,13 +48,46 @@
       <section id="panel-utility" class="panel">
         <div class="controls">
           <div class="control"><label>Task</label><select id="filter-task"></select></div>
-          <div class="control"><label>Metric</label><select id="filter-metric"></select></div>
+          <div class="control"><label>Utility metric</label><select id="filter-metric"></select></div>
+          <div class="control"><label>Evaluation</label><select id="filter-utility-eval"></select></div>
           <div class="control"><label>Dataset</label><select id="filter-dataset"></select></div>
           <div class="control"><label>Generator</label><select id="filter-generator"></select></div>
         </div>
         <div class="chart-grid two">
+          <div class="chart-card"><h3 id="utility-bar-title">Utility by generator</h3><div id="utility-bar" class="plot"></div></div>
           <div class="chart-card"><h3>TRTR vs TSTR</h3><div id="utility-trtr-tstr" class="plot"></div></div>
-          <div class="chart-card"><h3>By classifier</h3><div id="utility-classifier" class="plot"></div></div>
+        </div>
+        <div class="chart-grid one" style="margin-top:1.25rem">
+          <div class="chart-card"><h3 id="utility-heat-title">Utility heatmap (TSTR / TRTR)</h3><div id="utility-heatmap" class="plot"></div></div>
+        </div>
+        <div class="chart-grid two" style="margin-top:1.25rem">
+          <div class="chart-card"><h3 id="utility-detail-title">By classifier</h3><div id="utility-classifier" class="plot"></div></div>
+        </div>
+      </section>
+
+      <section id="panel-utility-dataleak" class="panel">
+        <p class="section-title" style="margin-top:0">
+          TRTR / TSTR from the utility data-leak experiment — filter by generator family
+          (SDV models · Other GANS · Diffusion GANs)
+        </p>
+        <div class="controls">
+          <div class="control"><label>Generator family</label><select id="filter-leak-family"></select></div>
+          <div class="control"><label>Task</label><select id="filter-leak-task"></select></div>
+          <div class="control"><label>Utility metric</label><select id="filter-leak-metric"></select></div>
+          <div class="control"><label>Evaluation</label><select id="filter-leak-eval"></select></div>
+          <div class="control"><label>Dataset</label><select id="filter-leak-dataset"></select></div>
+          <div class="control"><label>Generator</label><select id="filter-leak-generator"></select></div>
+        </div>
+        <div class="chart-grid two">
+          <div class="chart-card"><h3 id="leak-utility-bar-title">Utility by generator</h3><div id="leak-utility-bar" class="plot"></div></div>
+          <div class="chart-card"><h3>Dataset heatmap</h3><div id="leak-utility-heatmap" class="plot"></div></div>
+        </div>
+        <div class="chart-grid two" style="margin-top:1.25rem">
+          <div class="chart-card"><h3>TRTR vs TSTR</h3><div id="leak-utility-trtr-tstr" class="plot"></div></div>
+          <div class="chart-card"><h3 id="leak-utility-detail-title">By classifier</h3><div id="leak-utility-classifier" class="plot"></div></div>
+        </div>
+        <div class="chart-grid one" style="margin-top:1.25rem">
+          <div class="chart-card"><h3>Utility gap heatmap (selected family)</h3><div id="leak-utility-gap-heatmap" class="plot"></div></div>
         </div>
       </section>
 
@@ -183,6 +217,6 @@
     <a href="https://github.com/gopibattineni/SYNTH_BENCHMARK">View on GitHub</a>
   </footer>
 
-  <script src="assets/app.js?v=43"></script>
+  <script src="assets/app.js?v=50"></script>
 </body>
 </html>

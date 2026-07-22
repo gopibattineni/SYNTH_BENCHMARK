@@ -5,6 +5,20 @@ const GENERATORS = [
   "WGAN_GP", "CTABGAN", "TabDDPM", "ForestDiffusion",
 ];
 
+/** Maps dashboard filter labels → generators from each source folder. */
+const GENERATOR_FAMILIES = {
+  "All families": GENERATORS,
+  "SDV models": ["CTGAN", "CopulaGAN", "TVAE", "GaussianCopula"],
+  "Other GANS": ["WGAN_GP", "CTABGAN"],
+  "Diffusion GANs": ["TabDDPM", "ForestDiffusion"],
+};
+
+const GENERATOR_FAMILY_SOURCE = {
+  "SDV models": "Generators/SDV models",
+  "Other GANS": "Generators/Other GANS",
+  "Diffusion GANs": "Generators/Diffusion GANs",
+};
+
 const GENERATOR_COLORS = {
   CTGAN: "#1f77b4",
   CopulaGAN: "#ff7f0e",
@@ -64,9 +78,6 @@ const FIDELITY_LABELS = {
   Wasserstein_Distance: "Wasserstein distance",
   PCA_Correlation_Diff: "PCA correlation difference",
   PCA_Mean_Error: "PCA mean error",
-  PCA_Mean_Error_Pct: "PCA mean error %",
-  Outlier_Count_Diff: "Outlier count difference",
-  Gower_Similarity: "Gower similarity",
 };
 
 const FIDELITY_PREFERRED_ORDER = [
@@ -80,9 +91,6 @@ const FIDELITY_PREFERRED_ORDER = [
   "Wasserstein_Distance",
   "PCA_Correlation_Diff",
   "PCA_Mean_Error",
-  "PCA_Mean_Error_Pct",
-  "Outlier_Count_Diff",
-  "Gower_Similarity",
 ];
 
 const DASH_FONT = '"Abadi MT Condensed Light", "Abadi MT", Abadi, Cabin, "Segoe UI", "Helvetica Neue", Arial, sans-serif';
@@ -457,7 +465,7 @@ function axisSpec(metric, values, { clampUnit = false } = {}) {
   };
 }
 
-const DATA_VERSION = "20260721a";
+const DATA_VERSION = "20260721e";
 
 async function loadJSON(name) {
   const url = `data/${name}?v=${DATA_VERSION}`;
@@ -750,20 +758,159 @@ function regressorMean(rows, regressor, evaluationType) {
   return mean(vals);
 }
 
+/** Fidelity-style utility bar + labeled performance heatmap (TSTR/TRTR — not Accuracy Drop). */
+function renderUtilityBarAndHeatmap({
+  gens,
+  task,
+  metric,
+  evalType,
+  dataset,
+  allDs,
+  barPlotId,
+  heatPlotId,
+  titleElId,
+  heatTitleElId,
+  sourceNote = "",
+}) {
+  const usePercent = isPercentMetric(metric, task);
+  const higherBetter = !["RMSE", "MAE", "MSE"].includes(metric);
+  const metricRows = DATA.utilityAgg.filter(r =>
+    r.TaskType === task
+    && r.Metric === metric
+    && r.EvaluationType === evalType
+    && gens.includes(r.Generator),
+  );
+  const datasets = uniqueDatasets(metricRows);
+  const rows = metricRows.filter(r => allDs || r.Dataset === dataset);
+
+  const titleEl = document.getElementById(titleElId);
+  if (titleEl) titleEl.textContent = `${metric} (${evalType}) by generator`;
+  const heatTitleEl = heatTitleElId ? document.getElementById(heatTitleElId) : null;
+  if (heatTitleEl) heatTitleEl.textContent = `${metric} (${evalType}) · dataset × generator`;
+
+  if (!rows.length && !metricRows.length) {
+    plot(barPlotId, [], { title: `No ${metric} ${evalType} data`, height: 220 });
+    plot(heatPlotId, [], { title: "No heatmap data", height: 220 });
+    return;
+  }
+
+  const byGen = {};
+  rows.forEach(r => {
+    const value = toNum(r.Mean);
+    if (!r.Generator || value == null) return;
+    if (!byGen[r.Generator]) byGen[r.Generator] = [];
+    byGen[r.Generator].push(value);
+  });
+  const barValues = gens.map(g => (byGen[g]?.length ? mean(byGen[g]) : null));
+  const missingCount = barValues.filter(v => v == null).length;
+  const missingNote = missingCount ? ` · ${missingCount} generator(s) not evaluated` : "";
+  const direction = higherBetter ? "higher = better utility" : "lower = better utility";
+  const naTrace = missingBarLabelTrace(barValues, usePercent);
+
+  plot(barPlotId, [
+    privacyBarTrace({ x: gens, y: barValues, color: "#3b82f6", asPercent: usePercent }),
+    ...(naTrace ? [naTrace] : []),
+  ], {
+    title: `${metric} · ${evalType}${allDs ? " (mean over datasets)" : ""}${sourceNote} · ${direction}${missingNote}`,
+    height: 460,
+    margin: { t: 44, b: 88, l: 64, r: 24 },
+    yaxis: numericYAxis(barValues, { asPercent: usePercent }),
+    xaxis: generatorXAxis(),
+    showlegend: false,
+  });
+
+  const heatDs = datasets.length ? datasets : uniqueDatasets(metricRows);
+  const heatGens = gens.filter(g => metricRows.some(r => r.Generator === g));
+  const z = heatGens.map(g => heatDs.map(d => {
+    const matches = metricRows.filter(r => r.Generator === g && r.Dataset === d);
+    return mean(matches.map(r => toNum(r.Mean)));
+  }));
+  const zText = z.map(row =>
+    row.map(v => {
+      if (v == null) return "";
+      return usePercent ? `${Math.round(v * 100)}%` : v.toFixed(2);
+    }),
+  );
+  const zFlat = z.flat().filter(v => v != null);
+  const heatmapScale = usePercent
+    ? { zmin: 0, zmax: 1 }
+    : {
+      zmin: zFlat.length ? Math.min(...zFlat) : undefined,
+      zmax: zFlat.length ? Math.max(...zFlat) : undefined,
+    };
+
+  plot(heatPlotId, heatDs.length && heatGens.length ? [{
+    type: "heatmap",
+    x: heatDs.map(shortDatasetLabel),
+    y: heatGens,
+    z,
+    ...heatmapScale,
+    colorscale: higherBetter
+      ? [
+        [0, "#9b4d4d"],
+        [0.35, "#d08b6b"],
+        [0.55, "#c4a35a"],
+        [0.75, "#8fad7a"],
+        [1, "#2f5d50"],
+      ]
+      : [
+        [0, "#2f5d50"],
+        [0.35, "#8fad7a"],
+        [0.55, "#c4a35a"],
+        [0.75, "#d08b6b"],
+        [1, "#9b4d4d"],
+      ],
+    hovertemplate: `%{y} · %{x}<br>${metric} (${evalType}): %{z:.3f}<extra></extra>`,
+    colorbar: {
+      title: { text: `${metric} (${evalType})`, font: { size: 12 } },
+      tickformat: usePercent ? ".0%" : ".2f",
+      thickness: 14,
+      len: 0.75,
+      outlinewidth: 0,
+    },
+    text: zText,
+    texttemplate: "%{text}",
+    textfont: { size: 10, color: "#f8fafc", family: DASH_FONT },
+    xgap: 2,
+    ygap: 2,
+  }] : [], {
+    title: `${metric} · ${evalType} · dataset × generator${sourceNote}`,
+    height: Math.max(360, 80 + heatGens.length * 42),
+    margin: { l: 140, r: 90, t: 44, b: 110 },
+    xaxis: { type: "category", tickangle: -35, automargin: true },
+    yaxis: { ...generatorYAxis(), automargin: true },
+  });
+}
+
 function renderUtility() {
   const task = document.getElementById("filter-task")?.value || "classification";
   const metric = syncUtilityMetricOptions(task);
+  const evalType = document.getElementById("filter-utility-eval")?.value || "TSTR";
   const dataset = document.getElementById("filter-dataset")?.value;
   const allDs = isAllDatasets(dataset);
+
+  const datasets = uniqueDatasets(DATA.utilityAgg.filter(r => r.TaskType === task));
+  fillSelect("filter-dataset", ["All datasets", ...datasets], dataset || "All datasets");
+
+  renderUtilityBarAndHeatmap({
+    gens: GENERATORS,
+    task,
+    metric,
+    evalType,
+    dataset: document.getElementById("filter-dataset")?.value,
+    allDs: isAllDatasets(document.getElementById("filter-dataset")?.value),
+    barPlotId: "utility-bar",
+    heatPlotId: "utility-heatmap",
+    titleElId: "utility-bar-title",
+    heatTitleElId: "utility-heat-title",
+  });
 
   const rows = DATA.utilityAgg.filter(r =>
     r.TaskType === task
     && r.Metric === metric
-    && (allDs || r.Dataset === dataset),
+    && (isAllDatasets(document.getElementById("filter-dataset")?.value)
+      || r.Dataset === document.getElementById("filter-dataset")?.value),
   );
-
-  const datasets = uniqueDatasets(DATA.utilityAgg.filter(r => r.TaskType === task));
-  fillSelect("filter-dataset", ["All datasets", ...datasets], dataset || "All datasets");
 
   const trtrBuckets = aggregateGeneratorMeans(rows, "TRTR");
   const tstrBuckets = aggregateGeneratorMeans(rows, "TSTR");
@@ -773,6 +920,8 @@ function renderUtility() {
   const yValues = [...trtr, ...tstr].filter(v => v != null);
   const usePercent = isPercentMetric(metric, task);
   const hasBars = yValues.length > 0;
+  const selectedDataset = document.getElementById("filter-dataset")?.value;
+  const allDsSelected = isAllDatasets(selectedDataset);
 
   plot("utility-trtr-tstr", hasBars ? [
     barChartTrace({ x: gens, y: trtr, name: "TRTR", color: "#3b82f6", asPercent: usePercent, decimals: usePercent ? 1 : 3 }),
@@ -782,7 +931,7 @@ function renderUtility() {
     bargap: 0.18,
     bargroupgap: 0.08,
     title: hasBars
-      ? `${metric}: TRTR vs TSTR (${task}${allDs ? ", mean over datasets" : ""})`
+      ? `${metric}: TRTR vs TSTR (${task}${allDsSelected ? ", mean over datasets" : ""})`
       : `No ${metric} data for this ${task} selection`,
     height: 480,
     margin: { t: 44, b: 88, l: 64, r: 24 },
@@ -790,14 +939,15 @@ function renderUtility() {
     xaxis: generatorXAxis(),
   });
 
-  const modelTitleEl = document.querySelector("#panel-utility .chart-card:nth-child(2) h3");
+  const modelTitleEl = document.getElementById("utility-detail-title")
+    || document.querySelector("#panel-utility .chart-card:nth-child(2) h3");
   const isRegression = task === "regression";
   if (modelTitleEl) modelTitleEl.textContent = isRegression ? "By regressor" : "By classifier";
 
   const detailSource = isRegression ? (DATA.utilityReg || []) : (DATA.utilityClf || []);
   const modelKey = isRegression ? "Regressor" : "Classifier";
   const detailRows = detailSource.filter(r =>
-    r.Metric === metric && (allDs || r.Dataset === dataset),
+    r.Metric === metric && (allDsSelected || r.Dataset === selectedDataset),
   );
 
   const gensWithDetail = GENERATORS.filter(g => detailRows.some(r => r.Generator === g));
@@ -805,7 +955,7 @@ function renderUtility() {
   const gen = gensWithDetail.includes(genSel) ? genSel : (gensWithDetail[0] || GENERATORS[0]);
   fillSelect("filter-generator", gensWithDetail.length ? gensWithDetail : GENERATORS, gen);
 
-  const ds = allDs ? (unique(detailRows, "Dataset")[0] || "") : dataset;
+  const ds = allDsSelected ? (unique(detailRows, "Dataset")[0] || "") : selectedDataset;
   const detail = detailRows.filter(r => r.Generator === gen && r.Dataset === ds);
   const models = unique(detail, modelKey);
   const trtrModel = models.map(m => (
@@ -832,6 +982,220 @@ function renderUtility() {
     xaxis: { tickangle: -45, type: "category" },
     yaxis: usePercent ? percentYAxis(modelValues) : axisSpec(metric, modelValues),
   });
+}
+
+function generatorsForFamily(family) {
+  return GENERATOR_FAMILIES[family] || GENERATORS;
+}
+
+function syncLeakUtilityMetricOptions(task, preferred) {
+  const options = metricsForTask(task);
+  const current = preferred || document.getElementById("filter-leak-metric")?.value;
+  const next = options.includes(current) ? current : options[0];
+  fillSelect("filter-leak-metric", options, next);
+  return next;
+}
+
+/** Accuracy_Drop / R2_Drop heatmap (same style as Overview / dataleak gap chart). */
+function renderUtilityGapHeatmap({ plotId, gens, task, titleSuffix = "" }) {
+  const isRegression = task === "regression";
+  const gapMetric = isRegression ? "R2_Drop" : "Accuracy_Drop";
+  const gaps = (DATA.utilityGaps || []).filter(r =>
+    r.Metric === gapMetric && gens.includes(r.Generator),
+  );
+  const heatDs = uniqueDatasets(gaps);
+  const heatGens = gens.filter(g => gaps.some(r => r.Generator === g));
+  if (!heatDs.length || !heatGens.length) {
+    plot(plotId, [], {
+      title: `No ${gapMetric} data${titleSuffix}`,
+      height: 280,
+    });
+    return;
+  }
+
+  const z = heatGens.map(g => heatDs.map(d => {
+    const row = gaps.find(r => r.Generator === g && r.Dataset === d);
+    return row ? toNum(row.Mean) : null;
+  }));
+  const zText = z.map(row =>
+    row.map(v => (v == null ? "" : `${Math.round(v * 100)}%`)),
+  );
+
+  plot(plotId, [{
+    type: "heatmap",
+    x: heatDs.map(shortDatasetLabel),
+    y: heatGens,
+    z,
+    zmin: 0,
+    zmax: 1,
+    colorscale: [
+      [0, "#2f5d50"],
+      [0.35, "#8fad7a"],
+      [0.55, "#c4a35a"],
+      [0.75, "#d08b6b"],
+      [1, "#9b4d4d"],
+    ],
+    hovertemplate: `%{y} · %{x}<br>${gapMetric}: %{z:.1%}<extra></extra>`,
+    colorbar: {
+      title: { text: gapMetric.replace(/_/g, " "), font: { size: 12 } },
+      tickformat: ".0%",
+      thickness: 14,
+      len: 0.75,
+      outlinewidth: 0,
+    },
+    text: zText,
+    texttemplate: "%{text}",
+    textfont: { size: 10, color: "#f8fafc", family: DASH_FONT },
+    xgap: 2,
+    ygap: 2,
+  }], {
+    title: `${gapMetric.replace(/_/g, " ")}${titleSuffix}`,
+    height: Math.max(320, 80 + heatGens.length * 42),
+    margin: { l: 140, r: 90, t: 44, b: 110 },
+    xaxis: { type: "category", tickangle: -35, automargin: true },
+    yaxis: { ...generatorYAxis(), automargin: true },
+  });
+}
+
+function renderUtilityDataleak() {
+  const family = document.getElementById("filter-leak-family")?.value || "All families";
+  const task = document.getElementById("filter-leak-task")?.value || "classification";
+  const metric = syncLeakUtilityMetricOptions(task);
+  const evalType = document.getElementById("filter-leak-eval")?.value || "TSTR";
+  const dataset = document.getElementById("filter-leak-dataset")?.value;
+  const familyGens = generatorsForFamily(family);
+  const sourceNote = GENERATOR_FAMILY_SOURCE[family]
+    ? ` · ${GENERATOR_FAMILY_SOURCE[family]}`
+    : " · SDV models + Other GANS + Diffusion GANs";
+
+  const datasets = uniqueDatasets(
+    DATA.utilityAgg.filter(r => r.TaskType === task && familyGens.includes(r.Generator)),
+  );
+  fillSelect("filter-leak-dataset", ["All datasets", ...datasets], dataset || "All datasets");
+  const selectedDataset = document.getElementById("filter-leak-dataset")?.value;
+  const allDs = isAllDatasets(selectedDataset);
+
+  renderUtilityBarAndHeatmap({
+    gens: familyGens,
+    task,
+    metric,
+    evalType,
+    dataset: selectedDataset,
+    allDs,
+    barPlotId: "leak-utility-bar",
+    heatPlotId: "leak-utility-heatmap",
+    titleElId: "leak-utility-bar-title",
+    sourceNote,
+  });
+
+  const rows = DATA.utilityAgg.filter(r =>
+    r.TaskType === task
+    && r.Metric === metric
+    && familyGens.includes(r.Generator)
+    && (allDs || r.Dataset === selectedDataset),
+  );
+
+  const trtrBuckets = aggregateGeneratorMeans(rows, "TRTR");
+  const tstrBuckets = aggregateGeneratorMeans(rows, "TSTR");
+  const gens = familyGens;
+  const trtr = gens.map(g => (trtrBuckets[g]?.length ? mean(trtrBuckets[g]) : null));
+  const tstr = gens.map(g => (tstrBuckets[g]?.length ? mean(tstrBuckets[g]) : null));
+  const yValues = [...trtr, ...tstr].filter(v => v != null);
+  const usePercent = isPercentMetric(metric, task);
+  const hasBars = yValues.length > 0;
+  const missingCount = gens.filter((g, i) => trtr[i] == null && tstr[i] == null).length;
+  const missingNote = missingCount ? ` · ${missingCount} generator(s) not evaluated` : "";
+
+  plot("leak-utility-trtr-tstr", hasBars ? [
+    barChartTrace({ x: gens, y: trtr, name: "TRTR", color: "#3b82f6", asPercent: usePercent, decimals: usePercent ? 1 : 3 }),
+    barChartTrace({ x: gens, y: tstr, name: "TSTR", color: "#10b981", asPercent: usePercent, decimals: usePercent ? 1 : 3 }),
+  ] : [], {
+    barmode: "group",
+    bargap: 0.18,
+    bargroupgap: 0.08,
+    title: hasBars
+      ? `${metric}: TRTR vs TSTR (${family}${allDs ? ", mean over datasets" : ""})${sourceNote}${missingNote}`
+      : `No ${metric} data for ${family} · ${task}`,
+    height: 480,
+    margin: { t: 44, b: 88, l: 64, r: 24 },
+    yaxis: usePercent ? percentYAxis(yValues) : axisSpec(metric, yValues),
+    xaxis: generatorXAxis(),
+  });
+
+  const isRegression = task === "regression";
+  const modelTitleEl = document.getElementById("leak-utility-detail-title");
+  if (modelTitleEl) modelTitleEl.textContent = isRegression ? "By regressor" : "By classifier";
+
+  const detailSource = isRegression ? (DATA.utilityReg || []) : (DATA.utilityClf || []);
+  const modelKey = isRegression ? "Regressor" : "Classifier";
+  const detailRows = detailSource.filter(r =>
+    r.Metric === metric
+    && familyGens.includes(r.Generator)
+    && (allDs || r.Dataset === selectedDataset),
+  );
+
+  const gensWithDetail = familyGens.filter(g => detailRows.some(r => r.Generator === g));
+  const genSel = document.getElementById("filter-leak-generator")?.value;
+  const gen = gensWithDetail.includes(genSel) ? genSel : (gensWithDetail[0] || familyGens[0]);
+  fillSelect("filter-leak-generator", gensWithDetail.length ? gensWithDetail : familyGens, gen);
+
+  const ds = allDs ? (unique(detailRows, "Dataset")[0] || "") : selectedDataset;
+  const detail = detailRows.filter(r => r.Generator === gen && r.Dataset === ds);
+  const models = unique(detail, modelKey);
+  const trtrModel = models.map(m => (
+    isRegression ? regressorMean(detail, m, "TRTR") : classifierMean(detail, m, "TRTR")
+  ));
+  const tstrModel = models.map(m => (
+    isRegression ? regressorMean(detail, m, "TSTR") : classifierMean(detail, m, "TSTR")
+  ));
+  const modelValues = [...trtrModel, ...tstrModel].filter(v => v != null);
+  const hasModelBars = modelValues.length > 0;
+
+  plot("leak-utility-classifier", hasModelBars ? [
+    barChartTrace({ x: models, y: trtrModel, name: "TRTR", color: "#3b82f6", asPercent: usePercent, decimals: usePercent ? 1 : 3 }),
+    barChartTrace({ x: models, y: tstrModel, name: "TSTR", color: "#10b981", asPercent: usePercent, decimals: usePercent ? 1 : 3 }),
+  ] : [], {
+    barmode: "group",
+    bargap: 0.12,
+    bargroupgap: 0.06,
+    title: hasModelBars
+      ? `${ds} — ${gen}: ${metric} by ${isRegression ? "regressor" : "classifier"}`
+      : `No ${isRegression ? "regressor" : "classifier"} breakdown for ${metric}`,
+    height: 480,
+    margin: { t: 44, b: 110, l: 64, r: 24 },
+    xaxis: { tickangle: -45, type: "category" },
+    yaxis: usePercent ? percentYAxis(modelValues) : axisSpec(metric, modelValues),
+  });
+
+  // Gap heatmap for the selected family (Accuracy_Drop / R2_Drop)
+  renderUtilityGapHeatmap({
+    plotId: "leak-utility-gap-heatmap",
+    gens: familyGens,
+    task,
+    titleSuffix: ` · ${family}${sourceNote}`,
+  });
+}
+
+function setupUtilityDataleakFilters() {
+  const familyEl = document.getElementById("filter-leak-family");
+  if (familyEl) {
+    fillSelect("filter-leak-family", Object.keys(GENERATOR_FAMILIES), "All families");
+    familyEl.addEventListener("change", renderUtilityDataleak);
+  }
+  const taskEl = document.getElementById("filter-leak-task");
+  if (taskEl) {
+    fillSelect("filter-leak-task", ["classification", "regression"], "classification");
+    taskEl.addEventListener("change", () => {
+      syncLeakUtilityMetricOptions(taskEl.value);
+      renderUtilityDataleak();
+    });
+  }
+  fillSelect("filter-leak-eval", ["TSTR", "TRTR"], "TSTR");
+  ["filter-leak-metric", "filter-leak-eval", "filter-leak-dataset", "filter-leak-generator"].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener("change", renderUtilityDataleak);
+  });
+  syncLeakUtilityMetricOptions("classification", "Accuracy");
 }
 
 function renderFidelity() {
@@ -1918,7 +2282,8 @@ function setupFilters() {
       renderUtility();
     });
   }
-  ["filter-metric", "filter-dataset", "filter-generator"].forEach(id => {
+  fillSelect("filter-utility-eval", ["TSTR", "TRTR"], "TSTR");
+  ["filter-metric", "filter-utility-eval", "filter-dataset", "filter-generator"].forEach(id => {
     const el = document.getElementById(id);
     if (el) el.addEventListener("change", renderUtility);
   });
@@ -1940,12 +2305,14 @@ async function init() {
     renderMetrics();
     setupTabs();
     setupFilters();
+    setupUtilityDataleakFilters();
     setupFidelityFilters();
     setupPrivacyFilters();
     setupStatisticsFilters();
     bindTradeoffFilters();
     renderOverview();
     renderUtility();
+    renderUtilityDataleak();
     renderFidelity();
     renderPrivacy();
     renderTradeoff();
