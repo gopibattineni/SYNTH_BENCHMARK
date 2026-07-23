@@ -26,8 +26,10 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from matplotlib.patches import Rectangle
 
-ROOT = Path(__file__).resolve().parents[1]
-OUT_DIR = Path(__file__).resolve().parent
+SCRIPT_DIR = Path(__file__).resolve().parent
+OUT_DIR = SCRIPT_DIR / "classification"
+ROOT = SCRIPT_DIR.parent
+OUT_DIR.mkdir(parents=True, exist_ok=True)
 GAPS_JSON = ROOT / "docs" / "data" / "utility_gaps.json"
 
 CLASSIFICATION_DATASETS = [
@@ -113,7 +115,7 @@ def summarize_ranks(ranked: pd.DataFrame) -> pd.DataFrame:
 # Step 5: publication-quality table (PNG + CSV)
 # --------------------------------------------------------------------------
 def render_table(summary: pd.DataFrame) -> plt.Figure:
-    from conor_fonts import apply_font_to_figure, configure_times_font
+    from latex_fonts import apply_font_to_figure, configure_times_font
     font_name = configure_times_font()
 
     columns = ["Generator", "Average Rank", "Median Rank", "Std Dev Rank"]

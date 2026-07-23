@@ -1,4 +1,4 @@
-"""Shared Times New Roman / Times-compatible serif font for Conor figures.
+"""Shared Times New Roman / Times-compatible serif font
 
 Prefers Times New Roman when installed; otherwise Liberation Serif
 (metric-compatible Times substitute), then Nimbus Roman / FreeSerif.

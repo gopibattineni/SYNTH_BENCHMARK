@@ -19,10 +19,12 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from matplotlib.patches import Rectangle
 
-OUT_DIR = Path(__file__).resolve().parent
-ROOT = OUT_DIR.parent
-sys.path.insert(0, str(OUT_DIR))
-from conor_fonts import apply_font_to_figure, configure_times_font
+SCRIPT_DIR = Path(__file__).resolve().parent
+OUT_DIR = SCRIPT_DIR / "classification"
+ROOT = SCRIPT_DIR.parent
+sys.path.insert(0, str(SCRIPT_DIR))
+OUT_DIR.mkdir(parents=True, exist_ok=True)
+from latex_fonts import apply_font_to_figure, configure_times_font
 
 GAPS_JSON = ROOT / "docs" / "data" / "utility_gaps.json"
 

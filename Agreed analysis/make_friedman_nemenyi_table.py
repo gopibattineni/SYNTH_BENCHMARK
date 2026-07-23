@@ -18,8 +18,10 @@ import scikit_posthocs as sp
 from matplotlib.patches import FancyBboxPatch, Rectangle
 from scipy.stats import friedmanchisquare
 
-ROOT = Path(__file__).resolve().parents[1]
-OUT_DIR = Path(__file__).resolve().parent
+SCRIPT_DIR = Path(__file__).resolve().parent
+OUT_DIR = SCRIPT_DIR / "classification"
+ROOT = SCRIPT_DIR.parent
+OUT_DIR.mkdir(parents=True, exist_ok=True)
 SCORES = ROOT / "Results" / "Processed_Data" / "overall_scores.csv"
 ALPHA = 0.05
 
@@ -102,7 +104,7 @@ def _fmt_p(p: float) -> str:
 
 
 def render(stats: dict) -> plt.Figure:
-    from conor_fonts import apply_font_to_figure, configure_times_font
+    from latex_fonts import apply_font_to_figure, configure_times_font
     font_name = configure_times_font()
 
     order = stats["order"]

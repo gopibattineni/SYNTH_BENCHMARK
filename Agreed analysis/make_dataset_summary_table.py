@@ -13,9 +13,11 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from matplotlib.patches import FancyBboxPatch
 
-OUT_DIR = Path(__file__).resolve().parent
+SCRIPT_DIR = Path(__file__).resolve().parent
+OUT_DIR = SCRIPT_DIR / "classification"
+OUT_DIR.mkdir(parents=True, exist_ok=True)
 
-from conor_fonts import apply_font_to_figure, configure_times_font
+from latex_fonts import apply_font_to_figure, configure_times_font
 configure_times_font()
 
 # Working-set sizes and feature typing as used in the classification pipeline.

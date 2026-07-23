@@ -38,8 +38,10 @@ import pandas as pd
 import scikit_posthocs as sp
 from scipy.stats import friedmanchisquare
 
-ROOT = Path(__file__).resolve().parents[1]
-OUT_DIR = Path(__file__).resolve().parent
+SCRIPT_DIR = Path(__file__).resolve().parent
+OUT_DIR = SCRIPT_DIR / "classification"
+ROOT = SCRIPT_DIR.parent
+OUT_DIR.mkdir(parents=True, exist_ok=True)
 GAPS_JSON = ROOT / "docs" / "data" / "utility_gaps.json"
 
 CLASSIFICATION_DATASETS = [
@@ -149,7 +151,7 @@ def posthoc_tests(wide_gap: pd.DataFrame, order: list[str]):
 # Step 7: critical-difference diagram
 # --------------------------------------------------------------------------
 def render_cd_diagram(summary: pd.DataFrame, nemenyi: pd.DataFrame, friedman_res: dict) -> plt.Figure:
-    from conor_fonts import apply_font_to_figure, configure_times_font
+    from latex_fonts import apply_font_to_figure, configure_times_font
 
     font_name = configure_times_font()
     ranks = summary.set_index("Generator")["AverageRank"]

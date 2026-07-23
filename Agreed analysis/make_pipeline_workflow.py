@@ -17,9 +17,11 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 from matplotlib.patches import FancyArrowPatch, FancyBboxPatch
 
-OUT_DIR = Path(__file__).resolve().parent
+SCRIPT_DIR = Path(__file__).resolve().parent
+OUT_DIR = SCRIPT_DIR / "classification"
+OUT_DIR.mkdir(parents=True, exist_ok=True)
 
-from conor_fonts import apply_font_to_figure, configure_times_font
+from latex_fonts import apply_font_to_figure, configure_times_font
 configure_times_font()
 
 # ---------------------------------------------------------------- palette --

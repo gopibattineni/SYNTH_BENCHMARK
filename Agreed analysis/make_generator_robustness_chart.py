@@ -15,8 +15,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-ROOT = Path(__file__).resolve().parents[1]
-OUT_DIR = Path(__file__).resolve().parent
+SCRIPT_DIR = Path(__file__).resolve().parent
+OUT_DIR = SCRIPT_DIR / "classification"
+ROOT = SCRIPT_DIR.parent
+OUT_DIR.mkdir(parents=True, exist_ok=True)
 SCORES = ROOT / "Results" / "Processed_Data" / "overall_scores.csv"
 
 CLASSIFICATION_DATASETS = [
@@ -64,7 +66,7 @@ def compute_rank_stats() -> pd.DataFrame:
 
 
 def render(stats: pd.DataFrame) -> plt.Figure:
-    from conor_fonts import apply_font_to_figure, configure_times_font
+    from latex_fonts import apply_font_to_figure, configure_times_font
     font_name = configure_times_font()
     n = len(stats)
     fig_h = max(4.8, 0.55 * n + 1.6)
