@@ -75,7 +75,7 @@ Dataset,Generator,Metric,MetricValue,Source
 6. Wine dataset,TabDDPM,JS_Divergence,0.1431666666666667,plot_ocr
 6. Wine dataset,ForestDiffusion,JS_Divergence,0.0163999999999999,plot_ocr
 7. CDC diabetes dataset,TabDDPM,JS_Divergence,0.28175,plot_ocr
-7. CDC diabetes dataset,ForestDiffusion,JS_Divergence,0.1515714285714285,plot_ocr
+7. CDC diabetes dataset,ForestDiffusion,JS_Divergence,0.09225,notebook_plot_feature_mean
 8. Mushroom dataset,TabDDPM,JS_Divergence,0.4794117647058823,plot_ocr
 8. Mushroom dataset,ForestDiffusion,JS_Divergence,0.1098235294117647,plot_ocr
 9. MAGIC Gamma Telescope,TabDDPM,JS_Divergence,0.3245,plot_ocr

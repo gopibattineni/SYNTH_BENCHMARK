@@ -1,5 +1,12 @@
 [
   {
+    "id": "Cosine_Similarity",
+    "label": "Cosine Similarity",
+    "count": 120,
+    "higher_is_better": true,
+    "is_unit_interval": false
+  },
+  {
     "id": "Gower_Distance",
     "label": "Gower Distance",
     "count": 120,
@@ -14,18 +21,11 @@
     "is_unit_interval": false
   },
   {
-    "id": "JS_Divergence",
-    "label": "JS Divergence",
+    "id": "MMD",
+    "label": "MMD",
     "count": 120,
     "higher_is_better": false,
-    "is_unit_interval": true
-  },
-  {
-    "id": "KS_Complement",
-    "label": "KS Complement",
-    "count": 120,
-    "higher_is_better": true,
-    "is_unit_interval": true
+    "is_unit_interval": false
   },
   {
     "id": "MMD_Multivariate",
@@ -70,23 +70,23 @@
     "is_unit_interval": false
   },
   {
-    "id": "Cosine_Similarity",
-    "label": "Cosine Similarity",
-    "count": 118,
-    "higher_is_better": true,
-    "is_unit_interval": false
+    "id": "JS_Divergence",
+    "label": "JS Divergence",
+    "count": 120,
+    "higher_is_better": false,
+    "is_unit_interval": true
   },
   {
-    "id": "MMD",
-    "label": "MMD",
-    "count": 118,
-    "higher_is_better": false,
-    "is_unit_interval": false
+    "id": "KS_Complement",
+    "label": "KS Complement",
+    "count": 119,
+    "higher_is_better": true,
+    "is_unit_interval": true
   },
   {
     "id": "Outlier_Count_Diff",
     "label": "Outlier Count Diff",
-    "count": 112,
+    "count": 120,
     "higher_is_better": false,
     "is_unit_interval": false
   }

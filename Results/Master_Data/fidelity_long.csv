@@ -71,8 +71,6 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 8. Mushroom dataset,CopulaGAN,,fidelity,Quality_Score,0.892834,0.892834,,,,,,0.0,,,Fidelity,0.892834,Generators/SDV models/8. Mushroom.ipynb
 8. Mushroom dataset,GaussianCopula,,fidelity,Quality_Score,0.909833,0.909833,,,,,,0.0,,,Fidelity,0.909833,Generators/SDV models/8. Mushroom.ipynb
 8. Mushroom dataset,TVAE,,fidelity,Quality_Score,0.914558,0.914558,,,,,,0.0,,,Fidelity,0.914558,Generators/SDV models/8. Mushroom.ipynb
-7. CDC diabetes dataset,ForestDiffusion,,fidelity,Quality_Score,0.511773,0.511773,,,,,,0.0,,,Fidelity,0.511773,Generators/Diffusion GANs/7_CDC_diabetes_diffusion.ipynb
-7. CDC diabetes dataset,TabDDPM,,fidelity,Quality_Score,0.713727,0.713727,,,,,,0.0,,,Fidelity,0.713727,Generators/Diffusion GANs/7_CDC_diabetes_diffusion.ipynb
 7. CDC diabetes dataset,CTABGAN,,fidelity,Quality_Score,0.760273,0.760273,,,,,,0.0,,,Fidelity,0.760273,Generators/Other GANS/7_CDC_diabetes_other_GAN.ipynb
 7. CDC diabetes dataset,WGAN_GP,,fidelity,Quality_Score,0.847955,0.847955,,,,,,0.0,,,Fidelity,0.847955,Generators/Other GANS/7_CDC_diabetes_other_GAN.ipynb
 7. CDC diabetes dataset,CTGAN,,fidelity,Quality_Score,0.87481,0.87481,,,,,,0.0,,,Fidelity,0.87481,Generators/SDV models/7. Heart.ipynb
@@ -761,18 +759,12 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 7. CDC diabetes dataset,CTABGAN,,,Gower_Distance,,0.636716,,,,,,0.0,,Score,Fidelity,0.636716,Generators/Other GANS/7_CDC_diabetes_other_GAN.ipynb
 7. CDC diabetes dataset,CTABGAN,,,Wasserstein_Distance,,0.164295,,,,,,0.0,,Score,Fidelity,0.164295,Generators/Other GANS/7_CDC_diabetes_other_GAN.ipynb
 7. CDC diabetes dataset,WGAN_GP,,,Wasserstein_Distance,,0.079861,,,,,,0.0,,Score,Fidelity,0.079861,Generators/Other GANS/7_CDC_diabetes_other_GAN.ipynb
-7. CDC diabetes dataset,ForestDiffusion,,,KS_Complement,,0.5118,,,,,,0.0,,Score,Fidelity,0.5118,Generators/Diffusion GANs/7_CDC_diabetes_diffusion.ipynb
-7. CDC diabetes dataset,TabDDPM,,,KS_Complement,,0.7137,,,,,,0.0,,Score,Fidelity,0.7137,Generators/Diffusion GANs/7_CDC_diabetes_diffusion.ipynb
-7. CDC diabetes dataset,TabDDPM,,,MMD_Multivariate,,0.205803,,,,,,0.0,,Score,Fidelity,0.205803,Generators/Diffusion GANs/7_CDC_diabetes_diffusion.ipynb
-7. CDC diabetes dataset,ForestDiffusion,,,MMD_Multivariate,,0.000639,,,,,,0.0,,Score,Fidelity,0.000639,Generators/Diffusion GANs/7_CDC_diabetes_diffusion.ipynb
 7. CDC diabetes dataset,ForestDiffusion,,,PCA_Correlation_Diff,,0.13091,,,,,,0.0,,Score,Fidelity,0.13091,Generators/Diffusion GANs/7_CDC_diabetes_diffusion.ipynb
 7. CDC diabetes dataset,TabDDPM,,,PCA_Correlation_Diff,,0.572374,,,,,,0.0,,Score,Fidelity,0.572374,Generators/Diffusion GANs/7_CDC_diabetes_diffusion.ipynb
 7. CDC diabetes dataset,ForestDiffusion,,,PCA_Mean_Error,,7.220706,,,,,,0.0,,Score,Fidelity,7.220706,Generators/Diffusion GANs/7_CDC_diabetes_diffusion.ipynb
 7. CDC diabetes dataset,TabDDPM,,,PCA_Mean_Error,,93.267141,,,,,,0.0,,Score,Fidelity,93.267141,Generators/Diffusion GANs/7_CDC_diabetes_diffusion.ipynb
 7. CDC diabetes dataset,ForestDiffusion,,,Gower_Distance,,0.73907,,,,,,0.0,,Score,Fidelity,0.73907,Generators/Diffusion GANs/7_CDC_diabetes_diffusion.ipynb
 7. CDC diabetes dataset,TabDDPM,,,Gower_Distance,,0.62126,,,,,,0.0,,Score,Fidelity,0.62126,Generators/Diffusion GANs/7_CDC_diabetes_diffusion.ipynb
-7. CDC diabetes dataset,TabDDPM,,,Wasserstein_Distance,,0.181551,,,,,,0.0,,Score,Fidelity,0.181551,Generators/Diffusion GANs/7_CDC_diabetes_diffusion.ipynb
-7. CDC diabetes dataset,ForestDiffusion,,,Wasserstein_Distance,,0.015769,,,,,,0.0,,Score,Fidelity,0.015769,Generators/Diffusion GANs/7_CDC_diabetes_diffusion.ipynb
 7. CDC diabetes dataset,WGAN_GP,,,KS_Complement,,0.848,,,,,,0.0,,Score,Fidelity,0.848,Generators/Other GANS/7_CDC_diabetes_other_GAN.ipynb
 7. CDC diabetes dataset,CTABGAN,,,KS_Complement,,0.7603,,,,,,0.0,,Score,Fidelity,0.7603,Generators/Other GANS/7_CDC_diabetes_other_GAN.ipynb
 8. Mushroom dataset,CTGAN,,,Cosine_Similarity,,0.028863,,,,,,0.0,,Score,Fidelity,0.028863,Generators/SDV models/8. Mushroom.ipynb
@@ -1180,12 +1172,6 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 6. Wine dataset,TabDDPM,,fidelity,Gower_Similarity,0.767133,0.767133,,,,,0.0,0.0,100.0,Score,Fidelity,0.767133,/home/gopi.battineni/SYNTH_BENCHMARK/paper results/6. Wine dataset/fidelity_privacy_metrics.xlsx
 6. Wine dataset,WGAN_GP,,fidelity,Outlier_Count_Diff,22.666667,22.666667,,,,,0.0,0.0,100.0,Score,Fidelity,22.666667,/home/gopi.battineni/SYNTH_BENCHMARK/paper results/6. Wine dataset/fidelity_privacy_metrics.xlsx
 6. Wine dataset,WGAN_GP,,fidelity,PCA_Mean_Error_Pct,16.358989,16.358989,,,,,0.0,0.0,100.0,Score,Fidelity,16.358989,/home/gopi.battineni/SYNTH_BENCHMARK/paper results/6. Wine dataset/fidelity_privacy_metrics.xlsx
-7. CDC diabetes dataset,ForestDiffusion,,fidelity,Outlier_Count_Diff,23.285714,23.285714,,,,,0.0,0.0,100.0,Score,Fidelity,23.285714,/home/gopi.battineni/SYNTH_BENCHMARK/paper results/7. CDC diabetes dataset/fidelity_privacy_metrics.xlsx
-7. CDC diabetes dataset,ForestDiffusion,,fidelity,PCA_Mean_Error_Pct,7.220706,7.220706,,,,,0.0,0.0,100.0,Score,Fidelity,7.220706,/home/gopi.battineni/SYNTH_BENCHMARK/paper results/7. CDC diabetes dataset/fidelity_privacy_metrics.xlsx
-7. CDC diabetes dataset,ForestDiffusion,,fidelity,Gower_Similarity,0.73907,0.73907,,,,,0.0,0.0,100.0,Score,Fidelity,0.73907,/home/gopi.battineni/SYNTH_BENCHMARK/paper results/7. CDC diabetes dataset/fidelity_privacy_metrics.xlsx
-7. CDC diabetes dataset,TabDDPM,,fidelity,Outlier_Count_Diff,89.857143,89.857143,,,,,0.0,0.0,100.0,Score,Fidelity,89.857143,/home/gopi.battineni/SYNTH_BENCHMARK/paper results/7. CDC diabetes dataset/fidelity_privacy_metrics.xlsx
-7. CDC diabetes dataset,TabDDPM,,fidelity,PCA_Mean_Error_Pct,93.267141,93.267141,,,,,0.0,0.0,100.0,Score,Fidelity,93.267141,/home/gopi.battineni/SYNTH_BENCHMARK/paper results/7. CDC diabetes dataset/fidelity_privacy_metrics.xlsx
-7. CDC diabetes dataset,TabDDPM,,fidelity,Gower_Similarity,0.62126,0.62126,,,,,0.0,0.0,100.0,Score,Fidelity,0.62126,/home/gopi.battineni/SYNTH_BENCHMARK/paper results/7. CDC diabetes dataset/fidelity_privacy_metrics.xlsx
 7. CDC diabetes dataset,WGAN_GP,,fidelity,Outlier_Count_Diff,34.428571,34.428571,,,,,0.0,0.0,100.0,Score,Fidelity,34.428571,/home/gopi.battineni/SYNTH_BENCHMARK/paper results/7. CDC diabetes dataset/fidelity_privacy_metrics.xlsx
 7. CDC diabetes dataset,WGAN_GP,,fidelity,PCA_Mean_Error_Pct,23.376675,23.376675,,,,,0.0,0.0,100.0,Score,Fidelity,23.376675,/home/gopi.battineni/SYNTH_BENCHMARK/paper results/7. CDC diabetes dataset/fidelity_privacy_metrics.xlsx
 7. CDC diabetes dataset,WGAN_GP,,fidelity,Gower_Similarity,0.845339,0.845339,,,,,0.0,0.0,100.0,Score,Fidelity,0.845339,/home/gopi.battineni/SYNTH_BENCHMARK/paper results/7. CDC diabetes dataset/fidelity_privacy_metrics.xlsx
@@ -1491,8 +1477,6 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 8. Mushroom dataset,CopulaGAN,,,JS_Divergence,,0.0109230769230769,,,,,,0.0,,Score,Fidelity,0.0109230769230769,Results/Supplementary/js_divergence_from_plots.csv
 8. Mushroom dataset,TVAE,,,JS_Divergence,,0.008,,,,,,0.0,,Score,Fidelity,0.008,Results/Supplementary/js_divergence_from_plots.csv
 8. Mushroom dataset,GaussianCopula,,,JS_Divergence,,0.0236666666666666,,,,,,0.0,,Score,Fidelity,0.0236666666666666,Results/Supplementary/js_divergence_from_plots.csv
-7. CDC diabetes dataset,TabDDPM,,,JS_Divergence,,0.28175,,,,,,0.0,,Score,Fidelity,0.28175,Results/Supplementary/js_divergence_from_plots.csv
-7. CDC diabetes dataset,ForestDiffusion,,,JS_Divergence,,0.1515714285714285,,,,,,0.0,,Score,Fidelity,0.1515714285714285,Results/Supplementary/js_divergence_from_plots.csv
 7. CDC diabetes dataset,CTABGAN,,,JS_Divergence,,0.1225833333333333,,,,,,0.0,,Score,Fidelity,0.1225833333333333,Results/Supplementary/js_divergence_from_plots.csv
 7. CDC diabetes dataset,WGAN_GP,,,JS_Divergence,,0.0692499999999999,,,,,,0.0,,Score,Fidelity,0.0692499999999999,Results/Supplementary/js_divergence_from_plots.csv
 7. CDC diabetes dataset,TVAE,,,JS_Divergence,,0.019,,,,,,0.0,,Score,Fidelity,0.019,Results/Supplementary/js_divergence_from_plots.csv
@@ -1551,3 +1535,30 @@ Dataset,Generator,Seed,Experiment,Metric,Value,Mean,Std,Classifier,RegressionMod
 1. Cancer,CopulaGAN,,,PCA_Correlation_Diff,1.072034,1.072034,,,,,,0.0,,Score,Fidelity,1.072034,Generators/Other GANS/1. Cancer_other GAN.ipynb
 1. Cancer,TVAE,,,PCA_Correlation_Diff,0.568466,0.568466,,,,,,0.0,,Score,Fidelity,0.568466,Generators/Other GANS/1. Cancer_other GAN.ipynb
 1. Cancer,GaussianCopula,,,PCA_Correlation_Diff,0.232499,0.232499,,,,,,0.0,,Score,Fidelity,0.232499,Generators/Other GANS/1. Cancer_other GAN.ipynb
+7. CDC diabetes dataset,TabDDPM,,fidelity,Quality_Score,0.5272,0.5272,,,,,0.0,0.0,100.0,Score,Fidelity,0.5272,paper results/7. CDC diabetes dataset/fidelity_privacy_metrics.xlsx
+7. CDC diabetes dataset,TabDDPM,,fidelity,Wasserstein_Distance,0.191641,0.191641,,,,,0.0,0.0,100.0,Score,Fidelity,0.191641,paper results/7. CDC diabetes dataset/fidelity_privacy_metrics.xlsx
+7. CDC diabetes dataset,TabDDPM,,fidelity,MMD,0.365759,0.365759,,,,,0.0,0.0,100.0,Score,Fidelity,0.365759,paper results/7. CDC diabetes dataset/fidelity_privacy_metrics.xlsx
+7. CDC diabetes dataset,TabDDPM,,fidelity,Gower_Similarity,0.620838,0.620838,,,,,0.0,0.0,100.0,Score,Fidelity,0.620838,paper results/7. CDC diabetes dataset/fidelity_privacy_metrics.xlsx
+7. CDC diabetes dataset,TabDDPM,,fidelity,Cosine_Similarity,-0.028947,-0.028947,,,,,0.0,0.0,100.0,Score,Fidelity,-0.028947,paper results/7. CDC diabetes dataset/fidelity_privacy_metrics.xlsx
+7. CDC diabetes dataset,TabDDPM,,fidelity,PCA_Mean_Error_Pct,62.860091,62.860091,,,,,0.0,0.0,100.0,Score,Fidelity,62.860091,paper results/7. CDC diabetes dataset/fidelity_privacy_metrics.xlsx
+7. CDC diabetes dataset,TabDDPM,,fidelity,Outlier_Count_Diff,80.857143,80.857143,,,,,0.0,0.0,100.0,Score,Fidelity,80.857143,paper results/7. CDC diabetes dataset/fidelity_privacy_metrics.xlsx
+7. CDC diabetes dataset,ForestDiffusion,,fidelity,Quality_Score,0.5789,0.5789,,,,,0.0,0.0,100.0,Score,Fidelity,0.5789,paper results/7. CDC diabetes dataset/fidelity_privacy_metrics.xlsx
+7. CDC diabetes dataset,ForestDiffusion,,fidelity,Wasserstein_Distance,0.024058,0.024058,,,,,0.0,0.0,100.0,Score,Fidelity,0.024058,paper results/7. CDC diabetes dataset/fidelity_privacy_metrics.xlsx
+7. CDC diabetes dataset,ForestDiffusion,,fidelity,MMD,0.003334,0.003334,,,,,0.0,0.0,100.0,Score,Fidelity,0.003334,paper results/7. CDC diabetes dataset/fidelity_privacy_metrics.xlsx
+7. CDC diabetes dataset,ForestDiffusion,,fidelity,Gower_Similarity,0.741913,0.741913,,,,,0.0,0.0,100.0,Score,Fidelity,0.741913,paper results/7. CDC diabetes dataset/fidelity_privacy_metrics.xlsx
+7. CDC diabetes dataset,ForestDiffusion,,fidelity,Cosine_Similarity,0.013621,0.013621,,,,,0.0,0.0,100.0,Score,Fidelity,0.013621,paper results/7. CDC diabetes dataset/fidelity_privacy_metrics.xlsx
+7. CDC diabetes dataset,ForestDiffusion,,fidelity,PCA_Mean_Error_Pct,6.246075,6.246075,,,,,0.0,0.0,100.0,Score,Fidelity,6.246075,paper results/7. CDC diabetes dataset/fidelity_privacy_metrics.xlsx
+7. CDC diabetes dataset,ForestDiffusion,,fidelity,Outlier_Count_Diff,10.809524,10.809524,,,,,0.0,0.0,100.0,Score,Fidelity,10.809524,paper results/7. CDC diabetes dataset/fidelity_privacy_metrics.xlsx
+7. CDC diabetes dataset,TabDDPM,,fidelity,KS_Complement,0.646,0.646,,,,,0.0,0.0,100.0,Score,Fidelity,0.646,paper results/7. CDC diabetes dataset/fidelity_privacy_metrics.xlsx
+7. CDC diabetes dataset,TabDDPM,,fidelity,JS_Divergence,0.1620965999999999,0.1620965999999999,,,,,0.0,0.0,100.0,Score,Fidelity,0.1620965999999999,paper results/7. CDC diabetes dataset/fidelity_privacy_metrics.xlsx
+7. CDC diabetes dataset,ForestDiffusion,,fidelity,MMD_Multivariate,0.001469,0.001469,,,,,0.0,0.0,100.0,Score,Fidelity,0.001469,paper results/7. CDC diabetes dataset/fidelity_privacy_metrics.xlsx
+7. CDC diabetes dataset,TabDDPM,,fidelity,MMD_Multivariate,0.303307,0.303307,,,,,0.0,0.0,100.0,Score,Fidelity,0.303307,paper results/7. CDC diabetes dataset/fidelity_privacy_metrics.xlsx
+2. Alzhimers,CTGAN,,fidelity,Outlier_Count_Diff,7.1,7.1,,,,,0.0,0.0,100.0,Score,Fidelity,7.1,/home/gopi.battineni/SYNTH_BENCHMARK/paper results/2. Alzhimers/fidelity_privacy_metrics.xlsx
+2. Alzhimers,CopulaGAN,,fidelity,Outlier_Count_Diff,11.7,11.7,,,,,0.0,0.0,100.0,Score,Fidelity,11.7,/home/gopi.battineni/SYNTH_BENCHMARK/paper results/2. Alzhimers/fidelity_privacy_metrics.xlsx
+2. Alzhimers,TVAE,,fidelity,Outlier_Count_Diff,14.3,14.3,,,,,0.0,0.0,100.0,Score,Fidelity,14.3,/home/gopi.battineni/SYNTH_BENCHMARK/paper results/2. Alzhimers/fidelity_privacy_metrics.xlsx
+2. Alzhimers,GaussianCopula,,fidelity,Outlier_Count_Diff,14.8,14.8,,,,,0.0,0.0,100.0,Score,Fidelity,14.8,/home/gopi.battineni/SYNTH_BENCHMARK/paper results/2. Alzhimers/fidelity_privacy_metrics.xlsx
+7. CDC diabetes dataset,ForestDiffusion,,fidelity,JS_Divergence,0.09225,0.09225,,,,,0.0,0.0,100.0,Score,Fidelity,0.09225,Generators/Diffusion GANs/7_CDC_diabetes_diffusion.ipynb
+9. MAGIC Gamma Telescope,CTGAN,,fidelity,Outlier_Count_Diff,313.4,313.4,,,,,0.0,0.0,100.0,Score,Fidelity,313.4,/home/gopi.battineni/SYNTH_BENCHMARK/paper results/9. MAGIC Gamma Telescope/fidelity_privacy_metrics.xlsx
+9. MAGIC Gamma Telescope,CopulaGAN,,fidelity,Outlier_Count_Diff,327.9,327.9,,,,,0.0,0.0,100.0,Score,Fidelity,327.9,/home/gopi.battineni/SYNTH_BENCHMARK/paper results/9. MAGIC Gamma Telescope/fidelity_privacy_metrics.xlsx
+9. MAGIC Gamma Telescope,TVAE,,fidelity,Outlier_Count_Diff,653.8,653.8,,,,,0.0,0.0,100.0,Score,Fidelity,653.8,/home/gopi.battineni/SYNTH_BENCHMARK/paper results/9. MAGIC Gamma Telescope/fidelity_privacy_metrics.xlsx
+9. MAGIC Gamma Telescope,GaussianCopula,,fidelity,Outlier_Count_Diff,514.8,514.8,,,,,0.0,0.0,100.0,Score,Fidelity,514.8,/home/gopi.battineni/SYNTH_BENCHMARK/paper results/9. MAGIC Gamma Telescope/fidelity_privacy_metrics.xlsx

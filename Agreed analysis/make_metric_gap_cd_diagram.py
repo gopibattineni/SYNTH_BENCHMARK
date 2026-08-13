@@ -3,7 +3,7 @@
 Same pipeline used for Accuracy Utility Gap:
   per-dataset ranking → Friedman → Nemenyi / Holm-Wilcoxon → CD diagram.
 
-Default metrics: Precision_Gap and Recall_Gap (TRTR − TSTR).
+Default metrics: Accuracy_Gap, Precision_Gap, Recall_Gap, F1_Gap (TRTR − TSTR).
 
 Outputs per metric prefix (e.g. precision_gap_ / recall_gap_):
     {prefix}_by_dataset.csv
@@ -15,6 +15,7 @@ Outputs per metric prefix (e.g. precision_gap_ / recall_gap_):
     {prefix}_holm_wilcoxon_pvalues.csv
     {prefix}_holm_pairwise.csv
     {prefix}_critical_difference_diagram.png
+    {prefix}_critical_difference_diagram.svg
     {prefix}_analysis.xlsx               clear multi-sheet Excel workbook
 """
 
@@ -26,6 +27,7 @@ import sys
 from itertools import combinations
 from pathlib import Path
 
+import matplotlib as mpl
 import matplotlib.pyplot as plt
 import pandas as pd
 import scikit_posthocs as sp
@@ -84,7 +86,7 @@ METRIC_LABELS = {
     "F1_Gap": "F1",
 }
 
-DEFAULT_METRICS = ("Precision_Gap", "Recall_Gap")
+DEFAULT_METRICS = ("Accuracy_Gap", "Precision_Gap", "Recall_Gap", "F1_Gap")
 
 
 def metric_prefix(metric: str) -> str:
@@ -227,7 +229,7 @@ def _readme_sheet(metric: str, label: str) -> pd.DataFrame:
         {"Item": "Sheet: 08_Holm_Pvalues", "Description": "Holm-Wilcoxon p-value matrix"},
         {"Item": "Sheet: 09_Holm_Pairwise", "Description": "Holm-Wilcoxon pairs sorted by p-value, with Significant flag"},
         {"Item": "Sheet: 10_Holm_Significant", "Description": "Only Holm pairs significant at α = 0.05"},
-        {"Item": "Figure", "Description": f"{metric_prefix(metric)}_critical_difference_diagram.png"},
+        {"Item": "Figure", "Description": f"{metric_prefix(metric)}_critical_difference_diagram.png/.svg"},
     ])
 
 
@@ -292,7 +294,7 @@ def write_combined_excel(metric_summaries: list[dict]) -> Path:
             "Worst_Generator": item["summary"].iloc[-1]["Generator"],
             "Worst_Avg_Rank": item["summary"].iloc[-1]["AverageRank"],
             "Excel_Workbook": f"{item['prefix']}_analysis.xlsx",
-            "CD_Figure": f"{item['prefix']}_critical_difference_diagram.png",
+            "CD_Figure": f"{item['prefix']}_critical_difference_diagram.png/.svg",
         })
         tmp = item["summary"][["Generator", "AverageRank"]].rename(
             columns={"AverageRank": item["label"]}
@@ -405,9 +407,15 @@ def run_metric(metric: str) -> dict:
 
     fig = render_cd_diagram(summary, nemenyi, friedman_res, label)
     png_path = OUT_DIR / f"{prefix}_critical_difference_diagram.png"
+    svg_path = OUT_DIR / f"{prefix}_critical_difference_diagram.svg"
+    prev_fonttype = mpl.rcParams["svg.fonttype"]
+    mpl.rcParams["svg.fonttype"] = "path"
     fig.savefig(png_path, dpi=300, facecolor="white", bbox_inches="tight", pad_inches=0.25)
+    fig.savefig(svg_path, facecolor="white", bbox_inches="tight", pad_inches=0.25)
+    mpl.rcParams["svg.fonttype"] = prev_fonttype
     plt.close(fig)
     print(f"Saved: {png_path}")
+    print(f"Saved: {svg_path}")
     print(f"Saved: {xlsx_path}")
 
     return {
@@ -426,7 +434,7 @@ def main() -> None:
         "--metrics",
         nargs="+",
         default=list(DEFAULT_METRICS),
-        help="Gap metrics to process (default: Precision_Gap Recall_Gap)",
+        help="Gap metrics to process (default: Accuracy Precision Recall F1)",
     )
     parser.add_argument(
         "--combined",

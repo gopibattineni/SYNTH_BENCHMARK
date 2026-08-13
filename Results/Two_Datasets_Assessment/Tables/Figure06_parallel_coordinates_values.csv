@@ -1,9 +1,0 @@
-#,Generator,Cancer Utility,Cancer Fidelity,Cancer Privacy,Mushroom Utility,Mushroom Fidelity,Mushroom Privacy
-1,CTGAN,0.70,0.49,0.20,0.22,0.51,0.68
-2,CopulaGAN,0.37,0.49,0.17,0.40,0.49,0.58
-3,TVAE,0.92,0.54,0.58,0.37,0.51,0.73
-4,GaussianCopula,0.82,0.52,0.81,0.34,0.48,0.54
-5,WGAN_GP,0.94,0.48,0.73,0.51,0.29,0.52
-6,CTABGAN,0.85,0.53,0.67,0.38,0.55,0.57
-7,TabDDPM,0.32,0.46,0.72,0.17,0.48,0.23
-8,ForestDiffusion,0.97,0.48,0.73,0.69,0.25,0.65

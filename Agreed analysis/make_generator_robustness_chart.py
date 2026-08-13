@@ -4,16 +4,20 @@ For each generator, rank is taken from OverallRank on each of the 9
 classification datasets (no-leakage). The chart shows mean rank ± SD
 across datasets, sorted best → worst (lower average rank is better).
 
-Output: Conor/generator_robustness_average_rank.png
+Output:
+    classification/generator_robustness_average_rank.png
+    classification/generator_robustness_average_rank.svg
 """
 
 from __future__ import annotations
 
 from pathlib import Path
 
+import matplotlib as mpl
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+from matplotlib.lines import Line2D
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 OUT_DIR = SCRIPT_DIR / "classification"
@@ -44,8 +48,19 @@ DISPLAY_NAMES = {
     "TabDDPM": "TabDDPM",
 }
 
+# Distinct colour per generator (best → worst order in chart)
+BAR_COLORS = [
+    "#1b9e77",  # ForestDiffusion — teal
+    "#d95f02",  # TVAE — orange
+    "#7570b3",  # CTABGAN — purple
+    "#e7298a",  # WGAN-GP — magenta
+    "#66a61e",  # GaussianCopula — green
+    "#e6ab02",  # CopulaGAN — gold
+    "#a6761d",  # CTGAN — brown
+    "#666666",  # TabDDPM — grey
+]
+
 NAVY = "#1f3a5f"
-BAR = "#2f6fb5"
 ERR = "#1c1f24"
 GRID = "#d5dde6"
 
@@ -67,6 +82,7 @@ def compute_rank_stats() -> pd.DataFrame:
 
 def render(stats: pd.DataFrame) -> plt.Figure:
     from latex_fonts import apply_font_to_figure, configure_times_font
+
     font_name = configure_times_font()
     n = len(stats)
     fig_h = max(4.8, 0.55 * n + 1.6)
@@ -76,18 +92,17 @@ def render(stats: pd.DataFrame) -> plt.Figure:
     means = stats["AverageRank"].to_numpy()
     stds = stats["RankStd"].to_numpy()
     labels = stats["Display"].tolist()
+    colors = BAR_COLORS[:n]
 
-    # Best at top → reverse y tick order via invert_yaxis after plotting
-    bars = ax.barh(
-        y, means, height=0.62, color=BAR, edgecolor=NAVY, linewidth=0.8,
-        zorder=3, label="Average rank",
+    ax.barh(
+        y, means, height=0.62, color=colors, edgecolor=NAVY, linewidth=0.8,
+        zorder=3,
     )
     ax.errorbar(
         means, y, xerr=stds, fmt="none", ecolor=ERR, elinewidth=1.4,
-        capsize=4, capthick=1.3, zorder=4, label="SD across datasets",
+        capsize=4, capthick=1.3, zorder=4,
     )
 
-    # Annotate mean values just past the error bar
     for yi, m, s in zip(y, means, stds):
         ax.text(
             m + s + 0.12, yi, f"{m:.2f}",
@@ -103,12 +118,6 @@ def render(stats: pd.DataFrame) -> plt.Figure:
         "Generator Robustness Across Datasets",
         fontsize=14, fontweight="bold", color=NAVY, pad=12,
     )
-    ax.text(
-        0.0, 1.02,
-        "Mean OverallRank over 9 classification datasets  ·  error bars = SD of ranks",
-        transform=ax.transAxes, fontsize=9, color="#5a5f66", style="italic",
-        va="bottom", ha="left",
-    )
 
     ax.xaxis.grid(True, linestyle="--", linewidth=0.7, color=GRID, zorder=0)
     ax.set_axisbelow(True)
@@ -118,7 +127,15 @@ def render(stats: pd.DataFrame) -> plt.Figure:
     ax.spines["bottom"].set_color(NAVY)
     ax.tick_params(colors=NAVY)
 
+    legend_handles = [
+        Line2D(
+            [0], [0], color=ERR, linewidth=1.4,
+            marker="|", markersize=10, markeredgewidth=1.3,
+            label="SD across datasets",
+        ),
+    ]
     ax.legend(
+        handles=legend_handles,
         loc="lower right", frameon=True, fontsize=9,
         edgecolor=GRID, fancybox=False,
     )
@@ -135,10 +152,25 @@ def main() -> None:
 
     fig = render(stats)
     png_path = OUT_DIR / "generator_robustness_average_rank.png"
+    svg_path = OUT_DIR / "generator_robustness_average_rank.svg"
+
+    prev = mpl.rcParams["svg.fonttype"]
+    mpl.rcParams["svg.fonttype"] = "path"
     fig.savefig(png_path, dpi=300, facecolor="white", bbox_inches="tight", pad_inches=0.2)
+    fig.savefig(svg_path, format="svg", facecolor="white", bbox_inches="tight", pad_inches=0.2)
+    mpl.rcParams["svg.fonttype"] = prev
+    plt.close(fig)
+
+    download = ROOT.parent / "generator_robustness"
+    download.mkdir(parents=True, exist_ok=True)
+    for src in (png_path, svg_path):
+        (download / src.name).write_bytes(src.read_bytes())
+
     print(stats[["Display", "AverageRank", "RankStd", "N_Datasets"]].to_string(index=False))
     print(f"Saved: {csv_path}")
     print(f"Saved: {png_path}")
+    print(f"Saved: {svg_path}")
+    print(f"Copy:  {download / svg_path.name}")
 
 
 if __name__ == "__main__":

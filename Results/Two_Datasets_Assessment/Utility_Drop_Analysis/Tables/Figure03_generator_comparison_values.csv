@@ -1,9 +1,0 @@
-Generator,Accuracy,SD
-ForestDiffusion,0.863,0.013
-WGAN_GP,0.802,0.015
-TVAE,0.765,0.014
-GaussianCopula,0.717,0.023
-CTABGAN,0.717,0.018
-CTGAN,0.631,0.027
-TabDDPM,0.497,0.051
-CopulaGAN,0.456,0.038

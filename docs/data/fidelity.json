@@ -505,20 +505,6 @@
   },
   {
     "Dataset": "7. CDC diabetes dataset",
-    "Generator": "ForestDiffusion",
-    "Metric": "Quality_Score",
-    "Mean": 0.511773,
-    "Std": null
-  },
-  {
-    "Dataset": "7. CDC diabetes dataset",
-    "Generator": "TabDDPM",
-    "Metric": "Quality_Score",
-    "Mean": 0.713727,
-    "Std": null
-  },
-  {
-    "Dataset": "7. CDC diabetes dataset",
     "Generator": "CTABGAN",
     "Metric": "Quality_Score",
     "Mean": 0.760273,
@@ -5336,34 +5322,6 @@
   {
     "Dataset": "7. CDC diabetes dataset",
     "Generator": "ForestDiffusion",
-    "Metric": "KS_Complement",
-    "Mean": 0.5118,
-    "Std": null
-  },
-  {
-    "Dataset": "7. CDC diabetes dataset",
-    "Generator": "TabDDPM",
-    "Metric": "KS_Complement",
-    "Mean": 0.7137,
-    "Std": null
-  },
-  {
-    "Dataset": "7. CDC diabetes dataset",
-    "Generator": "TabDDPM",
-    "Metric": "MMD_Multivariate",
-    "Mean": 0.205803,
-    "Std": null
-  },
-  {
-    "Dataset": "7. CDC diabetes dataset",
-    "Generator": "ForestDiffusion",
-    "Metric": "MMD_Multivariate",
-    "Mean": 0.000639,
-    "Std": null
-  },
-  {
-    "Dataset": "7. CDC diabetes dataset",
-    "Generator": "ForestDiffusion",
     "Metric": "PCA_Correlation_Diff",
     "Mean": 0.13091,
     "Std": null
@@ -5401,20 +5359,6 @@
     "Generator": "TabDDPM",
     "Metric": "Gower_Distance",
     "Mean": 0.62126,
-    "Std": null
-  },
-  {
-    "Dataset": "7. CDC diabetes dataset",
-    "Generator": "TabDDPM",
-    "Metric": "Wasserstein_Distance",
-    "Mean": 0.181551,
-    "Std": null
-  },
-  {
-    "Dataset": "7. CDC diabetes dataset",
-    "Generator": "ForestDiffusion",
-    "Metric": "Wasserstein_Distance",
-    "Mean": 0.015769,
     "Std": null
   },
   {
@@ -8268,48 +8212,6 @@
   },
   {
     "Dataset": "7. CDC diabetes dataset",
-    "Generator": "ForestDiffusion",
-    "Metric": "Outlier_Count_Diff",
-    "Mean": 23.285714,
-    "Std": null
-  },
-  {
-    "Dataset": "7. CDC diabetes dataset",
-    "Generator": "ForestDiffusion",
-    "Metric": "PCA_Mean_Error_Pct",
-    "Mean": 7.220706,
-    "Std": null
-  },
-  {
-    "Dataset": "7. CDC diabetes dataset",
-    "Generator": "ForestDiffusion",
-    "Metric": "Gower_Similarity",
-    "Mean": 0.73907,
-    "Std": null
-  },
-  {
-    "Dataset": "7. CDC diabetes dataset",
-    "Generator": "TabDDPM",
-    "Metric": "Outlier_Count_Diff",
-    "Mean": 89.857143,
-    "Std": null
-  },
-  {
-    "Dataset": "7. CDC diabetes dataset",
-    "Generator": "TabDDPM",
-    "Metric": "PCA_Mean_Error_Pct",
-    "Mean": 93.267141,
-    "Std": null
-  },
-  {
-    "Dataset": "7. CDC diabetes dataset",
-    "Generator": "TabDDPM",
-    "Metric": "Gower_Similarity",
-    "Mean": 0.62126,
-    "Std": null
-  },
-  {
-    "Dataset": "7. CDC diabetes dataset",
     "Generator": "WGAN_GP",
     "Metric": "Outlier_Count_Diff",
     "Mean": 34.428571,
@@ -10417,20 +10319,6 @@
   },
   {
     "Dataset": "7. CDC diabetes dataset",
-    "Generator": "TabDDPM",
-    "Metric": "JS_Divergence",
-    "Mean": 0.28175,
-    "Std": null
-  },
-  {
-    "Dataset": "7. CDC diabetes dataset",
-    "Generator": "ForestDiffusion",
-    "Metric": "JS_Divergence",
-    "Mean": 0.1515714286,
-    "Std": null
-  },
-  {
-    "Dataset": "7. CDC diabetes dataset",
     "Generator": "CTABGAN",
     "Metric": "JS_Divergence",
     "Mean": 0.1225833333,
@@ -10833,6 +10721,195 @@
     "Generator": "GaussianCopula",
     "Metric": "PCA_Correlation_Diff",
     "Mean": 0.232499,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "TabDDPM",
+    "Metric": "Quality_Score",
+    "Mean": 0.5272,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "TabDDPM",
+    "Metric": "Wasserstein_Distance",
+    "Mean": 0.191641,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "TabDDPM",
+    "Metric": "MMD",
+    "Mean": 0.365759,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "TabDDPM",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.620838,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "TabDDPM",
+    "Metric": "Cosine_Similarity",
+    "Mean": -0.028947,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "TabDDPM",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 62.860091,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "TabDDPM",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 80.857143,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "ForestDiffusion",
+    "Metric": "Quality_Score",
+    "Mean": 0.5789,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "ForestDiffusion",
+    "Metric": "Wasserstein_Distance",
+    "Mean": 0.024058,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "ForestDiffusion",
+    "Metric": "MMD",
+    "Mean": 0.003334,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "ForestDiffusion",
+    "Metric": "Gower_Similarity",
+    "Mean": 0.741913,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "ForestDiffusion",
+    "Metric": "Cosine_Similarity",
+    "Mean": 0.013621,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "ForestDiffusion",
+    "Metric": "PCA_Mean_Error_Pct",
+    "Mean": 6.246075,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "ForestDiffusion",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 10.809524,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "TabDDPM",
+    "Metric": "KS_Complement",
+    "Mean": 0.646,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "TabDDPM",
+    "Metric": "JS_Divergence",
+    "Mean": 0.1620966,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "ForestDiffusion",
+    "Metric": "MMD_Multivariate",
+    "Mean": 0.001469,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "TabDDPM",
+    "Metric": "MMD_Multivariate",
+    "Mean": 0.303307,
+    "Std": null
+  },
+  {
+    "Dataset": "2. Alzhimers",
+    "Generator": "CTGAN",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 7.1,
+    "Std": null
+  },
+  {
+    "Dataset": "2. Alzhimers",
+    "Generator": "CopulaGAN",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 11.7,
+    "Std": null
+  },
+  {
+    "Dataset": "2. Alzhimers",
+    "Generator": "TVAE",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 14.3,
+    "Std": null
+  },
+  {
+    "Dataset": "2. Alzhimers",
+    "Generator": "GaussianCopula",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 14.8,
+    "Std": null
+  },
+  {
+    "Dataset": "7. CDC diabetes dataset",
+    "Generator": "ForestDiffusion",
+    "Metric": "JS_Divergence",
+    "Mean": 0.09225,
+    "Std": null
+  },
+  {
+    "Dataset": "9. MAGIC Gamma Telescope",
+    "Generator": "CTGAN",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 313.4,
+    "Std": null
+  },
+  {
+    "Dataset": "9. MAGIC Gamma Telescope",
+    "Generator": "CopulaGAN",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 327.9,
+    "Std": null
+  },
+  {
+    "Dataset": "9. MAGIC Gamma Telescope",
+    "Generator": "TVAE",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 653.8,
+    "Std": null
+  },
+  {
+    "Dataset": "9. MAGIC Gamma Telescope",
+    "Generator": "GaussianCopula",
+    "Metric": "Outlier_Count_Diff",
+    "Mean": 514.8,
     "Std": null
   }
 ]

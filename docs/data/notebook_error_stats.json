@@ -794,9 +794,9 @@
   {
     "Dataset": "7. CDC diabetes dataset",
     "Generator": "ForestDiffusion",
-    "Mean_Error_Pct": 7.220706,
-    "Median_Error_Pct": 3.01216,
-    "Std_Error_Pct": 7.935736,
+    "Mean_Error_Pct": 6.246075,
+    "Median_Error_Pct": 4.342105,
+    "Std_Error_Pct": 8.990569,
     "Source_Group": "Diffusion"
   },
   {
@@ -818,9 +818,9 @@
   {
     "Dataset": "7. CDC diabetes dataset",
     "Generator": "TabDDPM",
-    "Mean_Error_Pct": 93.267141,
-    "Median_Error_Pct": 47.727646,
-    "Std_Error_Pct": 58.876391,
+    "Mean_Error_Pct": 62.860091,
+    "Median_Error_Pct": 29.042448,
+    "Std_Error_Pct": 42.468087,
     "Source_Group": "Diffusion"
   },
   {
