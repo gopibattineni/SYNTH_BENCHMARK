@@ -37,6 +37,19 @@ trade_off/<Dataset>/
   generator_metrics_raw.csv
 ```
 
+## Forest plots (per-task summary)
+
+Combined dual-panel forest plots of per-dataset OLS slopes ± 95% CI:
+
+```bash
+python trade_off/make_forest_plot_classification.py
+python trade_off/make_forest_plot_regression.py
+```
+
+Writes `trade_off/forest_plot_classification.{png,pdf}` and
+`trade_off/forest_plot_regression.{png,pdf}` from
+`all_datasets_statistical_summary.csv`.
+
 Figures are saved at **600 DPI** (PNG + PDF). Generator colours are consistent
 across all plots.
 
