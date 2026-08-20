@@ -1,0 +1,65 @@
+[
+  {
+    "index": 0,
+    "Unnamed: 0": 3,
+    "Generator": "ForestDiffusion",
+    "OverallScore": 0.8954935438,
+    "OverallRank": 1.0
+  },
+  {
+    "index": 1,
+    "Unnamed: 0": 6,
+    "Generator": "TabDDPM",
+    "OverallScore": 0.7863812512,
+    "OverallRank": 2.0
+  },
+  {
+    "index": 2,
+    "Unnamed: 0": 0,
+    "Generator": "CTABGAN",
+    "OverallScore": 0.7718334004,
+    "OverallRank": 3.0
+  },
+  {
+    "index": 3,
+    "Unnamed: 0": 5,
+    "Generator": "TVAE",
+    "OverallScore": 0.7609749999,
+    "OverallRank": 4.0
+  },
+  {
+    "index": 4,
+    "Unnamed: 0": 4,
+    "Generator": "GaussianCopula",
+    "OverallScore": 0.7474190166,
+    "OverallRank": 5.0
+  },
+  {
+    "index": 5,
+    "Unnamed: 0": 1,
+    "Generator": "CTGAN",
+    "OverallScore": 0.6956910099,
+    "OverallRank": 6.0
+  },
+  {
+    "index": 6,
+    "Unnamed: 0": 2,
+    "Generator": "CopulaGAN",
+    "OverallScore": 0.6836201847,
+    "OverallRank": 7.0
+  },
+  {
+    "index": 7,
+    "Unnamed: 0": 7,
+    "Generator": "WGAN_GP",
+    "OverallScore": 0.6201181003,
+    "OverallRank": 8.0
+  },
+  {
+    "index": 8,
+    "Unnamed: 0": 8,
+    "Generator": null,
+    "OverallScore": 0.211000422,
+    "OverallRank": 9.0
+  }
+]

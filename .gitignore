@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# Web app runtime data
+webapp/data/sessions/
+webapp/data/CTAB-GAN-Plus/
+webapp/data/datasets/
+
+# Vendored third-party generator repos (cloned locally, not part of this repo)
+_vendor/
+**/CTAB-GAN-Plus/
+
+# Notebook / OS clutter
+**/.ipynb_checkpoints/
+.DS_Store

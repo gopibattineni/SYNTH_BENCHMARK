@@ -1,0 +1,93 @@
+[
+  {
+    "id": "Cosine_Similarity",
+    "label": "Cosine Similarity",
+    "count": 120,
+    "higher_is_better": true,
+    "is_unit_interval": false
+  },
+  {
+    "id": "Gower_Distance",
+    "label": "Gower Distance",
+    "count": 120,
+    "higher_is_better": false,
+    "is_unit_interval": true
+  },
+  {
+    "id": "Gower_Similarity",
+    "label": "Gower Similarity",
+    "count": 120,
+    "higher_is_better": true,
+    "is_unit_interval": false
+  },
+  {
+    "id": "MMD",
+    "label": "MMD",
+    "count": 120,
+    "higher_is_better": false,
+    "is_unit_interval": false
+  },
+  {
+    "id": "MMD_Multivariate",
+    "label": "MMD Multivariate",
+    "count": 120,
+    "higher_is_better": false,
+    "is_unit_interval": false
+  },
+  {
+    "id": "PCA_Correlation_Diff",
+    "label": "PCA Correlation Diff",
+    "count": 120,
+    "higher_is_better": false,
+    "is_unit_interval": false
+  },
+  {
+    "id": "PCA_Mean_Error",
+    "label": "PCA Mean Error",
+    "count": 120,
+    "higher_is_better": false,
+    "is_unit_interval": false
+  },
+  {
+    "id": "PCA_Mean_Error_Pct",
+    "label": "PCA Mean Error Pct",
+    "count": 120,
+    "higher_is_better": false,
+    "is_unit_interval": false
+  },
+  {
+    "id": "Quality_Score",
+    "label": "Quality Score",
+    "count": 120,
+    "higher_is_better": true,
+    "is_unit_interval": true
+  },
+  {
+    "id": "Wasserstein_Distance",
+    "label": "Wasserstein Distance",
+    "count": 120,
+    "higher_is_better": false,
+    "is_unit_interval": false
+  },
+  {
+    "id": "JS_Divergence",
+    "label": "JS Divergence",
+    "count": 120,
+    "higher_is_better": false,
+    "is_unit_interval": true
+  },
+  {
+    "id": "KS_Complement",
+    "label": "KS Complement",
+    "count": 119,
+    "higher_is_better": true,
+    "is_unit_interval": true
+  },
+  {
+    "id": "Outlier_Count_Diff",
+    "label": "Outlier Count Diff",
+    "count": 120,
+    "higher_is_better": false,
+    "is_unit_interval": false
+  }
+]
