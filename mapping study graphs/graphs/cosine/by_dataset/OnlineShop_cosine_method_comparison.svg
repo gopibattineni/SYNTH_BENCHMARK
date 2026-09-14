@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="748.631575pt" height="295.169146pt" viewBox="0 0 748.631575 295.169146" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-09-11T14:38:31.975225</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.9, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 295.169146 
+L 748.631575 295.169146 
+L 748.631575 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 38.509375 250.980571 
+L 741.431575 250.980571 
+L 741.431575 20.712656 
+L 38.509375 20.712656 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <path d="M 137.725666 250.980571 
+L 137.725666 20.712656 
+" clip-path="url(#pa0b1817108)" style="fill: none; stroke: #cccccc; stroke-width: 0.8; stroke-linecap: round"/>
+     </g>
+     <g id="text_1">
+      <text style="font-size: 8px; font-family: 'Times New Roman', 'Times', 'Nimbus Roman', 'Liberation Serif', 'DejaVu Serif', serif; fill: #262626" transform="translate(112.02085 275.8766) rotate(-25)">CTGAN</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_2">
+      <path d="M 305.888872 250.980571 
+L 305.888872 20.712656 
+" clip-path="url(#pa0b1817108)" style="fill: none; stroke: #cccccc; stroke-width: 0.8; stroke-linecap: round"/>
+     </g>
+     <g id="text_2">
+      <text style="font-size: 8px; font-family: 'Times New Roman', 'Times', 'Nimbus Roman', 'Liberation Serif', 'DejaVu Serif', serif; fill: #262626" transform="translate(268.502881 281.323621) rotate(-25)">CopulaGAN</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_3">
+      <path d="M 474.052078 250.980571 
+L 474.052078 20.712656 
+" clip-path="url(#pa0b1817108)" style="fill: none; stroke: #cccccc; stroke-width: 0.8; stroke-linecap: round"/>
+     </g>
+     <g id="text_3">
+      <text style="font-size: 8px; font-family: 'Times New Roman', 'Times', 'Nimbus Roman', 'Liberation Serif', 'DejaVu Serif', serif; fill: #262626" transform="translate(453.989028 273.245801) rotate(-25)">TVAE</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_4">
+      <path d="M 642.215284 250.980571 
+L 642.215284 20.712656 
+" clip-path="url(#pa0b1817108)" style="fill: none; stroke: #cccccc; stroke-width: 0.8; stroke-linecap: round"/>
+     </g>
+     <g id="text_4">
+      <text style="font-size: 8px; font-family: 'Times New Roman', 'Times', 'Nimbus Roman', 'Liberation Serif', 'DejaVu Serif', serif; fill: #262626" transform="translate(593.952467 286.395569) rotate(-25)">GaussianCopula</text>
+     </g>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_5">
+      <path d="M 38.509375 250.980571 
+L 741.431575 250.980571 
+" clip-path="url(#pa0b1817108)" style="fill: none; stroke: #cccccc; stroke-width: 0.8; stroke-linecap: round"/>
+     </g>
+     <g id="text_5">
+      <text style="font-size: 8px; font-family: 'Times New Roman', 'Times', 'Nimbus Roman', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: end; fill: #262626" x="30.209375" y="253.712446" transform="rotate(-0 30.209375 253.712446)">0.0</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_6">
+      <path d="M 38.509375 207.119954 
+L 741.431575 207.119954 
+" clip-path="url(#pa0b1817108)" style="fill: none; stroke: #cccccc; stroke-width: 0.8; stroke-linecap: round"/>
+     </g>
+     <g id="text_6">
+      <text style="font-size: 8px; font-family: 'Times New Roman', 'Times', 'Nimbus Roman', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: end; fill: #262626" x="30.209375" y="209.851829" transform="rotate(-0 30.209375 209.851829)">0.2</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_7">
+      <path d="M 38.509375 163.259337 
+L 741.431575 163.259337 
+" clip-path="url(#pa0b1817108)" style="fill: none; stroke: #cccccc; stroke-width: 0.8; stroke-linecap: round"/>
+     </g>
+     <g id="text_7">
+      <text style="font-size: 8px; font-family: 'Times New Roman', 'Times', 'Nimbus Roman', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: end; fill: #262626" x="30.209375" y="165.991212" transform="rotate(-0 30.209375 165.991212)">0.4</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_8">
+      <path d="M 38.509375 119.39872 
+L 741.431575 119.39872 
+" clip-path="url(#pa0b1817108)" style="fill: none; stroke: #cccccc; stroke-width: 0.8; stroke-linecap: round"/>
+     </g>
+     <g id="text_8">
+      <text style="font-size: 8px; font-family: 'Times New Roman', 'Times', 'Nimbus Roman', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: end; fill: #262626" x="30.209375" y="122.130595" transform="rotate(-0 30.209375 122.130595)">0.6</text>
+     </g>
+    </g>
+    <g id="ytick_5">
+     <g id="line2d_9">
+      <path d="M 38.509375 75.538103 
+L 741.431575 75.538103 
+" clip-path="url(#pa0b1817108)" style="fill: none; stroke: #cccccc; stroke-width: 0.8; stroke-linecap: round"/>
+     </g>
+     <g id="text_9">
+      <text style="font-size: 8px; font-family: 'Times New Roman', 'Times', 'Nimbus Roman', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: end; fill: #262626" x="30.209375" y="78.269978" transform="rotate(-0 30.209375 78.269978)">0.8</text>
+     </g>
+    </g>
+    <g id="ytick_6">
+     <g id="line2d_10">
+      <path d="M 38.509375 31.677486 
+L 741.431575 31.677486 
+" clip-path="url(#pa0b1817108)" style="fill: none; stroke: #cccccc; stroke-width: 0.8; stroke-linecap: round"/>
+     </g>
+     <g id="text_10">
+      <text style="font-size: 8px; font-family: 'Times New Roman', 'Times', 'Nimbus Roman', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: end; fill: #262626" x="30.209375" y="34.409361" transform="rotate(-0 30.209375 34.409361)">1.0</text>
+     </g>
+    </g>
+    <g id="text_11">
+     <text style="font-size: 10px; font-family: 'Times New Roman', 'Times', 'Nimbus Roman', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #262626" x="14.029688" y="135.846614" transform="rotate(-90 14.029688 135.846614)">Cosine similarity (higher = better)</text>
+    </g>
+   </g>
+   <g id="patch_3">
+    <path d="M 70.460384 250.980571 
+L 204.990949 250.980571 
+L 204.990949 31.677961 
+L 70.460384 31.677961 
+z
+" clip-path="url(#pa0b1817108)" style="fill: #54a24b; stroke: #ffffff; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 238.62359 250.980571 
+L 373.154154 250.980571 
+L 373.154154 31.677795 
+L 238.62359 31.677795 
+z
+" clip-path="url(#pa0b1817108)" style="fill: #54a24b; stroke: #ffffff; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 406.786796 250.980571 
+L 541.31736 250.980571 
+L 541.31736 31.682532 
+L 406.786796 31.682532 
+z
+" clip-path="url(#pa0b1817108)" style="fill: #54a24b; stroke: #ffffff; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 574.950001 250.980571 
+L 709.480566 250.980571 
+L 709.480566 31.678053 
+L 574.950001 31.678053 
+z
+" clip-path="url(#pa0b1817108)" style="fill: #54a24b; stroke: #ffffff; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 38.509375 250.980571 
+L 38.509375 20.712656 
+" style="fill: none; stroke: #cccccc; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 741.431575 250.980571 
+L 741.431575 20.712656 
+" style="fill: none; stroke: #cccccc; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 38.509375 250.980571 
+L 741.431575 250.980571 
+" style="fill: none; stroke: #cccccc; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 38.509375 20.712656 
+L 741.431575 20.712656 
+" style="fill: none; stroke: #cccccc; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 11px; font-family: 'Times New Roman', 'Times', 'Nimbus Roman', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #262626" x="389.970475" y="14.712656" transform="rotate(-0 389.970475 14.712656)">OnlineShop: Cosine Similarity</text>
+   </g>
+   <g id="legend_1">
+    <g id="patch_11">
+     <path d="M 676.462825 38.456406 
+L 735.831575 38.456406 
+Q 737.431575 38.456406 737.431575 36.856406 
+L 737.431575 26.312656 
+Q 737.431575 24.712656 735.831575 24.712656 
+L 676.462825 24.712656 
+Q 674.862825 24.712656 674.862825 26.312656 
+L 674.862825 36.856406 
+Q 674.862825 38.456406 676.462825 38.456406 
+z
+" style="fill: #ffffff; opacity: 0.8; stroke: #cccccc; stroke-width: 0.8; stroke-linejoin: miter"/>
+    </g>
+    <g id="patch_12">
+     <path d="M 678.062825 33.512656 
+L 694.062825 33.512656 
+L 694.062825 27.912656 
+L 678.062825 27.912656 
+z
+" style="fill: #54a24b; stroke: #ffffff; stroke-width: 0.8; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_13">
+     <text style="font-size: 8px; font-family: 'Times New Roman', 'Times', 'Nimbus Roman', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: start; fill: #262626" x="700.462825" y="33.512656" transform="rotate(-0 700.462825 33.512656)">Hungarian</text>
+    </g>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pa0b1817108">
+   <rect x="38.509375" y="20.712656" width="702.9222" height="230.267915"/>
+  </clipPath>
+ </defs>
+</svg>

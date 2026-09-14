@@ -1,0 +1,135 @@
+dataset,generator,seed,status,start_time,end_time,error
+cancer,CTGAN,42,SUCCESS,2026-09-12T15:22:55.495166+00:00,2026-09-12T15:24:12.934609+00:00,
+cancer,CTGAN,42,SKIPPED,2026-09-12T15:24:35.600444+00:00,2026-09-12T15:24:35.600457+00:00,
+cancer,CTGAN,123,SUCCESS,2026-09-12T15:24:12.936457+00:00,2026-09-12T15:25:29.490528+00:00,
+cancer,CTGAN,123,SUCCESS,2026-09-12T15:24:35.602359+00:00,2026-09-12T15:25:57.450659+00:00,
+cancer,CTGAN,2024,SUCCESS,2026-09-12T15:25:29.492597+00:00,2026-09-12T15:26:47.424199+00:00,
+cancer,CTGAN,2024,SUCCESS,2026-09-12T15:25:57.453012+00:00,2026-09-12T15:27:14.524149+00:00,
+cancer,CTGAN,42,SUCCESS,2026-09-12T15:28:05.216507+00:00,2026-09-12T15:29:23.687847+00:00,
+cancer,CTGAN,42,SKIPPED,2026-09-12T15:47:45.309087+00:00,2026-09-12T15:47:45.309100+00:00,
+cancer,CTGAN,123,SKIPPED,2026-09-12T15:47:45.332252+00:00,2026-09-12T15:47:45.332262+00:00,
+cancer,CTGAN,2024,SKIPPED,2026-09-12T15:47:45.353971+00:00,2026-09-12T15:47:45.353979+00:00,
+cancer,CopulaGAN,42,SUCCESS,2026-09-12T15:47:45.374275+00:00,2026-09-12T15:49:06.123683+00:00,
+cancer,CopulaGAN,123,SUCCESS,2026-09-12T15:49:06.146490+00:00,2026-09-12T15:50:22.809988+00:00,
+cancer,CopulaGAN,2024,SUCCESS,2026-09-12T15:50:22.844838+00:00,2026-09-12T15:51:39.219390+00:00,
+cancer,TVAE,42,SUCCESS,2026-09-12T15:51:39.242263+00:00,2026-09-12T15:51:58.239938+00:00,
+cancer,TVAE,123,SUCCESS,2026-09-12T15:51:58.261391+00:00,2026-09-12T15:52:17.007076+00:00,
+cancer,TVAE,2024,SUCCESS,2026-09-12T15:52:17.030353+00:00,2026-09-12T15:52:35.958782+00:00,
+cancer,GaussianCopula,42,SUCCESS,2026-09-12T15:52:35.979323+00:00,2026-09-12T15:52:44.509366+00:00,
+cancer,GaussianCopula,123,SUCCESS,2026-09-12T15:52:44.530734+00:00,2026-09-12T15:52:53.062796+00:00,
+cancer,GaussianCopula,2024,SUCCESS,2026-09-12T15:52:53.084897+00:00,2026-09-12T15:53:01.675384+00:00,
+cancer,CTABGAN,42,SUCCESS,2026-09-12T15:53:01.696240+00:00,2026-09-12T15:53:50.829015+00:00,
+cancer,CTABGAN,123,SUCCESS,2026-09-12T15:53:50.849982+00:00,2026-09-12T15:54:39.224041+00:00,
+cancer,CTABGAN,2024,SUCCESS,2026-09-12T15:54:39.258093+00:00,2026-09-12T15:55:27.622918+00:00,
+cancer,WGAN_GP,42,SUCCESS,2026-09-12T15:55:27.644434+00:00,2026-09-12T15:55:46.989046+00:00,
+cancer,WGAN_GP,123,SUCCESS,2026-09-12T15:55:47.010333+00:00,2026-09-12T15:56:06.626889+00:00,
+cancer,WGAN_GP,2024,SUCCESS,2026-09-12T15:56:06.647988+00:00,2026-09-12T15:56:25.811382+00:00,
+cancer,TabDDPM,42,SUCCESS,2026-09-12T15:56:25.833231+00:00,2026-09-12T15:56:51.649093+00:00,
+cancer,TabDDPM,123,SUCCESS,2026-09-12T15:56:51.672997+00:00,2026-09-12T15:57:17.028206+00:00,
+cancer,TabDDPM,2024,SUCCESS,2026-09-12T15:57:17.050939+00:00,2026-09-12T15:57:42.499872+00:00,
+cancer,ForestDiffusion,42,SUCCESS,2026-09-12T15:57:42.523784+00:00,2026-09-12T15:57:55.514178+00:00,
+cancer,ForestDiffusion,123,SUCCESS,2026-09-12T15:57:55.535321+00:00,2026-09-12T15:58:07.141038+00:00,
+cancer,ForestDiffusion,2024,SUCCESS,2026-09-12T15:58:07.162246+00:00,2026-09-12T15:58:18.333807+00:00,
+alzhimers,CTGAN,42,SUCCESS,2026-09-12T15:58:18.369132+00:00,2026-09-12T15:58:55.427677+00:00,
+alzhimers,CTGAN,123,SUCCESS,2026-09-12T15:58:55.449311+00:00,2026-09-12T15:59:32.455985+00:00,
+alzhimers,CTGAN,2024,SUCCESS,2026-09-12T15:59:32.477167+00:00,2026-09-12T16:00:09.340330+00:00,
+alzhimers,CopulaGAN,42,SUCCESS,2026-09-12T16:00:09.361119+00:00,2026-09-12T16:00:46.750550+00:00,
+alzhimers,CopulaGAN,123,SUCCESS,2026-09-12T16:00:46.771187+00:00,2026-09-12T16:01:23.799911+00:00,
+alzhimers,CopulaGAN,2024,SUCCESS,2026-09-12T16:01:23.821043+00:00,2026-09-12T16:02:01.158864+00:00,
+alzhimers,TVAE,42,SUCCESS,2026-09-12T16:02:01.179767+00:00,2026-09-12T16:02:09.261769+00:00,
+alzhimers,TVAE,123,SUCCESS,2026-09-12T16:02:09.282733+00:00,2026-09-12T16:02:17.382192+00:00,
+alzhimers,TVAE,2024,SUCCESS,2026-09-12T16:02:17.404028+00:00,2026-09-12T16:02:25.941904+00:00,
+alzhimers,GaussianCopula,42,SUCCESS,2026-09-12T16:02:25.963235+00:00,2026-09-12T16:02:30.474177+00:00,
+alzhimers,GaussianCopula,123,SUCCESS,2026-09-12T16:02:30.495725+00:00,2026-09-12T16:02:35.010858+00:00,
+alzhimers,GaussianCopula,2024,SUCCESS,2026-09-12T16:02:35.031993+00:00,2026-09-12T16:02:39.546923+00:00,
+alzhimers,CTABGAN,42,SUCCESS,2026-09-12T16:02:39.571131+00:00,2026-09-12T16:03:23.024042+00:00,
+alzhimers,CTABGAN,123,SUCCESS,2026-09-12T16:03:23.046190+00:00,2026-09-12T16:04:06.230138+00:00,
+alzhimers,CTABGAN,2024,SUCCESS,2026-09-12T16:04:06.251034+00:00,2026-09-12T16:04:49.509678+00:00,
+alzhimers,WGAN_GP,42,FAILED,2026-09-12T16:04:49.530437+00:00,2026-09-12T16:04:59.139152+00:00,"Unknown label type: continuous. Maybe you are trying to fit a classifier, which expects discrete classes on a regression target with continuous values."
+alzhimers,WGAN_GP,123,FAILED,2026-09-12T16:04:59.163139+00:00,2026-09-12T16:05:08.717144+00:00,"Unknown label type: continuous. Maybe you are trying to fit a classifier, which expects discrete classes on a regression target with continuous values."
+alzhimers,WGAN_GP,2024,FAILED,2026-09-12T16:05:08.737604+00:00,2026-09-12T16:05:18.371586+00:00,"Unknown label type: continuous. Maybe you are trying to fit a classifier, which expects discrete classes on a regression target with continuous values."
+alzhimers,TabDDPM,42,SUCCESS,2026-09-12T16:05:18.392334+00:00,2026-09-12T16:05:42.020827+00:00,
+alzhimers,TabDDPM,123,SUCCESS,2026-09-12T16:05:42.041561+00:00,2026-09-12T16:06:05.735415+00:00,
+alzhimers,TabDDPM,2024,SUCCESS,2026-09-12T16:06:05.759644+00:00,2026-09-12T16:06:29.395554+00:00,
+alzhimers,ForestDiffusion,42,SUCCESS,2026-09-12T16:06:29.416581+00:00,2026-09-12T16:06:35.836582+00:00,
+alzhimers,ForestDiffusion,123,SUCCESS,2026-09-12T16:06:35.858207+00:00,2026-09-12T16:06:40.738722+00:00,
+alzhimers,ForestDiffusion,2024,SUCCESS,2026-09-12T16:06:40.760575+00:00,2026-09-12T16:06:45.664112+00:00,
+adult,CTGAN,42,FAILED,2026-09-12T16:06:45.685590+00:00,2026-09-12T16:17:00.458316+00:00,The 'liblinear' solver does not support multiclass classification (n_classes >= 3). Either use another solver or wrap the estimator in a OneVsRestClassifier to keep applying a one-versus-rest scheme.
+adult,CTGAN,123,FAILED,2026-09-12T16:17:00.494570+00:00,2026-09-12T16:27:15.974108+00:00,The 'liblinear' solver does not support multiclass classification (n_classes >= 3). Either use another solver or wrap the estimator in a OneVsRestClassifier to keep applying a one-versus-rest scheme.
+adult,CTGAN,2024,FAILED,2026-09-12T16:27:16.008334+00:00,2026-09-12T16:37:29.503071+00:00,The 'liblinear' solver does not support multiclass classification (n_classes >= 3). Either use another solver or wrap the estimator in a OneVsRestClassifier to keep applying a one-versus-rest scheme.
+adult,CopulaGAN,42,FAILED,2026-09-12T16:37:29.537449+00:00,2026-09-12T16:47:43.113578+00:00,The 'liblinear' solver does not support multiclass classification (n_classes >= 3). Either use another solver or wrap the estimator in a OneVsRestClassifier to keep applying a one-versus-rest scheme.
+adult,CopulaGAN,123,FAILED,2026-09-12T16:47:43.148326+00:00,2026-09-12T16:57:56.138187+00:00,The 'liblinear' solver does not support multiclass classification (n_classes >= 3). Either use another solver or wrap the estimator in a OneVsRestClassifier to keep applying a one-versus-rest scheme.
+adult,CopulaGAN,2024,FAILED,2026-09-12T16:57:56.169310+00:00,2026-09-12T17:08:11.274255+00:00,The 'liblinear' solver does not support multiclass classification (n_classes >= 3). Either use another solver or wrap the estimator in a OneVsRestClassifier to keep applying a one-versus-rest scheme.
+adult,TVAE,42,FAILED,2026-09-12T17:08:11.308973+00:00,2026-09-12T17:09:17.808892+00:00,The 'liblinear' solver does not support multiclass classification (n_classes >= 3). Either use another solver or wrap the estimator in a OneVsRestClassifier to keep applying a one-versus-rest scheme.
+adult,TVAE,123,FAILED,2026-09-12T17:09:17.846180+00:00,2026-09-12T17:10:25.833493+00:00,The 'liblinear' solver does not support multiclass classification (n_classes >= 3). Either use another solver or wrap the estimator in a OneVsRestClassifier to keep applying a one-versus-rest scheme.
+adult,TVAE,2024,FAILED,2026-09-12T17:10:25.868654+00:00,2026-09-12T17:11:32.894006+00:00,The 'liblinear' solver does not support multiclass classification (n_classes >= 3). Either use another solver or wrap the estimator in a OneVsRestClassifier to keep applying a one-versus-rest scheme.
+adult,GaussianCopula,42,FAILED,2026-09-12T17:11:32.929318+00:00,2026-09-12T17:11:38.836303+00:00,The 'liblinear' solver does not support multiclass classification (n_classes >= 3). Either use another solver or wrap the estimator in a OneVsRestClassifier to keep applying a one-versus-rest scheme.
+adult,GaussianCopula,123,FAILED,2026-09-12T17:11:38.871802+00:00,2026-09-12T17:11:44.757910+00:00,The 'liblinear' solver does not support multiclass classification (n_classes >= 3). Either use another solver or wrap the estimator in a OneVsRestClassifier to keep applying a one-versus-rest scheme.
+adult,GaussianCopula,2024,FAILED,2026-09-12T17:11:44.791909+00:00,2026-09-12T17:11:50.726148+00:00,The 'liblinear' solver does not support multiclass classification (n_classes >= 3). Either use another solver or wrap the estimator in a OneVsRestClassifier to keep applying a one-versus-rest scheme.
+adult,CTABGAN,42,FAILED,2026-09-12T17:11:50.757761+00:00,2026-09-12T17:21:42.834114+00:00,The 'liblinear' solver does not support multiclass classification (n_classes >= 3). Either use another solver or wrap the estimator in a OneVsRestClassifier to keep applying a one-versus-rest scheme.
+adult,CTABGAN,123,FAILED,2026-09-12T17:21:42.869176+00:00,2026-09-12T17:31:32.881880+00:00,The 'liblinear' solver does not support multiclass classification (n_classes >= 3). Either use another solver or wrap the estimator in a OneVsRestClassifier to keep applying a one-versus-rest scheme.
+adult,CTABGAN,2024,FAILED,2026-09-12T17:31:32.915622+00:00,2026-09-12T17:41:26.742146+00:00,The 'liblinear' solver does not support multiclass classification (n_classes >= 3). Either use another solver or wrap the estimator in a OneVsRestClassifier to keep applying a one-versus-rest scheme.
+adult,WGAN_GP,42,FAILED,2026-09-12T17:41:26.776605+00:00,2026-09-12T17:44:51.830120+00:00,The 'liblinear' solver does not support multiclass classification (n_classes >= 3). Either use another solver or wrap the estimator in a OneVsRestClassifier to keep applying a one-versus-rest scheme.
+adult,WGAN_GP,123,FAILED,2026-09-12T17:44:51.864359+00:00,2026-09-12T17:48:16.409403+00:00,The 'liblinear' solver does not support multiclass classification (n_classes >= 3). Either use another solver or wrap the estimator in a OneVsRestClassifier to keep applying a one-versus-rest scheme.
+adult,WGAN_GP,2024,FAILED,2026-09-12T17:48:16.444557+00:00,2026-09-12T17:51:39.721696+00:00,The 'liblinear' solver does not support multiclass classification (n_classes >= 3). Either use another solver or wrap the estimator in a OneVsRestClassifier to keep applying a one-versus-rest scheme.
+adult,TabDDPM,42,FAILED,2026-09-12T17:51:39.757199+00:00,2026-09-12T17:52:34.610401+00:00,The 'liblinear' solver does not support multiclass classification (n_classes >= 3). Either use another solver or wrap the estimator in a OneVsRestClassifier to keep applying a one-versus-rest scheme.
+adult,TabDDPM,123,FAILED,2026-09-12T17:52:34.645240+00:00,2026-09-12T17:53:31.524048+00:00,The 'liblinear' solver does not support multiclass classification (n_classes >= 3). Either use another solver or wrap the estimator in a OneVsRestClassifier to keep applying a one-versus-rest scheme.
+adult,TabDDPM,2024,FAILED,2026-09-12T17:53:31.573973+00:00,2026-09-12T17:54:28.510052+00:00,The 'liblinear' solver does not support multiclass classification (n_classes >= 3). Either use another solver or wrap the estimator in a OneVsRestClassifier to keep applying a one-versus-rest scheme.
+adult,ForestDiffusion,42,FAILED,2026-09-12T17:54:28.544687+00:00,2026-09-12T17:56:28.203767+00:00,The 'liblinear' solver does not support multiclass classification (n_classes >= 3). Either use another solver or wrap the estimator in a OneVsRestClassifier to keep applying a one-versus-rest scheme.
+adult,ForestDiffusion,123,FAILED,2026-09-12T17:56:28.241699+00:00,2026-09-12T17:58:23.802666+00:00,The 'liblinear' solver does not support multiclass classification (n_classes >= 3). Either use another solver or wrap the estimator in a OneVsRestClassifier to keep applying a one-versus-rest scheme.
+adult,ForestDiffusion,2024,FAILED,2026-09-12T17:58:23.844188+00:00,2026-09-12T18:00:18.861773+00:00,The 'liblinear' solver does not support multiclass classification (n_classes >= 3). Either use another solver or wrap the estimator in a OneVsRestClassifier to keep applying a one-versus-rest scheme.
+forest_cover,CTGAN,42,FAILED,2026-09-12T18:00:18.890314+00:00,2026-09-12T18:13:54.639316+00:00,The 'liblinear' solver does not support multiclass classification (n_classes >= 3). Either use another solver or wrap the estimator in a OneVsRestClassifier to keep applying a one-versus-rest scheme.
+forest_cover,CTGAN,123,FAILED,2026-09-12T18:13:54.676667+00:00,2026-09-12T18:27:22.864419+00:00,The 'liblinear' solver does not support multiclass classification (n_classes >= 3). Either use another solver or wrap the estimator in a OneVsRestClassifier to keep applying a one-versus-rest scheme.
+forest_cover,CTGAN,2024,FAILED,2026-09-12T18:27:22.887005+00:00,2026-09-12T18:40:55.447692+00:00,The 'liblinear' solver does not support multiclass classification (n_classes >= 3). Either use another solver or wrap the estimator in a OneVsRestClassifier to keep applying a one-versus-rest scheme.
+forest_cover,CopulaGAN,42,FAILED,2026-09-12T18:40:55.471764+00:00,2026-09-12T18:54:26.435019+00:00,The 'liblinear' solver does not support multiclass classification (n_classes >= 3). Either use another solver or wrap the estimator in a OneVsRestClassifier to keep applying a one-versus-rest scheme.
+forest_cover,CopulaGAN,123,FAILED,2026-09-12T18:54:26.460060+00:00,2026-09-12T19:07:56.542931+00:00,The 'liblinear' solver does not support multiclass classification (n_classes >= 3). Either use another solver or wrap the estimator in a OneVsRestClassifier to keep applying a one-versus-rest scheme.
+forest_cover,CopulaGAN,2024,FAILED,2026-09-12T19:07:56.566950+00:00,2026-09-12T19:21:25.652620+00:00,The 'liblinear' solver does not support multiclass classification (n_classes >= 3). Either use another solver or wrap the estimator in a OneVsRestClassifier to keep applying a one-versus-rest scheme.
+forest_cover,TVAE,42,FAILED,2026-09-12T19:21:25.675262+00:00,2026-09-12T19:22:29.554546+00:00,The 'liblinear' solver does not support multiclass classification (n_classes >= 3). Either use another solver or wrap the estimator in a OneVsRestClassifier to keep applying a one-versus-rest scheme.
+forest_cover,TVAE,123,FAILED,2026-09-12T19:22:29.577230+00:00,2026-09-12T19:23:29.431071+00:00,The 'liblinear' solver does not support multiclass classification (n_classes >= 3). Either use another solver or wrap the estimator in a OneVsRestClassifier to keep applying a one-versus-rest scheme.
+forest_cover,TVAE,2024,FAILED,2026-09-12T19:23:29.468955+00:00,2026-09-12T19:24:28.668697+00:00,The 'liblinear' solver does not support multiclass classification (n_classes >= 3). Either use another solver or wrap the estimator in a OneVsRestClassifier to keep applying a one-versus-rest scheme.
+forest_cover,GaussianCopula,42,FAILED,2026-09-12T19:24:28.690954+00:00,2026-09-12T19:24:37.035347+00:00,The 'liblinear' solver does not support multiclass classification (n_classes >= 3). Either use another solver or wrap the estimator in a OneVsRestClassifier to keep applying a one-versus-rest scheme.
+forest_cover,GaussianCopula,123,FAILED,2026-09-12T19:24:37.057194+00:00,2026-09-12T19:24:45.384357+00:00,The 'liblinear' solver does not support multiclass classification (n_classes >= 3). Either use another solver or wrap the estimator in a OneVsRestClassifier to keep applying a one-versus-rest scheme.
+forest_cover,GaussianCopula,2024,FAILED,2026-09-12T19:24:45.406864+00:00,2026-09-12T19:24:53.744830+00:00,The 'liblinear' solver does not support multiclass classification (n_classes >= 3). Either use another solver or wrap the estimator in a OneVsRestClassifier to keep applying a one-versus-rest scheme.
+alzhimers,WGAN_GP,42,SUCCESS,2026-09-13T17:08:10.861365+00:00,2026-09-13T17:08:30.826716+00:00,
+alzhimers,WGAN_GP,123,SUCCESS,2026-09-13T17:08:44.097206+00:00,2026-09-13T17:09:03.131632+00:00,
+alzhimers,WGAN_GP,2024,SUCCESS,2026-09-13T17:09:08.133938+00:00,2026-09-13T17:09:28.235566+00:00,
+adult,CTGAN,42,SUCCESS,2026-09-13T17:09:33.079608+00:00,2026-09-13T17:20:54.947226+00:00,
+adult,CTGAN,123,SUCCESS,2026-09-13T17:20:54.981032+00:00,2026-09-13T17:32:10.858333+00:00,
+adult,CTGAN,2024,SUCCESS,2026-09-13T17:32:10.885016+00:00,2026-09-13T17:43:28.880820+00:00,
+adult,CopulaGAN,42,SUCCESS,2026-09-13T17:43:28.907964+00:00,2026-09-13T17:54:37.573479+00:00,
+adult,CopulaGAN,123,SUCCESS,2026-09-13T17:54:37.596939+00:00,2026-09-13T18:05:46.217244+00:00,
+adult,CopulaGAN,2024,SUCCESS,2026-09-13T18:05:46.239570+00:00,2026-09-13T18:16:56.483251+00:00,
+adult,TVAE,42,SUCCESS,2026-09-13T18:16:56.508569+00:00,2026-09-13T18:18:32.857496+00:00,
+adult,TVAE,123,SUCCESS,2026-09-13T18:18:32.882237+00:00,2026-09-13T18:20:10.766699+00:00,
+adult,TVAE,2024,SUCCESS,2026-09-13T18:20:10.793801+00:00,2026-09-13T18:21:48.371429+00:00,
+adult,GaussianCopula,42,SUCCESS,2026-09-13T18:21:48.396302+00:00,2026-09-13T18:22:17.499109+00:00,
+adult,GaussianCopula,123,SUCCESS,2026-09-13T18:22:17.523098+00:00,2026-09-13T18:22:46.176556+00:00,
+adult,GaussianCopula,2024,SUCCESS,2026-09-13T18:22:46.212712+00:00,2026-09-13T18:23:14.343245+00:00,
+adult,CTABGAN,42,SUCCESS,2026-09-13T18:23:14.379649+00:00,2026-09-13T18:34:06.854495+00:00,
+adult,CTABGAN,123,SUCCESS,2026-09-13T18:34:06.878924+00:00,2026-09-13T18:44:56.107182+00:00,
+adult,CTABGAN,2024,SUCCESS,2026-09-13T18:44:56.130702+00:00,2026-09-13T18:55:40.169795+00:00,
+adult,WGAN_GP,42,SUCCESS,2026-09-13T18:55:40.192559+00:00,2026-09-13T19:00:43.534378+00:00,
+adult,WGAN_GP,123,SUCCESS,2026-09-13T19:00:43.559657+00:00,2026-09-13T19:05:57.912793+00:00,
+adult,WGAN_GP,2024,SUCCESS,2026-09-13T19:05:57.934663+00:00,2026-09-13T19:10:58.351110+00:00,
+adult,TabDDPM,42,SUCCESS,2026-09-13T19:10:58.373000+00:00,2026-09-13T19:12:10.135526+00:00,
+adult,TabDDPM,123,SUCCESS,2026-09-13T19:12:10.160100+00:00,2026-09-13T19:13:22.516767+00:00,
+adult,TabDDPM,2024,SUCCESS,2026-09-13T19:13:22.548168+00:00,2026-09-13T19:14:35.851300+00:00,
+adult,ForestDiffusion,42,SUCCESS,2026-09-13T19:14:35.877759+00:00,2026-09-13T19:17:44.314939+00:00,
+adult,ForestDiffusion,123,SUCCESS,2026-09-13T19:17:44.347533+00:00,2026-09-13T19:20:44.197725+00:00,
+adult,ForestDiffusion,2024,SUCCESS,2026-09-13T19:20:44.225943+00:00,2026-09-13T19:23:52.615971+00:00,
+bank,CTGAN,42,SUCCESS,2026-09-14T09:21:39.272353+00:00,2026-09-14T09:33:00.714470+00:00,
+bank,CTGAN,123,SUCCESS,2026-09-14T09:33:00.735460+00:00,2026-09-14T09:44:18.015003+00:00,
+bank,CTGAN,2024,SUCCESS,2026-09-14T09:44:18.038527+00:00,2026-09-14T09:55:37.199592+00:00,
+bank,CopulaGAN,42,SUCCESS,2026-09-14T09:55:37.224201+00:00,2026-09-14T10:06:56.915777+00:00,
+bank,CopulaGAN,123,SUCCESS,2026-09-14T10:06:56.937570+00:00,2026-09-14T10:14:28.731598+00:00,
+bank,CopulaGAN,2024,SUCCESS,2026-09-14T10:14:28.756327+00:00,2026-09-14T10:16:59.324710+00:00,
+bank,TVAE,42,SUCCESS,2026-09-14T10:16:59.345793+00:00,2026-09-14T10:18:16.709539+00:00,
+bank,TVAE,123,SUCCESS,2026-09-14T10:18:16.734778+00:00,2026-09-14T10:19:33.489207+00:00,
+bank,TVAE,2024,SUCCESS,2026-09-14T10:19:33.511086+00:00,2026-09-14T10:20:55.722218+00:00,
+bank,GaussianCopula,42,SUCCESS,2026-09-14T10:20:55.744048+00:00,2026-09-14T10:21:21.543045+00:00,
+bank,GaussianCopula,123,SUCCESS,2026-09-14T10:21:21.567207+00:00,2026-09-14T10:21:47.535622+00:00,
+bank,GaussianCopula,2024,SUCCESS,2026-09-14T10:21:47.560606+00:00,2026-09-14T10:22:13.387094+00:00,
+bank,CTABGAN,42,SUCCESS,2026-09-14T10:22:13.408478+00:00,2026-09-14T10:26:36.153073+00:00,
+bank,CTABGAN,123,SUCCESS,2026-09-14T10:26:36.175391+00:00,2026-09-14T10:30:58.866434+00:00,
+bank,CTABGAN,2024,SUCCESS,2026-09-14T10:30:58.890799+00:00,2026-09-14T10:35:21.370540+00:00,
+bank,WGAN_GP,42,SUCCESS,2026-09-14T10:35:21.393645+00:00,2026-09-14T10:39:03.547198+00:00,

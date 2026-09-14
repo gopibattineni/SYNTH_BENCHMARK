@@ -1,0 +1,10 @@
+# Generator-training seeds for Batch 1.
+# The train/test split uses a FIXED split_seed (below), independent of these.
+generator_seeds:
+  - 42
+  - 123
+  - 2024
+
+# Fixed across all three generator seeds (measures generator stochasticity only).
+split_seed: 42
+test_size: 0.2
