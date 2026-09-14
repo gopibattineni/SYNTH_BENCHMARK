@@ -59,9 +59,12 @@ METRICS = {
     "F1_Gap": ("F1", "utility_gap_violin"),
 }
 
-NAVY = "#1f3a5f"
+INK = "#1c1f24"
 MEDIAN = "#c0392b"
 POINT = "#1c1f24"
+FACE = "#ffffff"
+VIOLIN_FACE = "#f0f0f0"
+ZERO = "#7a7a7a"
 
 
 def load_gaps(metric_key: str) -> pd.DataFrame:
@@ -88,15 +91,17 @@ def render(df: pd.DataFrame, metric_label: str) -> plt.Figure:
     from latex_fonts import apply_font_to_figure, configure_times_font, times_fontproperties
 
     # Seaborn resets rcParams — apply style first, then force Times-compatible font.
-    sns.set_style("whitegrid", {"axes.edgecolor": NAVY, "grid.color": "#dce3eb"})
+    sns.set_style("white", {"axes.edgecolor": INK})
     font_name = configure_times_font()
     font_prop = times_fontproperties()
     font_prop_italic = times_fontproperties(style="italic")
 
     order = list(df["Generator"].cat.categories)
-    fig, ax = plt.subplots(figsize=(10.5, 5.8))
+    fig, ax = plt.subplots(figsize=(10.5, 5.8), facecolor=FACE)
+    ax.set_facecolor(FACE)
+    ax.grid(False)
 
-    palette = sns.color_palette("Blues", n_colors=len(order) + 2)[2:]
+    palette = [VIOLIN_FACE] * len(order)
 
     sns.violinplot(
         data=df,
@@ -109,17 +114,18 @@ def render(df: pd.DataFrame, metric_label: str) -> plt.Figure:
         inner=None,
         cut=0,
         linewidth=1.1,
-        saturation=0.9,
+        saturation=1.0,
         legend=False,
         ax=ax,
         zorder=2,
     )
 
-    # Soften violin faces
+    # Black-and-white violin faces with dark edges
     for coll in ax.collections:
-        coll.set_alpha(0.78)
-        coll.set_edgecolor(NAVY)
-        coll.set_linewidth(1.0)
+        coll.set_alpha(1.0)
+        coll.set_facecolor(VIOLIN_FACE)
+        coll.set_edgecolor(INK)
+        coll.set_linewidth(1.1)
 
     # Overlay individual dataset points
     sns.stripplot(
@@ -129,14 +135,14 @@ def render(df: pd.DataFrame, metric_label: str) -> plt.Figure:
         order=order,
         color=POINT,
         size=4.5,
-        alpha=0.55,
+        alpha=0.65,
         jitter=0.08,
         ax=ax,
         zorder=3,
         legend=False,
     )
 
-    # Median overlay (horizontal ticks + connecting markers)
+    # Median overlay (horizontal ticks + connecting markers) — keep red
     medians = df.groupby("Generator", observed=True)["UtilityGap"].median().reindex(order)
     xs = np.arange(len(order))
     ax.scatter(
@@ -150,35 +156,37 @@ def render(df: pd.DataFrame, metric_label: str) -> plt.Figure:
             colors=MEDIAN, linewidths=2.0, zorder=4,
         )
 
-    ax.axhline(0, color="#7a8490", linestyle="--", linewidth=1.0, zorder=1, alpha=0.85)
+    ax.axhline(0, color=ZERO, linestyle="--", linewidth=1.0, zorder=1, alpha=0.85)
 
     ax.set_xlabel("")
     ax.set_ylabel(
         f"Utility Gap  (TRTR − TSTR, {metric_label})",
-        fontsize=11.5, color=NAVY, fontproperties=font_prop,
-    )
-    ax.text(
-        0.0, 1.02,
-        "One point per classification dataset (n = 9)  ·  lower gap is better  ·  dashed line = zero gap",
-        transform=ax.transAxes, fontsize=9, color="#5a5f66",
-        va="bottom", ha="left", fontproperties=font_prop_italic,
+        fontsize=11.5, color=INK, fontproperties=font_prop,
     )
 
-    ax.tick_params(axis="x", labelsize=10.5, colors=NAVY, rotation=18)
-    ax.tick_params(axis="y", labelsize=10, colors=NAVY)
+    ax.tick_params(axis="x", labelsize=10.5, colors=INK, rotation=18)
+    ax.tick_params(axis="y", labelsize=10, colors=INK)
     for label in list(ax.get_xticklabels()) + list(ax.get_yticklabels()):
         label.set_fontproperties(font_prop)
     for spine in ("top", "right"):
         ax.spines[spine].set_visible(False)
-    ax.spines["left"].set_color(NAVY)
-    ax.spines["bottom"].set_color(NAVY)
+    ax.spines["left"].set_color(INK)
+    ax.spines["bottom"].set_color(INK)
 
     ax.legend(
         loc="upper left", frameon=True, fontsize=9.5,
-        edgecolor="#c5d0dc", fancybox=False, prop=font_prop,
+        edgecolor=INK, fancybox=False, prop=font_prop,
+        facecolor=FACE,
     )
 
     fig.tight_layout()
+    fig.subplots_adjust(bottom=0.22)
+    fig.text(
+        0.12, 0.02,
+        "* One point per classification dataset (n = 9)  ·  lower gap is better  ·  dashed line = zero gap",
+        fontsize=9, color="#5a5f66",
+        va="bottom", ha="left", fontproperties=font_prop_italic,
+    )
     apply_font_to_figure(fig, font_name)
     return fig
 

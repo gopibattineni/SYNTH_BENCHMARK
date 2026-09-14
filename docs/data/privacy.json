@@ -1,61 +1,5 @@
 [
   {
-    "Dataset": "3. Adult",
-    "Generator": "ForestDiffusion",
-    "Metric": "Median_Distance",
-    "Mean": 0.4777613418,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "ForestDiffusion",
-    "Metric": "Std_Distance",
-    "Mean": 0.8741509347,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "ForestDiffusion",
-    "Metric": "Min_Distance",
-    "Mean": 0.0113772523,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "ForestDiffusion",
-    "Metric": "Max_Distance",
-    "Mean": 10.6774785096,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "TabDDPM",
-    "Metric": "Median_Distance",
-    "Mean": 9.1857271418,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "TabDDPM",
-    "Metric": "Std_Distance",
-    "Mean": 3.9946017123,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "TabDDPM",
-    "Metric": "Min_Distance",
-    "Mean": 1.8284768703,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "TabDDPM",
-    "Metric": "Max_Distance",
-    "Mean": 16.1519009699,
-    "Std": null
-  },
-  {
     "Dataset": "4. Forest cover dataset",
     "Generator": "ForestDiffusion",
     "Metric": "Median_Distance",
@@ -221,62 +165,6 @@
     "Generator": "TabDDPM",
     "Metric": "Max_Distance",
     "Mean": 9.7341783883,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "WGAN_GP",
-    "Metric": "Median_Distance",
-    "Mean": 1.7205871853,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "WGAN_GP",
-    "Metric": "Std_Distance",
-    "Mean": 1.0994804016,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "WGAN_GP",
-    "Metric": "Min_Distance",
-    "Mean": 0.2913333068,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "WGAN_GP",
-    "Metric": "Max_Distance",
-    "Mean": 22.6744454481,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "CTABGAN",
-    "Metric": "Median_Distance",
-    "Mean": 1.3924021706,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "CTABGAN",
-    "Metric": "Std_Distance",
-    "Mean": 1.5867347101,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "CTABGAN",
-    "Metric": "Min_Distance",
-    "Mean": 0.0103349666,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "CTABGAN",
-    "Metric": "Max_Distance",
-    "Mean": 21.7033298959,
     "Std": null
   },
   {
@@ -697,118 +585,6 @@
     "Generator": "CopulaGAN",
     "Metric": "Max_Distance",
     "Mean": 36.6194882859,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "CTGAN",
-    "Metric": "Median_Distance",
-    "Mean": 0.4104469154,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "CTGAN",
-    "Metric": "Std_Distance",
-    "Mean": 1.0605893174,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "CTGAN",
-    "Metric": "Min_Distance",
-    "Mean": 0.0002868564,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "CTGAN",
-    "Metric": "Max_Distance",
-    "Mean": 15.0610809438,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "CopulaGAN",
-    "Metric": "Median_Distance",
-    "Mean": 0.4170754458,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "CopulaGAN",
-    "Metric": "Std_Distance",
-    "Mean": 1.3055427825,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "CopulaGAN",
-    "Metric": "Min_Distance",
-    "Mean": 4.78094e-05,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "CopulaGAN",
-    "Metric": "Max_Distance",
-    "Mean": 13.667388565,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "TVAE",
-    "Metric": "Median_Distance",
-    "Mean": 0.5371962923,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "TVAE",
-    "Metric": "Std_Distance",
-    "Mean": 1.2790575389,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "TVAE",
-    "Metric": "Min_Distance",
-    "Mean": 9.5619e-06,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "TVAE",
-    "Metric": "Max_Distance",
-    "Mean": 13.3309873857,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "GaussianCopula",
-    "Metric": "Median_Distance",
-    "Mean": 2.3856101709,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "GaussianCopula",
-    "Metric": "Std_Distance",
-    "Mean": 4.2392392305,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "GaussianCopula",
-    "Metric": "Min_Distance",
-    "Mean": 0.0173651056,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "GaussianCopula",
-    "Metric": "Max_Distance",
-    "Mean": 17.3627814627,
     "Std": null
   },
   {
@@ -1257,34 +1033,6 @@
     "Generator": "GaussianCopula",
     "Metric": "Max_Distance",
     "Mean": 219.9021686916,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "CTGAN",
-    "Metric": "Num_Matches",
-    "Mean": 1000.0,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "TVAE",
-    "Metric": "Num_Matches",
-    "Mean": 1000.0,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "CopulaGAN",
-    "Metric": "Num_Matches",
-    "Mean": 1000.0,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "GaussianCopula",
-    "Metric": "Num_Matches",
-    "Mean": 1000.0,
     "Std": null
   },
   {
@@ -2521,48 +2269,6 @@
   },
   {
     "Dataset": "3. Adult",
-    "Generator": "CTABGAN",
-    "Metric": "Hungarian_Cosine_Similarity",
-    "Mean": 0.998985,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "CTABGAN",
-    "Metric": "Num_Matches",
-    "Mean": 1000.0,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "WGAN_GP",
-    "Metric": "Hungarian_Cosine_Similarity",
-    "Mean": 0.806117,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "WGAN_GP",
-    "Metric": "Num_Matches",
-    "Mean": 1000.0,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "CTABGAN",
-    "Metric": "Mahalanobis_Distance",
-    "Mean": 1.745427,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "WGAN_GP",
-    "Metric": "Mahalanobis_Distance",
-    "Mean": 1.84691,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
     "Generator": "WGAN_GP",
     "Metric": "MIA_AUC",
     "Mean": 0.40917,
@@ -2573,48 +2279,6 @@
     "Generator": "CTABGAN",
     "Metric": "MIA_AUC",
     "Mean": 0.732016,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "ForestDiffusion",
-    "Metric": "Hungarian_Cosine_Similarity",
-    "Mean": 0.99976,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "ForestDiffusion",
-    "Metric": "Num_Matches",
-    "Mean": 1000.0,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "TabDDPM",
-    "Metric": "Hungarian_Cosine_Similarity",
-    "Mean": 0.873941,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "TabDDPM",
-    "Metric": "Num_Matches",
-    "Mean": 1000.0,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "ForestDiffusion",
-    "Metric": "Mahalanobis_Distance",
-    "Mean": 1.067685,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "TabDDPM",
-    "Metric": "Mahalanobis_Distance",
-    "Mean": 8.851262,
     "Std": null
   },
   {
@@ -6596,22 +6260,8 @@
   {
     "Dataset": "3. Adult",
     "Generator": "GaussianCopula",
-    "Metric": "Mean_Distance",
-    "Mean": 1.253248,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "GaussianCopula",
     "Metric": "NNDR",
     "Mean": 0.134497,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "CopulaGAN",
-    "Metric": "Mean_Distance",
-    "Mean": 0.152083,
     "Std": null
   },
   {
@@ -6624,22 +6274,8 @@
   {
     "Dataset": "3. Adult",
     "Generator": "CTGAN",
-    "Metric": "Mean_Distance",
-    "Mean": 0.14483,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "CTGAN",
     "Metric": "NNDR",
     "Mean": 0.00229,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "TVAE",
-    "Metric": "Mean_Distance",
-    "Mean": 0.130169,
     "Std": null
   },
   {
@@ -6652,22 +6288,8 @@
   {
     "Dataset": "3. Adult",
     "Generator": "WGAN_GP",
-    "Metric": "Mean_Distance",
-    "Mean": 1.449594,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "WGAN_GP",
     "Metric": "NNDR",
     "Mean": 0.598683,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "CTABGAN",
-    "Metric": "Mean_Distance",
-    "Mean": 1.079566,
     "Std": null
   },
   {
@@ -6680,22 +6302,8 @@
   {
     "Dataset": "3. Adult",
     "Generator": "TabDDPM",
-    "Metric": "Mean_Distance",
-    "Mean": 5.559633,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "TabDDPM",
     "Metric": "NNDR",
     "Mean": 2.67559,
-    "Std": null
-  },
-  {
-    "Dataset": "3. Adult",
-    "Generator": "ForestDiffusion",
-    "Metric": "Mean_Distance",
-    "Mean": 0.34987,
     "Std": null
   },
   {
@@ -6707,30 +6315,450 @@
   },
   {
     "Dataset": "3. Adult",
-    "Generator": "GaussianCopula",
-    "Metric": "Mahalanobis_Distance",
-    "Mean": 1.253248,
+    "Generator": "CTGAN",
+    "Metric": "Hungarian_Cosine_Similarity",
+    "Mean": 0.9996423581,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "CTGAN",
+    "Metric": "Num_Matches",
+    "Mean": 1000.0,
     "Std": null
   },
   {
     "Dataset": "3. Adult",
     "Generator": "CopulaGAN",
-    "Metric": "Mahalanobis_Distance",
-    "Mean": 0.152083,
+    "Metric": "Hungarian_Cosine_Similarity",
+    "Mean": 0.9964779685,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "CopulaGAN",
+    "Metric": "Num_Matches",
+    "Mean": 1000.0,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "TVAE",
+    "Metric": "Hungarian_Cosine_Similarity",
+    "Mean": 0.9994313166,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "TVAE",
+    "Metric": "Num_Matches",
+    "Mean": 1000.0,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "GaussianCopula",
+    "Metric": "Hungarian_Cosine_Similarity",
+    "Mean": 0.980684987,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "GaussianCopula",
+    "Metric": "Num_Matches",
+    "Mean": 1000.0,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "WGAN_GP",
+    "Metric": "Hungarian_Cosine_Similarity",
+    "Mean": 0.9963044767,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "WGAN_GP",
+    "Metric": "Num_Matches",
+    "Mean": 1000.0,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "CTABGAN",
+    "Metric": "Hungarian_Cosine_Similarity",
+    "Mean": 0.9998866617,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "CTABGAN",
+    "Metric": "Num_Matches",
+    "Mean": 1000.0,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "TabDDPM",
+    "Metric": "Hungarian_Cosine_Similarity",
+    "Mean": 0.7988756851,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "TabDDPM",
+    "Metric": "Num_Matches",
+    "Mean": 1000.0,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "ForestDiffusion",
+    "Metric": "Hungarian_Cosine_Similarity",
+    "Mean": 0.9997905968,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "ForestDiffusion",
+    "Metric": "Num_Matches",
+    "Mean": 1000.0,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "CTGAN",
+    "Metric": "Mean_Distance",
+    "Mean": 0.3121198164,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "CTGAN",
+    "Metric": "Median_Distance",
+    "Mean": 0.1954141904,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "CTGAN",
+    "Metric": "Std_Distance",
+    "Mean": 0.300203714,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "CTGAN",
+    "Metric": "Min_Distance",
+    "Mean": 0.0003989094,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "CTGAN",
+    "Metric": "Max_Distance",
+    "Mean": 2.5839303947,
     "Std": null
   },
   {
     "Dataset": "3. Adult",
     "Generator": "CTGAN",
     "Metric": "Mahalanobis_Distance",
-    "Mean": 0.14483,
+    "Mean": 0.3121198164,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "CopulaGAN",
+    "Metric": "Mean_Distance",
+    "Mean": 0.6750320131,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "CopulaGAN",
+    "Metric": "Median_Distance",
+    "Mean": 0.4763211669,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "CopulaGAN",
+    "Metric": "Std_Distance",
+    "Mean": 0.6521044158,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "CopulaGAN",
+    "Metric": "Min_Distance",
+    "Mean": 0.1854891104,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "CopulaGAN",
+    "Metric": "Max_Distance",
+    "Mean": 8.2201816353,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "CopulaGAN",
+    "Metric": "Mahalanobis_Distance",
+    "Mean": 0.6750320131,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "TVAE",
+    "Metric": "Mean_Distance",
+    "Mean": 0.1163703617,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "TVAE",
+    "Metric": "Median_Distance",
+    "Mean": 0.0754742597,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "TVAE",
+    "Metric": "Std_Distance",
+    "Mean": 0.1357133671,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "TVAE",
+    "Metric": "Min_Distance",
+    "Mean": 0.0,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "TVAE",
+    "Metric": "Max_Distance",
+    "Mean": 0.4553987594,
     "Std": null
   },
   {
     "Dataset": "3. Adult",
     "Generator": "TVAE",
     "Metric": "Mahalanobis_Distance",
-    "Mean": 0.130169,
+    "Mean": 0.1163703617,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "GaussianCopula",
+    "Metric": "Mean_Distance",
+    "Mean": 2.484689273,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "GaussianCopula",
+    "Metric": "Median_Distance",
+    "Mean": 1.8057345678,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "GaussianCopula",
+    "Metric": "Std_Distance",
+    "Mean": 1.8250033037,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "GaussianCopula",
+    "Metric": "Min_Distance",
+    "Mean": 0.1904726929,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "GaussianCopula",
+    "Metric": "Max_Distance",
+    "Mean": 8.0695793353,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "GaussianCopula",
+    "Metric": "Mahalanobis_Distance",
+    "Mean": 2.484689273,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "WGAN_GP",
+    "Metric": "Mean_Distance",
+    "Mean": 1.6473219434,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "WGAN_GP",
+    "Metric": "Median_Distance",
+    "Mean": 1.4442325654,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "WGAN_GP",
+    "Metric": "Std_Distance",
+    "Mean": 1.1271385051,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "WGAN_GP",
+    "Metric": "Min_Distance",
+    "Mean": 0.2164032731,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "WGAN_GP",
+    "Metric": "Max_Distance",
+    "Mean": 11.822670511,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "WGAN_GP",
+    "Metric": "Mahalanobis_Distance",
+    "Mean": 1.6473219434,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "CTABGAN",
+    "Metric": "Mean_Distance",
+    "Mean": 2.4285025725,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "CTABGAN",
+    "Metric": "Median_Distance",
+    "Mean": 1.5698260373,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "CTABGAN",
+    "Metric": "Std_Distance",
+    "Mean": 1.8750594008,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "CTABGAN",
+    "Metric": "Min_Distance",
+    "Mean": 0.0187297471,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "CTABGAN",
+    "Metric": "Max_Distance",
+    "Mean": 9.0358981884,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "CTABGAN",
+    "Metric": "Mahalanobis_Distance",
+    "Mean": 2.4285025725,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "TabDDPM",
+    "Metric": "Mean_Distance",
+    "Mean": 11.7305887299,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "TabDDPM",
+    "Metric": "Median_Distance",
+    "Mean": 15.2200074612,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "TabDDPM",
+    "Metric": "Std_Distance",
+    "Mean": 5.5665904077,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "TabDDPM",
+    "Metric": "Min_Distance",
+    "Mean": 1.3191953705,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "TabDDPM",
+    "Metric": "Max_Distance",
+    "Mean": 18.6637397352,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "TabDDPM",
+    "Metric": "Mahalanobis_Distance",
+    "Mean": 11.7305887299,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "ForestDiffusion",
+    "Metric": "Mean_Distance",
+    "Mean": 0.760499892,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "ForestDiffusion",
+    "Metric": "Median_Distance",
+    "Mean": 0.5621513395,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "ForestDiffusion",
+    "Metric": "Std_Distance",
+    "Mean": 0.7817288564,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "ForestDiffusion",
+    "Metric": "Min_Distance",
+    "Mean": 0.0365470557,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "ForestDiffusion",
+    "Metric": "Max_Distance",
+    "Mean": 9.7190500403,
+    "Std": null
+  },
+  {
+    "Dataset": "3. Adult",
+    "Generator": "ForestDiffusion",
+    "Metric": "Mahalanobis_Distance",
+    "Mean": 0.760499892,
     "Std": null
   }
 ]
