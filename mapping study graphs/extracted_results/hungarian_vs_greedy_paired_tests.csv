@@ -1,0 +1,3 @@
+Comparison,Test,N,statistic,p_value,Effect_RankBiserial,Note
+Hungarian Cosine vs Pairwise Cosine,"Wilcoxon signed-rank (paired, alternative greater)",108,5886.0,9.343410879886318e-20,1.0,Pairwise is not Greedy mapping; test answers whether Hungarian cosine exceeds pairwise cosine.
+Greedy (one-to-one) Mahalanobis vs Hungarian Mahalanobis,"Wilcoxon signed-rank (paired, alternative Greedy > Hungarian)",106,4864.0,3.197788125349079e-13,0.8584905660377359,Positive Delta_Mahalanobis = Hungarian improved (lower distance).

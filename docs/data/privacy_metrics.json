@@ -24,6 +24,14 @@
     "is_sample_size": false
   },
   {
+    "id": "Hungarian_Cosine_Similarity",
+    "label": "Hungarian Cosine Similarity",
+    "count": 118,
+    "lower_is_better": false,
+    "is_similarity": true,
+    "is_sample_size": false
+  },
+  {
     "id": "MIA_AUC",
     "label": "MIA AUC",
     "count": 116,
@@ -38,14 +46,6 @@
     "lower_is_better": false,
     "is_similarity": false,
     "is_sample_size": true
-  },
-  {
-    "id": "Hungarian_Cosine_Similarity",
-    "label": "Hungarian Cosine Similarity",
-    "count": 114,
-    "lower_is_better": false,
-    "is_similarity": true,
-    "is_sample_size": false
   },
   {
     "id": "Median_Distance",

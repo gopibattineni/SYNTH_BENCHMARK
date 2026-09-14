@@ -17,3 +17,11 @@ _vendor/
 # Notebook / OS clutter
 **/.ipynb_checkpoints/
 .DS_Store
+
+# Multi-seed batch runtime artifacts
+multi seed generators/**/cache/
+multi seed generators/**/*.log
+multi seed generators/**/*.pid
+multi seed generators/**/__pycache__/
+**/synthetic_cache/
+*.bak_*
