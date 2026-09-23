@@ -8,13 +8,16 @@ import numpy as np
 import pandas as pd
 
 from .paths import ensure_task_dirs, task_paths
+from .table_io import read_results
 
 
 def load_agg(task: str = "classification") -> pd.DataFrame:
-    p = ensure_task_dirs(task)["aggregated"] / "all_metrics_mean_sd.csv"
+    p = ensure_task_dirs(task)["aggregated"] / "all_metrics_mean_sd.xlsx"
+    if not p.exists() and p.with_suffix(".csv").exists():
+        p = p.with_suffix(".csv")
     if not p.exists():
         raise FileNotFoundError(p)
-    return pd.read_csv(p)
+    return read_results(p)
 
 
 def plot_generator_comparison(

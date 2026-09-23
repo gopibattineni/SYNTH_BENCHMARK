@@ -18,8 +18,17 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
+import warnings
 from pathlib import Path
+
+# Keep CUDA worker logs to job status only (SDV/sklearn emit noisy FutureWarnings).
+warnings.filterwarnings("ignore", category=FutureWarning)
+warnings.filterwarnings("ignore", category=DeprecationWarning)
+warnings.filterwarnings("ignore", category=PendingDeprecationWarning)
+warnings.filterwarnings("ignore", category=UserWarning)
+os.environ.setdefault("PYTHONWARNINGS", "ignore")
 
 BATCH_ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(BATCH_ROOT))
@@ -82,12 +91,27 @@ def main() -> None:
         default=None,
         help="Restrict to classification or regression datasets",
     )
-    p.add_argument("--dataset", type=str, default=None)
-    p.add_argument("--generator", type=str, default=None)
+    p.add_argument(
+        "--dataset",
+        action="append",
+        default=None,
+        help="Dataset id; repeat or comma-separate. Used by cuda0.sh–cuda3.sh",
+    )
+    p.add_argument(
+        "--generator",
+        action="append",
+        default=None,
+        help="Generator name; repeat or comma-separate (e.g. CTABGAN,TabDDPM)",
+    )
     p.add_argument("--seed", type=int, default=None)
     p.add_argument("--force", action="store_true", help="Re-run even if complete")
     p.add_argument("--validate-only", action="store_true")
     p.add_argument("--aggregate-only", action="store_true")
+    p.add_argument(
+        "--skip-aggregate",
+        action="store_true",
+        help="Do not aggregate at the end (for parallel GPU workers)",
+    )
     p.add_argument("--smoke", action="store_true", help="cancer × CTGAN × 3 seeds (classification)")
     args = p.parse_args()
 
@@ -96,7 +120,9 @@ def main() -> None:
         return
     if args.aggregate_only:
         out = aggregate(task=args.task)
-        print(f"Aggregated {len(out)} rows -> classification|regression/results/aggregated/")
+        print(
+            f"Aggregated {len(out)} rows -> classification|regression/results/ (Excel only)"
+        )
         return
     if args.smoke:
         validate()
@@ -115,12 +141,22 @@ def main() -> None:
         return
 
     validate()
-    datasets = [args.dataset] if args.dataset else None
-    generators = [args.generator] if args.generator else None
+    datasets = None
+    if args.dataset:
+        datasets = []
+        for item in args.dataset:
+            datasets.extend(x.strip() for x in item.split(",") if x.strip())
+    generators = None
+    if args.generator:
+        generators = []
+        for item in args.generator:
+            generators.extend(x.strip() for x in item.split(",") if x.strip())
     seeds = [args.seed] if args.seed is not None else None
     if not args.all and args.dataset is None and args.task is None:
         print("Specify --all, --task, --smoke, or --dataset/--generator/--seed")
         raise SystemExit(2)
+    gpu = os.environ.get("CUDA_VISIBLE_DEVICES", "unset")
+    print(f"CUDA_VISIBLE_DEVICES={gpu}  datasets={datasets or 'ALL'}")
     run_experiment(
         datasets=datasets,
         generators=generators,
@@ -128,7 +164,8 @@ def main() -> None:
         force=args.force,
         task=args.task,
     )
-    aggregate(task=args.task)
+    if not args.skip_aggregate:
+        aggregate(task=args.task)
 
 
 if __name__ == "__main__":

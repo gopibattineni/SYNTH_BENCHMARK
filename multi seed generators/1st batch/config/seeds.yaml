@@ -8,3 +8,17 @@ generator_seeds:
 # Fixed across all three generator seeds (measures generator stochasticity only).
 split_seed: 42
 test_size: 0.2
+
+# Downstream utility model init seeds (classification + regression), after synth is generated.
+# Applied to every TRTR/TSTR model fit; metrics are averaged over models × these seeds.
+utility_model_seeds:
+  - 42
+  - 43
+  - 44
+  - 45
+  - 46
+  - 47
+  - 48
+  - 49
+  - 50
+  - 51

@@ -49,7 +49,31 @@ python run_experiment.py --all        # resumable 360
 python run_experiment.py --aggregate-only
 ```
 
-Completed jobs are skipped automatically (`results/raw/seed_*/.../metrics.csv`). Use `--force` to overwrite.
+Completed jobs are skipped automatically (`results/raw/seed_*/.../metrics.xlsx`). Use `--force` to overwrite.
+
+### 4 GPUs in parallel (remaining 11 datasets)
+
+Leave these completed classification datasets untouched: **cancer, alzhimers, adult, bank** (24/24 each).
+
+Run the other **11** datasets on GPUs 0–3:
+
+| Script | GPU | Classification | Regression |
+|---|---|---|---|
+| `cuda0.sh` | 0 | forest_cover, wine | metro |
+| `cuda1.sh` | 1 | cdc_diabetes | online_shopping, air_quality |
+| `cuda2.sh` | 2 | mushroom | concrete, energy_efficiency |
+| `cuda3.sh` | 3 | magic | real_estate |
+
+```bash
+cd "multi seed generators/1st batch"
+nohup bash run_all_cuda.sh > logs/run_all_cuda.out 2>&1 &
+
+# or one GPU
+bash cuda0.sh
+```
+
+Logs: `logs/cuda0.log` … `cuda3.log`.
+If your env is not `python3`, set `PYTHON=/path/to/python`.
 
 ---
 

@@ -1,16 +1,9 @@
-The 'liblinear' solver does not support multiclass classification (n_classes >= 3). Either use another solver or wrap the estimator in a OneVsRestClassifier to keep applying a one-versus-rest scheme.
+No module named 'ucimlrepo'
 Traceback (most recent call last):
-  File "/home/gopi.battineni/SYNTH_BENCHMARK/SYNTH/multi seed generators/1st batch/src/experiment.py", line 126, in run_one
-    util = compute_utility(train, test, synth, target, task, utility_classifier_seeds)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gopi.battineni/SYNTH_BENCHMARK/SYNTH/multi seed generators/1st batch/src/metrics/utility.py", line 180, in compute_utility
-    trtr = evaluate_classification(train_real, test_real, target, classifier_seeds, models=light)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gopi.battineni/SYNTH_BENCHMARK/SYNTH/multi seed generators/1st batch/src/metrics/utility.py", line 108, in evaluate_classification
-    clf.fit(X_tr_s, y_tr_e)
-  File "/home/gopi.battineni/.local/lib/python3.12/site-packages/sklearn/base.py", line 1403, in wrapper
-    return fit_method(estimator, *args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gopi.battineni/.local/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py", line 1488, in fit
-    raise ValueError(
-ValueError: The 'liblinear' solver does not support multiclass classification (n_classes >= 3). Either use another solver or wrap the estimator in a OneVsRestClassifier to keep applying a one-versus-rest scheme.
+  File "/home/gopi_b/SYNTH_BENCHMARK/multi seed generators/1st batch/src/experiment.py", line 144, in run_one
+    split = load_and_split(cfg, test_size=test_size, split_seed=split_seed, use_cache=True)
+  File "/home/gopi_b/SYNTH_BENCHMARK/multi seed generators/1st batch/src/datasets.py", line 116, in load_and_split
+    raw, cfg = load_raw(cfg)
+  File "/home/gopi_b/SYNTH_BENCHMARK/multi seed generators/1st batch/src/datasets.py", line 43, in load_raw
+    from ucimlrepo import fetch_ucirepo
+ModuleNotFoundError: No module named 'ucimlrepo'

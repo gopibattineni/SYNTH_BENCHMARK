@@ -20,8 +20,12 @@ _vendor/
 
 # Multi-seed batch runtime artifacts
 multi seed generators/**/cache/
+multi seed generators/**/logs/
 multi seed generators/**/*.log
 multi seed generators/**/*.pid
+multi seed generators/**/excel.lock
+multi seed generators/**/*.stamp
 multi seed generators/**/__pycache__/
 **/synthetic_cache/
 *.bak_*
+**/*.lock
