@@ -157,40 +157,93 @@ def render_rank_table(
 def robustness_chart(summary: pd.DataFrame, title: str, out_stem: Path, n_datasets: int) -> None:
     font_name = configure_times_font()
     df = summary.sort_values("AverageRank", ascending=True).reset_index(drop=True)
-    fig, ax = plt.subplots(figsize=(8.2, 4.6))
-    y = np.arange(len(df))
+    n = len(df)
+    fig_h = max(4.8, 0.55 * n + 1.6)
+    fig, ax = plt.subplots(figsize=(8.2, fig_h))
+    y = np.arange(n)
+    means = df["AverageRank"].to_numpy(dtype=float)
+    stds = df["StdDevRank"].to_numpy(dtype=float)
     colors = []
     for g in df["Generator"]:
-        key = g.replace("-", "_") if g not in GENERATOR_COLORS else g
-        if g == "WGAN-GP":
-            key = "WGAN_GP"
-        colors.append(GENERATOR_COLORS.get(key, NAVY))
+        key = "WGAN_GP" if g == "WGAN-GP" else g.replace("-", "_")
+        colors.append(GENERATOR_COLORS.get(key, GENERATOR_COLORS.get(g, NAVY)))
 
     ax.barh(
         y,
-        df["AverageRank"],
-        xerr=df["StdDevRank"],
-        color=colors,
-        edgecolor="white",
+        means,
         height=0.62,
-        error_kw={"ecolor": "#444", "capsize": 3, "lw": 1.0},
+        color=colors,
+        edgecolor=NAVY,
+        linewidth=0.8,
+        zorder=3,
     )
+    ax.errorbar(
+        means,
+        y,
+        xerr=stds,
+        fmt="none",
+        ecolor="#444444",
+        elinewidth=1.4,
+        capsize=4,
+        capthick=1.3,
+        zorder=4,
+    )
+    # Numeric labels: mean value to the right of each bar/error whisker
+    for yi, m, s in zip(y, means, stds):
+        ax.text(
+            m + s + 0.12,
+            yi,
+            f"{m:.2f}",
+            va="center",
+            ha="left",
+            fontsize=10,
+            color=NAVY,
+            fontweight="bold",
+            zorder=5,
+        )
+
     ax.set_yticks(y)
-    ax.set_yticklabels(df["Generator"])
+    ax.set_yticklabels(df["Generator"].tolist(), fontsize=11)
     ax.invert_yaxis()  # best (lowest rank) at top
-    ax.set_xlabel(f"Average rank across {n_datasets} datasets (lower is better)")
-    ax.set_title(title, color=NAVY, fontweight="bold", pad=10)
+    ax.set_xlabel(
+        f"Average Rank across {n_datasets} datasets  (lower is better)",
+        fontsize=11,
+        color=NAVY,
+    )
+    ax.set_xlim(0, float(np.nanmax(means + stds)) + 1.4)
+    ax.set_title(title, fontsize=14, fontweight="bold", color=NAVY, pad=12)
+    ax.xaxis.grid(True, linestyle="--", linewidth=0.7, color="#c5d0dc", zorder=0)
+    ax.set_axisbelow(True)
     ax.spines["top"].set_visible(False)
     ax.spines["right"].set_visible(False)
+    ax.spines["left"].set_color(NAVY)
+    ax.spines["bottom"].set_color(NAVY)
+    ax.tick_params(colors=NAVY)
+
     legend = [
-        Line2D([0], [0], color="#444", lw=1.2, marker="|", markersize=10, label="Mean ± SD of ranks")
+        Line2D(
+            [0],
+            [0],
+            color="#444444",
+            linewidth=1.4,
+            marker="|",
+            markersize=10,
+            markeredgewidth=1.3,
+            label="SD across datasets",
+        )
     ]
-    ax.legend(handles=legend, frameon=False, loc="lower right")
-    apply_font_to_figure(fig, font_name)
+    ax.legend(handles=legend, loc="lower right", frameon=True, fontsize=9, edgecolor="#c5d0dc")
     fig.tight_layout()
+    apply_font_to_figure(fig, font_name)
     out_stem.parent.mkdir(parents=True, exist_ok=True)
     for ext in (".png", ".pdf", ".svg"):
-        fig.savefig(out_stem.with_suffix(ext), dpi=300 if ext == ".png" else None, bbox_inches="tight")
+        fig.savefig(
+            out_stem.with_suffix(ext),
+            dpi=300 if ext == ".png" else None,
+            bbox_inches="tight",
+            facecolor="white",
+            pad_inches=0.2,
+        )
     plt.close(fig)
 
 

@@ -24,6 +24,7 @@ MAIN_PACK = [
     ("regression/rmse_increase_critical_difference_diagram.png", "Fig_reg_CD_rmse_increase.png"),
     ("regression/mae_increase_critical_difference_diagram.png", "Fig_reg_CD_mae_increase.png"),
     ("regression/r2_gap_rank_table.png", "Fig_reg_rank_table_r2_gap.png"),
+    ("regression/generator_robustness_average_rank.png", "Fig_reg_generator_robustness.png"),
     ("tradeoffs/classification_Fig1_Fidelity_vs_Utility.png", "Fig_cls_tradeoff_Fidelity_vs_Utility.png"),
     ("tradeoffs/classification_Fig2_Utility_vs_Privacy.png", "Fig_cls_tradeoff_Utility_vs_Privacy.png"),
     ("tradeoffs/classification_Fig3_Fidelity_vs_Privacy.png", "Fig_cls_tradeoff_Fidelity_vs_Privacy.png"),
