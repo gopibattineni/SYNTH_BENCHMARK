@@ -36,8 +36,10 @@ Primary manuscript results use **Mean ± SD across the 10 individual seed observ
 ## Key outputs
 
 - Figures: `figures/` (workflow, classification, regression, seed_stability, tradeoffs, dataset_level)
+- Manuscript packs: `figures/main/`, `figures/supplementary/`
 - Tables: `tables/main`, `tables/supplementary`, `tables/batch_validation`
 - Data: `data/seed_level_long.csv`, `data/agg_10seed_mean_sd.csv`
+- Notebook: `notebooks/01_ten_seed_analysis.ipynb`
 - Mapping: `ANALYSIS_MAPPING.md`
 - Validation: `reports/data_validation_report.md`
 - Captions: `reports/figure_table_captions.md`
@@ -48,4 +50,11 @@ Primary manuscript results use **Mean ± SD across the 10 individual seed observ
 - Sample size: N = 9 (classification) or N = 6 (regression) datasets; K = 8 generators
 - Omnibus: Friedman test (α = 0.05)
 - Post-hoc: Nemenyi (CD diagrams) + Holm-corrected Wilcoxon
-- Effect display: average ranks + critical-difference cliques
+- Effect display: average ranks + critical-difference cliques + rank tables / robustness charts
+
+## Regeneration
+
+```bash
+cd "/home/gopi_b/SYNTH_BENCHMARK/multi seed generators/analysis"
+../../.venv/bin/python run_all.py
+```

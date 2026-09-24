@@ -36,9 +36,11 @@ Individual steps:
 ../../.venv/bin/python run_workflow_diagrams.py
 ../../.venv/bin/python run_tables.py
 ../../.venv/bin/python run_gap_cd_analysis.py
+../../.venv/bin/python run_rank_tables.py
 ../../.venv/bin/python run_heatmaps.py
 ../../.venv/bin/python run_seed_stability.py
 ../../.venv/bin/python run_tradeoffs.py
+../../.venv/bin/python run_pack_manuscript_figures.py
 ../../.venv/bin/python write_analysis_summary.py
 ```
 
@@ -56,11 +58,14 @@ analysis/
 │   ├── seed_stability/
 │   ├── tradeoffs/
 │   ├── dataset_level/
-│   └── supplementary/
+│   ├── main/                  # curated manuscript pack
+│   └── supplementary/         # curated supplementary pack
 ├── tables/
 │   ├── main/
 │   ├── batch_validation/
 │   └── supplementary/
+├── notebooks/
+│   └── 01_ten_seed_analysis.ipynb
 ├── reports/
 └── src/
 ```

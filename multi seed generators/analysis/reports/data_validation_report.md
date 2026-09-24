@@ -49,6 +49,23 @@ batch,batch_label,seed,classification_runs,regression_runs,total_runs,expected_r
 - NaN metric_value cells: **60**
 - Infinite metric_value cells: **0**
 
+### NaN detail (metric values missing inside completed runs)
+
+These are **not missing runs**. The generator×seed finished; specific metrics were undefined (typically multi-class ROC when synthetic class coverage / `predict_proba` fails).
+
+| dataset | generator | metric | missing seeds (of 10) |
+| --- | --- | --- | ---: |
+| wine | TVAE | ROC_AUC_TSTR / Gap | 10 |
+| wine | TabDDPM | ROC_AUC_TSTR / Gap | 5 |
+| wine | WGAN_GP | ROC_AUC_TSTR / Gap | 5 |
+| wine | ForestDiffusion | ROC_AUC_TSTR / Gap | 4 |
+| wine | CTABGAN | ROC_AUC_TSTR / Gap | 1 |
+| forest_cover | TVAE | ROC_AUC_TSTR / Gap | 3 |
+| forest_cover | TabDDPM | ROC_AUC_TSTR / Gap | 1 |
+| cancer | CTGAN | Quality_Score | 2 |
+
+Mean ± SD for these metric rows uses the available finite seed values (`n_seeds` < 10).
+
 ## Notes
 
 - Aggregation for manuscript results uses the **10 individual seed observations** (sample SD, `ddof=1`), not the mean of batch means.

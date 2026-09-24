@@ -14,9 +14,11 @@ STEPS = [
     ("workflow", [PY, "run_workflow_diagrams.py"]),
     ("tables", [PY, "run_tables.py"]),
     ("gap_cd", [PY, "run_gap_cd_analysis.py"]),
+    ("rank_tables", [PY, "run_rank_tables.py"]),
     ("heatmaps", [PY, "run_heatmaps.py"]),
     ("seed_stability", [PY, "run_seed_stability.py"]),
     ("tradeoffs", [PY, "run_tradeoffs.py"]),
+    ("pack_figures", [PY, "run_pack_manuscript_figures.py"]),
     ("summary", [PY, "write_analysis_summary.py"]),
 ]
 
