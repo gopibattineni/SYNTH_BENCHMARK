@@ -9,6 +9,9 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ## [Unreleased]
 
 ### Added
+- **10-seed multi-batch evaluation** (`multi seed generators/`)
+  - Batches: seeds 42/123/2024, 68/91/2025, 55/155/255/355 → **1,200** generator runs
+  - Manuscript analysis suite: `multi seed generators/analysis/` (CD diagrams, heatmaps, trade-offs, seed stability, Mean±SD tables)
 - **Correlation trade-off analysis** (`analysis/correlation_tradeoff/`, `run_correlation_tradeoff_analysis.py`)
   - Primary figures: one point per generator (mean over Cancer & Mushroom, classifiers, seeds)
   - Supplementary figures: seed-level scatters (Cancer ○ / Mushroom □)
@@ -20,6 +23,7 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Curated `excel sheets/` fidelity / privacy / utility extracts
 
 ### Changed
+- README documents the 10-seed protocol (Mean ± SD over individual seeds; batches are provenance only)
 - Two-datasets comparative figures with labelled trade-off scatters
 - Dashboard fidelity/privacy filters and Adult Gower coverage for all 8 generators
 - Notebook loader prefers live notebooks over `*.BACKUP*` copies

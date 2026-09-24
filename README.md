@@ -25,6 +25,7 @@
 - [Generators](#generators)
 - [Dashboard](#dashboard)
 - [Citation](#citation)
+- [Author & maintainer](#author--maintainer)
 - [Changelog](#changelog)
 - [Contributing](#contributing)
 
@@ -60,9 +61,10 @@ flowchart LR
 |---|---|
 | **Datasets** | 15 UCI-style tabular datasets (9 classification + 6 regression) |
 | **Generators** | CTGAN, CopulaGAN, TVAE, GaussianCopula, CTABGAN, WGAN-GP, TabDDPM, ForestDiffusion |
-| **Seeds** | 10 random seeds (`42`–`51`) — reported as mean ± SD |
+| **Generator seeds** | **10** independent training seeds (3 + 3 + 4 execution batches) → **1,200** runs |
+| **Reporting** | Mean ± SD across the **10 seed observations** (`ddof=1`), not the mean of batch means |
 | **Leakage protocol** | Generators fit on **train only**; TSTR tested on held-out **real test** set |
-| **Outputs** | Excel workbooks, paper-ready figures (300 DPI), LaTeX tables, statistical tests |
+| **Outputs** | Excel workbooks, paper-ready figures (300 DPI), statistical tests, CD diagrams |
 
 **Current overall ranking** (composite score: 40% utility / 30% fidelity / 30% privacy):
 
@@ -88,7 +90,7 @@ pip install -r requirements-analysis.txt
 
 ### 2. Run the full analysis pipeline (~3 min)
 
-Auto-discovers all Excel files, merges metrics, runs Friedman/Nemenyi tests, and generates **60+ publication figures**:
+Discovers Excel experiment files, merges metrics, runs Friedman/Nemenyi tests, and generates **60+ publication figures**:
 
 ```bash
 python run_analysis.py
@@ -136,7 +138,34 @@ Creates per-dataset `TRTR_TSTR_results_*.xlsx` and `fidelity_privacy_metrics.xls
 
 ## Analysis pipelines
 
-Automated pipelines turn raw experiment Excel files into journal-ready outputs. **No filenames are hardcoded** — new results are picked up automatically on the next run.
+Pipelines turn raw experiment Excel files into journal-ready outputs. **No filenames are hardcoded** — new results are picked up on the next run.
+
+### Multi-seed generators (primary 10-seed evaluation)
+
+The complete generator-training seed study lives under [`multi seed generators/`](multi%20seed%20generators/):
+
+| Batch | Seeds | Runs |
+|-------|-------|-----:|
+| 1st batch | 42, 123, 2024 | 360 |
+| 2nd batch | 68, 91, 2025 | 360 |
+| 3rd batch | 55, 155, 255, 355 | 480 |
+| **Total** | **10 seeds** | **1,200** |
+
+Batches are **execution provenance only**. Manuscript results aggregate all **10 individual seed observations** (Mean ± SD, sample SD with `ddof=1`).
+
+Reproduce figures and tables:
+
+```bash
+cd "multi seed generators/analysis"
+../../.venv/bin/python run_all.py
+```
+
+Key outputs:
+
+- [`multi seed generators/analysis/figures/main/`](multi%20seed%20generators/analysis/figures/main/) — curated manuscript figures  
+- [`multi seed generators/analysis/tables/`](multi%20seed%20generators/analysis/tables/) — Mean±SD, Friedman/Nemenyi, full 10-seed tables  
+- [`multi seed generators/analysis/reports/`](multi%20seed%20generators/analysis/reports/) — validation + captions  
+- [`Agreed analysis/`](Agreed%20analysis/) — original single-run analysis style guide (not modified by the remake)
 
 ### Full benchmark (`run_analysis.py`)
 
@@ -230,14 +259,16 @@ Results/
 
 ```
 SYNTH_BENCHMARK/
+├── multi seed generators/             # 10-seed evaluation (3 batches → 1,200 runs)
+│   ├── 1st batch / second batch / third batch/
+│   └── analysis/                      # Manuscript figures, tables, reports
+├── Agreed analysis/                   # Reference figure/table style (classification + regression)
 ├── Generators/
-│   ├── SDV models/                    # CTGAN, CopulaGAN, TVAE, GaussianCopula — full audit
-│   ├── Other GANS/                    # CTABGAN, WGAN-GP — full audit
-│   ├── Diffusion GANs/                # TabDDPM, ForestDiffusion — full audit
+│   ├── SDV models/                    # CTGAN, CopulaGAN, TVAE, GaussianCopula
+│   ├── Other GANS/                    # CTABGAN, WGAN-GP
+│   ├── Diffusion GANs/                # TabDDPM, ForestDiffusion
 │   └── Experiment with utility data leak/
-│       ├── utility results/           # TRTR/TSTR Excel (primary utility source)
-│       └── diffusion_dataleak/        # Diffusion + SDV utility variant
-├── analysis/                          # Automated publication pipeline
+├── analysis/                          # Legacy publication pipeline on Generators/ Excel
 ├── Results/                           # Generated analysis outputs
 ├── paper results/                     # Per-dataset paper workbooks
 ├── scripts/                           # Extraction & utility scripts
@@ -350,7 +381,17 @@ If you use this benchmark in your research, please cite:
 }
 ```
 
-When reporting results, always state: dataset, generator, downstream model, **mean ± SD over 10 seeds**, TRTR baseline, TSTR score, and that generators were trained on training data only.
+When reporting results, always state: dataset, generator, downstream model, **mean ± SD over the 10 generator-training seeds**, TRTR baseline, TSTR score, and that generators were trained on training data only.
+
+---
+
+## Author & maintainer
+
+| Role | Name |
+|------|------|
+| Author / maintainer | **Gopi Battineni** ([@gopibattineni](https://github.com/gopibattineni)) |
+
+This repository is maintained solely by the author above.
 
 ---
 
