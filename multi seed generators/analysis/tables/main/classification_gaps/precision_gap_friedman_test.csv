@@ -1,0 +1,2 @@
+chi2,df,p_value,n_datasets,n_generators,significant,metric,unit_of_analysis,sample_size_note
+43.18518518518516,7,3.0719240558713923e-07,9,8,True,Precision_Gap,dataset (mean over 10 generator-training seeds),N datasets × K generators; seeds aggregated before ranking

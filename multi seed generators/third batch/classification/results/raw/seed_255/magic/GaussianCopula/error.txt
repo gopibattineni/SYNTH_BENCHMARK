@@ -1,0 +1,27 @@
+not well-formed (invalid token): line 2, column 1707523
+Traceback (most recent call last):
+  File "/home/gopi_b/SYNTH_BENCHMARK/multi seed generators/third batch/src/experiment.py", line 265, in run_one
+    _write_global_raw(paths, dataset_id, generator, seed, pd.DataFrame(rows))
+  File "/home/gopi_b/SYNTH_BENCHMARK/multi seed generators/third batch/src/experiment.py", line 138, in _write_global_raw
+    old = read_results(global_raw)
+  File "/home/gopi_b/SYNTH_BENCHMARK/multi seed generators/third batch/src/table_io.py", line 21, in read_results
+    return pd.read_excel(xlsx)
+  File "/home/gopi_b/SYNTH_BENCHMARK/.venv/lib/python3.10/site-packages/pandas/io/excel/_base.py", line 508, in read_excel
+    data = io.parse(
+  File "/home/gopi_b/SYNTH_BENCHMARK/.venv/lib/python3.10/site-packages/pandas/io/excel/_base.py", line 1616, in parse
+    return self._reader.parse(
+  File "/home/gopi_b/SYNTH_BENCHMARK/.venv/lib/python3.10/site-packages/pandas/io/excel/_base.py", line 778, in parse
+    data = self.get_sheet_data(sheet, file_rows_needed)
+  File "/home/gopi_b/SYNTH_BENCHMARK/.venv/lib/python3.10/site-packages/pandas/io/excel/_openpyxl.py", line 615, in get_sheet_data
+    for row_number, row in enumerate(sheet.rows):
+  File "/home/gopi_b/SYNTH_BENCHMARK/.venv/lib/python3.10/site-packages/openpyxl/worksheet/_read_only.py", line 85, in _cells_by_row
+    for idx, row in parser.parse():
+  File "/home/gopi_b/SYNTH_BENCHMARK/.venv/lib/python3.10/site-packages/openpyxl/worksheet/_reader.py", line 156, in parse
+    for _, element in it:
+  File "/usr/lib/python3.10/xml/etree/ElementTree.py", line 1253, in iterator
+    yield from pullparser.read_events()
+  File "/usr/lib/python3.10/xml/etree/ElementTree.py", line 1324, in read_events
+    raise event
+  File "/usr/lib/python3.10/xml/etree/ElementTree.py", line 1296, in feed
+    self._parser.feed(data)
+xml.etree.ElementTree.ParseError: not well-formed (invalid token): line 2, column 1707523
